@@ -4,6 +4,9 @@ import Link from "next/link";
 import { cloneElement, ReactElement, useEffect, useRef, useState } from "react";
 import { MdOutlineMenu } from "react-icons/md";
 import { links } from "@/data/links";
+import { FaUser } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
+
 export default function Aside() {
   const [open, setOpen] = useState(false);
   const refAside = useRef<HTMLDivElement | null>(null);
@@ -53,6 +56,24 @@ export default function Aside() {
           </Link>
         );
       })}
+
+      <div className="mt-auto w-full">
+        <Link
+          href="/login"
+          className={cx(
+            "flex items-center p-2 w-full hover:bg-blue-400 transition-colors",
+            !open && "justify-center"
+          )}
+        >
+          <FaUser />
+          {open && (
+            <>
+              <span className="ml-2">Administrador </span>
+              <LuLogOut size={20} className="ml-auto" />
+            </>
+          )}
+        </Link>
+      </div>
     </aside>
   );
 }
