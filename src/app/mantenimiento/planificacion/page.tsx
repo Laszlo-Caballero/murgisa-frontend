@@ -1,4 +1,5 @@
 import Button from "@/components/button/Button";
+import Select from "@/components/select/Select";
 export default function Planificacion() {
   return (
     <div className="w-full flex flex-col items-center">
@@ -47,11 +48,10 @@ export default function Planificacion() {
             </div>
           </div>
           <div>
-            <label htmlFor="txtHorario">Horario:</label>
-            <select name="" id="txtHorario" className="w-[40%] border">
+            <Select id="txtHorario" label="Horario: ">
               <option value="">Opcion 1</option>
               <option value="">Opcion 2</option>
-            </select>
+            </Select>
           </div>
           <div className="py-3">
             <div className="flex gap-x-4 py-4">
