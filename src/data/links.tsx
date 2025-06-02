@@ -6,6 +6,8 @@ import { GrHostMaintenance } from "react-icons/gr";
 import { MdHomeRepairService } from "react-icons/md";
 
 import { GrVmMaintenance } from "react-icons/gr";
+import { SiCashapp } from "react-icons/si";
+
 export const links: {
   icono: ReactNode;
   href: string;
@@ -50,5 +52,10 @@ export const links: {
     icono: <GrVmMaintenance />,
     href: "/mantenimiento/planificacion",
     texto: "Ver Planificacion de Mantenimiento",
+  },
+  {
+    icono: <SiCashapp />,
+    href: "/forma-pago",
+    texto: "Formas de Pago",
   },
 ];
