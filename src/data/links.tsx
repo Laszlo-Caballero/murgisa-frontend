@@ -16,4 +16,9 @@ export const links: {
     href: "/ventas",
     texto: "Ventas",
   },
+  {
+    icono: <HiCash />,
+    href: "/ventas/listar",
+    texto: "Ver Ventas",
+  },
 ];

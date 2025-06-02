@@ -1,12 +1,28 @@
 "use client";
 import cx from "@/libs/cx";
 import Link from "next/link";
-import { cloneElement, ReactElement, useState } from "react";
+import { cloneElement, ReactElement, useEffect, useRef, useState } from "react";
 import { MdOutlineMenu } from "react-icons/md";
-import { AiFillHome } from "react-icons/ai";
 import { links } from "@/data/links";
 export default function Aside() {
   const [open, setOpen] = useState(false);
+  const refAside = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        refAside.current &&
+        !refAside.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <aside
@@ -14,6 +30,7 @@ export default function Aside() {
         "h-full bg-blue-300 flex flex-col items-center transition-all text-white",
         open ? "w-64" : "w-16"
       )}
+      ref={refAside}
     >
       <button className="p-2 text-white" onClick={() => setOpen(!open)}>
         <MdOutlineMenu size={30} />
