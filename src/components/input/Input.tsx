@@ -15,9 +15,11 @@ export default function Input({
   className,
 }: InputProps) {
   return (
-    <div className={cx("flex flex-col", className)}>
-      <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} />
+    <div className={cx("flex flex-col w-[300px]", className)}>
+      <label htmlFor={id} className="w-full">
+        {label}
+      </label>
+      <input type={type} id={id} className="border w-full" />
     </div>
   );
 }
