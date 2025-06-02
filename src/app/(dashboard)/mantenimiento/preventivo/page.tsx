@@ -6,7 +6,7 @@ export default function MantenimientoPreventivo() {
       <div className="w-full flex gap-2">
         <div className="w-[30%] flex flex-col gap-y-3 border relative px-4">
           <p className="text absolute top-0 -translate-y-3 bg-white">
-            Preventivc
+            Preventivo
           </p>
           <div className="flex flex-col gap-y-3 py-3">
             <label htmlFor="txtNro">Nro:</label>
