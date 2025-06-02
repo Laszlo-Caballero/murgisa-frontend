@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { GrHostMaintenance } from "react-icons/gr";
 import { MdHomeRepairService } from "react-icons/md";
 
+import { GrVmMaintenance } from "react-icons/gr";
 export const links: {
   icono: ReactNode;
   href: string;
@@ -44,5 +45,10 @@ export const links: {
     icono: <MdHomeRepairService />,
     href: "/servicios",
     texto: "Servicios",
+  },
+  {
+    icono: <GrVmMaintenance />,
+    href: "/mantenimiento/planificacion",
+    texto: "Ver Planificacion de Mantenimiento",
   },
 ];

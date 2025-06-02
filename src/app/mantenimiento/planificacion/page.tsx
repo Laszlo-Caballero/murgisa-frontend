@@ -1,57 +1,57 @@
 import Button from "@/components/button/Button";
-export default function MantenimientoPreventivo() {
+import Select from "@/components/select/Select";
+export default function Planificacion() {
   return (
     <div className="w-full flex flex-col items-center">
-      <p className="text-2xl">Mantenimiento Preventivo</p>
+      <p className="text-2xl">Planificacion de Mantenimiento</p>
       <div className="w-full flex gap-2">
         <div className="w-[30%] flex flex-col gap-y-3 border relative px-4">
           <p className="text absolute top-0 -translate-y-3 bg-white">
-            Preventivc
+            Planificacion
           </p>
           <div className="flex flex-col gap-y-3 py-3">
-            <label htmlFor="txtNro">Nro:</label>
-            <input type="text" id="txtNro" className="w-[70%] border" />
-            <label htmlFor="txtIdPlanificacion">IdPlanificacion:</label>
-            <select name="" id="txtIdPlanificacion" className="w-[40%] border">
-              <option value="">Opcion 1</option>
-              <option value="">Opcion 2</option>
-            </select>
-            <label htmlFor="txtFechaMP">Fecha de MP:</label>
+            <label htmlFor="txtNroPlanificacion">Nro de Planificacion:</label>
+            <input
+              type="text"
+              id="txtNroPlanificacion"
+              className="w-[70%] border"
+            />
+            <label htmlFor="txtFechaMantenimiento">
+              Fecha de Mantenimiento:
+            </label>
             <input type="date" className="w-[40%] border" />
           </div>
           <div className="flex">
             <div className="flex flex-col">
-              <label htmlFor="txtEjecucion">Resultado Ejecucion:</label>
-              <input
-                type="text"
-                name=""
-                id="txtEjecucion"
-                className="w-[90%] border"
-              />
-              <label htmlFor="txtEspecial">Requerimiento Especial:</label>
-              <input
-                type="text"
-                name=""
-                id="txtEspecial"
-                className="w-[90%] border"
-              />
+              <label htmlFor="txtMantenimiento">T. Mantenimiento:</label>
+              <select name="" id="txtMantenimiento" className="w-[90%]">
+                <option value="">Opcion 1</option>
+                <option value="">Opcion 2</option>
+              </select>
+              <label htmlFor="txtPrioridad">Prioridad:</label>
+              <select name="" id="txtPrioridad" className="w-[90%]">
+                <option value="">Opcion 1</option>
+                <option value="">Opcion 2</option>
+              </select>
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="txtComentarios">Comentarios:</label>
-              <input
-                type="text"
-                name=""
-                id="txtComentarios"
-                className="w-[70%] border"
-              />
-              <label htmlFor="txtDuracion">Duracion:</label>
-              <input
-                type="text"
-                name=""
-                id="txtDuracion"
-                className="w-[70%] border"
-              />
+            <div className="flex flex-col px-4">
+              <label htmlFor="txtTecnico">Tecnico:</label>
+              <select name="" id="txTecnico" className="w-[100%]">
+                <option value="">Opcion 1</option>
+                <option value="">Opcion 2</option>
+              </select>
+              <label htmlFor="txtRecurso">Recurso:</label>
+              <select name="" id="txtRecurso" className="w-[100%]">
+                <option value="">Opcion 1</option>
+                <option value="">Opcion 2</option>
+              </select>
             </div>
+          </div>
+          <div>
+            <Select id="txtHorario" label="Horario: ">
+              <option value="">Opcion 1</option>
+              <option value="">Opcion 2</option>
+            </Select>
           </div>
           <div className="py-3">
             <div className="flex gap-x-4 py-4">
@@ -81,13 +81,16 @@ export default function MantenimientoPreventivo() {
                 <input type="date" className="border w-[60%]" />
               </div>
               <div className="py-5 flex flex-col w-1/2">
-                <label htmlFor="txtID">ID:</label>
+                <label htmlFor="txtNPlanificacion">Nro de Planificacion:</label>
                 <input
                   type="text"
                   name=""
-                  id="txtID"
+                  id="txtNPlanificacion"
                   className="border w-[50%]"
                 />
+                <div className="py-5">
+                  <Button title="Consular" />
+                </div>
               </div>
             </div>
           </div>
