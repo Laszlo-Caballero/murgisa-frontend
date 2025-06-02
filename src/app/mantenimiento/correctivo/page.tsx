@@ -1,3 +1,4 @@
+import Button from "@/components/button/Button";
 import React from "react";
 
 export default function MantenimientoCorrectivo() {
@@ -49,8 +50,13 @@ export default function MantenimientoCorrectivo() {
             </div>
           </div>
         </div>
-        <div className="w-full border flex items-center justify-center">
+        <div className="w-full border flex items-center justify-center flex-col">
           <div className="w-[80%] h-[80%] border "></div>
+          <div>
+            <Button title="Buscar" />
+            <Button title="Nuevo" />
+            <Button title="" />
+          </div>
         </div>
       </div>
     </div>
