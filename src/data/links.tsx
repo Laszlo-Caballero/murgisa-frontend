@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { GrHostMaintenance } from "react-icons/gr";
 import { MdHomeRepairService } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
+import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
 
 export const links: {
@@ -51,6 +52,11 @@ export const links: {
     icono: <GrVmMaintenance />,
     href: "/mantenimiento/planificacion",
     texto: "Ver Planificacion de Mantenimiento",
+  },
+  {
+    icono: <VscDebugBreakpointConditional />,
+    href: "/condicion",
+    texto: "Ver Condicion",
   },
   {
     icono: <SiCashapp />,
