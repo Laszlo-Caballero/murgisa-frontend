@@ -3,6 +3,8 @@ import { AiFillHome } from "react-icons/ai";
 import { HiCash } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
 import { GrHostMaintenance } from "react-icons/gr";
+import { MdHomeRepairService } from "react-icons/md";
+
 export const links: {
   icono: ReactNode;
   href: string;
@@ -37,5 +39,10 @@ export const links: {
     icono: <GrHostMaintenance />,
     href: "/mantenimiento/preventivo",
     texto: "Ver Mantenimiento Preventivo",
+  },
+  {
+    icono: <MdHomeRepairService />,
+    href: "/servicios",
+    texto: "Servicios",
   },
 ];
