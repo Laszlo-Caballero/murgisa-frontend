@@ -41,7 +41,10 @@ export default function Aside() {
           <Link
             key={index}
             href={links.href}
-            className="flex items-center p-2 w-full justify-center hover:bg-blue-400 transition-colors"
+            className={cx(
+              "flex items-center p-2 w-full hover:bg-blue-400 transition-colors",
+              !open && "justify-center"
+            )}
           >
             {cloneElement(links.icono as ReactElement<{ size: number }>, {
               size: 20,

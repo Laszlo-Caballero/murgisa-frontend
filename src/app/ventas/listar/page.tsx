@@ -2,7 +2,7 @@ import Button from "@/components/button/Button";
 
 export default function ListarVentas() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex w-full flex-col items-center">
       <p className="text-3xl">Ventas</p>
       <div className="flex flex-col w-full py-4 items-center justify-center">
         <div className="flex items-center">
