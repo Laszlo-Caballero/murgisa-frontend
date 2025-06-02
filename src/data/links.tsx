@@ -3,8 +3,12 @@ import { AiFillHome } from "react-icons/ai";
 import { HiCash } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
 import { GrHostMaintenance } from "react-icons/gr";
+import { MdHomeRepairService } from "react-icons/md";
+
 import { GrVmMaintenance } from "react-icons/gr";
 import { VscDebugBreakpointConditional } from "react-icons/vsc";
+import { SiCashapp } from "react-icons/si";
+
 export const links: {
   icono: ReactNode;
   href: string;
@@ -41,6 +45,11 @@ export const links: {
     texto: "Ver Mantenimiento Preventivo",
   },
   {
+    icono: <MdHomeRepairService />,
+    href: "/servicios",
+    texto: "Servicios",
+  },
+  {
     icono: <GrVmMaintenance />,
     href: "/mantenimiento/planificacion",
     texto: "Ver Planificacion de Mantenimiento",
@@ -49,5 +58,10 @@ export const links: {
     icono: <VscDebugBreakpointConditional />,
     href: "/condicion",
     texto: "Ver Condicion",
+  },
+  {
+    icono: <SiCashapp />,
+    href: "/forma-pago",
+    texto: "Formas de Pago",
   },
 ];

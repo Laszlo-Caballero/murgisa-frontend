@@ -27,7 +27,7 @@ export default function Aside() {
   return (
     <aside
       className={cx(
-        "h-full bg-blue-300 flex flex-col items-center transition-all text-white",
+        "h-screen bg-blue-300 flex flex-col items-center transition-all text-white",
         open ? "w-64" : "w-16"
       )}
       ref={refAside}
