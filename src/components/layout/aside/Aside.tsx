@@ -1,16 +1,38 @@
 "use client";
 import cx from "@/libs/cx";
 import Link from "next/link";
-import { useState } from "react";
-
+import { cloneElement, ReactElement, useState } from "react";
+import { MdOutlineMenu } from "react-icons/md";
+import { AiFillHome } from "react-icons/ai";
+import { links } from "@/data/links";
 export default function Aside() {
   const [open, setOpen] = useState(false);
 
   return (
     <aside
-      className={cx("h-full bg-blue-300 text-white", open ? "w-64" : "w-16")}
+      className={cx(
+        "h-full bg-blue-300 flex flex-col items-center transition-all text-white",
+        open ? "w-64" : "w-16"
+      )}
     >
-      <Link href="/">Home</Link>
+      <button className="p-2 text-white" onClick={() => setOpen(!open)}>
+        <MdOutlineMenu size={30} />
+      </button>
+
+      {links.map((links, index) => {
+        return (
+          <Link
+            key={index}
+            href={links.href}
+            className="flex items-center p-2 w-full justify-center hover:bg-blue-400 transition-colors"
+          >
+            {cloneElement(links.icono as ReactElement<{ size: number }>, {
+              size: 20,
+            })}
+            {open && <span className="ml-2">{links.texto}</span>}
+          </Link>
+        );
+      })}
     </aside>
   );
 }
