@@ -20,7 +20,7 @@ export default function Usuarios() {
             />
 
             <Input
-              id="txtDNI"
+              id="txtDni"
               label="DNI:"
               className="flex-row gap-x-2"
               type="text"
