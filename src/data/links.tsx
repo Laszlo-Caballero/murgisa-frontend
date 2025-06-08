@@ -8,6 +8,7 @@ import { GrVmMaintenance } from "react-icons/gr";
 import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
 import { GrUserWorker } from "react-icons/gr";
+import { FaPlus } from "react-icons/fa";
 
 export const links: {
   icono: ReactNode;
@@ -68,5 +69,10 @@ export const links: {
     icono: <GrUserWorker />,
     href: "/profesion",
     texto: "Profesion",
+  },
+  {
+    icono: <FaPlus />,
+    href: "/mantenimiento/agregarmantenimiento",
+    texto: "Agregar Tipo Mantenimiento",
   },
 ];
