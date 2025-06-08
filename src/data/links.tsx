@@ -9,6 +9,7 @@ import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
 import { GrUserWorker } from "react-icons/gr";
 import { FaPlus } from "react-icons/fa";
+import { FaPerson } from "react-icons/fa6";
 
 export const links: {
   icono: ReactNode;
@@ -64,6 +65,11 @@ export const links: {
     icono: <SiCashapp />,
     href: "/forma-pago",
     texto: "Formas de Pago",
+  },
+  {
+    icono: <FaPerson />,
+    href: "/personal",
+    texto: "Personal",
   },
   {
     icono: <GrUserWorker />,
