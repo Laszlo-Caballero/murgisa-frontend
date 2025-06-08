@@ -7,6 +7,7 @@ import { MdHomeRepairService } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
+import { GrUserWorker } from "react-icons/gr";
 import { FaPerson } from "react-icons/fa6";
 
 
@@ -69,5 +70,10 @@ export const links: {
     icono: <FaPerson />,
     href: "/personal",
     texto: "Personal",
+  },
+  {
+    icono: <GrUserWorker />,
+    href: "/profesion",
+    texto: "Profesion",
   },
 ];
