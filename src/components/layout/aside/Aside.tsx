@@ -15,7 +15,9 @@ export default function Aside() {
 
   return (
     <aside
-      className={cx("h-screen flex flex-col items-center transition-all w-80")}
+      className={cx(
+        "h-screen flex flex-col items-center sticky top-0 transition-all w-80"
+      )}
     >
       <header className="flex items-center p-6 w-full bg-blue-700 text-white gap-x-2">
         <span className="bg-white size-10 rounded-lg flex items-center justify-center">
