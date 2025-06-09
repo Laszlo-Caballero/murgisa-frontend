@@ -2,7 +2,7 @@ import Button from "@/components/button/Button";
 import Input from "@/components/input/Input";
 import Select from "@/components/select/Select";
 
-export default function Usuarios() {
+export default function Clientes() {
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-3/4 p-4">
       <p className="text-3xl">Cliente</p>

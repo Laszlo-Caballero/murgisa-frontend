@@ -51,8 +51,8 @@ export const links: Link[] = [
     color: "gray",
     links: [
       {
-        label: "Usuarios",
-        href: "/usuarios",
+        label: "Clientes",
+        href: "/cliente",
         icono: <LuUsers />,
       },
       {
