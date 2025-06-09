@@ -32,7 +32,7 @@ export default function Table<T>({ data, columns, className }: TableProps<T>) {
         <tbody>
           {table.getCells().map((row, index) => {
             return (
-              <tr key={index}>
+              <tr key={index} className="hover:bg-gray-100 transition-colors">
                 {row.map((cell, i) => {
                   return (
                     <td
