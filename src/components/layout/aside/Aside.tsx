@@ -2,7 +2,7 @@
 import cx from "@/libs/cx";
 import Link from "next/link";
 import { cloneElement, ReactElement, useState } from "react";
-import { links } from "@/data/linksV2";
+import { links } from "@/data/links";
 import { LuBuilding2 } from "react-icons/lu";
 import { getColor } from "@/libs/getColor";
 import { usePathname } from "next/navigation";

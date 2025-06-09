@@ -1,98 +1,146 @@
-import { ReactNode } from "react";
-import { AiFillHome } from "react-icons/ai";
-import { HiCash } from "react-icons/hi";
-import { FaUser } from "react-icons/fa";
-import { GrHostMaintenance } from "react-icons/gr";
-import { MdHomeRepairService } from "react-icons/md";
-import { GrVmMaintenance } from "react-icons/gr";
-import { VscDebugBreakpointConditional } from "react-icons/vsc";
-import { SiCashapp } from "react-icons/si";
-import { TbBasketDown } from "react-icons/tb";
+import { Link } from "@/interfaces/links.interface";
+import { FiHome } from "react-icons/fi";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { FiEye } from "react-icons/fi";
+import { LuUsers } from "react-icons/lu";
+import { FiCreditCard } from "react-icons/fi";
+import { LuUserCheck } from "react-icons/lu";
+import { RiGraduationCapLine } from "react-icons/ri";
+import { PiWrenchBold } from "react-icons/pi";
+import { MdOutlineShield } from "react-icons/md";
+import { MdOutlineCalendarToday } from "react-icons/md";
+import { LuBriefcase } from "react-icons/lu";
+import { LuCircleCheckBig } from "react-icons/lu";
+import { GoPlusCircle } from "react-icons/go";
+import { TbCash } from "react-icons/tb";
 import { AiOutlineApartment } from "react-icons/ai";
-import { GrUserWorker } from "react-icons/gr";
-import { FaPlus } from "react-icons/fa";
-import { FaPerson } from "react-icons/fa6";
+import { TbBasketDown } from "react-icons/tb";
+import { MdOutlineAssignment } from "react-icons/md";
 import { BsFillFileEarmarkTextFill } from "react-icons/bs";
-
-
-export const links: {
-  icono: ReactNode;
-  href: string;
-  texto: string;
-}[] = [
+export const links: Link[] = [
   {
-    icono: <AiFillHome />,
-    href: "/",
-    texto: "Home",
+    titulo: "Principal",
+    color: "blue",
+    links: [
+      {
+        label: "Home",
+        href: "/",
+        icono: <FiHome />,
+      },
+    ],
   },
   {
-    icono: <HiCash />,
-    href: "/ventas",
-    texto: "Ventas",
+    titulo: "Ventas",
+    color: "green",
+    links: [
+      {
+        label: "Ventas",
+        href: "/ventas",
+        icono: <MdOutlineShoppingCart />,
+      },
+      {
+        label: "Ver Ventas",
+        href: "/ventas/listar",
+        icono: <FiEye />,
+      },
+      {
+        icono: <TbCash />,
+        href: "/pago",
+        label: "Ver Pagos",
+      },
+    ],
   },
   {
-    icono: <HiCash />,
-    href: "/ventas/listar",
-    texto: "Ver Ventas",
+    titulo: "Administración",
+    color: "gray",
+    links: [
+      {
+        label: "Clientes",
+        href: "/cliente",
+        icono: <LuUsers />,
+      },
+      {
+        label: "Formas de Pago",
+        href: "/forma-pago",
+        icono: <FiCreditCard />,
+      },
+      {
+        label: "Personal",
+        href: "/personal",
+        icono: <LuUserCheck />,
+      },
+      {
+        label: "Profesión",
+        href: "/profesion",
+        icono: <RiGraduationCapLine />,
+      },
+      {
+        icono: <AiOutlineApartment />,
+        href: "/departamento",
+        label: "Departamento",
+      },
+      {
+        icono: <TbBasketDown />,
+        href: "/cargo",
+        label: "Cargo",
+      },
+    ],
   },
   {
-    icono: <FaUser />,
-    href: "/usuarios",
-    texto: "Usuarios",
+    titulo: "Mantenimiento",
+    color: "orange",
+    links: [
+      {
+        label: "Mantenimiento Correctivo",
+        href: "/mantenimiento/correctivo",
+        icono: <PiWrenchBold />,
+      },
+      {
+        label: "Mantenimiento Preventivo",
+        href: "/mantenimiento/preventivo",
+        icono: <MdOutlineShield />,
+      },
+      {
+        label: "Planificación de Mantenimiento",
+        href: "/mantenimiento/planificacion",
+        icono: <MdOutlineCalendarToday />,
+      },
+      {
+        icono: <GoPlusCircle />,
+        href: "/mantenimiento/agregarmantenimiento",
+        label: "Agregar Tipo Mantenimiento",
+      },
+      {
+        icono: <FiEye />,
+        href: "/mantenimiento/veragregarman",
+        label: "Ver Tipos de Mantenimiento",
+      },
+    ],
   },
   {
-    icono: <GrHostMaintenance />,
-    href: "/mantenimiento/correctivo",
-    texto: "Ver Mantenimiento Correctivo",
-  },
-  {
-    icono: <GrHostMaintenance />,
-    href: "/mantenimiento/preventivo",
-    texto: "Ver Mantenimiento Preventivo",
-  },
-  {
-    icono: <MdHomeRepairService />,
-    href: "/servicios",
-    texto: "Servicios",
-  },
-  {
-    icono: <GrVmMaintenance />,
-    href: "/mantenimiento/planificacion",
-    texto: "Ver Planificacion de Mantenimiento",
-  },
-  {
-    icono: <VscDebugBreakpointConditional />,
-    href: "/condicion",
-    texto: "Ver Condicion",
-  },
-  {
-    icono: <SiCashapp />,
-    href: "/forma-pago",
-    texto: "Formas de Pago",
-  },
-  {
-    icono: <TbBasketDown />,
-    href: "/cargo",
-    texto: "cargo", 
-  },
-  {
-    icono: <AiOutlineApartment />,
-    href: "/departamento",
-    texto: "Departamento",
-  },
-  {
-    icono: <FaPerson />, //
-    href: "/personal",
-    texto: "Personal",
-  },
-  {
-    icono: <GrUserWorker />,
-    href: "/profesion",
-    texto: "Profesion",
-  },
-   {
-    icono: <BsFillFileEarmarkTextFill />,
-    href: "/orden-servicio",
-    texto: "Orden de Servicio",
+    titulo: "Servicios",
+    color: "purple",
+    links: [
+      {
+        label: "Servicios",
+        href: "/servicios",
+        icono: <LuBriefcase />,
+      },
+      {
+        label: "Orden de Servicio",
+        href: "/orden-servicio",
+        icono: <MdOutlineAssignment />,
+      },
+      {
+        label: "Ver Condición",
+        href: "/condicion",
+        icono: <LuCircleCheckBig />,
+      },
+      {
+        icono: <BsFillFileEarmarkTextFill />,
+        href: "/orden-servicio",
+        label: "Orden de Servicio",
+      },
+    ],
   },
 ];
