@@ -9,6 +9,7 @@ import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
 import { GrUserWorker } from "react-icons/gr";
 import { FaPerson } from "react-icons/fa6";
+import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 
 
 export const links: {
@@ -75,5 +76,10 @@ export const links: {
     icono: <GrUserWorker />,
     href: "/profesion",
     texto: "Profesion",
+  },
+   {
+    icono: <BsFillFileEarmarkTextFill />,
+    href: "/orden-servicio",
+    texto: "Orden de Servicio",
   },
 ];
