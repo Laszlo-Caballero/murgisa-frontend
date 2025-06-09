@@ -13,6 +13,7 @@ import { LuBriefcase } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { GoPlusCircle } from "react-icons/go";
 import { TbCash } from "react-icons/tb";
+import { AiOutlineApartment } from "react-icons/ai";
 export const links: Link[] = [
   {
     titulo: "Principal",
@@ -69,6 +70,11 @@ export const links: Link[] = [
         label: "Profesión",
         href: "/profesion",
         icono: <RiGraduationCapLine />,
+      },
+      {
+        icono: <AiOutlineApartment />,
+        href: "/departamento",
+        label: "Departamento",
       },
     ],
   },
