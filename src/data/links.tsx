@@ -8,8 +8,10 @@ import { GrVmMaintenance } from "react-icons/gr";
 import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
 import { GrUserWorker } from "react-icons/gr";
+import { FaPlus } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
-
+import { FaEye } from "react-icons/fa";
+import { MdOutlinePayment } from "react-icons/md";
 
 export const links: {
   icono: ReactNode;
@@ -75,5 +77,20 @@ export const links: {
     icono: <GrUserWorker />,
     href: "/profesion",
     texto: "Profesion",
+  },
+  {
+    icono: <MdOutlinePayment />,
+    href: "/pago",
+    texto: "Pago",
+  },
+  {
+    icono: <FaPlus />,
+    href: "/mantenimiento/agregarmantenimiento",
+    texto: "Agregar Tipo Mantenimiento",
+  },
+  {
+    icono: <FaEye />,
+    href: "/mantenimiento/veragregarman",
+    texto: "Ver Agregar Tipo Mantenimiento",
   },
 ];
