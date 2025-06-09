@@ -14,6 +14,7 @@ import { LuCircleCheckBig } from "react-icons/lu";
 import { GoPlusCircle } from "react-icons/go";
 import { TbCash } from "react-icons/tb";
 import { AiOutlineApartment } from "react-icons/ai";
+import { TbBasketDown } from "react-icons/tb";
 export const links: Link[] = [
   {
     titulo: "Principal",
@@ -75,6 +76,11 @@ export const links: Link[] = [
         icono: <AiOutlineApartment />,
         href: "/departamento",
         label: "Departamento",
+      },
+      {
+        icono: <TbBasketDown />,
+        href: "/cargo",
+        label: "Cargo",
       },
     ],
   },
