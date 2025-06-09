@@ -7,9 +7,11 @@ import { MdHomeRepairService } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
+import { TbBasketDown } from "react-icons/tb";
+import { AiOutlineApartment } from "react-icons/ai";
 import { GrUserWorker } from "react-icons/gr";
+import { FaPlus } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
-import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 
 
 export const links: {
@@ -68,7 +70,17 @@ export const links: {
     texto: "Formas de Pago",
   },
   {
-    icono: <FaPerson />,
+    icono: <TbBasketDown />,
+    href: "/cargo",
+    texto: "cargo", 
+  },
+  {
+    icono: <AiOutlineApartment />,
+    href: "/departamento",
+    texto: "Departamento",
+  },
+  {
+    icono: <FaPerson />, //
     href: "/personal",
     texto: "Personal",
   },
@@ -76,10 +88,5 @@ export const links: {
     icono: <GrUserWorker />,
     href: "/profesion",
     texto: "Profesion",
-  },
-   {
-    icono: <BsFillFileEarmarkTextFill />,
-    href: "/orden-servicio",
-    texto: "Orden de Servicio",
   },
 ];
