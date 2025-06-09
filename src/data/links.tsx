@@ -10,7 +10,12 @@ import { SiCashapp } from "react-icons/si";
 import { GrUserWorker } from "react-icons/gr";
 import { FaPlus } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
+<<<<<<< HEAD
 import { FaEye } from "react-icons/fa";
+=======
+import { MdOutlinePayment } from "react-icons/md";
+
+>>>>>>> 12e87c69c827381b263a54d608e99434b1206a0e
 
 export const links: {
   icono: ReactNode;
@@ -78,6 +83,11 @@ export const links: {
     texto: "Profesion",
   },
   {
+    icono:<MdOutlinePayment />,
+    href: "/pago",
+    texto: "Pago",
+  },
+    {
     icono: <FaPlus />,
     href: "/mantenimiento/agregarmantenimiento",
     texto: "Agregar Tipo Mantenimiento",
