@@ -69,7 +69,7 @@ export const links: {
     texto: "Formas de Pago",
   },
   {
-    icono: <FaPerson />,
+    icono: <FaPerson />, //
     href: "/personal",
     texto: "Personal",
   },
@@ -79,13 +79,13 @@ export const links: {
     texto: "Profesion",
   },
   {
-    icono: <MdOutlinePayment />,
+    icono: <MdOutlinePayment />, // check
     href: "/pago",
     texto: "Pago",
   },
   {
     icono: <FaPlus />,
-    href: "/mantenimiento/agregarmantenimiento",
+    href: "/mantenimiento/agregarmantenimiento", // check
     texto: "Agregar Tipo Mantenimiento",
   },
   {

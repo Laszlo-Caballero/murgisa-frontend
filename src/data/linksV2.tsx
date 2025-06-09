@@ -11,6 +11,8 @@ import { MdOutlineShield } from "react-icons/md";
 import { MdOutlineCalendarToday } from "react-icons/md";
 import { LuBriefcase } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
+import { GoPlusCircle } from "react-icons/go";
+import { TbCash } from "react-icons/tb";
 export const links: Link[] = [
   {
     titulo: "Principal",
@@ -36,6 +38,11 @@ export const links: Link[] = [
         label: "Ver Ventas",
         href: "/ventas/listar",
         icono: <FiEye />,
+      },
+      {
+        icono: <TbCash />,
+        href: "/pago",
+        label: "Ver Pagos",
       },
     ],
   },
@@ -83,6 +90,16 @@ export const links: Link[] = [
         label: "Planificación de Mantenimiento",
         href: "/mantenimiento/planificacion",
         icono: <MdOutlineCalendarToday />,
+      },
+      {
+        icono: <GoPlusCircle />,
+        href: "/mantenimiento/agregarmantenimiento",
+        label: "Agregar Tipo Mantenimiento",
+      },
+      {
+        icono: <FiEye />,
+        href: "/mantenimiento/veragregarman",
+        label: "Ver Tipos de Mantenimiento",
       },
     ],
   },
