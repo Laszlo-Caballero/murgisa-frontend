@@ -136,11 +136,6 @@ export const links: Link[] = [
         href: "/condicion",
         icono: <LuCircleCheckBig />,
       },
-      {
-        icono: <BsFillFileEarmarkTextFill />,
-        href: "/orden-servicio",
-        label: "Orden de Servicio",
-      },
     ],
   },
 ];
