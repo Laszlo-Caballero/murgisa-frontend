@@ -15,6 +15,7 @@ import { GoPlusCircle } from "react-icons/go";
 import { TbCash } from "react-icons/tb";
 import { AiOutlineApartment } from "react-icons/ai";
 import { TbBasketDown } from "react-icons/tb";
+import { MdOutlineAssignment } from "react-icons/md";
 export const links: Link[] = [
   {
     titulo: "Principal",
@@ -123,6 +124,11 @@ export const links: Link[] = [
         label: "Servicios",
         href: "/servicios",
         icono: <LuBriefcase />,
+      },
+      {
+        label: "Orden de Servicio",
+        href: "/orden-servicio",
+        icono: <MdOutlineAssignment />, 
       },
       {
         label: "Ver Condición",
