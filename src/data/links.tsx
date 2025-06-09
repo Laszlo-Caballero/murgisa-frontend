@@ -7,6 +7,7 @@ import { MdHomeRepairService } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { VscDebugBreakpointConditional } from "react-icons/vsc";
 import { SiCashapp } from "react-icons/si";
+import { TbBasketDown } from "react-icons/tb";
 
 export const links: {
   icono: ReactNode;
@@ -62,5 +63,10 @@ export const links: {
     icono: <SiCashapp />,
     href: "/forma-pago",
     texto: "Formas de Pago",
+  },
+  {
+    icono: <TbBasketDown />,
+    href: "/cargo",
+    texto: "cargo", 
   },
 ];
