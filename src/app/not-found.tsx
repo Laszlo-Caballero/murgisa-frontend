@@ -1,5 +1,6 @@
 import Button from "@/components/ui/button/Button";
 import Card404 from "@/components/ui/card-404/Card404";
+import Link from "next/link";
 import React from "react";
 import { LuBuilding2 } from "react-icons/lu";
 import { LuHouse } from "react-icons/lu";
@@ -39,10 +40,12 @@ export default function NotFound() {
               </p>
             </div>
             <div className="flex items-center justify-center">
-              <Button className="px-8 py-4 flex items-center gap-x-2 justify-center">
-                <LuHouse />
-                Ir al Inicio
-              </Button>
+              <Link href="/">
+                <Button className="px-8 py-4 flex items-center gap-x-2 justify-center cursor-pointer">
+                  <LuHouse />
+                  Ir al Inicio
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
