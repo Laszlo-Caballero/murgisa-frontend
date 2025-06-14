@@ -6,15 +6,19 @@ import { LuCircleCheckBig } from "react-icons/lu";
 import { LuChartColumnIncreasing } from "react-icons/lu";
 import { LuDollarSign } from "react-icons/lu";
 import { Servicio } from "@/interfaces/response.interface";
+import { Categoria } from "@/interfaces/response.interface";
 import ListarServicio from "@/modules/servicios/listar/listar";
+import ListarCategoria from "@/modules/servicios/categoria/categoria";
 import Tabs from "@/components/ui/tabs/Tabs";
 import { servicioData } from "@/data/servicios";
+import { categoriaData } from "@/data/categoria";
 
 
 
 export default function ServiciosPage() {
 
   const servicios: Servicio[] = servicioData;
+  const categoria: Categoria[] = categoriaData;
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       <header className="flex items-center justify-between">
@@ -70,8 +74,7 @@ export default function ServiciosPage() {
         className="mt-6"
       >
       <ListarServicio data={servicios} />
-        <div>2</div>
-        <div>3</div>
+      <ListarCategoria data={categoria} />
       </Tabs> 
     </div>
   );

@@ -88,3 +88,12 @@ export interface Personal {
   profesion: Profesion;
   usuario?: Usuario;
 }
+
+export interface Categoria{
+  idCategoria: number;
+  nombre: string;
+  descripcion: string;
+  serviciosActivos: number;
+  ingresosMes: number;
+  estado: boolean;
+}
