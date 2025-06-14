@@ -52,3 +52,17 @@ export interface Servicio {
   cantVentas: number;
   estado: boolean;
 }
+export interface Cargo {
+  idCargo: number;
+  cargo: string;
+  descripcion: string;
+  estado: boolean;
+  totalUsuario: number;
+}
+
+export interface ResponseCargo {
+  cargos: Cargo[];
+  total: number;
+  activos: number;
+  usuarios: number;
+}
