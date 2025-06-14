@@ -12,7 +12,7 @@ import { profesionData } from "@/data/profesion";
 import { use } from "react";
 
 
-export default function page() {
+export default function ProfesionPage() {
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       <header className="flex items-center justify-between">
@@ -78,7 +78,7 @@ export default function page() {
           </div>
         </div>
 
-        { <Table className="mt-4 bg-white w-full rounded-md shadow-md" data={profesionData} columns={[
+        { <Table className="mt-4 bg-white w-full rounded-md " data={profesionData} columns={[
           {
             header: "Profesión",
             cell: (props) => {
