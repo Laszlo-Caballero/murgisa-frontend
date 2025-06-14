@@ -1,7 +1,11 @@
+"use client";
 import Button from "@/components/button/Button";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function VentasPagina() {
+  const router = useRouter();
+
   return (
     <div className="w-full flex flex-col items-center justify-center px-4">
       <p className="text-3xl">Realiza Venta</p>
@@ -135,7 +139,12 @@ export default function VentasPagina() {
         <Button title="Agregar Venta" />
         <Button title="Eliminar Venta" />
 
-        <button className="py-2 px-5 max-w-max bg-blue-400 text-white rounded-xl">
+        <button
+          className="py-2 px-5 max-w-max bg-blue-400 text-white rounded-xl"
+          onClick={() => {
+            router.push("/pago");
+          }}
+        >
           Confirmar Venta
         </button>
       </div>

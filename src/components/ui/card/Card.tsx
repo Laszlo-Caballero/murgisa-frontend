@@ -1,19 +1,53 @@
+import cx from "@/libs/cx";
 import { ReactNode } from "react";
 
 interface CardProps {
   title: string;
   icon: ReactNode;
   description?: string;
+  className?: {
+    container?: string;
+    text?: {
+      container?: string;
+      title?: string;
+      description?: string;
+    };
+    icon?: string;
+  };
 }
 
-export default function Card({ icon, title, description }: CardProps) {
+export default function Card({
+  icon,
+  title,
+  description,
+  className,
+}: CardProps) {
   return (
-    <div className="p-6 w-full rounded-lg shadow-sm bg-white flex items-center justify-between">
-      <div className="flex flex-col">
-        <p className="text-sm font-medium text-gray-600">{title}</p>
-        <p className="text-2xl font-bold text-gray-900">{description}</p>
+    <div
+      className={cx(
+        "p-6 w-full rounded-lg shadow-sm bg-white flex items-center justify-between",
+        className?.container
+      )}
+    >
+      <div className={cx("flex flex-col", className?.text?.container)}>
+        <p
+          className={cx(
+            "text-sm font-medium text-gray-600",
+            className?.text?.title
+          )}
+        >
+          {title}
+        </p>
+        <p
+          className={cx(
+            "text-2xl font-bold text-gray-900",
+            className?.text?.description
+          )}
+        >
+          {description}
+        </p>
       </div>
-      <div>{icon}</div>
+      <div className={className?.icon}>{icon}</div>
     </div>
   );
 }
