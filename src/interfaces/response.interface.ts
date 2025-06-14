@@ -32,3 +32,12 @@ export interface FormaPago {
   estado: boolean;
   registeredAt: string;
 }
+
+export interface Departamento {
+  idDepartamento: number;
+  titulo: string;
+  descripcion: string;
+  estado: boolean;
+  empleados: number;
+  presupuesto: number;
+}

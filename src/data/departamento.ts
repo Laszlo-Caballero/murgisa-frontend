@@ -1,0 +1,60 @@
+import { Departamento } from "@/interfaces/response.interface";
+
+export const departamentoData: Departamento[] = [
+  {
+    idDepartamento: 1,
+    titulo: "Recursos Humanos",
+    descripcion: "Gestiona el personal de la empresa.",
+    estado: true,
+    empleados: 12,
+    presupuesto: 50000,
+  },
+  {
+    idDepartamento: 2,
+    titulo: "Finanzas",
+    descripcion: "Supervisa las finanzas y contabilidad.",
+    estado: true,
+    empleados: 8,
+    presupuesto: 75000,
+  },
+  {
+    idDepartamento: 3,
+    titulo: "Operaciones",
+    descripcion: "Asegura el funcionamiento del negocio.",
+    estado: true,
+    empleados: 20,
+    presupuesto: 100000,
+  },
+  {
+    idDepartamento: 4,
+    titulo: "Marketing",
+    descripcion: "Genera estrategias para atraer nuevos clientes.",
+    estado: true,
+    empleados: 10,
+    presupuesto: 60000,
+  },
+  {
+    idDepartamento: 5,
+    titulo: "Tecnología",
+    descripcion: "Provee soluciones informáticas.",
+    estado: true,
+    empleados: 15,
+    presupuesto: 90000,
+  },
+  {
+    idDepartamento: 6,
+    titulo: "Atención al cliente",
+    descripcion: "Brinda apoyo y soluciones a los usuarios.",
+    estado: true,
+    empleados: 5,
+    presupuesto: 25000,
+  },
+  {
+    idDepartamento: 7,
+    titulo: "Logística",
+    descripcion: "Organiza el transporte y el almacenamiento.",
+    estado: true,
+    empleados: 7,
+    presupuesto: 35000,
+  },
+];

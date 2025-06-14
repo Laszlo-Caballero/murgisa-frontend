@@ -16,7 +16,6 @@ import { TbCash } from "react-icons/tb";
 import { AiOutlineApartment } from "react-icons/ai";
 import { TbBasketDown } from "react-icons/tb";
 import { MdOutlineAssignment } from "react-icons/md";
-import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 export const links: Link[] = [
   {
     titulo: "Principal",

@@ -1,86 +1,66 @@
-import Button from "@/components/button/Button";
-import Input from "@/components/input/Input";
-import React from "react";
+import Button from "@/components/ui/button/Button";
+import Card from "@/components/ui/card/Card";
+import Tabs from "@/components/ui/tabs/Tabs";
+import { departamentoData } from "@/data/departamento";
+import ListarDepartamentos from "@/modules/forma-pago/listar/Listar";
+import Image from "next/image";
+import { FiPlus } from "react-icons/fi";
+import { LuBuilding2, LuUsers } from "react-icons/lu";
+import { LuCircleCheckBig } from "react-icons/lu";
 
 export default function Departamento() {
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-3/4 p-4">
-      <p className="text-3xl">Departamento</p>
-
-      <div className="relative w-full border border-slate-400 mt-4">
-        <p className="bg-white absolute top-0 -translate-y-3 translate-x-2 px-2">
-          Datos del departamento
-        </p>
-
-        <div className="p-4 flex flex-col gap-y-2">
-          <div className="flex items-center justify-between gap-x-4">
-            <Input
-              id="txtIdDepartamento"
-              label="ID Departamento:"
-              className="flex-row"
-            />
-            <Input
-              id="txtCriterio"
-              label="Criterio:"
-              className="flex-row"
-            />
-            <Button title="Buscar" />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <Input
-              id="txtNombreDepartamento"
-              label="Nombre:"
-              className="flex-row gap-x-2"
-            />
-            <Button title="Agregar" />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <Input
-              id="txtDescripcionDepartamento"
-              label="Descripción:"
-              className="flex-row gap-x-2"
-            />
-            <Button title="Modificar" />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-x-2">
-              <input type="checkbox" id="chkEstado" />
-              <label htmlFor="chkEstado">Estado</label>
-            </div>
-            <Button title="Deshabilitar" />
+    <div className="w-full p-8 flex flex-col">
+      <header className="flex items-center justify-between">
+        <div className="flex items-center gap-x-4">
+          <span className="bg-purple-100 p-3 rounded-full">
+            <LuBuilding2 size={24} className="text-purple-600" />
+          </span>
+          <div className="flex flex-col">
+            <p className="font-bold text-3xl">Gestión de Departamentos</p>
+            <p className="text-sm">
+              Administra la estructura organizacional de MURGISA
+            </p>
           </div>
         </div>
-      </div>
 
-      <div className="max-h-[500px] w-full overflow-y-scroll mt-6">
-        <table className="bg-slate-300 w-full">
-          <thead className="bg-slate-50">
-            <tr>
-              <th className="text-center py-2">ID</th>
-              <th className="text-center">Nombre</th>
-              <th className="text-center">Descripción</th>
-              <th className="text-center">Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="text-center py-2">1</td>
-              <td className="text-center">Mantenimiento</td>
-              <td className="text-center">Área de reparación</td>
-              <td className="text-center">Activo</td>
-            </tr>
-            <tr>
-              <td className="text-center py-2">2</td>
-              <td className="text-center">Almacén</td>
-              <td className="text-center">Control de inventario</td>
-              <td className="text-center">Inactivo</td>
-            </tr>
-          </tbody>
-        </table>
+        <Button className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600">
+          <FiPlus size={15} />
+          Nuevo Departamento
+        </Button>
+      </header>
+      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+        <Card
+          title="Total Departamentos"
+          icon={<LuBuilding2 size={35} className="text-purple-600" />}
+          description="3"
+        />
+        <Card
+          title="Departamentos Activos"
+          icon={<LuCircleCheckBig size={35} className="text-green-600" />}
+          description="3"
+        />
+        <Card
+          title="Total Empleados"
+          icon={<LuUsers size={35} className="text-blue-600" />}
+          description="3"
+        />
       </div>
+      <Tabs
+        className="mt-4"
+        headers={["Lista de Departamentos", "Organigrama"]}
+      >
+        <ListarDepartamentos data={departamentoData} />
+        <section className="flex w-full flex-col p-4 rounded-lg shadow">
+          <Image
+            src="/organigrama.png"
+            alt="Organigrama de MURGISA"
+            width={1200}
+            height={1200}
+            className="w-full h-auto rounded-lg shadow-md max-w-4xl mx-auto"
+          />
+        </section>
+      </Tabs>
     </div>
   );
 }
