@@ -41,3 +41,14 @@ export interface Departamento {
   empleados: number;
   presupuesto: number;
 }
+
+export interface Servicio {
+  idServicio: number;
+  titulo: string;
+  descripcion: string;
+  categoria: string;
+  precio: number;
+  duracion: string;
+  cantVentas: number;
+  estado: boolean;
+}

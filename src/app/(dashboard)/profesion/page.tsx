@@ -17,8 +17,8 @@ export default function ProfesionPage() {
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <span className="bg-blue-100 p-3 rounded-xl">
-            <LuGraduationCap size={40} className="text-blue-600" />
+          <span className="bg-blue-600 p-3 rounded-xl">
+            <LuGraduationCap size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Profesiones</p>
@@ -57,14 +57,15 @@ export default function ProfesionPage() {
 
         />
       </div>
-          <div className="py-4 flex w-full flex-col gap-y-4">
-            <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-              <span className="flex items-center gap-x-2 font-semibold text-black text-md">
-                <LuFilter size={20} className="text-blue-700"/>
-                Filtros de Búsqueda
-              </span>
-              <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar profesiones específicas de manera rápida</p>
-            </section>
+      
+      <div className="py-4 flex w-full flex-col gap-y-4">
+        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-md">
+            <LuFilter size={20} className="text-blue-700"/>
+              Filtros de Búsqueda
+          </span>
+          <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar profesiones específicas de manera rápida</p>
+        </section>
       </div>
 
       <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
