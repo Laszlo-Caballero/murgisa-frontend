@@ -37,15 +37,16 @@ export default function ListarDepartamentos({
             >
               <div className="flex flex-col gap-y-2">
                 <span className="flex items-center justify-between">
-                  <p className="text-sm text-gray-600">Comisión</p>
-                  <p className="text-sm font-semibold flex items-center ">
-                    <MdOutlineAttachMoney /> {forma.presupuesto}
-                  </p>
-                </span>
-                <span className="flex items-center justify-between">
                   <p className="text-sm text-gray-600">Empleados</p>
                   <p className="text-sm font-semibold flex items-center gap-x-1">
                     <LuUsers /> {forma.empleados}
+                  </p>
+                </span>
+                <span className="flex items-center justify-between">
+                  <p className="text-sm text-gray-600">Comisión</p>
+                  <p className="text-sm font-semibold flex items-center text-green-600">
+                    <MdOutlineAttachMoney />
+                    {forma.presupuesto}
                   </p>
                 </span>
               </div>
