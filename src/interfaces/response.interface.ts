@@ -66,3 +66,25 @@ export interface ResponseCargo {
   activos: number;
   usuarios: number;
 }
+
+export interface Usuario {
+  idUsuario: number;
+  usuario: string;
+  contrasena: string;
+  correo: string;
+}
+
+export interface Personal {
+  idPersonal: number;
+  nombre: string;
+  apellido_paterno: string;
+  apellido_materno: string;
+  sueldo: number;
+  numeroDocumento: string;
+  telefono: string;
+  estado: boolean;
+  fechaIngreso: string;
+  cargo: Cargo;
+  profesion: Profesion;
+  usuario?: Usuario;
+}
