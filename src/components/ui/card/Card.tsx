@@ -11,9 +11,11 @@ interface CardProps {
       container?: string;
       title?: string;
       description?: string;
+      extra?: string;
     };
     icon?: string;
   };
+  extra?:string;
 }
 
 export default function Card({
@@ -21,11 +23,12 @@ export default function Card({
   title,
   description,
   className,
+  extra,
 }: CardProps) {
   return (
     <div
       className={cx(
-        "p-6 w-full rounded-lg shadow-sm bg-white flex items-center justify-between",
+        "p-6 w-full h-full rounded-lg shadow-sm bg-white flex items-center justify-between",
         className?.container
       )}
     >
@@ -45,6 +48,14 @@ export default function Card({
           )}
         >
           {description}
+        </p>
+        <p
+          className={cx(
+            "text-xs font-small text-gray-600 mt-1",
+            className?.text?.extra
+          )}
+        >
+          {extra}
         </p>
       </div>
       <div className={className?.icon}>{icon}</div>
