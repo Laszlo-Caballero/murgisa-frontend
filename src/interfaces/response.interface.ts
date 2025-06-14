@@ -11,6 +11,14 @@ export interface Cliente {
   ciudad: Ciudad;
 }
 
+export interface Profesion {
+  idProfesion: number;
+  titulo: string;
+  descripcion: string;
+  cantidad: number;
+  estado: boolean;
+}
+
 export interface Ciudad {
   idCiudad: number;
   nombre: string;
