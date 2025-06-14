@@ -1,7 +1,7 @@
+"use client";
 import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
-import { env } from "@/config/env";
 import { Personal } from "@/interfaces/response.interface";
 import axios from "axios";
 import { FiPlus } from "react-icons/fi";
@@ -16,20 +16,32 @@ import { MdOutlineEmail } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
 import { MdMoneyOff } from "react-icons/md";
 import { LuCalendar } from "react-icons/lu";
-export default async function PersonalPage() {
-  const response = await axios.get(`${env.url_api}/personal`);
-  if (!response.data) {
-    return (
-      <div className="w-full p-8 flex flex-col">
-        <p className="text-red-500">No se encontraron datos de personal.</p>
-      </div>
-    );
-  }
-
-  const empleados: Personal[] = response.data;
+import { useState } from "react";
+import { useQuery } from "@/hooks/useQuery";
+import { env } from "@/config/env";
+import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
+import Modal from "@/components/ui/modal/Modal";
+import CrearPersonal from "@/modules/personal/crear/CrearPersonal";
+export default function PersonalPage() {
+  const [showModal, setShowModal] = useState(false);
+  const { data, isLoading } = useQuery<Personal[]>({
+    queryFn: async () => {
+      const response = await axios.get(`${env.url_api}/personal`);
+      return response.data;
+    },
+  });
 
   return (
     <div className="w-full p-8 flex flex-col">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <CrearPersonal />
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-blue-100 p-3 rounded-full">
@@ -43,7 +55,12 @@ export default async function PersonalPage() {
           </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600">
+        <Button
+          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
           <FiPlus size={15} />
           Nuevo Empleado
         </Button>
@@ -68,7 +85,12 @@ export default async function PersonalPage() {
           </span>
         </section>
         <div className="grid grid-cols-3 gap-4">
-          {empleados.map((empleado) => {
+          {isLoading &&
+            Array.from({ length: 3 }).map((_, index) => {
+              return <CardInfoSkeleton key={index} />;
+            })}
+
+          {data?.map((empleado) => {
             return (
               <CardInfo
                 key={empleado.idPersonal}

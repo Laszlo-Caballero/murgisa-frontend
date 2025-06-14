@@ -2,6 +2,7 @@ import cx from "@/libs/cx";
 import {
   cloneElement,
   InputHTMLAttributes,
+  isValidElement,
   ReactElement,
   ReactNode,
 } from "react";
@@ -32,18 +33,19 @@ export default function Input({
         {label}
       </label>
       <div className="w-full relative">
-        {cloneElement(parseIcon, {
-          size: 20,
-          className: cx(
-            "absolute top-1/2 -translate-y-1/2 left-3 text-slate-500",
-            parseIcon.props.className
-          ),
-          color: "#94A3B8",
-        })}
+        {isValidElement(icon) &&
+          cloneElement(parseIcon, {
+            size: 20,
+            className: cx(
+              "absolute top-1/2 -translate-y-1/2 left-3 text-slate-500",
+              parseIcon.props.className
+            ),
+            color: "#94A3B8",
+          })}
         <input
           id={id}
           className={cx(
-            "w-full px-10 py-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500",
+            "w-full px-10 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500",
             className
           )}
           {...props}
