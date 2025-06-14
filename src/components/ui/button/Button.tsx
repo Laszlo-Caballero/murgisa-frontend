@@ -9,7 +9,7 @@ export default function Button({
   return (
     <button
       className={cx(
-        `px-4 py-2 rounded-md bg-blue-600 text-white text-sm`,
+        `px-4 py-2 rounded-md bg-blue-600 text-white text-sm cursor-pointer`,
         className
       )}
       {...props}
