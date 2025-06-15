@@ -2,7 +2,7 @@ import { Link } from "@/interfaces/links.interface";
 import { FiHome } from "react-icons/fi";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FiEye } from "react-icons/fi";
-import { LuUsers } from "react-icons/lu";
+import { LuType, LuUsers } from "react-icons/lu";
 import { FiCreditCard } from "react-icons/fi";
 import { LuUserCheck } from "react-icons/lu";
 import { RiGraduationCapLine } from "react-icons/ri";
@@ -16,6 +16,8 @@ import { TbCash } from "react-icons/tb";
 import { AiOutlineApartment } from "react-icons/ai";
 import { TbBasketDown } from "react-icons/tb";
 import { MdOutlineAssignment } from "react-icons/md";
+import { LiaSitemapSolid } from "react-icons/lia";
+
 export const links: Link[] = [
   {
     titulo: "Principal",
@@ -134,6 +136,27 @@ export const links: Link[] = [
         label: "Ver Condición",
         href: "/condicion",
         icono: <LuCircleCheckBig />,
+      },
+    ],
+  },
+  {
+    titulo: "Recursos",
+    color: "red",
+    links: [
+      {
+        label: "Recursos",
+        href: "/recurso",
+        icono: <LiaSitemapSolid />,
+      },
+      {
+        label: "Tipo de Recursos",
+        href: "/tipo-recurso",
+        icono: <LuType />,
+      },
+      {
+        label: "Proovedor",
+        href: "/proveedor",
+        icono: <LuUsers />,
       },
     ],
   },
