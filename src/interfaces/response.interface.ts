@@ -97,3 +97,16 @@ export interface Categoria{
   ingresosMes: number;
   estado: boolean;
 }
+
+export interface PlanificacionPreventivo{
+  idPlanificacion: number;
+  tipo: string;
+  recurso: string;
+  responsable: string;
+  cantPersonal: number;
+  progreso:string;
+  fecha: Date;
+  horario: string;
+  prioridad: string;
+  estado: boolean;
+}

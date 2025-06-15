@@ -1,20 +1,34 @@
 "use client";
 import { LuGraduationCap } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
-import Button from "@/components/ui/button/Button";
-import Card from "@/components/ui/card/Card";
 import { LuBookOpen } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
+
+import Modal from "@/components/ui/modal/Modal";
+import CrearProfesion from "@/modules/profesion/crear/CrearProfesion";
+import Button from "@/components/ui/button/Button";
+import Card from "@/components/ui/card/Card";
 import Table from "@/components/ui/table/Table";
 import { profesionData } from "@/data/profesion";
+import { useState } from "react";
 import { use } from "react";
 
 
 export default function ProfesionPage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <CrearProfesion />
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-blue-600 p-3 rounded-xl">
@@ -28,7 +42,10 @@ export default function ProfesionPage() {
           </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4">
+        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4" 
+          onClick={() => {
+            setShowModal(true);
+          }}>
           <FiPlus size={15} />
           Nueva Profesión
         </Button>
@@ -90,7 +107,7 @@ export default function ProfesionPage() {
                 </span>
                 <div className="flex flex-col">
                   <p className="font-semibold text-sm">{props.row.titulo}</p>
-                  <p className="text-xs text-gray-600">ID: {props.row.idProfesion}</p>
+                  <p className="text-xs text-gray-600">ID: PROF-00{props.row.idProfesion}</p>
                 </div>
               </div>
 
