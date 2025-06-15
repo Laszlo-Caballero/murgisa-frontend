@@ -117,3 +117,19 @@ export interface ActividadesRecientes {
   tipo: "venta" | "administracion" | "mantenimiento" | "servicio" | "recursos";
   fecha: string;
 }
+
+export interface EquiposAtencion {
+  estado: "Alta" | "Media" | "Baja" | "Critica";
+  ultimoMantenimiento: string;
+  nombre: string;
+  idEquipo: number;
+}
+
+export interface VentasRecientes {
+  idVenta: number;
+  titulo: string;
+  fecha: string;
+  monto: number;
+  cliente: string;
+  estado: "Pendiente" | "Completada" | "Cancelada";
+}
