@@ -23,7 +23,7 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
                     <LuFilter size={20} className="text-blue-700"/>
                     Filtros de Búsqueda
                 </span>
-                <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar profesiones específicas de manera rápida</p>
+                <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar servicios específicos de manera rápida</p>
                 </section>
             </div>
             <div className="grid grid-cols-3 gap-4">
@@ -63,13 +63,13 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
                             <div className="flex flex-col gap-y-2">
                                 <span className="flex items-center gap-x-2"> 
                                     <LuClock4 size={15} className="text-purple-600" />
-                                    <p className="text-xs text-gray-600 font-semibold flex items-center gap-x-1">
+                                    <p className="text-xs text-gray-600 font-semibold">
                                         {servicio.duracion} 
                                     </p>                                    
                                 </span>
                                 <span className="flex items-center gap-x-2">
                                     <LuChartColumnIncreasing size={15} className="text-yellow-500"/>
-                                    <p className="text-xs text-gray-600 font-semibold flex items-center gap-x-1">
+                                    <p className="text-xs text-gray-600 font-semibold">
                                         {servicio.cantVentas} ventas
                                     </p> 
                                 </span>

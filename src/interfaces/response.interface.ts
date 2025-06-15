@@ -110,3 +110,12 @@ export interface PlanificacionPreventivo{
   prioridad: string;
   estado: boolean;
 }
+
+export interface TipoMantenimiento {
+  idTipoMantenimiento: number;
+  nombre: string;
+  descripcion: string;
+  duracion: string;
+  total: number;
+  estado: boolean;
+}

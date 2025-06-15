@@ -2,7 +2,7 @@ import { Servicio } from "@/interfaces/response.interface"
 
 export const servicioData: Servicio[] = [{
     idServicio: 1,
-    titulo: "Instalación de Equipos Nuevos",
+    titulo: "Instalación y puesta de Equipos Nuevos",
     descripcion: "Instalación profesional y puesta en marcha de equipos industriales",
     categoria: "Instalación",
     precio: 450.00,
