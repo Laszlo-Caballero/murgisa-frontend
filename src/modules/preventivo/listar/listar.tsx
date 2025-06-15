@@ -21,7 +21,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                     <LuFilter size={20} className="text-orange-700"/>
                     Filtros de Búsqueda
                 </span>
-                <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar profesiones específicas de manera rápida</p>
+                <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar mantenimientos programados de manera rápida</p>
                 </section>
             </div>
             <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">

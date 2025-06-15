@@ -133,3 +133,11 @@ export interface VentasRecientes {
   cliente: string;
   estado: "Pendiente" | "Completada" | "Cancelada";
 }
+export interface TipoMantenimiento {
+  idTipoMantenimiento: number;
+  nombre: string;
+  descripcion: string;
+  duracion: string;
+  total: number;
+  estado: boolean;
+}

@@ -42,7 +42,7 @@ export default function ProfesionPage() {
           </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4" 
+        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 hover:bg-blue-500" 
           onClick={() => {
             setShowModal(true);
           }}>
