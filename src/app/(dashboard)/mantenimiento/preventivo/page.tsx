@@ -32,7 +32,7 @@ export default function MantenimientoPreventivoPage() {
                 </p>
               </div>
             </div>
-            <Button className="flex items-center gap-x-3 py-2 font-semibold mt-4 bg-orange-500 text-white shadow-md">
+            <Button className="flex items-center gap-x-3 py-2 font-semibold mt-4 bg-orange-500 text-white shadow-md hover:bg-orange-400">
               <FiPlus size={15} />
               Planificar Mantenimiento
             </Button>

@@ -22,7 +22,6 @@ import CrearTipoMantenimiento from "@/modules/tipoMantenimiento/CrearTipoManteni
 export default function page() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="w-full">
       <div className="w-full h-full p-8 flex flex-col bg-gray-50">
         {showModal && (
           <Modal
@@ -95,6 +94,7 @@ export default function page() {
                   description={tipo.descripcion}
                   span={tipo.estado ? "Activo" : "Inactivo"}
                   className={{
+                    container: "bg-white",
                     span: "bg-green-100 text-green-800 border border-green-300",
                     header: {icon: "bg-orange-100 rounded-md"}}}>
                   <div className="flex items-center justify-between">
@@ -125,6 +125,5 @@ export default function page() {
         </div>
 
       </div>
-    </div>
   );
 }
