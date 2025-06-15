@@ -89,7 +89,7 @@ export interface Personal {
   usuario?: Usuario;
 }
 
-export interface Categoria{
+export interface Categoria {
   idCategoria: number;
   nombre: string;
   descripcion: string;
@@ -98,19 +98,20 @@ export interface Categoria{
   estado: boolean;
 }
 
-export interface PlanificacionPreventivo{
+export interface PlanificacionPreventivo {
   idPlanificacion: number;
   tipo: string;
   recurso: string;
   responsable: string;
   cantPersonal: number;
-  progreso:string;
+  progreso: string;
   fecha: Date;
   horario: string;
   prioridad: string;
   estado: boolean;
 }
 
+<<<<<<< HEAD
 export interface TipoMantenimiento {
   idTipoMantenimiento: number;
   nombre: string;
@@ -118,4 +119,11 @@ export interface TipoMantenimiento {
   duracion: string;
   total: number;
   estado: boolean;
+=======
+export interface ActividadesRecientes {
+  titulo: string;
+  descripcion: string;
+  tipo: "venta" | "administracion" | "mantenimiento" | "servicio" | "recursos";
+  fecha: string;
+>>>>>>> 31aca77938d5ba3d75b8226282a60929dda07a29
 }
