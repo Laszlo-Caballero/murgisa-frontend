@@ -35,7 +35,7 @@ export default function ServiciosPage() {
         </div>
         <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-purple-600 text-white">
           <FiPlus size={15} />
-          Nueva Profesión
+          Nuevo Servicio
         </Button>
       </header>
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">

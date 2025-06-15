@@ -27,20 +27,24 @@ export default function ListarCalendario({ data }: ListarPreventivosProps) {
                         </div>
                         <CardInfo 
                         title={preventivo.recurso}
-                        icon={<LuShield size={20} className="text-blue-600" />}
+                        icon={<LuShield size={20} className="text-orange-500" />}
                         description=""
-                        className={{container:"gap-y-1 pointer-events-none pt-4"}}>
+                        className={{container:"gap-y-1 pointer-events-none pt-4", 
+                            header:{
+                                icon: "bg-orange-100 rounded-lg p-2",
+                            }
+                        }}>
                         <div className="flex flex-col gap-y-2 px-2">
                             <span className="flex items-center gap-x-2">
-                                <LuCalendar size={16} className="text-gray-500" />
+                                <LuCalendar size={16} className="text-purple-500" />
                                 <p className="text-sm text-gray-700">{new Date(preventivo.fecha).toLocaleDateString('es-ES')}</p>
                             </span>
                             <span className="flex items-center gap-x-2">
-                                <LuUsers size={16} className="text-gray-500" />
+                                <LuUsers size={16} className="text-blue-500" />
                                 <p className="text-sm text-gray-700" >{preventivo.responsable}</p>
                             </span>
                             <span className="flex items-center gap-x-2">
-                                <LuClock4 size={16} className="text-gray-500" />
+                                <LuClock4 size={16} className="text-red-500" />
                                 <p className="text-sm text-gray-700">{preventivo.horario}</p>
                             </span>
                         </div>
