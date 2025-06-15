@@ -53,12 +53,25 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                         },
                     },
                     {
+                        header: "Recurso",
+                        cell: (props) => {
+                            return(
+                                <span className="text-sm">
+                                    {props.row.recurso}
+                                </span>
+                            )
+                        }
+                    },
+                    {
                         header: "Fecha Programada",
                         cell: (props) => {
                         return (
-                            <div className="flex items-center gap-x-2">
-                                <LuCalendar size={15} className="text-blue-500" />
-                                <p className="text-sm font-semibold"> {new Date(props.row.fecha).toLocaleDateString('es-ES')}</p>
+                            <div className="flex flex-col gap-y-1">
+                                <span className="flex items-center gap-x-2">
+                                    <LuCalendar size={15} className="text-blue-500" />
+                                    <p className="text-sm font-semibold"> {new Date(props.row.fecha).toLocaleDateString('es-ES')}</p>
+                                </span>
+                                <p className="text-sm text-gray-500">{props.row.horario}</p>
                             </div>
                             );
                         },
@@ -84,7 +97,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                         header: "Prioridad",
                         cell: (props) => {
                         return (
-                            <div className="flex items-center justify-center gap-x-1 py-1 bg-yellow-100 border border-yellow-300 rounded-full">
+                            <div className="flex items-center justify-center gap-x-1 py-1 px-2 bg-yellow-100 border border-yellow-300 rounded-full">
                                 <LuCircleCheckBig size={15} className="text-yellow-800" />
                                 <span className="text-xs font-semibold text-yellow-800">Media</span>
                             </div>
@@ -95,7 +108,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                         header: "Estado",
                         cell: (props) => {
                         return (
-                            <div className="flex items-center justify-center gap-x-1 py-1 bg-green-100 border border-green-300 rounded-full">
+                            <div className="flex items-center justify-center gap-x-1 py-1 px-2 bg-green-100 border border-green-300 rounded-full">
                                 <LuCircleCheckBig size={15} className="text-green-800" />
                                 <span className="text-xs font-semibold text-green-800">Activo</span>
                             </div>

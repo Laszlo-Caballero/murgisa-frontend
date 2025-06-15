@@ -11,6 +11,7 @@ import Tabs from "@/components/ui/tabs/Tabs";
 import { PlanificacionPreventivo } from "@/interfaces/response.interface";
 import ListarPreventivos from "@/modules/preventivo/listar/listar";
 import{preventivoData} from "@/data/preventivo";
+import ListarCalendario from "@/modules/preventivo/calendario/calendario";
 
 
 export default function MantenimientoPreventivoPage() {
@@ -33,7 +34,7 @@ export default function MantenimientoPreventivoPage() {
             </div>
             <Button className="flex items-center gap-x-3 py-2 font-semibold mt-4 bg-orange-500 text-white shadow-md">
               <FiPlus size={15} />
-              Nuevo Mantenimiento
+              Planificar Mantenimiento
             </Button>
           </header>
           <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
@@ -73,7 +74,7 @@ export default function MantenimientoPreventivoPage() {
             className="mt-6"
           >
           <ListarPreventivos data={preventivo} />
-          <div>bb</div>
+          <ListarCalendario data={preventivo} />
           </Tabs> 
     </div>
   );
