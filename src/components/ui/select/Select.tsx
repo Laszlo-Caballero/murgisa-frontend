@@ -82,6 +82,7 @@ export default function Select({
                 key={option.value}
                 onClick={() => {
                   onChange?.(option.value);
+                  setOpen(false);
                 }}
               >
                 {option.label}
