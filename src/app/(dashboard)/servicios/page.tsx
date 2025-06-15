@@ -1,26 +1,39 @@
+"use client";
 import { LuWrench } from "react-icons/lu";
-import Button from "@/components/ui/button/Button";
 import { FiPlus } from "react-icons/fi";
-import Card from "@/components/ui/card/Card";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuChartColumnIncreasing } from "react-icons/lu";
 import { LuDollarSign } from "react-icons/lu";
+
 import { Servicio } from "@/interfaces/response.interface";
 import { Categoria } from "@/interfaces/response.interface";
+import Button from "@/components/ui/button/Button";
+import Card from "@/components/ui/card/Card";
+import Modal from "@/components/ui/modal/Modal";
 import ListarServicio from "@/modules/servicios/listar/listar";
 import ListarCategoria from "@/modules/servicios/categoria/categoria";
 import Tabs from "@/components/ui/tabs/Tabs";
 import { servicioData } from "@/data/servicios";
 import { categoriaData } from "@/data/categoria";
-
+import { useState } from "react";
+import CrearServicio from "@/modules/servicios/crear/CrearServicio";
 
 
 export default function ServiciosPage() {
-
+  const [showModal, setShowModal] = useState(false);
   const servicios: Servicio[] = servicioData;
   const categoria: Categoria[] = categoriaData;
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      {showModal && (
+              <Modal
+                onClose={() => {
+                  setShowModal(false);
+                }}
+              >
+                <CrearServicio />
+              </Modal>
+            )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-purple-600 p-3 rounded-xl">
@@ -33,7 +46,11 @@ export default function ServiciosPage() {
             </p>
           </div>
         </div>
-        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-purple-600 text-white">
+        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-purple-600 text-white"
+            onClick={() => {
+            setShowModal(true);
+          }}>
+          
           <FiPlus size={15} />
           Nuevo Servicio
         </Button>

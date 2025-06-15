@@ -1,7 +1,5 @@
 import Input from "@/components/ui/input/Input";
 import React from "react";
-import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
-import { LuUserRound } from "react-icons/lu";
 import { LuGraduationCap } from "react-icons/lu";
 import { LuPencilLine } from "react-icons/lu";
 import Button from "@/components/ui/button/Button";
