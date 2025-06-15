@@ -25,6 +25,7 @@ export function getColor(color?: Color) {
     red: {
       bgColor: "bg-red-500/20",
       textColor: "text-red-500",
+      activeColor: "bg-red-500/10",
     },
     yellow: {
       bgColor: "bg-yellow-500/20",
