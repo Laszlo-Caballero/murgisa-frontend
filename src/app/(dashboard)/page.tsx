@@ -5,7 +5,9 @@ import { LuActivity } from "react-icons/lu";
 import { actividadesData } from "@/data/activdadesRecientes";
 import Activity from "@/components/ui/activity/Activity";
 import { LuTarget } from "react-icons/lu";
-
+import LinkHome from "@/components/ui/link-home/LinkHome";
+import { LuBriefcase } from "react-icons/lu";
+import Badge from "@/components/ui/badge/Badge";
 export default function Home() {
   const actualHour = new Date().getHours();
   const greeting = actualHour > 12 ? "¡Buenos días!" : "¡Buenas tardes!";
@@ -72,6 +74,43 @@ export default function Home() {
               Accesos directos a funciones principales
             </p>
           </div>
+
+          <LinkHome
+            href="/ventas"
+            icon={<LuChartColumnIncreasing size={15} />}
+            className={{
+              icon: "bg-green-200 text-green-600",
+            }}
+            title="Nueva Venta"
+            description="Registra una nueva venta de productos o servicios"
+          />
+          <LinkHome
+            href="/mantenimiento-correctivo"
+            icon={<PiWrenchBold size={15} />}
+            className={{
+              icon: "bg-blue-200 text-blue-600",
+            }}
+            title="Orden de Mantenimiento"
+            description="Registra una nueva orden de mantenimiento"
+          />
+          <LinkHome
+            href="/cliente"
+            icon={<LuUsers size={15} />}
+            className={{
+              icon: "bg-purple-200 text-purple-600",
+            }}
+            title="Registrar Cliente"
+            description="Añade un nuevo cliente al sistema"
+          />
+          <LinkHome
+            href="/personal"
+            icon={<LuBriefcase size={15} />}
+            className={{
+              icon: "bg-red-200 text-red-600",
+            }}
+            title="Registrar Personal"
+            description="Añade un nuevo miembro del personal al sistema"
+          />
         </div>
       </div>
     </div>
