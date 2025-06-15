@@ -111,7 +111,13 @@ export interface PlanificacionPreventivo {
   estado: boolean;
 }
 
-<<<<<<< HEAD
+export interface ActividadesRecientes {
+  titulo: string;
+  descripcion: string;
+  tipo: "venta" | "administracion" | "mantenimiento" | "servicio" | "recursos";
+  fecha: string;
+}
+
 export interface TipoMantenimiento {
   idTipoMantenimiento: number;
   nombre: string;
@@ -119,11 +125,4 @@ export interface TipoMantenimiento {
   duracion: string;
   total: number;
   estado: boolean;
-=======
-export interface ActividadesRecientes {
-  titulo: string;
-  descripcion: string;
-  tipo: "venta" | "administracion" | "mantenimiento" | "servicio" | "recursos";
-  fecha: string;
->>>>>>> 31aca77938d5ba3d75b8226282a60929dda07a29
 }

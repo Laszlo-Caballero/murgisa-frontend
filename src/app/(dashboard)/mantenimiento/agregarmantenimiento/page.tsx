@@ -1,7 +1,11 @@
+"use client";
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
 import { tipoMantenimientoData } from "@/data/tipomantenimiento";
 import CardInfo from "@/components/ui/card-info/CardInfo";
+import Modal from "@/components/ui/modal/Modal";
+import React from "react";
+import { useState } from "react";
 
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
@@ -11,12 +15,24 @@ import { LuChartColumn } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuSettings } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
-import React from "react";
+import CrearTipoMantenimiento from "@/modules/tipoMantenimiento/CrearTipoMantenimiento";
+
+
 
 export default function page() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full">
       <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+        {showModal && (
+          <Modal
+            onClose={() => {
+              setShowModal(false);
+            }}
+          >
+            <CrearTipoMantenimiento />
+          </Modal>
+        )}
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-x-4">
             <span className="bg-orange-500 p-3 rounded-xl">
@@ -29,7 +45,10 @@ export default function page() {
               </p>
             </div>
           </div>
-          <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-orange-500 text-white">
+          <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-orange-500 text-white shadow-lg hover:bg-orange-400"
+            onClick={() => {
+            setShowModal(true);
+          }}>
             <FiPlus size={15} />
             Nuevo Mantenimiento
           </Button>
@@ -90,7 +109,7 @@ export default function page() {
                     </span>          
                   </div>
                   <div className="flex items-center justify-between gap-x-2 mt-4">
-                      <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-gray-100">
+                      <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
                           <LuSquarePen size={15} />
                           Editar
                       </Button>

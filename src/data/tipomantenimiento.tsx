@@ -4,7 +4,7 @@ export const tipoMantenimientoData: TipoMantenimiento[] = [
 {
     idTipoMantenimiento: 1,
     nombre: "Mantenimiento estacional",
-    descripcion: "Se realiza en temporadas específicas para preparar los equipos ante cambios climáticos.",
+    descripcion: "Se realiza en temporadas específicas para adaptar los equipos al clima.",
     duracion: "2 horas",
     total: 16,
     estado: true
@@ -36,7 +36,7 @@ export const tipoMantenimientoData: TipoMantenimiento[] = [
 {
     idTipoMantenimiento: 5,
     nombre: "Mantenimiento de emergencia",
-    descripcion: "Intervención inmediata ante fallas críticas.",
+    descripcion: "Intervención inmediata ante fallas críticas de los equipos.",
     duracion: "5 horas",
     total: 10,
     estado: true
