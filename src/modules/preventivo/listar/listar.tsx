@@ -46,7 +46,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                             <div className="flex items-start gap-x-3">
                                 <div className="flex flex-col">
                                 <p className="font-semibold text-sm">{props.row.tipo}</p>
-                                <p className="text-xs text-gray-600">ID: PLAN-00 {props.row.idPlanificacion}</p>
+                                <p className="text-xs text-gray-600">ID: PLAN-00{props.row.idPlanificacion}</p>
                                 </div>
                             </div>
                             );

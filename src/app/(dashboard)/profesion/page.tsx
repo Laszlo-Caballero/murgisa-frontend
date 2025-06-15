@@ -90,7 +90,7 @@ export default function ProfesionPage() {
                 </span>
                 <div className="flex flex-col">
                   <p className="font-semibold text-sm">{props.row.titulo}</p>
-                  <p className="text-xs text-gray-600">ID: {props.row.idProfesion}</p>
+                  <p className="text-xs text-gray-600">ID: PROF-00{props.row.idProfesion}</p>
                 </div>
               </div>
 
