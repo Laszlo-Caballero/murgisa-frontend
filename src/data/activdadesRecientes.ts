@@ -31,4 +31,10 @@ export const actividadesData: ActividadesRecientes[] = [
     descripcion: "Se ha asignado un nuevo recurso al proyecto X.",
     fecha: "2023-10-05T16:20:00Z",
   },
+  {
+    tipo: "recursos",
+    titulo: "Nuevo recurso asignado",
+    descripcion: "Se ha asignado un nuevo recurso al proyecto X.",
+    fecha: "2023-10-05T16:20:00Z",
+  },
 ];
