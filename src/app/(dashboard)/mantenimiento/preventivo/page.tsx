@@ -3,7 +3,6 @@ import { LuShield } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import { LuCircleCheck } from "react-icons/lu";
 import { LuCirclePlay } from "react-icons/lu";
-import { LuChartColumn } from "react-icons/lu";
 import { LuTriangleAlert } from "react-icons/lu";
 import Modal from "@/components/ui/modal/Modal";
 import Button from "@/components/ui/button/Button";

@@ -50,20 +50,14 @@ export default function NotasDeSalidaPage() {
                 icon={<MdDateRange />}
                />
                <Select
-                label="Recurso"
+                label="Orden de Servicio"
                 icon={<LuCirclePlus />}
-                placeholder="Selecciona un recurso"
+                placeholder="Selecciona una orden de servicio"
                 options={[
-                { value: "1", label: "Grúa" },
-                { value: "2", label: "Excavadora" },
-                { value: "3", label: "Generador" }
+                { value: "1", label: "OR001" },
+                { value: "2", label: "OR002" },
                 ]}>
                 </Select>
-              <Input
-                label="Motivo"
-                icon={<LuClipboardList />}
-                placeholder="Ej: Devolución de producto"
-              />
               <Input
                 label="Descripción"
                 icon={<MdOutlineDescription />}
