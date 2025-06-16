@@ -11,6 +11,7 @@ import { LuCircleCheckBig } from "react-icons/lu";
 import Modal from "@/components/ui/modal/Modal";
 import Input from "@/components/ui/input/Input";
 import { useState } from "react";
+import { LuPencilLine } from "react-icons/lu";
 
 export default function Departamento() {
   const [showModal, setShowModal] = useState(false);
@@ -33,6 +34,18 @@ export default function Departamento() {
                 </p>
               </div>
             </header>
+            <div className="grid grid-cols-1 gap-4">
+              <Input
+                label="Nombre del Departamento"
+                icon={<LuBuilding2 />}
+                placeholder="Ej: Tarado El Que Lea"
+              />
+              <Input
+                label="Descripcion"
+                icon={<LuPencilLine />}
+                placeholder="Ej: Laszlo"
+              />
+            </div>
           </div>
         </Modal>
       )}
