@@ -27,7 +27,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
             <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
                 <div className="flex items-center justify-between w-full">
                     <div>
-                        <p className="font-medium text-black text-xl">Mantenimientos Registradas</p>
+                        <p className="font-medium text-black text-xl">Mantenimientos Registrados</p>
                         <p className="text-sm text-gray-500 mt-1">Gestiona todos los mantenimientos programados</p>
                     </div>
                     <div>
