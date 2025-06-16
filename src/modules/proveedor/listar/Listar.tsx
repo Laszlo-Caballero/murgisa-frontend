@@ -1,7 +1,12 @@
 import { Proveedor } from "@/interfaces/response.interface";
 import Table from "@/components/ui/table/Table";
+import Badge from "@/components/ui/badge/Badge";
 
-import { LuFilter } from "react-icons/lu";
+import { LuUser } from "react-icons/lu";
+import { LuBuilding, LuFilter } from "react-icons/lu";
+import { LuMail } from "react-icons/lu";
+import { LuCalendar } from "react-icons/lu";
+
 
 interface ListarProveedorProps{
     data: Proveedor[]
@@ -37,11 +42,70 @@ export default function ListarProveedor({data}: ListarProveedorProps){
                         header: "Profesion",
                         cell: (props) => {
                             return(
-                                <div>
-                                    
+                                <div className="flex items-start gap-x-3">
+                                    <span className="bg-red-100 p-2 rounded-lg">
+                                        <LuBuilding size={15} className="text-red-600"/>
+                                    </span>
+                                    <div className="flex flex-col gap-y-1">
+                                        <p className="font-semibold">{props.row.razSocial}</p>
+                                        <p className="text-sm text-gray-500">RUC: {props.row.ruc}</p>
+                                        <p className="text-sm text-gray-500">ID: PROV-00{props.row.idProveedor}</p>
+                                    </div>
                                 </div>
                             )
                         }
+                    },{
+                        header: "Responsable",
+                        cell: (props) => {
+                            return(
+                                <div className="flex flex-col gap-y-1">
+                                    <span className="flex items-center gap-x-2">
+                                        <LuUser size={15} className="text-black"/>
+                                        <p className="font-semibold">{props.row.responsable}</p>
+                                    </span>
+                                    <p className="text-sm text-gray-600"> DNI: {props.row.dni}</p>
+                                    <span className="flex items-center gap-x-2">
+                                        <LuMail size={15} className="text-yellow-600" />
+                                        <p className="text-sm text-gray-600">{props.row.email}</p>
+                                    </span>
+                                </div>
+                            )
+                        }
+                    },
+                    {
+                        header: "Tipo Recurso",
+                        cell: (props) => {
+                            return(
+                                <Badge className="bg-purple-100 text-purple-800 rounded-purple-300 font-semibold">
+                                    {props.row.tipoRecurso}
+                                </Badge>
+                            )
+                        }
+                    },
+                    {
+                        header: "Última Compra",
+                        cell: (props) => {
+                            return(
+                                <div className="flex flex-col gap-y-1">
+                                    <span className="flex items-center gap-x-2">
+                                        <LuCalendar size={15} className="text-blue-500" />
+                                        <p className="text-sm font-semibold"> {new Date(props.row.ultimaCompra).toLocaleDateString('es-ES')}</p>
+                                    </span>
+
+                                </div>
+                            )
+                        }
+                    },
+                    {
+                        header: "Estado",
+                        cell: (props) => {
+                            return(
+                                <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold"> Activo</Badge>
+                            )
+                        }
+                    },
+                    {
+                        header: "Acciones"
                     }
                 ]}>
                 </Table>}
