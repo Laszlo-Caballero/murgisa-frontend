@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/ui/button/Button";
+import Select from "@/components/ui/select/Select";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { AiOutlineCustomerService } from "react-icons/ai";
@@ -16,6 +17,9 @@ import {
 import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
 import Input from "@/components/ui/input/Input";
+import { LuPencilLine } from "react-icons/lu";
+import { LuCirclePlus } from "react-icons/lu";
+import { BsFilePost } from "react-icons/bs";
 
 export default function Cargo() {
   const [showModal, setShowModal] = useState(false);
@@ -27,9 +31,37 @@ export default function Cargo() {
             setShowModal(false);
           }}
         >
-          <div className="w-[500px] bg-white p-6 rounded-lg shadow-lg">
-            <p>hola</p>
-            <Input label="Nombre del Cargo" />
+          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
+            <header className="flex items-center gap-x-3">
+              <LuUserCheck size={24} className="text-purple-600" />
+              <div className="flex flex-col">
+                <p className="text-xl font-semibold">Agregar Nuevo Cargo</p>
+                <p className="text-sm text-gray-500">
+                  Completa los datos para registrar un nuevo cargo en el sistema
+                </p>
+              </div>
+            </header>
+            <div className="grid grid-cols-1 gap-4">
+              <Input
+                label="Nombre del Cargo"
+                icon={<BsFilePost />}
+                placeholder="Ej: Pendejo No Dura Nada"
+              />
+              <Input
+                label="Descripcion"
+                icon={<LuPencilLine />}
+                placeholder="Ej: Laszlo"
+              />
+              <Select
+                label="Estado"
+                icon={<LuCirclePlus />}
+                placeholder="Selecciona un Estado"
+                options={[
+                  { value: "1", label: "Activo" },
+                  { value: "2", label: "Inactivo" },
+                ]}
+              />
+            </div>
           </div>
         </Modal>
       )}

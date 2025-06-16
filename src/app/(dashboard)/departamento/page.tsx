@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
@@ -7,10 +8,34 @@ import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import { LuBuilding2, LuUsers } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
+import Modal from "@/components/ui/modal/Modal";
+import Input from "@/components/ui/input/Input";
+import { useState } from "react";
 
 export default function Departamento() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full p-8 flex flex-col">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
+            <header className="flex items-center gap-x-3">
+              <LuBuilding2 size={24} className="text-purple-600" />
+              <div className="flex flex-col">
+                <p className="text-xl font-semibold">Agregar Departamento</p>
+                <p className="text-sm text-gray-500">
+                  Completa los datos para registrar un nuevo departamento en el
+                  sistema
+                </p>
+              </div>
+            </header>
+          </div>
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-purple-100 p-3 rounded-full">
@@ -24,7 +49,12 @@ export default function Departamento() {
           </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600">
+        <Button
+          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
           <FiPlus size={15} />
           Nuevo Departamento
         </Button>
