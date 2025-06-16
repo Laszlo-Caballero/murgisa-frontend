@@ -158,6 +158,7 @@ export interface TipoRecurso {
   nombre: string;
   descripcion: string;
   total: number;
+  proveedorTotal: number;
   estado: boolean;
 }
 

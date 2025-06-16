@@ -1,19 +1,36 @@
 "use client";
 
 import Button from "@/components/ui/button/Button";
-import { FiPlus } from "react-icons/fi";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
+import ListarProveedor from "@/modules/proveedor/listar/Listar";
+import { proveedorData } from "@/data/proveedor"; 
+import ListarTipoRecurso from "@/modules/proveedor/tipo/tipo";
+import { tipoRecursoData } from "@/data/tipoRecurso";
+import { useState } from "react";
+import Modal from "@/components/ui/modal/Modal";
+import CrearProveedor from "@/modules/proveedor/crear/CrearProveedor";
+
 import { LuBuilding2 } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuShoppingCart } from "react-icons/lu";
-import ListarProveedor from "@/modules/proveedor/listar/Listar";
-import { proveedorData } from "@/data/proveedor"; 
+import { FiPlus } from "react-icons/fi";
+
 
 
 export default function ProveedorPage(){
+    const [showModal, setShowModal] = useState(false);
     return(
         <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+            {showModal && (
+                <Modal
+                    onClose={() => {
+                    setShowModal(false);
+                    }}
+                >
+                    <CrearProveedor/>
+                </Modal>
+            )}
             <header className="flex items-center justify-between">
                 <div className="flex items-center gap-x-4">
                     <span className="bg-red-600 p-3 rounded-xl">
@@ -26,7 +43,10 @@ export default function ProveedorPage(){
                         </p>
                     </div>
                 </div>
-                <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 hover:bg-red-500" >
+                <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 hover:bg-red-500" 
+                onClick={() => {
+                setShowModal(true);
+                }}>
                 <FiPlus size={15} />
                     Nuevo Proveedor
                 </Button>
@@ -58,7 +78,7 @@ export default function ProveedorPage(){
             headers={["Catalogo de Proveedores", "Por Tipo de Recurso"]}
             className="mt-6">
             <ListarProveedor data={proveedorData}/>
-            <div>2</div>
+            <ListarTipoRecurso data={tipoRecursoData}/>
             </Tabs>
 
         </div>
