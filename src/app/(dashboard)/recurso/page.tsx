@@ -22,6 +22,7 @@ import Select from "@/components/ui/select/Select";
 import { CiMoneyBill } from "react-icons/ci";
 import { LuLayers } from "react-icons/lu";
 import { VscDebugBreakpointConditionalUnverified } from "react-icons/vsc";
+import { MdSocialDistance } from "react-icons/md";
 export default function RecursoPage() {
   const [showModal, setShowModal] = useState(false);
   return (
@@ -34,7 +35,7 @@ export default function RecursoPage() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <LuPackage size={24} className="text-purple-600" />
+              <LuPackage size={24} className="text-red-600" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Recurso</p>
                 <p className="text-sm text-gray-500">
@@ -52,7 +53,7 @@ export default function RecursoPage() {
               ></Select>
               <Select
                 label="Disponibilidad"
-                icon={<LuLayers />}
+                icon={<MdSocialDistance />}
                 placeholder="Selecciona Disponibilidad"
                 options={[{ value: "1", label: "Tipo de Recurso" }]}
               ></Select>
@@ -64,7 +65,7 @@ export default function RecursoPage() {
               ></Select>
               <Select
                 label="Proveedor"
-                icon={<LuLayers />}
+                icon={<LuBuilding2 />}
                 placeholder="Selecciona un Proveedor"
                 options={[{ value: "1", label: "Tipo de Recurso" }]}
               ></Select>
@@ -78,6 +79,12 @@ export default function RecursoPage() {
                 icon={<CiMoneyBill />}
                 placeholder="Ej: 2 so"
               />
+            </div>
+            <div>
+              <Button className="flex items-center gap-x-3 mt-4 bg-red-600 text-white py-3 font-semibold hover:bg-blue-500">
+                <FiPlus size={15} className="mr-2" />
+                Registrar Recurso
+              </Button>
             </div>
           </div>
         </Modal>
