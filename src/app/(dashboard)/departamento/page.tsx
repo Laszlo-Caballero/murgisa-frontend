@@ -46,6 +46,12 @@ export default function Departamento() {
                 placeholder="Ej: Laszlo"
               />
             </div>
+            <div>
+              <Button className="flex items-center gap-x-3 mt-4 bg-purple-600 text-white py-3 font-semibold hover:bg-blue-500">
+                <FiPlus size={15} className="mr-2" />
+                Registrar Departamento
+              </Button>
+            </div>
           </div>
         </Modal>
       )}
