@@ -11,10 +11,11 @@ import { Cliente } from "@/interfaces/response.interface";
 import { env } from "@/config/env";
 import Modal from "@/components/ui/modal/Modal";
 
+// Íconos para inputs
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaAddressCard } from "react-icons/fa";
-import { CiMail, CiPhone } from "react-icons/ci";
+import { CiMail, CiPhone, CiCirclePlus } from "react-icons/ci";
 import { LuMapPinHouse } from "react-icons/lu";
 
 export default function ClientesPage() {
@@ -59,6 +60,7 @@ export default function ClientesPage() {
                     />
                   </div>
                 </div>
+
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">Correo</label>
                   <div className="relative">
@@ -70,6 +72,7 @@ export default function ClientesPage() {
                     />
                   </div>
                 </div>
+
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">Dirección</label>
                   <div className="relative">
@@ -95,6 +98,7 @@ export default function ClientesPage() {
                     />
                   </div>
                 </div>
+
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">Teléfono</label>
                   <div className="relative">
@@ -106,11 +110,15 @@ export default function ClientesPage() {
                     />
                   </div>
                 </div>
+
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">Ciudad</label>
-                  <select className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="">Seleccione una ciudad</option>
-                  </select>
+                  <div className="relative">
+                    <CiCirclePlus className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <select className="w-full pl-10 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      <option value="">Seleccione una ciudad</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </form>
