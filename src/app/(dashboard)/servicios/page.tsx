@@ -1,5 +1,5 @@
 "use client";
-import { LuWrench } from "react-icons/lu";
+import { LuBriefcase } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuChartColumnIncreasing } from "react-icons/lu";
@@ -37,7 +37,7 @@ export default function ServiciosPage() {
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-purple-600 p-3 rounded-xl">
-            <LuWrench size={40} className="text-white" />
+            <LuBriefcase size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Servicios</p>
@@ -58,7 +58,7 @@ export default function ServiciosPage() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total de Servicios"
-          icon={<LuWrench size={28} className="text-white" />}
+          icon={<LuBriefcase size={28} className="text-white" />}
           description="5"
           extra="En catálogo"
           className = {{ container: "bg-purple-100 shadow-lg" , icon: "bg-purple-600 rounded-full p-3", text:{title:"text-purple-700" ,description:"text-purple-900 text-3xl" ,extra: "text-purple-600"} }}

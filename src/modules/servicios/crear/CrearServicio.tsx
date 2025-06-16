@@ -3,8 +3,8 @@ import React from "react";
 import Select from "@/components/ui/select/Select";
 
 import { PiMoneyWavyLight } from "react-icons/pi";
-import { LuClock, LuClock4 } from "react-icons/lu";
-import { LuWrench } from "react-icons/lu";
+import { LuClock } from "react-icons/lu";
+import { LuBriefcase } from "react-icons/lu";
 import { LuCirclePlus } from "react-icons/lu";
 import { LuPencilLine } from "react-icons/lu";
 import Button from "@/components/ui/button/Button";
@@ -17,7 +17,7 @@ export default function CrearServicio() {
     return(
     <div className="min-w-[800px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
         <header className="flex items-center gap-x-3">
-            <LuWrench size={40} className="text-purple-600 mb-2" />
+            <LuBriefcase size={40} className="text-purple-600 mb-2" />
             <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Nuevo Servicio</p>
                 <p className="text-sm text-gray-500">
@@ -28,7 +28,7 @@ export default function CrearServicio() {
         <div className="grid grid-cols-2 gap-4">
             <Input
                 label="Nombre del Servicio"
-                icon={<LuWrench />}
+                icon={<LuBriefcase />}
                 placeholder="Ej: Contrucción de Andenes"
             />
             <Select

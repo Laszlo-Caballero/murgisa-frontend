@@ -22,7 +22,7 @@ export default function RecursoPage(){
         <div className="w-full h-full p-8 flex flex-col bg-gray-50">
             <header className="flex items-center justify-between">
             <div className="flex items-center gap-x-4">
-                <span className="bg-red-500 p-3 rounded-xl">
+                <span className="bg-red-600 p-3 rounded-xl">
                 <LuPackage size={40} className="text-white" />
                 </span>
                 <div className="flex flex-col">
@@ -32,7 +32,7 @@ export default function RecursoPage(){
                 </p>
                 </div>
             </div>
-            <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-500 text-white shadow-lg hover:bg-red-400">
+            <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500">
                 <FiPlus size={15} />
                 Nuevo Recurso
             </Button>

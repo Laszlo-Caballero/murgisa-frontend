@@ -94,7 +94,7 @@ export default function page() {
                   description={tipo.descripcion}
                   span={tipo.estado ? "Activo" : "Inactivo"}
                   className={{
-                    container: "bg-white",
+                    container: "bg-white ",
                     span: "bg-green-100 text-green-800 border border-green-300",
                     header: {icon: "bg-orange-100 rounded-md"}}}>
                   <div className="flex items-center justify-between">

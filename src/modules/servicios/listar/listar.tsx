@@ -1,6 +1,6 @@
 import { Servicio } from "@/interfaces/response.interface";
 import { LuFilter } from "react-icons/lu";
-import { LuWrench } from "react-icons/lu";
+import { LuBriefcase } from "react-icons/lu";
 import { LuDollarSign } from "react-icons/lu";
 import { LuSettings } from "react-icons/lu";
 import { LuClock4 } from "react-icons/lu";
@@ -32,7 +32,7 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
                         <CardInfo 
                             key={servicio.idServicio}
                             title={servicio.titulo}
-                            icon={<LuWrench size={20} className="text-purple-600" />}
+                            icon={<LuBriefcase size={20} className="text-purple-600" />}
                             className={{
                                 container: "bg-white",
                                 header: {

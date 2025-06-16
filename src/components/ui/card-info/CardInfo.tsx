@@ -38,7 +38,7 @@ export default function CardInfo({
         className={cx("flex flex-col gap-y-2", className?.header?.container)}
       >
         <div className="flex items-center  gap-y-2 w-full justify-between">
-          <span className="flex items-center gap-x-2">
+          <span className="flex items-center gap-x-2.5">
             <div className={cx("p-2 rounded-full", className?.header?.icon)}>
               {icon}
             </div>

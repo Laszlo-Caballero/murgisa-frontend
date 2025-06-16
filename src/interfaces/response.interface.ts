@@ -152,3 +152,11 @@ export interface Recurso{
   proveedorResponsable: string;
   estado: boolean;
 }
+
+export interface TipoRecurso {
+  idTipoRecurso: number;
+  nombre: string;
+  descripcion: string;
+  total: number;
+  estado: boolean;
+}
