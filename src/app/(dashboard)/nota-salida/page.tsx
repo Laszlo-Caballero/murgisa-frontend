@@ -58,11 +58,16 @@ export default function NotasDeSalidaPage() {
                 { value: "2", label: "OR002" },
                 ]}>
                 </Select>
-              <Input
-                label="Descripción"
-                icon={<MdOutlineDescription />}
-                placeholder="Detalles de la nota de salida"
-              />
+                 <Select
+                  label="Recurso"
+                  icon={<LuCirclePlus />}
+                  placeholder="Selecciona un recurso"
+                  options={[
+                  { value: "1", label: "Grúa" },
+                  { value: "2", label: "Excavadora" },
+                  { value: "3", label: "Generador" }
+                  ]}>
+                 </Select>
             </div>
 
             <div>
