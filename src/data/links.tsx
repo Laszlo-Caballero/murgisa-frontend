@@ -145,7 +145,7 @@ export const links: Link[] = [
     links: [
       {
         label: "Orden de Salida",
-        href: "/orden/salida",
+        href: "/nota-salida",
         icono: <LuCar />,
       },
       {

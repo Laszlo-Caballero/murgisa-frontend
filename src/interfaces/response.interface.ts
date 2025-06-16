@@ -173,3 +173,11 @@ export interface Proveedor{
   ultimaCompra: Date;
   estado: boolean;
 }
+export interface NotaSalida {
+  idNotaSalida: number
+  idOrdenServicio: number
+  fecha: string
+  maquinariaSeleccionada: string[]
+  ordenServicio?: string
+  cliente?: string
+}
