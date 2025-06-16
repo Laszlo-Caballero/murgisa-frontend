@@ -52,15 +52,6 @@ export default function Cargo() {
                 icon={<LuPencilLine />}
                 placeholder="Ej: Laszlo"
               />
-              <Select
-                label="Estado"
-                icon={<LuCirclePlus />}
-                placeholder="Selecciona un Estado"
-                options={[
-                  { value: "1", label: "Activo" },
-                  { value: "2", label: "Inactivo" },
-                ]}
-              />
             </div>
           </div>
         </Modal>
