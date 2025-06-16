@@ -175,11 +175,22 @@ export interface Proveedor{
   estado: boolean;
 }
 export interface NotaSalida {
-  idNotaSalida: number
-  idOrdenServicio: number
-  fecha: string
-  maquinariaSeleccionada: string[]
-  ordenServicio?: string
+  idNotaSalida: number,
+  idOrdenServicio: number,
+  fecha: string,
+  maquinariaSeleccionada: string[],
+  ordenServicio?: string,
   cliente?: string
+}
+
+export interface NotaEntrada{
+  idNotaEntrada: number,
+  proveedor: string,
+  ruc: string,
+  item: string,
+  monto: number,
+  progreso: string,
+  fecha: string,
+  estado: boolean,
 }
 

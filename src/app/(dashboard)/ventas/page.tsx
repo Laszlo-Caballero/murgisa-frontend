@@ -32,30 +32,58 @@ export default function VentasPagina() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Ventas"
-          icon={<LuShoppingCart size={35} className="text-purple-600" />}
-          description={"0"}
+          icon={<LuShoppingCart size={28} className="text-white" />}
+          description={"20"}
+          extra="Registradas en el sistema"
+          className = {{ 
+            container: "bg-blue-50 shadow-lg" , 
+            icon: "bg-blue-600 rounded-full p-3", 
+            text:{title:"text-blue-700" ,
+            description:"text-blue-900 text-3xl" ,
+            extra: "text-blue-600"} }}
         />
         <Card
           title="Ingresos Totales"
-          icon={<LuDollarSign size={35} className="text-green-600" />}
-          description={"2"}
+          icon={<LuDollarSign size={35} className="text-white" />}
+          description={"S/. 1800"}
+          extra="Suma generada por venats"
+          className = {{ 
+            container: "bg-purple-50 shadow-lg" , 
+            icon: "bg-purple-600 rounded-full p-3", 
+            text:{title:"text-purple-700" ,
+            description:"text-purple-900 text-3xl" ,
+            extra: "text-purple-600"} }}
         />
         <Card
           title="Ventas Completadas"
-          icon={<LuCircleCheckBig size={35} className="text-blue-600" />}
-          description={"0"}
+          icon={<LuCircleCheckBig size={35} className="text-white" />}
+          description={"28"}
+          extra="Finalizadas exitosamente"
+          className = {{ 
+            container: "bg-green-50 shadow-lg" , 
+            icon: "bg-green-600 rounded-full p-3", 
+            text:{title:"text-green-700" ,
+            description:"text-green-900 text-3xl" ,
+            extra: "text-green-600"} }}       
         />
         <Card
           title="Ventas Canceladas"
-          icon={<IoWarningOutline size={35} className="text-red-600" />}
+          icon={<IoWarningOutline size={35} className="text-white" />}
           description={"0"}
+          extra="Anuladas o sin Concretar"
+          className = {{ 
+            container: "bg-red-50 shadow-lg" , 
+            icon: "bg-red-600 rounded-full p-3", 
+            text:{title:"text-red-700" ,
+            description:"text-red-900 text-3xl" ,
+            extra: "text-red-600"} }}
         />
       </div>
 
       <div className="py-4 flex w-full flex-col gap-y-4">
         <section className="flex w-full flex-col p-4 rounded-lg shadow">
           <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-            <LuFilter />
+            <LuFilter className="text-blue-600"/>
             Filtros
           </span>
         </section>

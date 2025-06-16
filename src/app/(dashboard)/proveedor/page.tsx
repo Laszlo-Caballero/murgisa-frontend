@@ -57,21 +57,21 @@ export default function ProveedorPage(){
                     icon={<LuBuilding2 size={28} className="text-white" />}
                     description="20"
                     extra="Registrados en la empresa"
-                    className = {{ container: "bg-blue-50 shadow-lg" , icon: "bg-blue-600 rounded-full p-3", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" ,extra: "text-blue-600"} }}
+                    className = {{ container: "bg-blue-100 shadow-lg" , icon: "bg-blue-600 rounded-full p-3", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" ,extra: "text-blue-600"} }}
                 />
                 <Card
                     title="Proveedores Activos"
                     icon={<LuCircleCheckBig size={28} className="text-white" />}
                     description="18"
                     extra="Disponibles en la empresa"
-                    className = {{ container: "bg-emerald-50 shadow-lg" , icon: "bg-emerald-600 rounded-full p-3", text:{title:"text-emerald-700" ,description:"text-emerald-900 text-3xl" ,extra: "text-emerald-600"} }}
+                    className = {{ container: "bg-emerald-100 shadow-lg" , icon: "bg-emerald-600 rounded-full p-3", text:{title:"text-emerald-700" ,description:"text-emerald-900 text-3xl" ,extra: "text-emerald-600"} }}
                 />
                 <Card
                     title="Total Compras"
                     icon={<LuShoppingCart size={28} className="text-white" />}
                     description="48"
                     extra="Del Mes"
-                    className = {{ container: "bg-orange-50 shadow-lg" , icon: "bg-orange-600 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" ,extra: "text-orange-600"} }}
+                    className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-600 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" ,extra: "text-orange-600"} }}
                 />
             </div>
             <Tabs
