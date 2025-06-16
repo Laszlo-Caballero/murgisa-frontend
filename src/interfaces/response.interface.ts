@@ -160,3 +160,14 @@ export interface TipoRecurso {
   total: number;
   estado: boolean;
 }
+
+export interface Proveedor{
+  idProveedor: string;
+  razSocial: string;
+  ruc: string;
+  responsable: string;
+  tipoRecurso: string;
+  dni: string;
+  email: string;
+  estado: boolean;
+}

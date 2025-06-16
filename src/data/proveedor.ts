@@ -1,0 +1,54 @@
+import { Proveedor} from "@/interfaces/response.interface";
+
+export  const proveedorData: Proveedor[] = [
+{
+    idProveedor: "PR001",
+    razSocial: "Maquinarias López S.A.C.",
+    ruc: "20481234567",
+    responsable: "Carlos López",
+    tipoRecurso: "Maquinaria",
+    dni: "45872341",
+    email: "lopéz@gmail.com",
+    estado: true,
+},
+{
+    idProveedor: "PR002",
+    razSocial: "Herramientas del Norte",
+    ruc: "20543345678",
+    responsable: "Lucía Ramírez",
+    tipoRecurso: "Herramientas",
+    dni: "40321567",
+    email: "ramírez@gmail.com",
+    estado: true,
+},
+{
+    idProveedor: "PR003",
+    razSocial: "Materiales Andinos EIRL",
+    ruc: "20671234566",
+    responsable: "Juan Paredes",
+    tipoRecurso: "Material",
+    dni: "43125798",
+    email: "paredes@gmail.com",
+    estado: true,
+},
+{
+    idProveedor: "PR004",
+    razSocial: "Servicios Técnicos Rivera",
+    ruc: "20345678901",
+    responsable: "Diana Rivera",
+    tipoRecurso: "Herramientas",
+    dni: "44589901",
+    email: "rivera@gmail.com",
+    estado: true,
+},
+{
+    idProveedor: "PR005",
+    razSocial: "Distribuidora Eléctrica S.A.",
+    ruc: "20123456789",
+    responsable: "Marcos Reinoso",
+    tipoRecurso: "Maquinaria",
+    dni: "46789123",
+    email: "reinoso@gmail.com",
+    estado: false,
+}
+]
