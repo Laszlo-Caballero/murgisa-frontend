@@ -19,7 +19,7 @@ import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { FaRegTrashAlt } from "react-icons/fa";
-
+import { IoTimeOutline } from "react-icons/io5";
 import { LuDollarSign } from "react-icons/lu";
 import { PiCity } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
@@ -124,7 +124,7 @@ export default function MantenimientoCorrectivo() {
         />
         <Card
           title="Pendientes"
-          icon={<LuShield size={28} className="text-yellow-600" />}
+          icon={<IoTimeOutline size={28} className="text-yellow-600" />}
           description="10"
           className={{
             container: "bg-yellow-100 shadow-lg",
