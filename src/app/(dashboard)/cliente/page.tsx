@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@/components/ui/button/Button";
@@ -11,7 +10,6 @@ import { Cliente } from "@/interfaces/response.interface";
 import { env } from "@/config/env";
 import Modal from "@/components/ui/modal/Modal";
 
-// Íconos para inputs
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaAddressCard } from "react-icons/fa";
@@ -31,7 +29,7 @@ export default function ClientesPage() {
   }, []);
 
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full p-9 flex flex-col">
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg flex flex-col gap-6">
