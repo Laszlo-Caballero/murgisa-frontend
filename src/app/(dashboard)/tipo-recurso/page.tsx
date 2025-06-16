@@ -1,8 +1,8 @@
+"use client";
 import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { tipoRecursoData } from "@/data/tipoRecurso";
-
 import { HiPlusSmall } from "react-icons/hi2";
 import { FiPlus } from "react-icons/fi";
 import { LuLayers } from "react-icons/lu";
@@ -11,10 +11,48 @@ import { LuPackage } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
+import { useState } from "react";
+import Modal from "@/components/ui/modal/Modal";
+import Input from "@/components/ui/input/Input";
+import Select from "@/components/ui/select/Select";
 
 export default function TipoRecursoPage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
+            <header className="flex items-center gap-x-3">
+              <LuPackage size={24} className="text-red-600" />
+              <div className="flex flex-col">
+                <p className="text-xl font-semibold">Agregar Tipo de Recurso</p>
+                <p className="text-sm text-gray-500">
+                  Completa los datos para registrar un nuevo tipo de recurso en
+                  el sistema
+                </p>
+              </div>
+            </header>
+            <div className="grid grid-cols-1 gap-4">
+              <Input
+                label="Nombre del Tipo de Recurso"
+                icon={<LuPackage />}
+                placeholder="Ej: Recurso"
+              />
+            </div>
+            <div>
+              <Button className="flex items-center gap-x-3 mt-4 bg-red-600 text-white py-3 font-semibold hover:bg-blue-500">
+                <FiPlus size={15} className="mr-2" />
+                Registrar Tipo de Recurso
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-red-600 p-3 rounded-xl">
@@ -27,7 +65,12 @@ export default function TipoRecursoPage() {
             </p>
           </div>
         </div>
-        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500">
+        <Button
+          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
           <FiPlus size={15} />
           Nuevo Recurso
         </Button>

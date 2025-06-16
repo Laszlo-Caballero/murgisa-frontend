@@ -169,5 +169,6 @@ export interface Proveedor{
   tipoRecurso: string;
   dni: string;
   email: string;
+  ultimaCompra: Date;
   estado: boolean;
 }
