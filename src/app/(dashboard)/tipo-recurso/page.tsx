@@ -53,12 +53,12 @@ export default function TipoRecursoPage() {
           Nuevo Recurso
         </Button>
       </header>
-      <div className="grid grid-cols-3 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Tipos"
           icon={<LuLayers size={28} className="text-white" />}
           description="10"
-          extra="Configurados"
+          extra="Configurados en el sistema"
           className={{
             container: "bg-emerald-100 shadow-lg",
             icon: "bg-emerald-500 rounded-full p-3",
@@ -73,7 +73,7 @@ export default function TipoRecursoPage() {
           title="Tipos Activos"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="9"
-          extra="Disponibles"
+          extra="Disponibles para asignacion"
           className={{
             container: "bg-blue-100 shadow-lg",
             icon: "bg-blue-500 rounded-full p-3",
@@ -88,7 +88,7 @@ export default function TipoRecursoPage() {
           title="Total Recursos"
           icon={<LuPackage size={28} className="text-white" />}
           description="108"
-          extra="Aplicaciones"
+          extra="Designados a servicios"
           className={{
             container: "bg-purple-100 shadow-lg",
             icon: "bg-purple-500 rounded-full p-3",

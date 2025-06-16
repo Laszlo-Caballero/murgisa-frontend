@@ -46,7 +46,7 @@ export default function ServiciosPage() {
           </div>
         </div>
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-purple-600 text-white"
+          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-purple-600 text-white hover:bg-purple-500"
           onClick={() => {
             setShowModal(true);
           }}
