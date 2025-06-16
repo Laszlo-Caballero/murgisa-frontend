@@ -39,16 +39,6 @@ export const links: Link[] = [
         href: "/ventas",
         icono: <MdOutlineShoppingCart />,
       },
-      {
-        label: "Ver Ventas",
-        href: "/ventas/listar",
-        icono: <FiEye />,
-      },
-      {
-        icono: <TbCash />,
-        href: "/pago",
-        label: "Ver Pagos",
-      },
     ],
   },
   {
