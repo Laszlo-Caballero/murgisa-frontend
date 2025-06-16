@@ -1,3 +1,4 @@
+"use client";
 import { LuShield } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import { LuCircleCheck } from "react-icons/lu";
@@ -10,21 +11,82 @@ import React from "react";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
 import CardInfo from "@/components/ui/card-info/CardInfo";
+import Modal from "@/components/ui/modal/Modal";
+import Input from "@/components/ui/input/Input";
 
+import { useState } from "react";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 import { LuDollarSign } from "react-icons/lu";
-import { LuSettings } from "react-icons/lu";
 import { PiCity } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
 import { PiMapPinArea } from "react-icons/pi";
+import Select from "@/components/ui/select/Select";
 
 export default function MantenimientoCorrectivo() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
+            <header className="flex items-center gap-x-3">
+              <PiWrenchBold size={24} className="text-orange-600" />
+              <div className="flex flex-col">
+                <p className="text-xl font-semibold">
+                  Agregar Mantenimiento Correctivo
+                </p>
+                <p className="text-sm text-gray-500">
+                  Completa los datos para registrar un nuevo mantenimiento
+                  correctivo en el sistema
+                </p>
+              </div>
+            </header>
+            <div className="grid grid-cols-1 gap-4">
+              <Select
+                label="Categoria"
+                icon={<PiWrenchBold />}
+                placeholder="Selecciona un Tipo de Mantenimiento Correctivo"
+                options={[{ value: "1", label: "Construcción" }]}
+              ></Select>
+              <Input
+                label="Nombre de la Maquinaria"
+                icon={<PiCity />}
+                placeholder="Ej: Compresor Industrial CI-001"
+              />
+              <Select
+                label="Tecnico"
+                icon={<FaRegUser />}
+                placeholder="Selecciona un Tecnico"
+                options={[{ value: "1", label: "Paco" }]}
+              ></Select>
+              <Input
+                label="Ubicacion"
+                icon={<PiMapPinArea />}
+                placeholder="Ej: El Porvenir"
+              />
+              <Input
+                label="Precio"
+                icon={<LuDollarSign />}
+                placeholder="Ej: $/ 200"
+              />
+            </div>
+            <div>
+              <Button className="flex items-center gap-x-3 mt-4 bg-orange-600 text-white py-3 font-semibold hover:bg-blue-500">
+                <FiPlus size={15} className="mr-2" />
+                Registrar Mantenimiento Correctivo
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-orange-500 p-3 rounded-xl">
@@ -37,7 +99,12 @@ export default function MantenimientoCorrectivo() {
             </p>
           </div>
         </div>
-        <Button className="flex items-center gap-x-3 py-2 font-semibold mt-4 bg-orange-500 text-white shadow-md hover:bg-orange-400">
+        <Button
+          className="flex items-center gap-x-3 py-2 font-semibold mt-4 bg-orange-500 text-white shadow-md hover:bg-orange-400"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
           <FiPlus size={15} />
           Nueva Orden
         </Button>
