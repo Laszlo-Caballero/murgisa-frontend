@@ -141,3 +141,14 @@ export interface TipoMantenimiento {
   total: number;
   estado: boolean;
 }
+
+export interface Recurso{
+  idRecurso: number;
+  nombre: string;
+  tipo: string;
+  precio: number;
+  disponibilidad: string;
+  proveedor: string;
+  proveedorResponsable: string;
+  estado: boolean;
+}

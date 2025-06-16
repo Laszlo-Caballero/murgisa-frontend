@@ -1,12 +1,21 @@
+"use client";
+
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
+import Table from "@/components/ui/table/Table";
+import { recursoData } from "@/data/recurso";
+import Badge from "@/components/ui/badge/Badge";
 
-import { LuCircleCheckBig, LuClock } from "react-icons/lu";
+import { LuBuilding2 } from "react-icons/lu";
+import { LuClipboardList } from "react-icons/lu";
+import { LuCircleCheckBig} from "react-icons/lu";
 import { LuPackage } from "react-icons/lu";
-import { FiPlus } from "react-icons/fi";
 import { LuClock4 } from "react-icons/lu";
 import { LuWrench } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
+import { FiPlus } from "react-icons/fi";
+import { PiMoneyWavyLight } from "react-icons/pi";
+
 
 export default function RecursoPage(){
     return(
@@ -63,6 +72,95 @@ export default function RecursoPage(){
                     <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar recursos específicos de manera rápida</p>
                 </section>
             </div>
+
+            {<Table className="mt-4 bg-white w-full rounded-md " data={recursoData} columns={[
+                {
+                    header: "Profesión",
+                    cell: (props) => {
+                        return (
+                        <div className="flex items-start gap-x-3">
+                            <span className="bg-red-100 p-2 rounded-xl">
+                                <LuPackage size={15} className="text-red-600" />
+                            </span>
+                            <div className="flex flex-col">
+                                <p className="font-semibold text-sm">{props.row.nombre}</p>
+                                <p className="text-xs text-gray-600">ID: REC-00{props.row.idRecurso}</p>
+                            </div>
+                        </div>);
+                    },
+                },
+                {
+                    header: "Categoria",
+                    cell: (props) => {
+                        return(
+                        <div className="flex items-start gap-x-3">
+                            <LuClipboardList size={15} className="text-blue-600" />
+                            <p className="font-semibold text-sm">{props.row.tipo}</p>
+                        </div>
+                        )
+                    }
+                },
+                {
+                    header: "Disponibilidad",
+                    cell: (props) => {
+                        return(
+                        <div className="flex flex-col gap-y-2">
+                            <Badge className="bg-yellow-100 text-yellow-800 border-orange-200 font-semibold">En uso</Badge>
+                            <p className="text-xs text-gray-500">
+                                Vendido 10 veces
+                            </p>
+                        </div>
+                        )
+                    }                   
+                },
+                {
+                    header: "Proveedor",
+                    cell: (props) => {
+                        return(
+                        <div className="flex flex-col gap-y-2">
+                            <span className="flex items-center gap-x-2">
+                                <LuBuilding2 size={15} className="text-purple-600"/>
+                                <p className="font-semibold text-sm">{props.row.proveedor}</p>
+                            </span>
+                            <span className="text-xs text-gray-500">
+                                Responsable: {props.row.proveedorResponsable}
+                            </span>
+                        </div>
+
+                        )
+                    }  
+                },
+                {
+                    header: "Precio",
+                    cell: (props) => {
+                        return(
+                            <span className="flex w-auto items-center gap-x-2">
+                                <PiMoneyWavyLight size={15} className="text-green-600"/>
+                                <p className="font-semibold text-green-600 text-sm">S/. {props.row.precio}</p>
+                            </span>
+                        )
+                    }                   
+                },
+                {
+                    header: "Estado",
+                    cell: (props) => {
+                        return(
+                            <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold">Activo</Badge>
+                        )
+                    }                      
+                },
+                {
+                    header: "Acciones"
+                }
+            ]
+            }>
+
+
+
+            </Table>
+
+            }
+
         </div>
     )
 }   
