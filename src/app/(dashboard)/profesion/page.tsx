@@ -13,8 +13,7 @@ import Card from "@/components/ui/card/Card";
 import Table from "@/components/ui/table/Table";
 import { profesionData } from "@/data/profesion";
 import { useState } from "react";
-import { use } from "react";
-
+import Badge from "@/components/ui/badge/Badge";
 
 export default function ProfesionPage() {
   const [showModal, setShowModal] = useState(false);
@@ -129,7 +128,7 @@ export default function ProfesionPage() {
                 <div className="flex items-center gap-x-2">
                   <LuUsers size={15} className="text-gray-500" />
                   <span className="text-sm font-bold">{props.row.cantidad}</span>
-                  <p className="text-sm"> empleados</p>
+                  <p className="text-xs text-gray-500"> empleados</p>
                 </div>
               );
             }
@@ -138,12 +137,9 @@ export default function ProfesionPage() {
             header: "Estado",
             cell: (props) => {
               return (
-                <div className=" flex items-center gap-x-2 py-1 px-3 bg-green-100 rounded-full border border-green-300">
-                  <LuCircleCheckBig size={15} className="text-green-800" />
-                  <span className=" text-xs font-semibold text-green-800">
-                    Activo
-                  </span>
-                </div>
+                <Badge className="bg-green-100 border-green-300 text-green-800 font-semibold">
+                  Activo
+                </Badge>
               );
             },
           },

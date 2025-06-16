@@ -8,16 +8,15 @@ import { LuUserCheck } from "react-icons/lu";
 import { RiGraduationCapLine } from "react-icons/ri";
 import { PiWrenchBold } from "react-icons/pi";
 import { MdOutlineShield } from "react-icons/md";
-import { MdOutlineCalendarToday } from "react-icons/md";
 import { LuBriefcase } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { GoPlusCircle } from "react-icons/go";
-import { TbCash } from "react-icons/tb";
 import { AiOutlineApartment } from "react-icons/ai";
 import { TbBasketDown } from "react-icons/tb";
 import { MdOutlineAssignment } from "react-icons/md";
 import { LiaSitemapSolid } from "react-icons/lia";
-
+import { LuCar } from "react-icons/lu";
+import { LuShoppingCart } from "react-icons/lu";
 export const links: Link[] = [
   {
     titulo: "Principal",
@@ -38,16 +37,6 @@ export const links: Link[] = [
         label: "Ventas",
         href: "/ventas",
         icono: <MdOutlineShoppingCart />,
-      },
-      {
-        label: "Ver Ventas",
-        href: "/ventas/listar",
-        icono: <FiEye />,
-      },
-      {
-        icono: <TbCash />,
-        href: "/pago",
-        label: "Ver Pagos",
       },
     ],
   },
@@ -102,19 +91,9 @@ export const links: Link[] = [
         icono: <MdOutlineShield />,
       },
       {
-        label: "Planificación de Mantenimiento",
-        href: "/mantenimiento/planificacion",
-        icono: <MdOutlineCalendarToday />,
-      },
-      {
         icono: <GoPlusCircle />,
         href: "/mantenimiento/agregarmantenimiento",
         label: "Agregar Tipo Mantenimiento",
-      },
-      {
-        icono: <FiEye />,
-        href: "/mantenimiento/veragregarman",
-        label: "Ver Tipos de Mantenimiento",
       },
     ],
   },
@@ -157,6 +136,22 @@ export const links: Link[] = [
         label: "Proovedor",
         href: "/proveedor",
         icono: <LuUsers />,
+      },
+    ],
+  },
+  {
+    titulo: "Almacen",
+    color: "pink",
+    links: [
+      {
+        label: "Orden de Salida",
+        href: "/orden/salida",
+        icono: <LuCar />,
+      },
+      {
+        label: "Orden de Entrada",
+        href: "/orden/entrada",
+        icono: <LuShoppingCart />,
       },
     ],
   },

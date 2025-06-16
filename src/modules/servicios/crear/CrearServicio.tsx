@@ -53,7 +53,7 @@ export default function CrearServicio() {
                 placeholder="Ej: S/. 1500 "/>          
         </div>
         <div>
-            <Button className="flex items-center gap-x-3 mt-4 bg-purple-600 text-white py-3 font-semibold hover:bg-blue-500">
+            <Button className="flex items-center gap-x-3 mt-4 bg-purple-600 text-white py-3 font-semibold hover:bg-purple-500">
                 <FiPlus size={15} className="mr-2" />
                 Registrar Servicio
             </Button>

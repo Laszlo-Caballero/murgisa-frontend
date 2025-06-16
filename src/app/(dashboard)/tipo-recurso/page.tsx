@@ -3,7 +3,9 @@ import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { tipoRecursoData } from "@/data/tipoRecurso";
-import { HiPlusSmall } from "react-icons/hi2";
+import CrearTipoRecurso from "@/modules/tipo-recurso/crear/CrearTipoRecurso";
+
+
 import { FiPlus } from "react-icons/fi";
 import { LuLayers } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
@@ -26,31 +28,7 @@ export default function TipoRecursoPage() {
             setShowModal(false);
           }}
         >
-          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
-            <header className="flex items-center gap-x-3">
-              <LuPackage size={24} className="text-red-600" />
-              <div className="flex flex-col">
-                <p className="text-xl font-semibold">Agregar Tipo de Recurso</p>
-                <p className="text-sm text-gray-500">
-                  Completa los datos para registrar un nuevo tipo de recurso en
-                  el sistema
-                </p>
-              </div>
-            </header>
-            <div className="grid grid-cols-1 gap-4">
-              <Input
-                label="Nombre del Tipo de Recurso"
-                icon={<LuPackage />}
-                placeholder="Ej: Recurso"
-              />
-            </div>
-            <div>
-              <Button className="flex items-center gap-x-3 mt-4 bg-red-600 text-white py-3 font-semibold hover:bg-blue-500">
-                <FiPlus size={15} className="mr-2" />
-                Registrar Tipo de Recurso
-              </Button>
-            </div>
-          </div>
+          <CrearTipoRecurso/>
         </Modal>
       )}
       <header className="flex items-center justify-between">
@@ -75,12 +53,12 @@ export default function TipoRecursoPage() {
           Nuevo Recurso
         </Button>
       </header>
-      <div className="grid grid-cols-3 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Tipos"
           icon={<LuLayers size={28} className="text-white" />}
           description="10"
-          extra="Configurados"
+          extra="Configurados en el sistema"
           className={{
             container: "bg-emerald-100 shadow-lg",
             icon: "bg-emerald-500 rounded-full p-3",
@@ -95,7 +73,7 @@ export default function TipoRecursoPage() {
           title="Tipos Activos"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="9"
-          extra="Disponibles"
+          extra="Disponibles para asignacion"
           className={{
             container: "bg-blue-100 shadow-lg",
             icon: "bg-blue-500 rounded-full p-3",
@@ -110,7 +88,7 @@ export default function TipoRecursoPage() {
           title="Total Recursos"
           icon={<LuPackage size={28} className="text-white" />}
           description="108"
-          extra="Aplicaciones"
+          extra="Designados a servicios"
           className={{
             container: "bg-purple-100 shadow-lg",
             icon: "bg-purple-500 rounded-full p-3",

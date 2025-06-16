@@ -53,6 +53,7 @@ export function getColor(color?: Color) {
     pink: {
       bgColor: "bg-pink-500/20",
       textColor: "text-pink-500",
+      activeColor: "bg-pink-500/10",
     },
     teal: {
       bgColor: "bg-teal-500/20",
