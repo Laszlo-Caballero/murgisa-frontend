@@ -22,14 +22,17 @@ import { env } from "@/config/env";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 import Modal from "@/components/ui/modal/Modal";
 import CrearPersonal from "@/modules/personal/crear/CrearPersonal";
+import { personalData } from "@/data/personal";
+
+
 export default function PersonalPage() {
   const [showModal, setShowModal] = useState(false);
-  const { data, isLoading } = useQuery<Personal[]>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/personal`);
-      return response.data;
-    },
-  });
+  // const { data, isLoading } = useQuery<Personal[]>({
+  //   queryFn: async () => {
+  //     const response = await axios.get(`${env.url_api}/personal`);
+  //     return response.data;
+  //   },
+  // });
 
   return (
     <div className="w-full p-8 flex flex-col">
@@ -56,7 +59,7 @@ export default function PersonalPage() {
         </div>
 
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600"
+          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
           onClick={() => {
             setShowModal(true);
           }}
@@ -85,12 +88,12 @@ export default function PersonalPage() {
           </span>
         </section>
         <div className="grid grid-cols-3 gap-4">
-          {isLoading &&
+          {/* {isLoading &&
             Array.from({ length: 3 }).map((_, index) => {
               return <CardInfoSkeleton key={index} />;
-            })}
+            })} */}
 
-          {data?.map((empleado) => {
+          {personalData?.map((empleado) => {
             return (
               <CardInfo
                 key={empleado.idPersonal}
@@ -100,9 +103,9 @@ export default function PersonalPage() {
                   header: {
                     icon: "bg-blue-100 text-center p-0 size-7 flex items-center justify-center uppercase",
                   },
-                  span: "bg-purple-100 text-blue-700 font-bold",
+                  span: "bg-blue-100 text-blue-600 font-bold",
                 }}
-                description={empleado.cargo.cargo}
+                description={empleado.cargo}
                 span={empleado.estado ? "Activo" : "Inactivo"}
               >
                 <div className="flex flex-col gap-y-2">
@@ -116,7 +119,7 @@ export default function PersonalPage() {
                     <span className="flex items-center text-xs gap-x-1 text-gray-500">
                       <MdOutlineEmail /> Correo:{" "}
                       <p className="font-semibold text-black">
-                        {empleado?.usuario?.correo || "No disponible"}
+                        {empleado?.correo || "No disponible"}
                       </p>
                     </span>
                     <span className="flex items-center text-xs gap-x-1 text-gray-500">
@@ -141,7 +144,7 @@ export default function PersonalPage() {
                     <span className="flex items-center text-xs gap-x-1 text-gray-500">
                       <LuBriefcase /> Profesion:{" "}
                       <p className="font-semibold text-black">
-                        {empleado.profesion.titulo || "No disponible"}
+                        {empleado.profesion || "No disponible"}
                       </p>
                     </span>
                   </div>

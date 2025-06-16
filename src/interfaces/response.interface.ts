@@ -81,12 +81,13 @@ export interface Personal {
   apellido_materno: string;
   sueldo: number;
   numeroDocumento: string;
+  correo: string;
   telefono: string;
   estado: boolean;
   fechaIngreso: string;
-  cargo: Cargo;
-  profesion: Profesion;
-  usuario?: Usuario;
+  cargo: string;
+  profesion: string;
+  usuario?: string;
 }
 
 export interface Categoria {
@@ -181,3 +182,4 @@ export interface NotaSalida {
   ordenServicio?: string
   cliente?: string
 }
+

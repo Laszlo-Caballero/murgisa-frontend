@@ -67,7 +67,7 @@ export default function CondicionesPage() {
   const usoTotal = condiciones.reduce((a, b) => a + b.uso, 0);
 
   return (
-    <div className="p-8 w-full flex flex-col gap-6 bg-gray-50">
+    <div className="p-8 w-full h-full flex flex-col gap-6 bg-gray-50">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-x-4">
           <span className="bg-blue-600 p-3 rounded-xl">
