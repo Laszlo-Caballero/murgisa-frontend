@@ -20,12 +20,15 @@ export default function ListarCategoria({ data }: ListarCategoriaProps) {
                     title={categoria.nombre}
                     description={categoria.descripcion}
                     icon={<LuSettings size={20} className="text-purple-600" />}
+                    span={categoria.estado ? "Activo" : "Inactivo"}
                     className={{
                         container: "bg-white",
                         header: {
                             title: "text-xl font-semibold",
                             description: "text-sm text-gray-900",
+                            icon: "bg-purple-100 rounded-md p-3 ",
                         },
+                        span: "bg-green-100 text-green-700 border border-green-300 font-semibold "
                     }}
                     
                     >
@@ -41,11 +44,6 @@ export default function ListarCategoria({ data }: ListarCategoriaProps) {
                             <p className="text-blue-600 font-bold"> S/. {categoria.ingresosMes}</p>
                         </div>
                     </div> 
-                    <div className="flex items-start mt-2">
-                        <Button className="bg-black text-white text-xs font-semibold rounded-full hover:bg-gray-800 py-1 px-3">
-                            Activo
-                        </Button>
-                    </div>
                     </CardInfo>
                 )
             })}

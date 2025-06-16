@@ -40,34 +40,53 @@ export default function MantenimientoPreventivoPage() {
           <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
             <Card
               title="Total"
-              icon={<LuShield size={28} className="text-blue-600" />}
+              icon={<LuShield size={28} className="text-white" />}
               description="10"
-              className = {{ container: "bg-blue-100 shadow-lg", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" }}}
+              extra="Mantenimientos planificados en el sistema"
+              className = {{ container: "bg-blue-100 shadow-lg", 
+                icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+                text:{
+                  title:"text-blue-700" ,
+                  description:"text-blue-900 text-3xl",
+                  extra: "text-blue-800 text-xs"
+              }}}
             />
             <Card
               title="Completados"
-              icon={<LuCircleCheck size={28} className="text-green-600" />}
+              icon={<LuCircleCheck size={28} className="text-white" />}
               description="6"
-              className = {{ container: "bg-green-100 shadow-lg", text:{title:"text-green-700" ,description:"text-green-900 text-3xl" }}}
+              extra="Correctamente por los responsables."
+              className = {{ 
+                container: "bg-green-100 shadow-lg", 
+                icon: "bg-green-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-green-700",
+                description:"text-green-800 text-3xl", 
+                extra: "text-green-800 text-xs"}}}
             />
             <Card
               title="En Progreso"
-              icon={<LuCirclePlay size={28} className="text-orange-600" />}
+              icon={<LuCirclePlay size={28} className="text-white" />}
               description="3"
-              className = {{ container: "bg-orange-100 shadow-lg", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" }}}
+              extra="Están siendo trabajadas actualmente."
+              className = {{ 
+                container: "bg-orange-100 shadow-lg", 
+                icon: "bg-orange-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-orange-700" ,
+                description:"text-orange-900 text-3xl",
+                extra: "text-orange-800 text-xs" }}}
             />         
             <Card
               title="Atrasados"
-              icon={<LuTriangleAlert size={28} className="text-red-600" />}
+              icon={<LuTriangleAlert size={28} className="text-white" />}
               description="1"
-              className = {{ container: "bg-red-100 shadow-lg", text:{title:"text-red-700" ,description:"text-red-900 text-3xl" }}}
+              extra=" No se completaron en la fecha estimada"
+              className = {{ 
+                container: "bg-red-100 shadow-lg",
+                icon: "bg-red-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-red-700" ,
+                description:"text-red-900 text-3xl",
+                extra: "text-orange-900 text-xs"}}}
             /> 
-            {/* <Card
-              title="Costo Total"
-              icon={<LuChartColumn size={28} className="text-purple-600" />}
-              description="S/. 820"
-              className = {{ container: "bg-purple-100 shadow-lg", text:{title:"text-purple-700" ,description:"text-purple-900 text-3xl" }}}
-            />     */}
           </div>
           <Tabs
             headers={["Lista de Mantenimientos", "Vista Calendario"]}

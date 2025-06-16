@@ -6,6 +6,7 @@ import { LuUsers } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 
 
+import Badge from "@/components/ui/badge/Badge";
 import Table from "@/components/ui/table/Table";
 
 interface ListarPreventivosProps {
@@ -18,7 +19,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
             <div className="py-4 flex w-full flex-col gap-y-4">
                 <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
                 <span className="flex items-center gap-x-2 font-semibold text-black text-md">
-                    <LuFilter size={20} className="text-orange-700"/>
+                    <LuFilter size={20} className="text-orange-600"/>
                     Filtros de Búsqueda
                 </span>
                 <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar mantenimientos programados de manera rápida</p>
@@ -40,7 +41,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                     data={data} 
                     columns={[
                     {   
-                        header: "Proveedor",
+                        header: "Mantenimiento",
                         cell: (props) => {
                         return (
                             <div className="flex items-start gap-x-3">
@@ -51,16 +52,6 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                             </div>
                             );
                         },
-                    },
-                    {
-                        header: "Recurso",
-                        cell: (props) => {
-                            return(
-                                <span className="text-sm">
-                                    {props.row.recurso}
-                                </span>
-                            )
-                        }
                     },
                     {
                         header: "Fecha Programada",
@@ -94,13 +85,22 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                         },
                     },
                     {
+                        header: "Recurso",
+                        cell: (props) => {
+                            return(
+                                <span className="text-sm">
+                                    {props.row.recurso}
+                                </span>
+                            )
+                        }
+                    },
+                    {
                         header: "Prioridad",
                         cell: (props) => {
                         return (
-                            <div className="flex items-center justify-center gap-x-1 py-1 px-2 bg-yellow-100 border border-yellow-300 rounded-full">
-                                <LuCircleCheckBig size={15} className="text-yellow-800" />
-                                <span className="text-xs font-semibold text-yellow-800">Media</span>
-                            </div>
+                            <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold">
+                                Media
+                            </Badge>
                             );
                         },
                     },
@@ -108,10 +108,9 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                         header: "Estado",
                         cell: (props) => {
                         return (
-                            <div className="flex items-center justify-center gap-x-1 py-1 px-2 bg-green-100 border border-green-300 rounded-full">
-                                <LuCircleCheckBig size={15} className="text-green-800" />
-                                <span className="text-xs font-semibold text-green-800">Activo</span>
-                            </div>
+                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
+                                Activo
+                            </Badge>
                             );
                         },
                     },

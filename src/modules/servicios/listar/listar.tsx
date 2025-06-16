@@ -76,7 +76,7 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
                             </div>
                         </div>
                         <div className="flex items-center justify-between gap-x-2 mt-4">
-                            <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
+                            <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
                                 <LuSquarePen size={15} />
                                 Editar
                             </Button>
@@ -85,7 +85,7 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
                                 Desactivar
                             </Button>
                         </div>
-                        </CardInfo>
+                    </CardInfo>
                     );
                 })}
             </div>

@@ -6,9 +6,6 @@ import { LuPencilLine } from "react-icons/lu";
 import Button from "@/components/ui/button/Button";
 import { FiPlus } from "react-icons/fi";
 
-
-
-
 export default function CrearTipoRecurso() {
     return(
     <div className="min-w-[800px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
