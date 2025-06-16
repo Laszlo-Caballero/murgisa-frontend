@@ -125,7 +125,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="rounded-lg p-6 bg-white shadow-sm gap-y-4 flex flex-col h-full">
+        <div className="rounded-lg p-6 bg-white shadow-sm gap-y-4 items-center justify-center flex flex-col h-full">
           <Carousel>
             {tips.map((tip, index) => {
               const color = getColor(tip.color);
@@ -133,7 +133,7 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className="flex gap-x-4 items-center p-4 border border-gray-200 shadow-xs rounded-lg h-full w-full"
+                  className="flex gap-x-4 items-center p-4 border border-gray-200 shadow-xs rounded-lg  w-full"
                 >
                   <div
                     className={cx(

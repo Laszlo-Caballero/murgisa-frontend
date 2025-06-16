@@ -158,6 +158,7 @@ export interface TipoRecurso {
   nombre: string;
   descripcion: string;
   total: number;
+  proveedorTotal: number;
   estado: boolean;
 }
 
@@ -169,5 +170,6 @@ export interface Proveedor{
   tipoRecurso: string;
   dni: string;
   email: string;
+  ultimaCompra: Date;
   estado: boolean;
 }

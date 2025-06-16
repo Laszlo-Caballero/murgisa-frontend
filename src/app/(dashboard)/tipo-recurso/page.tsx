@@ -1,9 +1,11 @@
+"use client";
 import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { tipoRecursoData } from "@/data/tipoRecurso";
+import CrearTipoRecurso from "@/modules/tipo-recurso/crear/CrearTipoRecurso";
 
-import { HiPlusSmall } from "react-icons/hi2";
+
 import { FiPlus } from "react-icons/fi";
 import { LuLayers } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
@@ -11,10 +13,24 @@ import { LuPackage } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
+import { useState } from "react";
+import Modal from "@/components/ui/modal/Modal";
+import Input from "@/components/ui/input/Input";
+import Select from "@/components/ui/select/Select";
 
 export default function TipoRecursoPage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <CrearTipoRecurso/>
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-red-600 p-3 rounded-xl">
@@ -27,7 +43,12 @@ export default function TipoRecursoPage() {
             </p>
           </div>
         </div>
-        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500">
+        <Button
+          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
           <FiPlus size={15} />
           Nuevo Recurso
         </Button>

@@ -9,6 +9,7 @@ export  const proveedorData: Proveedor[] = [
     tipoRecurso: "Maquinaria",
     dni: "45872341",
     email: "lopéz@gmail.com",
+    ultimaCompra: new Date("2025-05-10"),
     estado: true,
 },
 {
@@ -19,6 +20,7 @@ export  const proveedorData: Proveedor[] = [
     tipoRecurso: "Herramientas",
     dni: "40321567",
     email: "ramírez@gmail.com",
+    ultimaCompra: new Date("2025-06-01"),
     estado: true,
 },
 {
@@ -29,6 +31,7 @@ export  const proveedorData: Proveedor[] = [
     tipoRecurso: "Material",
     dni: "43125798",
     email: "paredes@gmail.com",
+    ultimaCompra: new Date("2025-04-20"),
     estado: true,
 },
 {
@@ -39,6 +42,7 @@ export  const proveedorData: Proveedor[] = [
     tipoRecurso: "Herramientas",
     dni: "44589901",
     email: "rivera@gmail.com",
+    ultimaCompra:  new Date("2025-05-30"),
     estado: true,
 },
 {
@@ -49,6 +53,7 @@ export  const proveedorData: Proveedor[] = [
     tipoRecurso: "Maquinaria",
     dni: "46789123",
     email: "reinoso@gmail.com",
+    ultimaCompra:  new Date("2025-05-30"),
     estado: false,
 }
 ]
