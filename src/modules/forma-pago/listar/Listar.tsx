@@ -25,12 +25,12 @@ export default function ListarDepartamentos({
             <CardInfo
               key={forma.idDepartamento}
               title={forma.titulo}
-              icon={<PiWrenchBold size={20} className="text-purple-400" />}
+              icon={<PiWrenchBold size={20} className="text-blue-400" />}
               className={{
                 header: {
-                  icon: "bg-purple-100",
+                  icon: "bg-blue-100",
                 },
-                span: "bg-purple-100 text-purple-700 font-bold",
+                span: "bg-blue-100 text-blue-700 font-bold",
               }}
               description={forma.descripcion}
               span={forma.estado ? "Activo" : "Inactivo"}

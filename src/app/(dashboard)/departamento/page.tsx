@@ -25,7 +25,7 @@ export default function Departamento() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <LuBuilding2 size={24} className="text-purple-600" />
+              <LuBuilding2 size={24} className="text-blue-600" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Departamento</p>
                 <p className="text-sm text-gray-500">
@@ -47,7 +47,7 @@ export default function Departamento() {
               />
             </div>
             <div>
-              <Button className="flex items-center gap-x-3 mt-4 bg-purple-600 text-white py-3 font-semibold hover:bg-blue-500">
+              <Button className="flex items-center gap-x-3 mt-4 bg-blue-600 text-white py-3 font-semibold hover:bg-blue-500">
                 <FiPlus size={15} className="mr-2" />
                 Registrar Departamento
               </Button>
@@ -57,8 +57,8 @@ export default function Departamento() {
       )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <span className="bg-purple-100 p-3 rounded-full">
-            <LuBuilding2 size={24} className="text-purple-600" />
+          <span className="bg-blue-600 p-3 rounded-xl">
+            <LuBuilding2 size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Departamentos</p>
@@ -69,7 +69,7 @@ export default function Departamento() {
         </div>
 
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600"
+          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
           onClick={() => {
             setShowModal(true);
           }}
@@ -81,18 +81,39 @@ export default function Departamento() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Departamentos"
-          icon={<LuBuilding2 size={35} className="text-purple-600" />}
+          icon={<LuBuilding2 size={28} className="text-white" />}
           description="3"
+          extra="Registrados en el sistema"
+          className = {{ 
+            container: "bg-blue-50 shadow-lg" , 
+            icon: "bg-blue-600 rounded-full p-3", 
+            text:{title:"text-blue-700" ,
+            description:"text-blue-900 text-3xl" ,
+            extra: "text-blue-600"} }}
         />
         <Card
           title="Departamentos Activos"
-          icon={<LuCircleCheckBig size={35} className="text-green-600" />}
+          icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="3"
+          extra="Disponibles para asignacion"
+          className = {{ 
+            container: "bg-purple-50 shadow-lg" , 
+            icon: "bg-purple-600 rounded-full p-3", 
+            text:{title:"text-purple-700" ,
+            description:"text-purple-900 text-3xl" ,
+            extra: "text-purple-600"} }}
         />
         <Card
           title="Total Empleados"
-          icon={<LuUsers size={35} className="text-blue-600" />}
+          icon={<LuUsers size={28} className="text-white" />}
           description="3"
+          extra="Asignados a departamentos"
+          className = {{ 
+            container: "bg-orange-50 shadow-lg" , 
+            icon: "bg-orange-600 rounded-full p-3", 
+            text:{title:"text-orange-700" ,
+            description:"text-orange-900 text-3xl" ,
+            extra: "text-orange-600"} }}
         />
       </div>
       <Tabs

@@ -3,10 +3,10 @@ import Button from "@/components/ui/button/Button";
 import Select from "@/components/ui/select/Select";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
+import { cargoData } from "@/data/cargo";
+
+
 import { AiOutlineCustomerService } from "react-icons/ai";
-import { env } from "@/config/env";
-import { ResponseCargo } from "@/interfaces/response.interface";
-import axios from "axios";
 import { FiPlus } from "react-icons/fi";
 import {
   LuCircleCheckBig,
@@ -33,7 +33,7 @@ export default function Cargo() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <LuUserCheck size={24} className="text-purple-600" />
+              <LuUserCheck size={40} className="text-blue-600" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Nuevo Cargo</p>
                 <p className="text-sm text-gray-500">
@@ -54,7 +54,7 @@ export default function Cargo() {
               />
             </div>
             <div>
-              <Button className="flex items-center gap-x-3 mt-4 bg-purple-600 text-white py-3 font-semibold hover:bg-blue-500">
+              <Button className="flex items-center gap-x-3 mt-4 bg-blue-600 text-white py-3 font-semibold hover:bg-blue-500">
                 <FiPlus size={15} className="mr-2" />
                 Registrar Cargo
               </Button>
@@ -65,8 +65,8 @@ export default function Cargo() {
 
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <span className="bg-purple-100 p-3 rounded-full">
-            <LuUserCheck size={24} className="text-purple-600" />
+          <span className="bg-blue-600 p-3 rounded-xl">
+            <LuUserCheck size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Cargos</p>
@@ -77,7 +77,7 @@ export default function Cargo() {
         </div>
 
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600"
+          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500" 
           onClick={() => {
             setShowModal(true);
           }}
@@ -89,18 +89,39 @@ export default function Cargo() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Cargos"
-          icon={<LuUserCheck size={35} className="text-purple-600" />}
-          description={"0"}
+          icon={<LuUserCheck size={28} className="text-white" />}
+          description={"4"}
+          extra="Registrados en la empresa"
+          className = {{ 
+            container: "bg-blue-50 shadow-lg" , 
+            icon: "bg-blue-600 rounded-full p-3", 
+            text:{title:"text-blue-700" ,
+            description:"text-blue-900 text-3xl" ,
+            extra: "text-blue-600"} }}
         />
         <Card
           title="Cargos Activos"
-          icon={<LuCircleCheckBig size={35} className="text-green-600" />}
+          icon={<LuCircleCheckBig size={28} className="text-white" />}
           description={"2"}
+          extra="Disponibles para asignacion"
+          className = {{ 
+            container: "bg-purple-50 shadow-lg" , 
+            icon: "bg-purple-600 rounded-full p-3", 
+            text:{title:"text-purple-700" ,
+            description:"text-purple-900 text-3xl" ,
+            extra: "text-purple-600"} }}
         />
         <Card
-          title="Total Empleados Asignados"
-          icon={<LuUsers size={35} className="text-blue-600" />}
-          description={"0"}
+          title="Total Empleados"
+          icon={<LuUsers size={28} className="text-white" />}
+          description={"15"}
+          extra="Asignados a cargos"
+          className = {{ 
+            container: "bg-orange-50 shadow-lg" , 
+            icon: "bg-orange-600 rounded-full p-3", 
+            text:{title:"text-orange-700" ,
+            description:"text-orange-900 text-3xl" ,
+            extra: "text-orange-600"} }}
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
@@ -112,21 +133,21 @@ export default function Cargo() {
         </section>
 
         <div className="grid grid-cols-3 gap-4">
-          {/* {cargos.cargos.map((cargo) => (
+          {cargoData.map((cargo) => (
             <CardInfo
               key={cargo.idCargo}
               title={cargo.cargo}
               icon={
                 <AiOutlineCustomerService
                   size={20}
-                  className="text-purple-400"
+                  className="text-blue-400"
                 />
               }
               className={{
                 header: {
-                  icon: "bg-purple-100",
+                  icon: "bg-blue-100",
                 },
-                span: "bg-purple-100 text-purple-700 font-bold",
+                span: "bg-blue-100 text-blue-700 font-bold",
               }}
               description={cargo.descripcion}
               span={cargo.estado ? "Activo" : "Inactivo"}
@@ -140,7 +161,7 @@ export default function Cargo() {
                 </span>
               </div>
             </CardInfo>
-          ))} */}
+          ))} 
         </div>
       </div>
     </div>

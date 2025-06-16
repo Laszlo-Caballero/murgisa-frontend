@@ -16,15 +16,15 @@ export const profesionData: Profesion[] = [{
 },
 {
     idProfesion: 3,
-    titulo: "Operador de Excavadora",
-    descripcion: "Especialista en el manejo seguro y eficiente de excavadoras en obra",
+    titulo: "Vendedor",
+    descripcion: "Especialista en la comercialización de repuestos y servicios para maquinaria pesada, con habilidades en atención al cliente y cierre de ventas",
     cantidad: 5,
     estado: true
 },
 {
     idProfesion: 4,
-    titulo: "Supervisor de Obra",
-    descripcion: "Profesional capacitado en soldadura de estructuras y componentes de maquinaria",
+    titulo: "Administrador",
+    descripcion: "Profesional capacitado en la gestión y coordinación de recursos y operaciones en empresas de maquinaria pesada",
     cantidad: 10,
     estado: true
 },

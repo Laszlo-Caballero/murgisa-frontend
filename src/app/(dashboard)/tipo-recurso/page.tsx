@@ -15,8 +15,6 @@ import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
-import Input from "@/components/ui/input/Input";
-import Select from "@/components/ui/select/Select";
 
 export default function TipoRecursoPage() {
   const [showModal, setShowModal] = useState(false);
