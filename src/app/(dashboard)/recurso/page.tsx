@@ -177,7 +177,7 @@ export default function RecursoPage() {
               cell: (props) => {
                 return (
                   <div className="flex items-start gap-x-3">
-                    <span className="bg-red-100 p-2 rounded-xl">
+                    <span className="bg-red-100 p-2 rounded-lg">
                       <LuPackage size={15} className="text-red-600" />
                     </span>
                     <div className="flex flex-col">
