@@ -4,11 +4,15 @@ import Button from "@/components/ui/button/Button";
 import { FiPlus } from "react-icons/fi";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
+import ListarProveedor from "@/modules/proveedor/listar/Listar";
+import { proveedorData } from "@/data/proveedor"; 
+import ListarTipoRecurso from "@/modules/proveedor/tipo/tipo";
+import { tipoRecursoData } from "@/data/tipoRecurso";
+
 import { LuBuilding2 } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuShoppingCart } from "react-icons/lu";
-import ListarProveedor from "@/modules/proveedor/listar/Listar";
-import { proveedorData } from "@/data/proveedor"; 
+
 
 
 export default function ProveedorPage(){
@@ -58,7 +62,7 @@ export default function ProveedorPage(){
             headers={["Catalogo de Proveedores", "Por Tipo de Recurso"]}
             className="mt-6">
             <ListarProveedor data={proveedorData}/>
-            <div>2</div>
+            <ListarTipoRecurso data={tipoRecursoData}/>
             </Tabs>
 
         </div>
