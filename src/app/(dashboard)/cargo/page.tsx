@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
@@ -12,14 +13,27 @@ import {
   LuUserCheck,
   LuUsers,
 } from "react-icons/lu";
+import { useState } from "react";
+import Modal from "@/components/ui/modal/Modal";
+import Input from "@/components/ui/input/Input";
 
-export default async function Cargo() {
-  const responseCargo = await axios.get(`${env.url_api}/cargo`);
-
-  const cargos: ResponseCargo = responseCargo.data;
-
+export default function Cargo() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full p-8 flex flex-col">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <div className="w-[500px] bg-white p-6 rounded-lg shadow-lg">
+            <p>hola</p>
+            <Input label="Nombre del Cargo" />
+          </div>
+        </Modal>
+      )}
+
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-purple-100 p-3 rounded-full">
@@ -33,7 +47,12 @@ export default async function Cargo() {
           </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600">
+        <Button
+          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-purple-600"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
           <FiPlus size={15} />
           Nuevo Cargo
         </Button>
@@ -42,17 +61,17 @@ export default async function Cargo() {
         <Card
           title="Total Cargos"
           icon={<LuUserCheck size={35} className="text-purple-600" />}
-          description={cargos.total.toString()}
+          description={"0"}
         />
         <Card
           title="Cargos Activos"
           icon={<LuCircleCheckBig size={35} className="text-green-600" />}
-          description={cargos.activos.toString()}
+          description={"2"}
         />
         <Card
           title="Total Empleados Asignados"
           icon={<LuUsers size={35} className="text-blue-600" />}
-          description={cargos.usuarios.toString()}
+          description={"0"}
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
@@ -64,7 +83,7 @@ export default async function Cargo() {
         </section>
 
         <div className="grid grid-cols-3 gap-4">
-          {cargos.cargos.map((cargo) => (
+          {/* {cargos.cargos.map((cargo) => (
             <CardInfo
               key={cargo.idCargo}
               title={cargo.cargo}
@@ -92,7 +111,7 @@ export default async function Cargo() {
                 </span>
               </div>
             </CardInfo>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
