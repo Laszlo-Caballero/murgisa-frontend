@@ -1,5 +1,6 @@
 import Button from "@/components/button/Button";
 import Input from "@/components/input/Input";
+
 export default function Condicion() {
   return (
     <div className="w-full">
@@ -27,4 +28,3 @@ export default function Condicion() {
     </div>
   );
 }
-
