@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/button/Button";
 import { FiPlus } from "react-icons/fi";
 import Card from "@/components/ui/card/Card";

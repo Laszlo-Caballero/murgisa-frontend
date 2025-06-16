@@ -40,7 +40,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                     data={data} 
                     columns={[
                     {   
-                        header: "Mantenimiento",
+                        header: "Proveedor",
                         cell: (props) => {
                         return (
                             <div className="flex items-start gap-x-3">
