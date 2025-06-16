@@ -1,7 +1,6 @@
 import { Link } from "@/interfaces/links.interface";
 import { FiHome } from "react-icons/fi";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { FiEye } from "react-icons/fi";
 import { LuType, LuUsers } from "react-icons/lu";
 import { FiCreditCard } from "react-icons/fi";
 import { LuUserCheck } from "react-icons/lu";
@@ -11,16 +10,18 @@ import { MdOutlineShield } from "react-icons/md";
 import { LuBriefcase } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { GoPlusCircle } from "react-icons/go";
-import { AiOutlineApartment } from "react-icons/ai";
-import { TbBasketDown } from "react-icons/tb";
 import { MdOutlineAssignment } from "react-icons/md";
 import { LiaSitemapSolid } from "react-icons/lia";
 import { LuCar } from "react-icons/lu";
 import { LuShoppingCart } from "react-icons/lu";
+import { LuBuilding2 } from "react-icons/lu";
+import { PiToolbox } from "react-icons/pi";
+import { GrUserWorker } from "react-icons/gr";
+
 export const links: Link[] = [
   {
     titulo: "Principal",
-    color: "blue",
+    color: "gray",
     links: [
       {
         label: "Home",
@@ -42,7 +43,7 @@ export const links: Link[] = [
   },
   {
     titulo: "Administración",
-    color: "gray",
+    color: "blue",
     links: [
       {
         label: "Clientes",
@@ -57,7 +58,7 @@ export const links: Link[] = [
       {
         label: "Personal",
         href: "/personal",
-        icono: <LuUserCheck />,
+        icono: <GrUserWorker />,
       },
       {
         label: "Profesión",
@@ -65,12 +66,12 @@ export const links: Link[] = [
         icono: <RiGraduationCapLine />,
       },
       {
-        icono: <AiOutlineApartment />,
+        icono: <LuBuilding2 />,
         href: "/departamento",
         label: "Departamento",
       },
       {
-        icono: <TbBasketDown />,
+        icono: <PiToolbox />,
         href: "/cargo",
         label: "Cargo",
       },

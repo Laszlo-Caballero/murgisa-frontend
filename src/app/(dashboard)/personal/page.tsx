@@ -11,6 +11,8 @@ import {
   LuFilter,
   LuUsers,
 } from "react-icons/lu";
+
+import { GrUserWorker } from "react-icons/gr";
 import { MdNumbers } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
@@ -47,8 +49,8 @@ export default function PersonalPage() {
       )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <span className="bg-blue-100 p-3 rounded-full">
-            <LuUsers size={24} className="text-blue-600" />
+          <span className="bg-blue-600 p-3 rounded-lg">
+            <GrUserWorker size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Personal</p>
@@ -71,19 +73,33 @@ export default function PersonalPage() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Empleados"
-          icon={<LuUsers size={35} className="text-blue-600" />}
+          icon={<LuUsers size={28} className="text-white" />}
           description="3"
+          extra="Registrados en el sistema"
+          className = {{ 
+            container: "bg-blue-50 shadow-lg" , 
+            icon: "bg-blue-600 rounded-full p-3", 
+            text:{title:"text-blue-700" ,
+            description:"text-blue-900 text-3xl" ,
+            extra: "text-blue-600"} }}
         />
         <Card
           title="Empleados Activos"
-          icon={<LuCircleCheckBig size={35} className="text-green-600" />}
+          icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="3"
+          extra="Disponibles para asignación"
+          className = {{ 
+            container: "bg-purple-50 shadow-lg" , 
+            icon: "bg-purple-600 rounded-full p-3", 
+            text:{title:"text-purple-700" ,
+            description:"text-purple-900 text-3xl" ,
+            extra: "text-purple-600"} }}
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
         <section className="flex w-full flex-col p-4 rounded-lg shadow">
           <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-            <LuFilter />
+            <LuFilter  className="text-blue-600"/>
             Filtros
           </span>
         </section>

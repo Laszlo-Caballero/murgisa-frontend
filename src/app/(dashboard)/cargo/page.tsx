@@ -1,11 +1,10 @@
 "use client";
 import Button from "@/components/ui/button/Button";
-import Select from "@/components/ui/select/Select";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { cargoData } from "@/data/cargo";
 
-
+import { PiToolbox } from "react-icons/pi";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
 import {
@@ -18,7 +17,6 @@ import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
 import Input from "@/components/ui/input/Input";
 import { LuPencilLine } from "react-icons/lu";
-import { LuCirclePlus } from "react-icons/lu";
 import { BsFilePost } from "react-icons/bs";
 
 export default function Cargo() {
@@ -66,7 +64,7 @@ export default function Cargo() {
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-blue-600 p-3 rounded-xl">
-            <LuUserCheck size={40} className="text-white" />
+            <PiToolbox size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Cargos</p>
@@ -89,7 +87,7 @@ export default function Cargo() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Cargos"
-          icon={<LuUserCheck size={28} className="text-white" />}
+          icon={<PiToolbox size={28} className="text-white" />}
           description={"4"}
           extra="Registrados en la empresa"
           className = {{ 
@@ -127,7 +125,7 @@ export default function Cargo() {
       <div className="py-4 flex w-full flex-col gap-y-4">
         <section className="flex w-full flex-col p-4 rounded-lg shadow">
           <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-            <LuFilter />
+            <LuFilter  className="text-blue-600"/>
             Filtros
           </span>
         </section>

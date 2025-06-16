@@ -10,7 +10,7 @@ import ListarClientes from "@/modules/clientes/Listar/Listar";
 import { Cliente } from "@/interfaces/response.interface";
 import { env } from "@/config/env";
 import Modal from "@/components/ui/modal/Modal";
-
+import { clienteData } from "@/data/cliente";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaAddressCard } from "react-icons/fa";
@@ -18,16 +18,17 @@ import { CiMail, CiPhone, CiCirclePlus } from "react-icons/ci";
 import { LuMapPinHouse } from "react-icons/lu";
 
 export default function ClientesPage() {
+  const clientes: Cliente[] = clienteData;
   const [showModal, setShowModal] = useState(false);
-  const [clientes, setClientes] = useState<Cliente[]>([]);
+  // const [clientes, setClientes] = useState<Cliente[]>([]);
 
-  useEffect(() => {
-    axios.get(`${env.url_api}/cliente`).then((res) => {
-      if (res.status === 200) {
-        setClientes(res.data);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`${env.url_api}/cliente`).then((res) => {
+  //     if (res.status === 200) {
+  //       setClientes(res.data);
+  //     }
+  //   });
+  // }, []);
 
   return (
     <div className="w-full p-9 flex flex-col">
@@ -133,8 +134,8 @@ export default function ClientesPage() {
 
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <span className="bg-blue-100 p-3 rounded-full">
-            <LuUsers size={24} className="text-blue-600" />
+          <span className="bg-blue-600 p-3 rounded-lg">
+            <LuUsers size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Clientes</p>
@@ -145,7 +146,7 @@ export default function ClientesPage() {
         </div>
 
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold"
+          className="flex items-center gap-x-3 py-3 font-semibold hover:bg-blue-500"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
@@ -156,18 +157,32 @@ export default function ClientesPage() {
       <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
         <Card
           title="Total Clientes"
-          icon={<LuUsers size={35} className="text-blue-600" />}
-          description={clientes.length.toString()}
+          icon={<LuUsers size={28} className="text-white" />}
+          description={"11"}
+          extra="Registrados en el sistema"
+          className = {{ 
+            container: "bg-blue-50 shadow-lg" , 
+            icon: "bg-blue-600 rounded-full p-3", 
+            text:{title:"text-blue-700" ,
+            description:"text-blue-900 text-3xl" ,
+            extra: "text-blue-600"} }}
         />
         <Card
           title="Clientes Activos"
-          icon={<LuBuilding size={35} className="text-green-600" />}
-          description={clientes.length.toString()}
+          icon={<LuBuilding size={28} className="text-white" />}
+          description={"10"}
+          extra="Disponibles para realizar ventas"
+          className = {{ 
+            container: "bg-purple-50 shadow-lg" , 
+            icon: "bg-purple-600 rounded-full p-3", 
+            text:{title:"text-purple-700" ,
+            description:"text-purple-900 text-3xl" ,
+            extra: "text-purple-600"} }}
         />
       </div>
 
       <Tabs
-        headers={["Lista de Clientes", "Historial de Ventas", "Buscar Cliente"]}
+        headers={["Lista de Clientes", "Historial de Ventas"]}
         className="mt-6"
       >
         <ListarClientes data={clientes} />
