@@ -1,10 +1,15 @@
+"use client";
 import Input from "@/components/ui/input/Input";
 import { LuBuilding2 } from "react-icons/lu";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import Checkbox from "@/components/ui/checkbox/Checkbox";
 import Button from "@/components/ui/button/Button";
+import { useRouter } from "next/navigation";
+
 export default function LoginPage() {
+  const router = useRouter();
+
   return (
     <main className="flex-1 flex w-full flex-col items-center justify-center">
       <span className="bg-blue-500 size-14 rounded-full flex items-center justify-center">
@@ -15,7 +20,13 @@ export default function LoginPage() {
         <p>Servicios Profesionales</p>
       </div>
 
-      <form className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center min-w-[500px] mt-5">
+      <form
+        className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center min-w-[500px] mt-5"
+        onSubmit={(e) => {
+          e.preventDefault();
+          router.push("/");
+        }}
+      >
         <p className="text-2xl font-semibold">Iniciar Sesión</p>
         <p className="text-sm mt-1">
           Accede a tu cuenta para gestionar tus servicios
