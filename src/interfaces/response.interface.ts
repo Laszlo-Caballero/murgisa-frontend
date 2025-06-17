@@ -184,6 +184,12 @@ export interface NotaSalida {
   estado: boolean,
 }
 
+export interface Condicion {
+  idCondicion: number
+  nombre: string
+  estado: boolean
+  descripcion: string
+}
 export interface NotaEntrada{
   idNotaEntrada: number,
   proveedor: string,
