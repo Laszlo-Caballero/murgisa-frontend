@@ -105,7 +105,7 @@ export default function TipoRecursoPage() {
             Filtros de Búsqueda
           </span>
           <p className="text-sm mt-1 text-gray-500">
-            Utiliza los filtros para encontrar mantenimientos específicos de
+            Utiliza los filtros para encontrar tipo de recursos específicos de
             manera rápida
           </p>
         </section>

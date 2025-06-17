@@ -12,11 +12,24 @@ import { FiPlus } from "react-icons/fi";
 import { LuCircleCheck } from "react-icons/lu";
 import { LuClock4 } from "react-icons/lu";
 import { LuTriangleAlert } from "react-icons/lu";
+import { useState } from "react";
+import Modal from "@/components/ui/modal/Modal";
+import CrearNotaEntrada from "@/modules/nota-entrada/crear/CrearNotaEntrada";
 
 export default function page() {
   const notas: NotaEntrada[] = notaEntradaData;
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <CrearNotaEntrada />
+        </Modal>
+      )}
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <span className="bg-pink-600 p-3 rounded-xl">
@@ -30,7 +43,10 @@ export default function page() {
           </div>
         </div>
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-pink-600 text-white shadow-lg hover:bg-pink-500">
+          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-pink-600 text-white shadow-lg hover:bg-pink-500"
+          onClick={() => {
+            setShowModal(true);
+          }}>
           <FiPlus size={15} />
             Nuevo Nota de Entrada
         </Button>

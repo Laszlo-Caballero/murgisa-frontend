@@ -106,12 +106,7 @@ export const links: Link[] = [
         label: "Servicios",
         href: "/servicios",
         icono: <LuBriefcase />,
-      },
-      {
-        label: "Ver Condición",
-        href: "/condicion",
-        icono: <LuCircleCheckBig />,
-      },
+      }
     ],
   },
   {

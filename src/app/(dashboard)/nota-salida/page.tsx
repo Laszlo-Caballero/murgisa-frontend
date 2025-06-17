@@ -54,9 +54,9 @@ export default function NotasDeSalidaPage() {
                 icon={<MdDateRange />}
               />
               <Select
-                label="Orden de Servicio"
+                label="Venta"
                 icon={<LuCirclePlus />}
-                placeholder="Selecciona una orden de servicio"
+                placeholder="Selecciona una Venta"
                 options={[
                 { value: "1", label: "OR001" },
                 { value: "2", label: "OR002" },
@@ -147,7 +147,7 @@ export default function NotasDeSalidaPage() {
             <LuFilter size={20} className="text-pink-600"/>
             Filtros de Búsqueda
         </span>
-        <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de entrada programadas de manera rápida</p>
+        <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de salida programadas de manera rápida</p>
         </section>
       <div className="grid grid-cols-3 gap-4">
           {notaSalidaData?.map((nota) => {

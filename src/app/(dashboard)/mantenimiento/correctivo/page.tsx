@@ -95,7 +95,7 @@ export default function MantenimientoCorrectivo() {
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Mantenimiento Correctivo</p>
             <p className="text-sm mt-1">
-              Gestiona y monitorea los mantenimientos preventivos programados
+              Gestiona y monitorea los mantenimientos correctivos programados
             </p>
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function MantenimientoCorrectivo() {
           }}
         />
       </div>
-      <Tabs headers={["Lista de Mantenimiento", "Calendario"]} className="mt-6">
+      <Tabs headers={["Lista de Mantenimiento"]} className="mt-6">
         <div className="py-4 flex w-full flex-col gap-y-4">
           <div className="py-4 flex w-full flex-col gap-y-4">
             <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
