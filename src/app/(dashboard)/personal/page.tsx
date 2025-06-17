@@ -97,11 +97,15 @@ export default function PersonalPage() {
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow">
-          <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-            <LuFilter  className="text-blue-600"/>
-            Filtros
+        <section className="flex w-full flex-col p-4 rounded-lg shadow-md">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-md">
+            <LuFilter size={20} className="text-blue-500" />
+            Filtros de Búsqueda
           </span>
+          <p className="text-sm mt-1 text-gray-500">
+            Utiliza los filtros para encontrar trabajadores específicos de manera
+            rápida
+          </p>
         </section>
         <div className="grid grid-cols-3 gap-4">
           {/* {isLoading &&

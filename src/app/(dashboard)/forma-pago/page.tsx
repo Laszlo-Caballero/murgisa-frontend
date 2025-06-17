@@ -113,10 +113,14 @@ export default function FormasDePagoPage() {
       </div>
       <div className="py-6 flex flex-col gap-y-6">
         <section className="flex w-full flex-col p-4 rounded-lg shadow">
-          <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-            <LuFilter  className="text-blue-600"/>
-            Filtros
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+            <LuFilter size={20} className="text-blue-500" />
+            Filtros de Búsqueda
           </span>
+          <p className="text-sm mt-1 text-gray-500">
+            Utiliza los filtros para encontrar forma de pagos específicos de manera
+            rápida
+          </p>
         </section>
         <div className="grid grid-cols-3 gap-4">
           {formaPagoData?.map((forma) => {

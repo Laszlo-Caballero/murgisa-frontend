@@ -178,9 +178,10 @@ export interface NotaSalida {
   idNotaSalida: number,
   idOrdenServicio: number,
   fecha: string,
-  maquinariaSeleccionada: string[],
+  maquinariaSeleccionada: string,
   ordenServicio?: string,
   cliente?: string
+  estado: boolean,
 }
 
 export interface NotaEntrada{
@@ -188,6 +189,7 @@ export interface NotaEntrada{
   proveedor: string,
   ruc: string,
   item: string,
+  cantidad: number;
   monto: number,
   progreso: string,
   fecha: string,

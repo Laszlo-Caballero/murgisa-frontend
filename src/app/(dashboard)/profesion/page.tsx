@@ -5,6 +5,8 @@ import { LuBookOpen } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
+import { LuSquarePen } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 
 import Modal from "@/components/ui/modal/Modal";
 import CrearProfesion from "@/modules/profesion/crear/CrearProfesion";
@@ -75,7 +77,7 @@ export default function ProfesionPage() {
       </div>
       
       <div className="py-4 flex w-full flex-col gap-y-4">
-        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+        <section className="flex w-full flex-col p-4 rounded-md shadow-lg bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-md">
             <LuFilter size={20} className="text-blue-700"/>
               Filtros de Búsqueda
@@ -145,6 +147,14 @@ export default function ProfesionPage() {
           },
           {
             header: "Acciones",
+            cell: (props) => {
+            return (
+                <span className="flex items-center gap-x-4">
+                    <LuSquarePen className="text-red-500" />
+                    <LuTrash2 className="text-gray-900"/>
+                </span>
+                );
+            },
           }
           
           

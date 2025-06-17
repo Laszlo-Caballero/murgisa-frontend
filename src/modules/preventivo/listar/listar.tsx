@@ -3,6 +3,8 @@ import { LuFilter } from "react-icons/lu";
 import { PlanificacionPreventivo } from "@/interfaces/response.interface"
 import { LuCalendar } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
+import { LuSquarePen } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 
 
 import Badge from "@/components/ui/badge/Badge";
@@ -17,7 +19,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
         <div className="py-4 flex w-full flex-col gap-y-4">
             <div className="py-4 flex w-full flex-col gap-y-4">
                 <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-                <span className="flex items-center gap-x-2 font-semibold text-black text-md">
+                <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
                     <LuFilter size={20} className="text-orange-600"/>
                     Filtros de Búsqueda
                 </span>
@@ -115,6 +117,14 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                     },
                     {
                         header: "Acciones",
+                        cell: (props) => {
+                        return (
+                            <span className="flex items-center gap-x-4">
+                                <LuSquarePen className="text-red-500" />
+                                <LuTrash2 className="text-gray-900"/>
+                            </span>
+                            );
+                        },
                     }
                 ]}>
                 </Table> }

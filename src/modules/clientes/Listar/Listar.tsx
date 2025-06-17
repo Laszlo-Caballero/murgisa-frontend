@@ -7,6 +7,8 @@ import { LuPhone } from "react-icons/lu";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import cx from "@/libs/cx";
 import { Cliente } from "@/interfaces/response.interface";
+import { LuSquarePen } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 
 interface ListarClientesProps {
   data: Cliente[];
@@ -15,12 +17,16 @@ interface ListarClientesProps {
 export default function ListarClientes({ data }: ListarClientesProps) {
   return (
     <div className="py-4 flex w-full flex-col gap-y-4">
-      <section className="flex w-full flex-col p-4 rounded-lg shadow">
-        <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-          <LuFilter className="text-blue-600"/>
-          Filtros
-        </span>
-      </section>
+        <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+            <LuFilter size={20} className="text-blue-500" />
+            Filtros de Búsqueda
+          </span>
+          <p className="text-sm mt-1 text-gray-500">
+            Utiliza los filtros para encontrar clientes específicos de manera
+            rápida
+          </p>
+        </div>
       <div className="flex flex-col w-full rounded-lg shadow p-4">
         <p className="font-medium text-black text-2xl">Clientes Registrados</p>
 
@@ -99,6 +105,14 @@ export default function ListarClientes({ data }: ListarClientesProps) {
             },
             {
               header: "Acciones",
+              cell: (props) => {
+              return (
+                  <span className="flex items-center gap-x-4">
+                      <LuSquarePen className="text-red-500" />
+                      <LuTrash2 className="text-gray-900"/>
+                  </span>
+                  );
+              },
             },
           ]}
         />

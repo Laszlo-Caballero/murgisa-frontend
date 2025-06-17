@@ -6,7 +6,8 @@ import { LuUser } from "react-icons/lu";
 import { LuBuilding, LuFilter } from "react-icons/lu";
 import { LuMail } from "react-icons/lu";
 import { LuCalendar } from "react-icons/lu";
-
+import { LuSquarePen } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 
 interface ListarProveedorProps{
     data: Proveedor[]
@@ -105,7 +106,15 @@ export default function ListarProveedor({data}: ListarProveedorProps){
                         }
                     },
                     {
-                        header: "Acciones"
+                        header: "Acciones",
+                        cell: (props) => {
+                        return (
+                            <span className="flex items-center gap-x-4">
+                                <LuSquarePen className="text-red-500" />
+                                <LuTrash2 className="text-gray-900"/>
+                            </span>
+                            );
+                        },
                     }
                 ]}>
                 </Table>}

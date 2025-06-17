@@ -8,6 +8,8 @@ import Badge from "@/components/ui/badge/Badge";
 import CrearRecurso from "@/modules/recurso/crear/CrearRecurso";
 import Modal from "@/components/ui/modal/Modal";
 
+import { LuSquarePen } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 import { LuBuilding2 } from "react-icons/lu";
 import { LuClipboardList } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
@@ -117,8 +119,8 @@ export default function RecursoPage() {
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
-        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-md">
+        <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
             <LuFilter size={20} className="text-red-500" />
             Filtros de Búsqueda
           </span>
@@ -126,7 +128,7 @@ export default function RecursoPage() {
             Utiliza los filtros para encontrar recursos específicos de manera
             rápida
           </p>
-        </section>
+        </div>
       </div>
 
       {
@@ -135,7 +137,7 @@ export default function RecursoPage() {
           data={recursoData}
           columns={[
             {
-              header: "Profesión",
+              header: "Recurso",
               cell: (props) => {
                 return (
                   <div className="flex items-start gap-x-3">
@@ -224,6 +226,14 @@ export default function RecursoPage() {
             },
             {
               header: "Acciones",
+              cell: (props) => {
+              return (
+                  <span className="flex items-center gap-x-4">
+                      <LuSquarePen className="text-red-500" />
+                      <LuTrash2 className="text-gray-900"/>
+                  </span>
+                  );
+              },
             },
           ]}
         ></Table>

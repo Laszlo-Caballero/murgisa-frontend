@@ -176,7 +176,7 @@ export default function MantenimientoCorrectivo() {
         <div className="py-4 flex w-full flex-col gap-y-4">
           <div className="py-4 flex w-full flex-col gap-y-4">
             <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-              <span className="flex items-center gap-x-2 font-semibold text-black text-md">
+              <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
                 <LuFilter size={20} className="text-orange-700" />
                 Filtros de Búsqueda
               </span>
@@ -189,7 +189,7 @@ export default function MantenimientoCorrectivo() {
           <div className="grid grid-cols-3 gap-4">
             <CardInfo
               key={"UWU"}
-              title={"2024-001"}
+              title={"ID: MANC-001"}
               icon={
                 <HiOutlineWrenchScrewdriver
                   size={20}
@@ -209,17 +209,17 @@ export default function MantenimientoCorrectivo() {
               span={"En Proceso"}
             >
               <div>
-                <p className="text-s text-gray-500">
+                <p className="text-md text-gray-900">
                   Reparación urgente del motor principal del compresor debido a
                   sobrecalentamiento
                 </p>
               </div>
-              <div className="flex justify-between gap-x-4 flex-col gap-y-4 py-4  ">
+              <div className="flex justify-between gap-x-4 flex-col gap-y-2 py-3  ">
                 <span className="flex items-center gap-x-2">
                   <PiCity size={15} className="text-blue-600" />
-                  <p className="text-s text-blue-600 font-semibold flex items-center gap-x-1">
+                  <p className="text-sm text-blue-600 font-semibold flex items-center gap-x-1">
                     Maquinaria:{" "}
-                    <span className="text-black">
+                    <span className="text-gray-600 text-sm">
                       {"Compresor Industrial CI-001"}
                     </span>
                   </p>
@@ -227,37 +227,34 @@ export default function MantenimientoCorrectivo() {
 
                 <span className="flex items-center gap-x-2">
                   <FaRegUser size={15} className="text-purple-600" />
-                  <p className="text-S text-purple-600 font-semibold">
-                    Tecnico: <span className="text-black">{"Paco"}</span>
+                  <p className="text-sm text-purple-600 font-semibold">
+                    Tecnico: <span className="text-gray-600 text-sm">{"Paco"}</span>
                   </p>
                 </span>
                 <span className="flex items-center gap-x-2">
                   <PiMapPinArea size={15} className="text-yellow-500" />
-                  <p className="text-S text-yellow-600 font-semibold">
+                  <p className="text-sm text-yellow-600 font-semibold">
                     Ubicacion:{" "}
-                    <span className="text-black">
+                    <span className="text-gray-600 text-sm">
                       {"Plaza Principal - Sector A"}
                     </span>
                   </p>
                 </span>
                 <span className="flex items-center gap-x-2 ">
                   <LuDollarSign size={15} className="text-green-600" />
-                  <p className="text-S text-green-600 font-semibold flex items-center gap-x-1">
-                    Precio: <span className="text-black">{"S/. 200"}</span>
+                  <p className="text-sm text-green-600 font-semibold flex items-center gap-x-1">
+                    Precio: <span className="text-gray-600 text-sm">{"S/. 200"}</span>
                   </p>
                 </span>
               </div>
-              <div className="flex items-center justify-between gap-x-3 mt-4">
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
+              <div className="flex items-center justify-between gap-x-2">
+                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
                   <LuSquarePen size={15} />
                   Editar
                 </Button>
                 <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
                   <LuEye size={15} />
-                  Ver
-                </Button>
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
-                  <FaRegTrashAlt size={15} className="text-red-600" />
+                  Desactivar
                 </Button>
               </div>
             </CardInfo>
