@@ -61,12 +61,12 @@ export default function RecursoPage() {
           description="20"
           extra="Recursos en el sistema"
           className={{
-            container: "bg-emerald-100 shadow-lg",
-            icon: "bg-emerald-600 rounded-full p-3 shadow-xl",
+            container: "bg-blue-100 shadow-lg",
+            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-emerald-700",
-              description: "text-emerald-900 text-3xl",
-              extra: "text-green-800 text-xs"
+              title: "text-blue-700",
+              description: "text-blue-900 text-3xl",
+              extra: "text-blue-800 text-xs"
             },
           }}
         />
@@ -76,12 +76,12 @@ export default function RecursoPage() {
           description="11"
           extra="Listo para ser asignado"
           className={{
-            container: "bg-blue-100 shadow-lg",
-            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+            container: "bg-purple-100 shadow-lg",
+            icon: "bg-purple-600 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-blue-700",
-              description: "text-blue-900 text-3xl",
-              extra: "text-blue-800 text-xs"
+              title: "text-purple-700",
+              description: "text-purple-900 text-3xl",
+              extra: "text-purpe-800 text-xs"
             },
           }}
         />

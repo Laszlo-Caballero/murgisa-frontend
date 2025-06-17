@@ -1,26 +1,27 @@
 import { Link } from "@/interfaces/links.interface";
 import { FiHome } from "react-icons/fi";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { FiEye } from "react-icons/fi";
 import { LuType, LuUsers } from "react-icons/lu";
 import { FiCreditCard } from "react-icons/fi";
-import { LuUserCheck } from "react-icons/lu";
 import { RiGraduationCapLine } from "react-icons/ri";
 import { PiWrenchBold } from "react-icons/pi";
 import { MdOutlineShield } from "react-icons/md";
 import { LuBriefcase } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
-import { GoPlusCircle } from "react-icons/go";
-import { AiOutlineApartment } from "react-icons/ai";
-import { TbBasketDown } from "react-icons/tb";
-import { MdOutlineAssignment } from "react-icons/md";
 import { LiaSitemapSolid } from "react-icons/lia";
 import { LuCar } from "react-icons/lu";
 import { LuShoppingCart } from "react-icons/lu";
+import { LuBuilding2 } from "react-icons/lu";
+import { PiToolbox } from "react-icons/pi";
+import { GrUserWorker } from "react-icons/gr";
+import { LuSettings } from "react-icons/lu";
+import { LuPackage } from "react-icons/lu";
+import { LuLayers } from "react-icons/lu";
+
 export const links: Link[] = [
   {
     titulo: "Principal",
-    color: "blue",
+    color: "gray",
     links: [
       {
         label: "Home",
@@ -42,7 +43,7 @@ export const links: Link[] = [
   },
   {
     titulo: "Administración",
-    color: "gray",
+    color: "blue",
     links: [
       {
         label: "Clientes",
@@ -57,7 +58,7 @@ export const links: Link[] = [
       {
         label: "Personal",
         href: "/personal",
-        icono: <LuUserCheck />,
+        icono: <GrUserWorker />,
       },
       {
         label: "Profesión",
@@ -65,12 +66,12 @@ export const links: Link[] = [
         icono: <RiGraduationCapLine />,
       },
       {
-        icono: <AiOutlineApartment />,
+        icono: <LuBuilding2 />,
         href: "/departamento",
         label: "Departamento",
       },
       {
-        icono: <TbBasketDown />,
+        icono: <PiToolbox />,
         href: "/cargo",
         label: "Cargo",
       },
@@ -91,7 +92,7 @@ export const links: Link[] = [
         icono: <MdOutlineShield />,
       },
       {
-        icono: <GoPlusCircle />,
+        icono: <LuSettings />,
         href: "/mantenimiento/agregarmantenimiento",
         label: "Agregar Tipo Mantenimiento",
       },
@@ -107,11 +108,6 @@ export const links: Link[] = [
         icono: <LuBriefcase />,
       },
       {
-        label: "Orden de Servicio",
-        href: "/orden-servicio",
-        icono: <MdOutlineAssignment />,
-      },
-      {
         label: "Ver Condición",
         href: "/condicion",
         icono: <LuCircleCheckBig />,
@@ -125,12 +121,12 @@ export const links: Link[] = [
       {
         label: "Recursos",
         href: "/recurso",
-        icono: <LiaSitemapSolid />,
+        icono: <LuPackage />,
       },
       {
         label: "Tipo de Recursos",
         href: "/tipo-recurso",
-        icono: <LuType />,
+        icono: <LuLayers />,
       },
       {
         label: "Proovedor",
@@ -144,12 +140,12 @@ export const links: Link[] = [
     color: "pink",
     links: [
       {
-        label: "Orden de Salida",
+        label: "Nota de Salida",
         href: "/nota-salida",
         icono: <LuCar />,
       },
       {
-        label: "Orden de Entrada",
+        label: "Nota de Entrada",
         href: "/orden/entrada",
         icono: <LuShoppingCart />,
       },

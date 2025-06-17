@@ -22,7 +22,7 @@ import { GrHostMaintenance } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
 import { MdLowPriority } from "react-icons/md";
 export default function MantenimientoPreventivoPage() {
- const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const preventivo: PlanificacionPreventivo[] = preventivoData;
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
@@ -32,17 +32,17 @@ export default function MantenimientoPreventivoPage() {
                         setShowModal(false);
                       }}
                     >
-                     <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
-                         <header className="flex items-center gap-x-3">
-                            <GrHostMaintenance  size={40} className=" text-orange-500" />
-                              <div className="flex flex-col">
-                                <p className="text-xl font-semibold">Agregar una planificación de mantenimiento</p>
-                                <p className="text-sm text-gray-500">
-                                    Completa los datos para registrar una nueva planificación en el
-                                    sistema
-                                  </p>
-                                </div>
-                              </header>
+                      <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
+                        <header className="flex items-center gap-x-3">
+                          <GrHostMaintenance  size={40} className=" text-orange-500" />
+                            <div className="flex flex-col">
+                              <p className="text-xl font-semibold">Agregar una planificación de mantenimiento</p>
+                              <p className="text-sm text-gray-500">
+                                  Completa los datos para registrar una nueva planificación en el
+                                  sistema
+                              </p>
+                            </div>
+                          </header>
                               <div className="grid grid-cols-1 gap-4">
                                   {/* Fecha */}
                                   <Input
@@ -57,11 +57,11 @@ export default function MantenimientoPreventivoPage() {
                                     icon={<MdLowPriority/>}
                                     placeholder="Selecciona la prioridad"
                                     options={[
-                                   { value: "1", label: "Alta" },
-                                   { value: "2", label: "Media" },
-                                   { value: "3", label: "Baja" }
-                                   ]}>
-                                   </Select>
+                                    { value: "1", label: "Alta" },
+                                    { value: "2", label: "Media" },
+                                    { value: "3", label: "Baja" }
+                                    ]}>
+                                    </Select>
                                    {/* Recurso */}
                                   <Select
                                     label="Recurso"

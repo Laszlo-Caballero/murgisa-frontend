@@ -1,5 +1,109 @@
+"use client";
+
 import React from "react";
+import Button from "@/components/ui/button/Button";
+import Card from "@/components/ui/card/Card";
+import Tabs from "@/components/ui/tabs/Tabs";
+import ListarNotaEntrada from "@/modules/nota-entrada/listar/Listar";
+import { notaEntradaData } from "@/data/notaEntrada";
+import { NotaEntrada } from "@/interfaces/response.interface";
+import { LuCar } from "react-icons/lu";
+import { FiPlus } from "react-icons/fi";
+import { LuCircleCheck } from "react-icons/lu";
+import { LuClock4 } from "react-icons/lu";
+import { LuTriangleAlert } from "react-icons/lu";
 
 export default function page() {
-  return <div>a</div>;
+  const notas: NotaEntrada[] = notaEntradaData;
+  return (
+    <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+      <header className="flex items-center justify-between">
+        <div className="flex items-center gap-x-4">
+          <span className="bg-pink-600 p-3 rounded-xl">
+            <LuCar size={40} className="text-white" />
+          </span>
+          <div className="flex flex-col">
+            <p className="font-bold text-3xl">Gestión de Nota de Entrada</p>
+            <p className="text-sm mt-1">
+              Administración de ingresos de recursos al inventario
+            </p>
+          </div>
+        </div>
+        <Button
+          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-pink-600 text-white shadow-lg hover:bg-pink-500">
+          <FiPlus size={15} />
+            Nuevo Nota de Entrada
+        </Button>
+      </header>  
+      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+        <Card
+          title="Total de Notas"
+          icon={<LuCar size={28} className="text-white" />}
+          description="20"
+          extra="Recursos en el sistema"
+          className={{
+            container: "bg-blue-100 shadow-lg",
+            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-blue-700",
+              description: "text-blue-900 text-3xl",
+              extra: "text-blue-800 text-xs"
+            },
+          }}
+        />
+        <Card
+          title="Completadas"
+          icon={<LuCircleCheck size={28} className="text-white" />}
+          description="20"
+          extra="Entregas exitosas"
+          className={{
+            container: "bg-green-100 shadow-lg",
+            icon: "bg-green-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-green-700",
+              description: "text-green-900 text-3xl",
+              extra: "text-green-800 text-xs"
+            },
+          }}
+        />
+        <Card
+          title="En proceso"
+          icon={<LuClock4 size={28} className="text-white" />}
+          description="20"
+          extra="Recibo pendiente"
+          className={{
+            container: "bg-yellow-100 shadow-lg",
+            icon: "bg-yellow-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-yellow-700",
+              description: "text-yellow-900 text-3xl",
+              extra: "text-yellow-800 text-xs"
+            },
+          }}
+        />
+        <Card
+          title="Atrasado"
+          icon={<LuTriangleAlert size={28} className="text-white" />}
+          description="20"
+          extra="Pedidos sin recibir"
+          className={{
+            container: "bg-red-100 shadow-lg",
+            icon: "bg-red-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-red-700",
+              description: "text-red-900 text-3xl",
+              extra: "text-red-800 text-xs"
+            },
+          }}
+        />
+      </div>
+      <Tabs
+      headers={["Catalogo de Entradas", "Por Recurso"]}
+      className="mt-6">
+        <ListarNotaEntrada data={notas}></ListarNotaEntrada>
+        <div>2</div>
+
+      </Tabs>
+    </div>
+  )
 }

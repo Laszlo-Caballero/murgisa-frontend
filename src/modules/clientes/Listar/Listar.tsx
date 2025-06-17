@@ -17,7 +17,7 @@ export default function ListarClientes({ data }: ListarClientesProps) {
     <div className="py-4 flex w-full flex-col gap-y-4">
       <section className="flex w-full flex-col p-4 rounded-lg shadow">
         <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-          <LuFilter />
+          <LuFilter className="text-blue-600"/>
           Filtros
         </span>
       </section>
@@ -50,12 +50,12 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                 return (
                   <div className="flex flex-col">
                     <span className="flex items-center gap-x-2">
-                      <AiOutlineMail className="text-gray-400" />
+                      <AiOutlineMail className="text-blue-400" />
                       <p className="text-sm">{props.row.correo}</p>
                     </span>
 
                     <span className="flex items-center gap-x-2">
-                      <LuPhone className="text-gray-400" />
+                      <LuPhone className="text-green-400" />
                       <p className="text-sm">{props.row.telefono}</p>
                     </span>
                   </div>
@@ -68,7 +68,7 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                 return (
                   <div className="flex flex-col">
                     <span className="flex items-center gap-x-2">
-                      <HiOutlineLocationMarker className="text-gray-400" />
+                      <HiOutlineLocationMarker className="text-red-400" />
                       <p className="text-sm">
                         Ciudad: {props.row.ciudad.nombre}
                       </p>

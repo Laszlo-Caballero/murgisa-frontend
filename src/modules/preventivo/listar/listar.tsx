@@ -3,7 +3,6 @@ import { LuFilter } from "react-icons/lu";
 import { PlanificacionPreventivo } from "@/interfaces/response.interface"
 import { LuCalendar } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
-import { LuCircleCheckBig } from "react-icons/lu";
 
 
 import Badge from "@/components/ui/badge/Badge";
