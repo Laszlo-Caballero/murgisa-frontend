@@ -1,73 +1,28 @@
 "use client";
-
-import { useState } from "react";
-import { FiEdit, FiTrash2, FiSearch } from "react-icons/fi";
+import { FiEdit, FiTrash2, FiSearch, FiPlus } from "react-icons/fi";
 import { LuCalendarDays, LuEye, LuSettings } from "react-icons/lu";
 import  Card  from "@/components/ui/card/Card";
 import Button from "@/components/ui/button/Button";
-
-const condiciones = [
-  {
-    id: "COND001",
-    nombre: "Contado",
-    tipo: "Pago",
-    dias: "0 días",
-    descuento: "-",
-    aplica: "Ventas",
-    uso: 45,
-    estado: "Activa",
-  },
-  {
-    id: "COND002",
-    nombre: "Crédito 30 días",
-    tipo: "Crédito",
-    dias: "30 días",
-    descuento: "-",
-    aplica: "Ventas",
-    uso: 23,
-    estado: "Activa",
-  },
-  {
-    id: "COND003",
-    nombre: "Crédito 60 días",
-    tipo: "Crédito",
-    dias: "60 días",
-    descuento: "-",
-    aplica: "Ventas",
-    uso: 12,
-    estado: "Activa",
-  },
-  {
-    id: "COND004",
-    nombre: "Contado con descuento",
-    tipo: "Pago",
-    dias: "0 días",
-    descuento: "5%",
-    aplica: "Ventas",
-    uso: 18,
-    estado: "Activa",
-  },
-  {
-    id: "COND005",
-    nombre: "Proveedor 15 días",
-    tipo: "Crédito",
-    dias: "15 días",
-    descuento: "-",
-    aplica: "Compras",
-    uso: 5,
-    estado: "Inactiva",
-  },
-];
+import Tabs from "@/components/ui/tabs/Tabs";
+import { condicionesdata } from "@/data/condicion";
+import ListarCondicion from "@/modules/condicion/listar/listar";
+import Modal from "@/components/ui/modal/Modal";
+import { useState } from "react";
+import CrearCondicion from "@/modules/condicion/Crear/CrearCondicion";
 
 export default function CondicionesPage() {
-  const [tab, setTab] = useState("lista");
-  const total = condiciones.length;
-  const activas = condiciones.filter((c) => c.estado === "Activa").length;
-  const credito = condiciones.filter((c) => c.tipo === "Crédito").length;
-  const usoTotal = condiciones.reduce((a, b) => a + b.uso, 0);
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="p-8 w-full h-full flex flex-col gap-6 bg-gray-50">
+            {showModal && (
+                    <Modal
+                      onClose={() => {
+                        setShowModal(false);
+                      }}
+                    >
+                      <CrearCondicion />
+                    </Modal>
+                  )} 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-x-4">
           <span className="bg-blue-600 p-3 rounded-xl">
@@ -80,8 +35,14 @@ export default function CondicionesPage() {
             </p>
           </div>
         </div>
-        <Button className="bg-blue-600 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700">
-          + Nueva Condición
+        <Button 
+          className="bg-blue-600 text-white flex items-center font-semibold px-4 py-2 rounded hover:bg-blue-700"
+          onClick={() =>{
+            setShowModal(true);
+          }}
+        >
+          <FiPlus size={15} />
+           Nueva Condición
         </Button>
       </div>
 
@@ -89,7 +50,7 @@ export default function CondicionesPage() {
         <Card
           title="Total de Condiciones"
           icon={<LuSettings size={28} className="text-white" />}
-          description={`${total}`}
+          description={`${4}`}
           extra="Registradas"
           className={{
             container: "bg-purple-100 shadow-lg",
@@ -104,7 +65,7 @@ export default function CondicionesPage() {
         <Card
           title="Condiciones Activas"
           icon={<FiSearch size={28} className="text-white" />}
-          description={`${activas}`}
+          description={`${3}`}
           extra="Disponibles"
           className={{
             container: "bg-green-100 shadow-lg",
@@ -119,7 +80,7 @@ export default function CondicionesPage() {
         <Card
           title="Condiciones de Crédito"
           icon={<LuCalendarDays size={28} className="text-white" />}
-          description={`${credito}`}
+          description={`${2}`}
           extra="Tipo Crédito"
           className={{
             container: "bg-blue-100 shadow-lg",
@@ -134,7 +95,7 @@ export default function CondicionesPage() {
         <Card
           title="Uso Total"
           icon={<LuEye size={28} className="text-white" />}
-          description={`${usoTotal}`}
+          description={`${1}`}
           extra="Transacciones"
           className={{
             container: "bg-orange-100 shadow-lg",
@@ -147,6 +108,14 @@ export default function CondicionesPage() {
           }}
         />
       </div>
-    </div>
-  );
+
+     <Tabs
+             headers={["Catalogo de Servicios", "Por Categorias"]}
+             className="mt-6"
+           >
+             <ListarCondicion data={condicionesdata} />
+
+           </Tabs>
+         </div>
+       );
 }

@@ -183,3 +183,9 @@ export interface NotaSalida {
   cliente?: string
 }
 
+export interface Condicion {
+  idCondicion: number
+  nombre: string
+  estado: boolean
+  descripcion: string
+}
