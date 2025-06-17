@@ -126,6 +126,18 @@ export interface EquiposAtencion {
   idEquipo: number;
 }
 
+export interface Venta{
+  idVenta: number,
+  cliente: string,
+  servicio: string,
+  personal: string,
+  recurso: string,
+  monto: number,
+  formaPago: string,
+  fecha: string,
+  estado: boolean,
+}
+
 export interface VentasRecientes {
   idVenta: number;
   titulo: string;

@@ -25,8 +25,8 @@ export default function CondicionesPage() {
                   )} 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-x-4">
-          <span className="bg-blue-600 p-3 rounded-xl">
-            <FiSearch size={28} className="text-white" />
+          <span className="bg-purple-600 p-3 rounded-xl">
+            <FiSearch size={40} className="text-white" />
           </span>
           <div className="flex flex-col">
             <h1 className="text-3xl font-bold">Gestión de Condiciones</h1>
@@ -36,7 +36,7 @@ export default function CondicionesPage() {
           </div>
         </div>
         <Button 
-          className="bg-blue-600 text-white flex items-center font-semibold px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-purple-600 text-white flex items-center font-semibold px-4 py-2 rounded hover:bg-purple-700"
           onClick={() =>{
             setShowModal(true);
           }}
@@ -109,13 +109,12 @@ export default function CondicionesPage() {
         />
       </div>
 
-     <Tabs
-             headers={["Catalogo de Servicios", "Por Categorias"]}
-             className="mt-6"
-           >
-             <ListarCondicion data={condicionesdata} />
-
-           </Tabs>
-         </div>
-       );
+      <Tabs
+          headers={["Catalogo de Servicios"]}
+          className="mt-6"
+          >
+          <ListarCondicion data={condicionesdata} />
+      </Tabs>
+    </div>
+  );
 }

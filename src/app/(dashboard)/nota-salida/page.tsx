@@ -142,14 +142,14 @@ export default function NotasDeSalidaPage() {
       </div>
 
       <div className="py-6 flex flex-col gap-y-6">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow">
-          <span className="flex items-center gap-x-2 font-medium text-black text-2xl">
-            <LuFilter className="text-pink-600"/>
-            Filtros
-          </span>
+        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+        <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+            <LuFilter size={20} className="text-pink-600"/>
+            Filtros de Búsqueda
+        </span>
+        <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de entrada programadas de manera rápida</p>
         </section>
-
-        <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4">
           {notaSalidaData?.map((nota) => {
             return (
               <CardInfo

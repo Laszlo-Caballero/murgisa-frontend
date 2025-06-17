@@ -37,7 +37,7 @@ export default function PersonalPage() {
   // });
 
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full p-9 bg-gray-50 flex flex-col">
       {showModal && (
         <Modal
           onClose={() => {
@@ -97,7 +97,7 @@ export default function PersonalPage() {
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow-md">
+        <section className="flex w-full flex-col p-4 rounded-lg shadow-md bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-md">
             <LuFilter size={20} className="text-blue-500" />
             Filtros de Búsqueda
@@ -120,6 +120,7 @@ export default function PersonalPage() {
                 title={`${empleado.nombre} ${empleado.apellido_paterno} ${empleado.apellido_materno}`}
                 icon={<p>{empleado.nombre.split("")[0]}</p>}
                 className={{
+                  container:"bg-white",
                   header: {
                     icon: "bg-blue-100 text-center p-0 size-7 flex items-center justify-center uppercase",
                   },

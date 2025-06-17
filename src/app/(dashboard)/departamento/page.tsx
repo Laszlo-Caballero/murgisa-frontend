@@ -16,7 +16,7 @@ import { LuPencilLine } from "react-icons/lu";
 export default function Departamento() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full p-9 bg-gray-50 flex flex-col">
       {showModal && (
         <Modal
           onClose={() => {

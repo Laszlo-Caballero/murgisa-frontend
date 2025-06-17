@@ -100,7 +100,7 @@ export default function TipoRecursoPage() {
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
         <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-md">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
             <LuFilter size={20} className="text-red-600" />
             Filtros de Búsqueda
           </span>

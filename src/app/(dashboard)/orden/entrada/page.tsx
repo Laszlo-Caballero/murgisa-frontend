@@ -98,10 +98,9 @@ export default function page() {
         />
       </div>
       <Tabs
-      headers={["Catalogo de Entradas", "Por Recurso"]}
+      headers={["Catalogo de Entradas"]}
       className="mt-6">
         <ListarNotaEntrada data={notas}></ListarNotaEntrada>
-        <div>2</div>
 
       </Tabs>
     </div>

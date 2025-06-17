@@ -28,7 +28,7 @@ export default function FormasDePagoPage() {
   //   },
   // });
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full p-9 bg-gray-50 flex flex-col">
        {showModal && (
               <Modal
                 onClose={() => {
@@ -112,7 +112,7 @@ export default function FormasDePagoPage() {
         />
       </div>
       <div className="py-6 flex flex-col gap-y-6">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow">
+        <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
             <LuFilter size={20} className="text-blue-500" />
             Filtros de Búsqueda
@@ -132,6 +132,7 @@ export default function FormasDePagoPage() {
                   <FaRegMoneyBillAlt size={20} className="text-green-400" />
                 }
                 className={{
+                  container:"bg-white",
                   header: {
                     icon: "bg-green-100",
                   },

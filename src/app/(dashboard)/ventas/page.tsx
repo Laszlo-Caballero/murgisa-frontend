@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
 import { FiPlus } from "react-icons/fi";
@@ -5,7 +7,15 @@ import { LuFilter, LuShoppingCart } from "react-icons/lu";
 import { LuDollarSign } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { IoWarningOutline } from "react-icons/io5";
+import { ventaData } from "@/data/venta";
 import Table from "@/components/ui/table/Table";
+import { IoDocumentOutline } from "react-icons/io5";
+import { LuCalendar } from "react-icons/lu";
+import { CiDollar } from "react-icons/ci";
+import { LuBriefcase } from "react-icons/lu";
+import Badge from "@/components/ui/badge/Badge";
+import { LuSquarePen } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 
 export default function VentasPagina() {
   return (
@@ -91,11 +101,98 @@ export default function VentasPagina() {
             rápida
           </p>
         </div>
+        <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
+          <div className="flex items-center justify-between w-full">
+            <div>
+                <p className="font-medium text-black text-xl">Ventas Registradas</p>
+                <p className="text-sm text-gray-500 mt-1">Gestiona todas los ventas registradas en el sistema </p>
+            </div>
+            <div>
+                <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
+            </div>            
+          </div>
+          {
+            <Table
+            className="mt-4 bg-white w-full rounded-md "
+            data={ventaData}
+            columns={[
+              {
+                header: "Venta ID",
+                cell: (props) => {
+                  return(
+                    <div className="flex items-center gap-x-2">
+                      <span className="bg-blue-100 rounded-lg p-2">
+                        <IoDocumentOutline className="text-blue-900" />
+                      </span>
+                      <div className="flex flex-col gap-y-1">
+                        <span className="text-gray-500 text-xs ">
+                          ID: VENT-00{props.row.idVenta}
+                        </span>
+                        <span className="font-semibold text-gray-800 text-sm">
+                          {props.row.cliente}
+                        </span>
+                      </div>
+                    </div>
+                  )
+                }
+              },
+              {
+                header: "Fecha",
+                cell: (props) => {
+                  return(
+                    <div className="flex items-center gap-x-2">
+                      <LuCalendar size={15} className="text-red-600" />
+                      <p >{props.row.fecha}</p>
+                    </div>
+                  )
+                }
+              },
+              {
+                header: "Item/Monto",
+                cell: (props) => {
+                  return(
+                    <div className="flex flex-col gap-y-2">
+                      <span className="flex items-center gap-x-2">
+                        <LuBriefcase className="text-gray-800"/>
+                        <p className="text-gray-800 text-sm">
+                          {props.row.recurso}
+                        </p>
+                      </span>
+                      <span className="flex items-center gap-x-2">
+                        <CiDollar className="text-green-600" />
+                        <p className="text-green-600 text-sm">
+                          {props.row.monto}
+                        </p>
+                      </span>
+                    </div>
+                  )
+                }
+              },
+              {
+                  header: "Estado",
+                  cell: (props) => {
+                      return(
+                          <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold"> Activo</Badge>
+                      )
+                  }
+              },
+              {
+                  header: "Acciones",
+                  cell: (props) => {
+                  return (
+                      <span className="flex items-center gap-x-4">
+                          <LuSquarePen className="text-red-500" />
+                          <LuTrash2 className="text-gray-900"/>
+                      </span>
+                      );
+                  },
+              }            
+            ]}
 
-        <div className="flex flex-col w-full rounded-lg shadow p-4">
-          <p className="font-medium text-black text-2xl">Ventas Registradas</p>
+            >
 
-          {/* <Table className="mt-4" data={[]} columns={[]} /> */}
+            </Table>
+          }
         </div>
       </div>
     </div>

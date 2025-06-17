@@ -122,9 +122,8 @@ export default function Cargo() {
             extra: "text-orange-600"} }}
         />
       </div>
-      <div className="py-4 flex w-full flex-col gap-y-4">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow">
-        <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+      <div className="py-4 flex w-full flex-col gap-y-4 ">
+        <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
             <LuFilter size={20} className="text-blue-500" />
             Filtros de Búsqueda
@@ -133,7 +132,6 @@ export default function Cargo() {
             Utiliza los filtros para encontrar cargos específicos de manera
             rápida
           </p>
-        </div>
         </section>
 
         <div className="grid grid-cols-3 gap-4">
@@ -148,6 +146,7 @@ export default function Cargo() {
                 />
               }
               className={{
+                container: "bg-white",
                 header: {
                   icon: "bg-blue-100",
                 },

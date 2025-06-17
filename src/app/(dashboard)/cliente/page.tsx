@@ -31,7 +31,7 @@ export default function ClientesPage() {
   // }, []);
 
   return (
-    <div className="w-full p-9 flex flex-col">
+    <div className="w-full h-full p-9 bg-gray-50 flex flex-col">
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg flex flex-col gap-6">
@@ -182,12 +182,10 @@ export default function ClientesPage() {
       </div>
 
       <Tabs
-        headers={["Lista de Clientes", "Historial de Ventas"]}
+        headers={["Lista de Clientes"]}
         className="mt-6"
       >
         <ListarClientes data={clientes} />
-        <div>2</div>
-        <div>3</div>
       </Tabs>
     </div>
   );

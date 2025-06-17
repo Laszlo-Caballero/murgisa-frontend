@@ -27,8 +27,16 @@ export default function ListarClientes({ data }: ListarClientesProps) {
             rápida
           </p>
         </div>
-      <div className="flex flex-col w-full rounded-lg shadow p-4">
-        <p className="font-medium text-black text-2xl">Clientes Registrados</p>
+      <div className="flex flex-col  w-full rounded-md shadow-md p-4 bg-white">
+        <div className="flex items-center justify-between w-full">
+          <div>
+              <p className="font-medium text-black text-xl">Clientes Registrados</p>
+              <p className="text-sm text-gray-500 mt-1">Gestiona todos los clientes registrados en el sistema </p>
+          </div>
+          <div>
+              <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
+          </div>            
+        </div>
 
         <Table
           className="mt-4"

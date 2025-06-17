@@ -131,113 +131,123 @@ export default function RecursoPage() {
         </div>
       </div>
 
-      {
-        <Table
-          className="mt-4 bg-white w-full rounded-md "
-          data={recursoData}
-          columns={[
-            {
-              header: "Recurso",
-              cell: (props) => {
-                return (
-                  <div className="flex items-start gap-x-3">
-                    <span className="bg-red-100 p-2 rounded-lg">
-                      <LuPackage size={15} className="text-red-600" />
-                    </span>
-                    <div className="flex flex-col">
-                      <p className="font-semibold text-sm">
-                        {props.row.nombre}
-                      </p>
-                      <p className="text-xs text-gray-600">
-                        ID: REC-00{props.row.idRecurso}
-                      </p>
+        <div className="flex flex-col w-full rounded-md shadow-md p-4 bg-white">
+          <div className="flex items-center justify-between w-full">
+            <div>
+                <p className="font-medium text-black text-xl">Recursos Registrados</p>
+                <p className="text-sm text-gray-500 mt-1">Gestiona todas los recursos registrados en el sistema </p>
+            </div>
+            <div>
+                <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
+            </div> 
+          </div>
+                  {
+          <Table
+            className="mt-4 bg-white w-full rounded-md "
+            data={recursoData}
+            columns={[
+              {
+                header: "Recurso",
+                cell: (props) => {
+                  return (
+                    <div className="flex items-start gap-x-3">
+                      <span className="bg-red-100 p-2 rounded-lg">
+                        <LuPackage size={15} className="text-red-600" />
+                      </span>
+                      <div className="flex flex-col">
+                        <p className="font-semibold text-sm">
+                          {props.row.nombre}
+                        </p>
+                        <p className="text-xs text-gray-600">
+                          ID: REC-00{props.row.idRecurso}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
+                  );
+                },
               },
-            },
-            {
-              header: "Categoria",
-              cell: (props) => {
-                return (
-                  <div className="flex flex-col gap-y-2">
-                    <span className="flex items-center gap-x-2">
-                      <LuClipboardList size={15} className="text-blue-600" />
-                      <p className="font-semibold text-sm">{props.row.tipo}</p>
-                    </span>
-                    <p className="text-gray-500 text-xs">Insertar breve descripcion </p>
-                  </div>
-                );
+              {
+                header: "Categoria",
+                cell: (props) => {
+                  return (
+                    <div className="flex flex-col gap-y-2">
+                      <span className="flex items-center gap-x-2">
+                        <LuClipboardList size={15} className="text-blue-600" />
+                        <p className="font-semibold text-sm">{props.row.tipo}</p>
+                      </span>
+                      <p className="text-gray-500 text-xs">Insertar breve descripcion </p>
+                    </div>
+                  );
+                },
               },
-            },
-            {
-              header: "Disponibilidad",
-              cell: (props) => {
-                return (
-                  <div className="flex flex-col gap-y-2">
-                    <Badge className="bg-yellow-100 text-yellow-800 border-orange-200 font-semibold">
-                      En uso
-                    </Badge>
-                    <p className="text-xs text-gray-500">Vendido 10 veces</p>
-                  </div>
-                );
+              {
+                header: "Disponibilidad",
+                cell: (props) => {
+                  return (
+                    <div className="flex flex-col gap-y-2">
+                      <Badge className="bg-yellow-100 text-yellow-800 border-orange-200 font-semibold">
+                        En uso
+                      </Badge>
+                      <p className="text-xs text-gray-500">Vendido 10 veces</p>
+                    </div>
+                  );
+                },
               },
-            },
-            {
-              header: "Proveedor",
-              cell: (props) => {
-                return (
-                  <div className="flex flex-col gap-y-2">
-                    <span className="flex items-center gap-x-2">
-                      <LuBuilding2 size={15} className="text-purple-600" />
-                      <p className="font-semibold text-sm">
-                        {props.row.proveedor}
+              {
+                header: "Proveedor",
+                cell: (props) => {
+                  return (
+                    <div className="flex flex-col gap-y-2">
+                      <span className="flex items-center gap-x-2">
+                        <LuBuilding2 size={15} className="text-purple-600" />
+                        <p className="font-semibold text-sm">
+                          {props.row.proveedor}
+                        </p>
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        Responsable: {props.row.proveedorResponsable}
+                      </span>
+                    </div>
+                  );
+                },
+              },
+              {
+                header: "Precio",
+                cell: (props) => {
+                  return (
+                    <span className="flex w-auto items-center gap-x-2">
+                      <PiMoneyWavyLight size={15} className="text-green-600" />
+                      <p className="font-semibold text-green-600 text-sm">
+                        S/. {props.row.precio}
                       </p>
                     </span>
-                    <span className="text-xs text-gray-500">
-                      Responsable: {props.row.proveedorResponsable}
-                    </span>
-                  </div>
-                );
-              },
-            },
-            {
-              header: "Precio",
-              cell: (props) => {
-                return (
-                  <span className="flex w-auto items-center gap-x-2">
-                    <PiMoneyWavyLight size={15} className="text-green-600" />
-                    <p className="font-semibold text-green-600 text-sm">
-                      S/. {props.row.precio}
-                    </p>
-                  </span>
-                );
-              },
-            },
-            {
-              header: "Estado",
-              cell: (props) => {
-                return (
-                  <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold">
-                    Activo
-                  </Badge>
-                );
-              },
-            },
-            {
-              header: "Acciones",
-              cell: (props) => {
-              return (
-                  <span className="flex items-center gap-x-4">
-                      <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900"/>
-                  </span>
                   );
+                },
               },
-            },
-          ]}
-        ></Table>
-      }
+              {
+                header: "Estado",
+                cell: (props) => {
+                  return (
+                    <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold">
+                      Activo
+                    </Badge>
+                  );
+                },
+              },
+              {
+                header: "Acciones",
+                cell: (props) => {
+                return (
+                    <span className="flex items-center gap-x-4">
+                        <LuSquarePen className="text-red-500" />
+                        <LuTrash2 className="text-gray-900"/>
+                    </span>
+                    );
+                },
+              },
+            ]}
+          ></Table>}
+        </div>
     </div>
   );
 }
