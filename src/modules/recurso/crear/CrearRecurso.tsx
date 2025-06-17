@@ -16,7 +16,7 @@ export default function CrearRecurso()
     return(
         <div className="min-w-[800px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
             <header className="flex items-center gap-x-3">
-                <LuPackage size={24} className="text-red-600" />
+                <LuPackage size={40} className="text-red-600" />
                 <div className="flex flex-col">
                     <p className="text-xl font-semibold">Agregar Recurso</p>
                     <p className="text-sm text-gray-500">

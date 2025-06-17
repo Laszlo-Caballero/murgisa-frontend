@@ -2,10 +2,8 @@ import Input from "@/components/ui/input/Input";
 import React from "react";
 import Select from "@/components/ui/select/Select";
 
-import { PiMoneyWavyLight } from "react-icons/pi";
-import { LuClock } from "react-icons/lu";
+import { LuSearch } from "react-icons/lu";
 import { LuBriefcase } from "react-icons/lu";
-import { LuCirclePlus } from "react-icons/lu";
 import { LuPencilLine } from "react-icons/lu";
 import Button from "@/components/ui/button/Button";
 import { FiPlus } from "react-icons/fi";
@@ -14,7 +12,7 @@ export default function CrearCondicion() {
     return(
     <div className="min-w-[800px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
         <header className="flex items-center gap-x-3">
-            <LuBriefcase size={40} className="text-purple-600 mb-2" />
+            <LuSearch size={40} className="text-purple-600 mb-2" />
             <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Nueva Condicion</p>
                 <p className="text-sm text-gray-500">

@@ -38,7 +38,7 @@ export default function MantenimientoCorrectivo() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <PiWrenchBold size={24} className="text-orange-600" />
+              <PiWrenchBold size={40} className="text-orange-600" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">
                   Agregar Mantenimiento Correctivo

@@ -37,7 +37,7 @@ export default function FormasDePagoPage() {
               >
                <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
                    <header className="flex items-center gap-x-3">
-                      <MdOutlinePayments size={24} className="text-green-400" />
+                      <MdOutlinePayments size={40} className="text-blue-600" />
                         <div className="flex flex-col">
                           <p className="text-xl font-semibold">Agregar Forma de Pago</p>
                           <p className="text-sm text-gray-500">
@@ -52,9 +52,14 @@ export default function FormasDePagoPage() {
                             icon={<MdOutlinePayments  />}
                             placeholder="Ej: Pago con tarjeta"
                           />
+                          <Input
+                            label="Descripcion"
+                            icon={<MdOutlinePayments  />}
+                            placeholder="Ej: Pago mediante tarjetas Visa, MasterCard u otras"
+                          />
                         </div>
                         <div>
-                          <Button className="flex items-center gap-x-3 mt-4  bg-green-500 text-white py-3 font-semibold hover:bg-blue-500">
+                          <Button className="flex items-center gap-x-3 mt-4  bg-blue-600 text-white py-3 font-semibold hover:bg-blue-500">
                             <FiPlus size={15} className="mr-2" />
                             Registrar Forma de Pago
                           </Button>

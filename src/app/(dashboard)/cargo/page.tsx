@@ -3,7 +3,7 @@ import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { cargoData } from "@/data/cargo";
-
+import { LuBriefcase } from "react-icons/lu";
 import { PiToolbox } from "react-icons/pi";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
@@ -31,7 +31,7 @@ export default function Cargo() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <LuUserCheck size={40} className="text-blue-600" />
+              <LuBriefcase size={40} className="text-blue-600" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Nuevo Cargo</p>
                 <p className="text-sm text-gray-500">

@@ -37,7 +37,7 @@ export default function NotasDeSalidaPage() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <LuClipboardList size={24} className="text-pink-700" />
+              <LuClipboardList size={40} className="text-pink-700" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">Registrar Nota de Salida</p>
                 <p className="text-sm text-gray-500">

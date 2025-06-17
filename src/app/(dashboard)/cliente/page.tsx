@@ -36,9 +36,7 @@ export default function ClientesPage() {
         <Modal onClose={() => setShowModal(false)}>
           <div className="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg flex flex-col gap-6">
             <header className="flex items-center gap-x-4">
-              <span className="bg-blue-600 p-3 rounded-xl">
-                <IoPersonCircleOutline size={40} className="text-white" />
-              </span>
+              <IoPersonCircleOutline size={40} className="text-blue-600" />
               <div className="flex flex-col">
                 <p className="font-bold text-3xl">Agregar Nuevo Cliente</p>
                 <p className="text-sm mt-1 text-gray-600">

@@ -25,7 +25,7 @@ export default function Departamento() {
         >
           <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
-              <LuBuilding2 size={24} className="text-blue-600" />
+              <LuBuilding2 size={40} className="text-blue-600" />
               <div className="flex flex-col">
                 <p className="text-xl font-semibold">Agregar Departamento</p>
                 <p className="text-sm text-gray-500">
