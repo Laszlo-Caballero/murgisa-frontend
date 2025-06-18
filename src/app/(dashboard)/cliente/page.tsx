@@ -35,8 +35,8 @@ export default function ClientesPage() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-blue-600 p-3 rounded-lg max-w-max">
-          <LuUsers size={40} className="text-white" />
+        <span className="bg-blue-600 p-3 rounded-lg max-w-max mb-2 lg:p-3">
+          <LuUsers className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
           <p className="font-bold text-3xl">Gestión de Clientes</p>
@@ -46,7 +46,7 @@ export default function ClientesPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500 mb-2"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
@@ -54,7 +54,7 @@ export default function ClientesPage() {
         </Button>
       </header>
 
-      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 gap-y-3">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Clientes"
           icon={<LuUsers size={28} className="text-white" />}

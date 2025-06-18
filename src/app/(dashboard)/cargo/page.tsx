@@ -13,7 +13,7 @@ import Modal from "@/components/ui/modal/Modal";
 export default function Cargo() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       {showModal && (
         <Modal
           onClose={() => {
@@ -25,8 +25,8 @@ export default function Cargo() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-blue-600 p-3 rounded-xl max-w-max">
-          <PiToolbox size={40} className="text-white" />
+        <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+          <PiToolbox className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
           <p className="font-bold text-3xl">Gestión de Cargos</p>
@@ -35,7 +35,7 @@ export default function Cargo() {
           </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500 mb-2"
           onClick={() => {
             setShowModal(true);
           }}
@@ -44,14 +44,14 @@ export default function Cargo() {
           Nuevo Cargo
         </Button>
       </header>
-      <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Cargos"
           icon={<PiToolbox size={28} className="text-white" />}
           description={"4"}
           extra="Registrados en la empresa"
           className={{
-            container: "bg-blue-50 shadow-lg",
+            container: "bg-blue-100 shadow-lg",
             icon: "bg-blue-600 rounded-full p-3",
             text: {
               title: "text-blue-700",
@@ -66,7 +66,7 @@ export default function Cargo() {
           description={"2"}
           extra="Disponibles para asignacion"
           className={{
-            container: "bg-purple-50 shadow-lg",
+            container: "bg-purple-100 shadow-lg",
             icon: "bg-purple-600 rounded-full p-3",
             text: {
               title: "text-purple-700",
@@ -81,7 +81,7 @@ export default function Cargo() {
           description={"15"}
           extra="Asignados a cargos"
           className={{
-            container: "bg-orange-50 shadow-lg",
+            container: "bg-orange-100 shadow-lg",
             icon: "bg-orange-600 rounded-full p-3",
             text: {
               title: "text-orange-700",
@@ -103,7 +103,7 @@ export default function Cargo() {
           </p>
         </section>
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {cargoData.map((cargo) => (
             <CardInfo
               key={cargo.idCargo}

@@ -22,7 +22,7 @@ export default function ListarDepartamentos({data,}: ListarDepartamentosProps) {
                 rápida
             </p>
         </section>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {data.map((forma) => {
             return (
                 <CardInfo

@@ -33,104 +33,107 @@ export default function ListarCorrectivo({ data }: ListarCorrectivoProps){
                 </section>
             </div>
 
-            <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
+            <div className="flex flex-col  w-full rounded-md shadow-md p-4 bg-white">
                 <div className="flex items-center justify-between w-full">
-                    <div>
-                        <p className="font-medium text-black text-xl">Mantenimientos Registrados</p>
-                        <p className="text-sm text-gray-500 mt-1">Gestiona todos los mantenimientos correctivos registrados</p>
-                    </div>
-                    <div>
-                        <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
-                    </div>
+                    <p className="font-medium text-black text-xl">
+                    Mantenimientos Registrados
+                    </p>
+                    <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+                    Total: 5
+                    </span>
                 </div>
-            </div>
-
-            {<Table
-            className="mt-4 bg-white w-full rounded-md "
-            data={data}
-            columns={[
-                {
-                    header: "Mantenimiento",
+                <div>
+                    <p className="text-sm text-gray-500 mt-1">
+                    Gestiona todos los mantenimiento correctivos registrados en el sistema{" "}
+                    </p>
+                </div>
+                {<Table
+                className="mt-4 bg-white w-full rounded-md "
+                data={data}
+                columns={[
+                    {
+                        header: "Mantenimiento",
+                            cell: (props) => {
+                            return (
+                            <div className="flex items-start gap-x-3">
+                                <span className="bg-red-100 p-2 rounded-lg">
+                                    <LuWrench size={15} className="text-orange-600"/>
+                                </span>
+                                <div className="flex flex-col">
+                                <p className="font-semibold text-sm">{props.row.tipo}</p>
+                                <p className="text-xs text-gray-600">ID: CORR-00{props.row.idCorrectivo}</p>
+                                </div>
+                            </div>
+                            );
+                        },
+                    },
+                    {
+                        header: "Responsable",
+                        cell: (props) => {
+                            return(
+                                <div className="flex flex-col gap-y-1">
+                                    <span className="flex items-center gap-x-2">
+                                        <LuUsers size={15} className="text-green-500" />
+                                        <span className="text-sm font-semibold">{props.row.responsable}</span>
+                                    </span>
+                                    <span>
+                                        <p className="text-xs text-gray-600"> {props.row.cantTecnicos} técnicos</p>
+                                    </span>
+                                </div>
+                            );
+                        },
+                    },
+                    {
+                        header: "Fecha Programada",
                         cell: (props) => {
                         return (
-                        <div className="flex items-start gap-x-3">
-                            <span className="bg-red-100 p-2 rounded-lg">
-                                <LuWrench size={15} className="text-orange-600"/>
-                            </span>
-                            <div className="flex flex-col">
-                            <p className="font-semibold text-sm">{props.row.tipo}</p>
-                            <p className="text-xs text-gray-600">ID: CORR-00{props.row.idCorrectivo}</p>
-                            </div>
-                        </div>
-                        );
-                    },
-                },
-                {
-                    header: "Responsable",
-                    cell: (props) => {
-                        return(
                             <div className="flex flex-col gap-y-1">
                                 <span className="flex items-center gap-x-2">
-                                    <LuUsers size={15} className="text-green-500" />
-                                    <span className="text-sm font-semibold">{props.row.responsable}</span>
-                                </span>
-                                <span>
-                                    <p className="text-xs text-gray-600"> {props.row.cantTecnicos} técnicos</p>
+                                    <LuCalendar size={15} className="text-blue-500" />
+                                    <p className="text-sm font-semibold"> {new Date(props.row.fecha).toLocaleDateString('es-ES')}</p>
                                 </span>
                             </div>
-                        );
+                            );
+                        },                    
                     },
-                },
-                {
-                    header: "Fecha Programada",
-                    cell: (props) => {
-                    return (
-                        <div className="flex flex-col gap-y-1">
-                            <span className="flex items-center gap-x-2">
-                                <LuCalendar size={15} className="text-blue-500" />
-                                <p className="text-sm font-semibold"> {new Date(props.row.fecha).toLocaleDateString('es-ES')}</p>
+                    {
+                        header: "Maquinaria",
+                        cell: (props) => {
+                            return(
+                                <span className="text-sm">
+                                    {props.row.maquinaria}
+                                </span>
+                            )
+                        }
+                    },
+                    {
+                        header: "Estado",
+                        cell: (props) => {
+                        return (
+                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
+                                Activo
+                            </Badge>
+                            );
+                        },
+                    },
+                    {
+                        header: "Acciones",
+                        cell: (props) => {
+                        return (
+                            <span className="flex items-center gap-x-4">
+                                <LuSquarePen className="text-red-500" />
+                                <LuTrash2 className="text-gray-900"/>
                             </span>
-                        </div>
-                        );
-                    },                    
-                },
-                {
-                    header: "Maquinaria",
-                    cell: (props) => {
-                        return(
-                            <span className="text-sm">
-                                {props.row.maquinaria}
-                            </span>
-                        )
+                            );
+                        },
                     }
-                },
-                {
-                    header: "Estado",
-                    cell: (props) => {
-                    return (
-                        <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
-                            Activo
-                        </Badge>
-                        );
-                    },
-                },
-                {
-                    header: "Acciones",
-                    cell: (props) => {
-                    return (
-                        <span className="flex items-center gap-x-4">
-                            <LuSquarePen className="text-red-500" />
-                            <LuTrash2 className="text-gray-900"/>
-                        </span>
-                        );
-                    },
-                }
-            ]}
-            > 
+                ]}
+                > 
 
-            </Table>
+                </Table>}
+            </div>
 
-            }
+
 
 
 

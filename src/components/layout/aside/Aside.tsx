@@ -12,9 +12,13 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 export default function Aside() {
   const pathName = usePathname();
   const [open, setOpen] = useState(false);
-  const [openAside, setOpenAside] = useState(false);
+  const [openAside, setOpenAside] = useState(true);
 
   useEffect(() => {
+
+    if(window.innerWidth < 1280){
+      setOpenAside(false);
+    }
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 1280) {
         setOpenAside(true);
@@ -28,7 +32,7 @@ export default function Aside() {
     <div
       className={cx(
         "xl:w-auto z-10 overflow-x-hidden xl:overflow-x-visible xl:top-0 h-screen",
-        openAside ? "absolute xl:sticky bg-black/10 w-full" : "fixed"
+        openAside ? "fixed xl:sticky bg-black/10 w-full" : "fixed"
       )}
       onClick={() => {
         if (window.innerWidth < 1280) {

@@ -13,7 +13,7 @@ interface ListarCorrectivoProps {
 
 export default function ListaCalendario({ data }: ListarCorrectivoProps){
     return(
-        <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
             {data.map((correctivo)=>{
                 return(
                     <div className="bg-white rounded-lg border border-gray-300 hover:shadow-md" key={correctivo.idCorrectivo}>
