@@ -36,7 +36,7 @@ export default function Home() {
           {date.split(",")[0]}
         </p>
       </header>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid lg:grid-cols-4 gap-6">
         <Card
           title="Ventas del Mes"
           icon={<LuChartColumnIncreasing size={28} />}
@@ -58,9 +58,9 @@ export default function Home() {
         />
       </div>
 
-      <div className="grid grid-cols-3 gap-6 grid-rows-3">
+      <div className="grid lg:grid-cols-3 gap-6 grid-rows-3">
         {/* Actividades Recientes */}
-        <div className="col-span-2 row-span-3 p-6 rounded-lg bg-white shadow-sm flex flex-col gap-y-4">
+        <div className="lg:col-span-2 row-span-3 p-6 rounded-lg bg-white shadow-sm flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-2">
             <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
               <LuActivity />
@@ -159,7 +159,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid lg:grid-cols-2 gap-6">
         {/* Equipos que requieren atención */}
         <div className="p-6 rounded-lg bg-white shadow-sm flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-2">
@@ -261,7 +261,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid lg:grid-cols-4 gap-6">
           <span className="text-center">
             <p>Ingresos</p>
             <p className="text-2xl font-bold text-green-600">$ 150,000</p>
