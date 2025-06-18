@@ -24,7 +24,7 @@ export default function Cargo() {
         </Modal>
       )}
 
-      <header className="flex lg:flex-row flex-col lg:items-center relative gap-x-4">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
         <span className="bg-blue-600 p-3 rounded-xl max-w-max">
           <PiToolbox size={40} className="text-white" />
         </span>
@@ -35,7 +35,7 @@ export default function Cargo() {
           </p>
         </div>
         <Button
-          className="flex items-center absolute lg:static right-0 translate-y-[125%] lg:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
           onClick={() => {
             setShowModal(true);
           }}
