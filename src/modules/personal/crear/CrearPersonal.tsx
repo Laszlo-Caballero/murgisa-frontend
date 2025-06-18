@@ -51,7 +51,7 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
   });
 
   return (
-    <form className="min-w-[800px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
+    <form className="w-full max-h-[600px] overflow-y-auto h-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4">
       {loadingProfesiones ||
         loadingCargos ||
         (loadingDepartamentos && <Load />)}
@@ -63,7 +63,7 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
         </p>
       </header>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4">
         <Input
           label="Nombre"
           icon={<LuUserRound />}

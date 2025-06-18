@@ -2,7 +2,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { FiPlus } from "react-icons/fi";
-import { LuClipboardList, LuCalendar, LuFilter, LuCircleCheckBig } from "react-icons/lu";
+import {
+  LuClipboardList,
+  LuCalendar,
+  LuFilter,
+  LuCircleCheckBig,
+} from "react-icons/lu";
 import Modal from "@/components/ui/modal/Modal";
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
@@ -18,15 +23,14 @@ import { notaSalidaData } from "@/data/notaSalida";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 
-
 export default function NotasDeSalidaPage() {
   const [showModal, setShowModal] = useState(false);
-//  const { data, isLoading } = useQuery<NotaSalida[]>({
-//     queryFn: async () => {
-//       const response = await axios.get(`${env.url_api}/Nota-salida`);
-//       return response.data;
-//     },
-//   });
+  //  const { data, isLoading } = useQuery<NotaSalida[]>({
+  //     queryFn: async () => {
+  //       const response = await axios.get(`${env.url_api}/Nota-salida`);
+  //       return response.data;
+  //     },
+  //   });
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       {showModal && (
@@ -35,11 +39,13 @@ export default function NotasDeSalidaPage() {
             setShowModal(false);
           }}
         >
-          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
+          <div className="w-full max-w-sm md:max-w-3xl bg-white p-6 rounded-lg shadow-lg">
             <header className="flex items-center gap-x-3">
               <LuClipboardList size={40} className="text-pink-700" />
               <div className="flex flex-col">
-                <p className="text-xl font-semibold">Registrar Nota de Salida</p>
+                <p className="text-xl font-semibold">
+                  Registrar Nota de Salida
+                </p>
                 <p className="text-sm text-gray-500">
                   Completa los datos para registrar una nueva nota de salida
                 </p>
@@ -58,20 +64,20 @@ export default function NotasDeSalidaPage() {
                 icon={<LuCirclePlus />}
                 placeholder="Selecciona una Venta"
                 options={[
-                { value: "1", label: "OR001" },
-                { value: "2", label: "OR002" },
-                ]}>
-              </Select>
+                  { value: "1", label: "OR001" },
+                  { value: "2", label: "OR002" },
+                ]}
+              ></Select>
               <Select
                 label="Recurso"
                 icon={<LuCirclePlus />}
                 placeholder="Selecciona un recurso"
                 options={[
-                { value: "1", label: "Grúa" },
-                { value: "2", label: "Excavadora" },
-                { value: "3", label: "Generador" }
-                ]}>
-              </Select>
+                  { value: "1", label: "Grúa" },
+                  { value: "2", label: "Excavadora" },
+                  { value: "3", label: "Generador" },
+                ]}
+              ></Select>
             </div>
 
             <div>
@@ -85,14 +91,14 @@ export default function NotasDeSalidaPage() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-          <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
-            <LuClipboardList className="text-white size-8 lg:size-10" />
-          </span>
-          <div className="flex flex-col">
-            <p className="font-bold text-3xl">Notas de Salida</p>
-            <p className="text-sm">
-              Gestiona las notas de salida registradas en el sistema
-            </p>
+        <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+          <LuClipboardList className="text-white size-8 lg:size-10" />
+        </span>
+        <div className="flex flex-col">
+          <p className="font-bold text-3xl">Notas de Salida</p>
+          <p className="text-sm">
+            Gestiona las notas de salida registradas en el sistema
+          </p>
         </div>
 
         <Button
@@ -141,13 +147,16 @@ export default function NotasDeSalidaPage() {
 
       <div className="py-6 flex flex-col gap-y-6">
         <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-        <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
-            <LuFilter size={20} className="text-pink-600"/>
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+            <LuFilter size={20} className="text-pink-600" />
             Filtros de Búsqueda
-        </span>
-        <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de salida programadas de manera rápida</p>
+          </span>
+          <p className="text-sm mt-1 text-gray-500">
+            Utiliza los filtros para encontrar notas de salida programadas de
+            manera rápida
+          </p>
         </section>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {notaSalidaData?.map((nota) => {
             return (
               <CardInfo
@@ -157,34 +166,39 @@ export default function NotasDeSalidaPage() {
                 className={{
                   header: {
                     icon: "bg-red-100",
-                    description: "font-semibold"
+                    description: "font-semibold",
                   },
                   span: "bg-green-100 text-green-700 border border-green-300 font-semibold ",
                 }}
-                description={ "ID: NS-00" + nota.idNotaSalida.toString()}
+                description={"ID: NS-00" + nota.idNotaSalida.toString()}
                 span={nota.estado ? "Activo" : "Inactivo"}
               >
                 <div className="flex items-center justify-between">
                   <span className="flex flex-col gap-y-1">
                     <p className="text-sm text-gray-900 font-medium">Fecha</p>
                     <p className="text-sm text-gray-600 font-semibold flex items-center gap-x-1">
-                      <LuCalendar className="text-blue-600" /> {nota.fecha.split("T")[0]}
+                      <LuCalendar className="text-blue-600" />{" "}
+                      {nota.fecha.split("T")[0]}
                     </p>
                   </span>
                   <span className="flex flex-col gap-y-1">
-                    <p className="text-sm text-gray-900 font-medium">Maquinaria</p>
-                    <p className="text-gray-600 text-sm">{nota.maquinariaSeleccionada}</p>
+                    <p className="text-sm text-gray-900 font-medium">
+                      Maquinaria
+                    </p>
+                    <p className="text-gray-600 text-sm">
+                      {nota.maquinariaSeleccionada}
+                    </p>
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-x-2 mt-4">
-                    <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
-                        <LuSquarePen size={15} />
-                        Editar
-                    </Button>
-                    <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
-                        <LuEye size={15} />
-                        Desactivar
-                    </Button>
+                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
+                    <LuSquarePen size={15} />
+                    Editar
+                  </Button>
+                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
+                    <LuEye size={15} />
+                    Desactivar
+                  </Button>
                 </div>
               </CardInfo>
             );
