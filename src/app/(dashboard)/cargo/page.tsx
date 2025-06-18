@@ -30,24 +30,22 @@ export default function Cargo() {
             setShowModal(false);
           }}
         >
-          <CrearCargo/>
+          <CrearCargo />
         </Modal>
       )}
 
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-blue-600 p-3 rounded-xl">
-            <PiToolbox size={40} className="text-white" />
-          </span>
-          <div className="flex flex-col">
-            <p className="font-bold text-3xl">Gestión de Cargos</p>
-            <p className="text-sm">
-              Administra los puestos de trabajo y roles organizacionales
-            </p>
-          </div>
+      <header className="flex lg:flex-row flex-col lg:items-center relative gap-x-4">
+        <span className="bg-blue-600 p-3 rounded-xl max-w-max">
+          <PiToolbox size={40} className="text-white" />
+        </span>
+        <div className="flex flex-col">
+          <p className="font-bold text-3xl">Gestión de Cargos</p>
+          <p className="text-sm">
+            Administra los puestos de trabajo y roles organizacionales
+          </p>
         </div>
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500" 
+          className="flex items-center absolute lg:static right-0 translate-y-[125%] lg:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
           onClick={() => {
             setShowModal(true);
           }}
@@ -62,36 +60,45 @@ export default function Cargo() {
           icon={<PiToolbox size={28} className="text-white" />}
           description={"4"}
           extra="Registrados en la empresa"
-          className = {{ 
-            container: "bg-blue-50 shadow-lg" , 
-            icon: "bg-blue-600 rounded-full p-3", 
-            text:{title:"text-blue-700" ,
-            description:"text-blue-900 text-3xl" ,
-            extra: "text-blue-600"} }}
+          className={{
+            container: "bg-blue-50 shadow-lg",
+            icon: "bg-blue-600 rounded-full p-3",
+            text: {
+              title: "text-blue-700",
+              description: "text-blue-900 text-3xl",
+              extra: "text-blue-600",
+            },
+          }}
         />
         <Card
           title="Cargos Activos"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description={"2"}
           extra="Disponibles para asignacion"
-          className = {{ 
-            container: "bg-purple-50 shadow-lg" , 
-            icon: "bg-purple-600 rounded-full p-3", 
-            text:{title:"text-purple-700" ,
-            description:"text-purple-900 text-3xl" ,
-            extra: "text-purple-600"} }}
+          className={{
+            container: "bg-purple-50 shadow-lg",
+            icon: "bg-purple-600 rounded-full p-3",
+            text: {
+              title: "text-purple-700",
+              description: "text-purple-900 text-3xl",
+              extra: "text-purple-600",
+            },
+          }}
         />
         <Card
           title="Total Empleados"
           icon={<LuUsers size={28} className="text-white" />}
           description={"15"}
           extra="Asignados a cargos"
-          className = {{ 
-            container: "bg-orange-50 shadow-lg" , 
-            icon: "bg-orange-600 rounded-full p-3", 
-            text:{title:"text-orange-700" ,
-            description:"text-orange-900 text-3xl" ,
-            extra: "text-orange-600"} }}
+          className={{
+            container: "bg-orange-50 shadow-lg",
+            icon: "bg-orange-600 rounded-full p-3",
+            text: {
+              title: "text-orange-700",
+              description: "text-orange-900 text-3xl",
+              extra: "text-orange-600",
+            },
+          }}
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4 ">
@@ -112,10 +119,7 @@ export default function Cargo() {
               key={cargo.idCargo}
               title={cargo.cargo}
               icon={
-                <AiOutlineCustomerService
-                  size={20}
-                  className="text-blue-400"
-                />
+                <AiOutlineCustomerService size={20} className="text-blue-400" />
               }
               className={{
                 container: "bg-white",
@@ -136,7 +140,7 @@ export default function Cargo() {
                 </span>
               </div>
             </CardInfo>
-          ))} 
+          ))}
         </div>
       </div>
     </div>
