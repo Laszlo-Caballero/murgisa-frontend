@@ -3,23 +3,13 @@ import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { cargoData } from "@/data/cargo";
-import { LuBriefcase } from "react-icons/lu";
 import { PiToolbox } from "react-icons/pi";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
 import CrearCargo from "@/modules/cargo/crear/CrearCargo";
-import {
-  LuCircleCheckBig,
-  LuFilter,
-  LuUserCheck,
-  LuUsers,
-} from "react-icons/lu";
+import { LuCircleCheckBig, LuFilter, LuUsers } from "react-icons/lu";
 import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
-import Input from "@/components/ui/input/Input";
-import { LuPencilLine } from "react-icons/lu";
-import { BsFilePost } from "react-icons/bs";
-
 export default function Cargo() {
   const [showModal, setShowModal] = useState(false);
   return (
