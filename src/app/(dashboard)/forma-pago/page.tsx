@@ -29,7 +29,7 @@ export default function FormasDePagoPage() {
   //   },
   // });
   return (
-    <div className="w-full h-full p-9 bg-gray-50 flex flex-col">
+    <div className="w-full h-full p-9 bg-gray-100 flex flex-col">
       {showModal && (
               <Modal
                 onClose={() => {

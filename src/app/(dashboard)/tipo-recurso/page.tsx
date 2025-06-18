@@ -19,7 +19,7 @@ import Modal from "@/components/ui/modal/Modal";
 export default function TipoRecursoPage() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-100">
       {showModal && (
         <Modal
           onClose={() => {

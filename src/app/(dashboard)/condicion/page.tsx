@@ -13,7 +13,7 @@ import CrearCondicion from "@/modules/condicion/Crear/CrearCondicion";
 export default function CondicionesPage() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="p-8 w-full h-full flex flex-col gap-6 bg-gray-50">
+    <div className="p-8 w-full h-full flex flex-col gap-6 bg-gray-100">
             {showModal && (
                     <Modal
                       onClose={() => {

@@ -32,7 +32,7 @@ export default function NotasDeSalidaPage() {
   //     },
   //   });
   return (
-    <div className="w-full h-full p-8 flex flex-col bg-gray-50">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-100">
       {showModal && (
         <Modal
           onClose={() => {
