@@ -61,7 +61,7 @@ export default function ClientesPage() {
           description={"11"}
           extra="Registrados en el sistema"
           className={{
-            container: "bg-blue-50 shadow-lg ",
+            container: "bg-blue-100 shadow-lg ",
             icon: "bg-blue-600 rounded-full p-3",
             text: {
               container: "gap-y-1",
@@ -77,7 +77,7 @@ export default function ClientesPage() {
           description={"10"}
           extra="Disponibles para realizar ventas"
           className={{
-            container: "bg-emerald-50 shadow-lg",
+            container: "bg-emerald-100 shadow-lg",
             icon: "bg-emerald-600 rounded-full p-3",
             text: {
               title: "text-emerald-700",
@@ -90,10 +90,10 @@ export default function ClientesPage() {
         <Card
           title="Cliente Más Frecuente"
           icon={<LuClock4 size={28} className="text-white" />}
-          description={"Ñepito Ñispe"}
+          description={"Ana Torres"}
           extra="Según cantidad de Ventas"
           className={{
-            container: "bg-purple-50 shadow-lg",
+            container: "bg-purple-100 shadow-lg",
             icon: "bg-purple-600 rounded-full p-3",
             text: {
               title: "text-purple-700",
@@ -109,7 +109,7 @@ export default function ClientesPage() {
           description={"Juan Pérez"}
           extra="Nuevas oportunidades de Venta"
           className={{
-            container: "bg-orange-50 shadow-lg",
+            container: "bg-orange-100 shadow-lg",
             icon: "bg-orange-600 rounded-full p-3",
             text: {
               title: "text-orange-700",

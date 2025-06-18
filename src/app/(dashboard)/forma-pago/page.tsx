@@ -18,7 +18,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { MdOutlinePayments } from "react-icons/md";
 import { formaPagoData } from "@/data/formaPago";
 import CrearFormaPago from "@/modules/forma-pago/crear/CrearFormaPago";
-
+import { LuStar } from "react-icons/lu";
 
 export default function FormasDePagoPage() {
   const [showModal, setShowModal] = useState(false);
@@ -78,6 +78,18 @@ export default function FormasDePagoPage() {
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="4"
           extra="Disponibles para asignacion"
+          className = {{ 
+            container: "bg-green-100 shadow-lg" , 
+            icon: "bg-emerald-600 rounded-full p-3", 
+            text:{title:"text-emerald-700" ,
+            description:"text-emerald-900 text-3xl" ,
+            extra: "text-emerald-600"} }}
+        />
+        <Card
+          title="Método preferido"
+          icon={<LuStar size={28} className="text-white" />}
+          description="Tarjeta"
+          extra="Al momento de Pagar"
           className = {{ 
             container: "bg-purple-100 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 

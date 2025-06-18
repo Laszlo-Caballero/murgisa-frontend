@@ -72,22 +72,34 @@ export default function PersonalPage() {
         <Card
           title="Total Empleados"
           icon={<LuUsers size={28} className="text-white" />}
-          description="3"
+          description="18"
           extra="Registrados en el sistema"
           className = {{ 
-            container: "bg-blue-50 shadow-lg" , 
-            icon: "bg-blue-600 rounded-full p-3", 
-            text:{title:"text-blue-700" ,
-            description:"text-blue-900 text-3xl" ,
-            extra: "text-blue-600"} }}
+            container: "bg-emerald-100 shadow-lg" , 
+            icon: "bg-emerald-600 rounded-full p-3", 
+            text:{title:"text-emerald-700" ,
+            description:"text-emerald-900 text-3xl" ,
+            extra: "text-emerald-600"} }}
+        />
+        <Card
+          title="Empleados En Servicio"
+          icon={<LuCircleCheckBig size={28} className="text-white" />}
+          description="6"
+          extra="Realizando su labor"
+          className = {{ 
+            container: "bg-orange-100 shadow-lg" , 
+            icon: "bg-orange-600 rounded-full p-3", 
+            text:{title:"text-orange-700" ,
+            description:"text-orange-900 text-3xl" ,
+            extra: "text-orange-600"} }}
         />
         <Card
           title="Empleados Activos"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
-          description="3"
+          description="15"
           extra="Disponibles para asignación"
           className = {{ 
-            container: "bg-purple-50 shadow-lg" , 
+            container: "bg-purple-100 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 
             text:{title:"text-purple-700" ,
             description:"text-purple-900 text-3xl" ,
