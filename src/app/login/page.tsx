@@ -11,7 +11,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   return (
-    <main className="flex-1 flex w-full flex-col items-center justify-center">
+    <main className="flex-1 flex w-full h-full flex-col items-center justify-center bg-gray-100">
       <span className="bg-blue-500 size-14 rounded-full flex items-center justify-center">
         <LuBuilding2 className="text-white" size={35} />
       </span>
@@ -21,7 +21,7 @@ export default function LoginPage() {
       </div>
 
       <form
-        className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center min-w-[500px] mt-5"
+        className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center mt-5 bg-white"
         onSubmit={(e) => {
           e.preventDefault();
           router.push("/");
