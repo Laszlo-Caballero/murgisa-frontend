@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LuPlus, LuUsers } from "react-icons/lu";
+import { LuDollarSign, LuPlus, LuShoppingCart, LuUsers } from "react-icons/lu";
 import { IoClose } from "react-icons/io5";
 import StepFormProvider from "@/components/context/step-form/StepFormContext";
 import HeaderStep from "@/components/ui/header-step/HeaderStep";
@@ -14,6 +14,10 @@ import Button from "@/components/ui/button/Button";
 import { LuBox } from "react-icons/lu";
 import Table from "@/components/ui/table/Table";
 import { RxCrossCircled } from "react-icons/rx";
+import { LuUserCheck } from "react-icons/lu";
+import Badge from "@/components/ui/badge/Badge";
+import { LuCircleCheckBig } from "react-icons/lu";
+import Card from "@/components/ui/card/Card";
 interface CrearVentaProps {
   onClose?: () => void;
 }
@@ -156,41 +160,46 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-x-2">
-              <LuBox className="size-6 text-green-500" />
-              <p className="font-bold text-xl">Servicios a Contratar</p>
+              <LuUserCheck className="size-6 text-purple-500" />
+              <p className="font-bold text-xl">Asignación de Personal</p>
             </div>
             <div className="flex flex-col gap-4 mt-4">
               <Select
-                label="Servicio:"
-                placeholder="Seleccione un tipo de servicio"
+                label="Seleccionar Personal:"
+                placeholder="Seleccione el personal a asignar"
               />
               <Table
                 data={[
                   {
-                    name: "Servicio 1",
+                    name: "Personal 1",
+                    profesion: "Tecnico",
                     fechaInicio: "2023-10-01",
-                    fechaFin: "2023-10-31",
-                    Precio: "$100",
+                    salario: "$100",
                   },
                 ]}
                 columns={[
                   {
                     header: "Servicio",
-                    cell: (props) => <span>{props.row.name}</span>,
+                    cell: (props) => (
+                      <span className="flex items-center gap-x-2">
+                        <LuUserCheck className="size-6 text-purple-500" />
+                        {props.row.name}
+                      </span>
+                    ),
+                  },
+                  {
+                    header: "Profesión",
+                    cell: (props) => <Badge>{props.row.profesion}</Badge>,
                   },
                   {
                     header: "Fecha Inicio",
                     cell: (props) => <span>{props.row.fechaInicio}</span>,
                   },
                   {
-                    header: "Fecha Fin",
-                    cell: (props) => <span>{props.row.fechaFin}</span>,
-                  },
-                  {
-                    header: "Precio",
+                    header: "Salario",
                     cell: (props) => (
-                      <span className="text-green-500 font-bold">
-                        {props.row.Precio}
+                      <span className="text-purple-500 font-bold">
+                        {props.row.salario}
                       </span>
                     ),
                   },
@@ -205,6 +214,86 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                     ),
                   },
                 ]}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-x-2">
+              <LuCircleCheckBig className="size-6 text-blue-500" />
+              <p className="font-bold text-xl">Confirmacion de Venta</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mt-4 border-b pb-5 border-gray-200">
+              <div>
+                <p>Informacion del Cliente</p>
+                <p>
+                  <span className="font-bold">Cliente</span>: Juan Perez
+                </p>
+                <p>
+                  <span className="font-bold">RUC</span>: 1234567890
+                </p>
+                <p>
+                  <span className="font-bold">Telefono</span>: 0987654321
+                </p>
+              </div>
+              <div>
+                <p>Detalles de la Venta</p>
+                <p>
+                  <span className="font-bold">Servicios</span>: Servicio 1,
+                  Servicio 2
+                </p>
+                <p>
+                  <span className="font-bold">Personal</span>: 1 empleado
+                </p>
+                <p>
+                  <span className="font-bold">Estado</span>:{" "}
+                  <Badge className="bg-amber-100 text-amber-600 font-bold border-none">
+                    Pendiente
+                  </Badge>
+                </p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <Card
+                title="Servicios"
+                icon={<LuShoppingCart size={28} className="text-white" />}
+                description={"S/. 1000"}
+                className={{
+                  container: "bg-blue-100 shadow-lg",
+                  icon: "bg-blue-600 rounded-full p-3",
+                  text: {
+                    title: "text-blue-700",
+                    description: "text-blue-900 text-3xl",
+                    extra: "text-blue-600",
+                  },
+                }}
+              />
+              <Card
+                title="Total Personal"
+                icon={<LuUsers size={28} className="text-white" />}
+                description={"S/. 1800"}
+                className={{
+                  container: "bg-purple-100 shadow-lg",
+                  icon: "bg-purple-600 rounded-full p-3",
+                  text: {
+                    title: "text-purple-700",
+                    description: "text-purple-900 text-3xl",
+                    extra: "text-purple-600",
+                  },
+                }}
+              />
+              <Card
+                title="Ventas Completadas"
+                icon={<LuDollarSign size={28} className="text-white" />}
+                description={"S/. 2800"}
+                className={{
+                  container: "bg-green-100 shadow-lg",
+                  icon: "bg-green-600 rounded-full p-3",
+                  text: {
+                    title: "text-green-700",
+                    description: "text-green-900 text-3xl",
+                    extra: "text-green-600",
+                  },
+                }}
               />
             </div>
           </div>
