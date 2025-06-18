@@ -16,10 +16,25 @@ import { LuBriefcase } from "react-icons/lu";
 import Badge from "@/components/ui/badge/Badge";
 import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
+import { useState } from "react";
+import Modal from "@/components/ui/modal/Modal";
+import CrearVenta from "@/modules/ventas/crear/CrearVenta";
 
 export default function VentasPagina() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="w-full h-full bg-gray-100 p-8 flex flex-col">
+      {" "}
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <CrearVenta onClose={() => setShowModal(false)} />
+        </Modal>
+      )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
         <span className="bg-green-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
           <LuShoppingCart className="text-white size-8 lg:size-10" />
@@ -31,12 +46,14 @@ export default function VentasPagina() {
           </p>
         </div>
 
-        <Button className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-green-600 hover:bg-green-500 mb-2">
+        <Button
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-green-600 hover:bg-green-500 mb-2"
+          onClick={() => setShowModal(true)}
+        >
           <FiPlus size={15} />
           Nueva Venta
         </Button>
       </header>
-
       <div className="grid grid-cols-1 items-center mt-6 gap-x-4 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Ventas"
@@ -99,7 +116,6 @@ export default function VentasPagina() {
           }}
         />
       </div>
-
       <div className="py-4 flex w-full flex-col gap-y-4">
         <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-md">
