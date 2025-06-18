@@ -12,7 +12,7 @@ export default function Card404({ icon, title, subtitle, url }: Card404Props) {
   return (
     <Link
       href={url}
-      className="flex justify-center bg-white items-center rounded-lg flex-col gap-y-2 p-6 shadow-lg hover:shadow-2xl transition-all"
+      className="flex justify-center w-full bg-white items-center rounded-lg flex-col gap-y-2 p-6 shadow-lg hover:shadow-2xl transition-all"
     >
       <div className="p-3 bg-blue-100 rounded-full">
         {cloneElement(icon as ReactElement<{ size: number; color: string }>, {

@@ -9,7 +9,7 @@ import { LuUsers } from "react-icons/lu";
 import { LuWrench } from "react-icons/lu";
 export default function NotFound() {
   return (
-    <div className="flex w-full flex-1 bg-blue-50/50 py-6">
+    <div className="flex w-full flex-1 bg-blue-50/50 px-6">
       <main className="flex-1 flex w-full flex-col items-center justify-center">
         <span className="bg-blue-500 p-4 rounded-full flex items-center justify-center">
           <LuBuilding2 className="text-white" size={48} />
@@ -49,7 +49,7 @@ export default function NotFound() {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-x-6 my-6">
+        <div className="grid max-w-5xl md:grid-cols-4 items-center gap-6 my-6 w-full">
           <Card404
             icon={<LuHouse />}
             title="Inicio"
