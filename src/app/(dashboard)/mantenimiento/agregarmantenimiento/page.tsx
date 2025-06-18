@@ -75,9 +75,9 @@ export default function page() {
           <Card
             title="Mayor Demanda"
             icon={<LuStar size={28} className="text-white" />}
-            description="108"
+            description="Electrico"
             extra="Mantenimiento más solicitado"
-            className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-500 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" ,extra: "text-orange-600"} }}
+            className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-500 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-xl" ,extra: "text-orange-600"} }}
           />
         </div>
         <div className="py-4 flex w-full flex-col gap-y-4">

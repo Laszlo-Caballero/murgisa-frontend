@@ -76,11 +76,11 @@ export default function RecursoPage() {
           description="11"
           extra="Listo para ser asignado"
           className={{
-            container: "bg-purple-100 shadow-lg",
-            icon: "bg-purple-600 rounded-full p-3 shadow-xl",
+            container: "bg-emerald-100 shadow-lg",
+            icon: "bg-emerald-600 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-purple-700",
-              description: "text-purple-900 text-3xl",
+              title: "text-emerald-700",
+              description: "text-emerald-900 text-3xl",
               extra: "text-purpe-800 text-xs",
             },
           }}
