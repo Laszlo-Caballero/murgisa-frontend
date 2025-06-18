@@ -44,7 +44,7 @@ export default function VentasPagina() {
           description={"20"}
           extra="Registradas en el sistema"
           className = {{ 
-            container: "bg-blue-50 shadow-lg" , 
+            container: "bg-blue-100 shadow-lg" , 
             icon: "bg-blue-600 rounded-full p-3", 
             text:{title:"text-blue-700" ,
             description:"text-blue-900 text-3xl" ,
@@ -56,7 +56,7 @@ export default function VentasPagina() {
           description={"S/. 1800"}
           extra="Suma generada por venats"
           className = {{ 
-            container: "bg-purple-50 shadow-lg" , 
+            container: "bg-purple-100 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 
             text:{title:"text-purple-700" ,
             description:"text-purple-900 text-3xl" ,
@@ -68,7 +68,7 @@ export default function VentasPagina() {
           description={"28"}
           extra="Finalizadas exitosamente"
           className = {{ 
-            container: "bg-green-50 shadow-lg" , 
+            container: "bg-green-100 shadow-lg" , 
             icon: "bg-green-600 rounded-full p-3", 
             text:{title:"text-green-700" ,
             description:"text-green-900 text-3xl" ,
@@ -80,7 +80,7 @@ export default function VentasPagina() {
           description={"0"}
           extra="Anuladas o sin Concretar"
           className = {{ 
-            container: "bg-red-50 shadow-lg" , 
+            container: "bg-red-100 shadow-lg" , 
             icon: "bg-red-600 rounded-full p-3", 
             text:{title:"text-red-700" ,
             description:"text-red-900 text-3xl" ,
