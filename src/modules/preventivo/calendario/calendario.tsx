@@ -34,19 +34,28 @@ export default function ListarCalendario({ data }: ListarPreventivosProps) {
                                 icon: "bg-orange-100 rounded-lg p-2",
                             }
                         }}>
-                        <div className="flex flex-col gap-y-2 px-2">
-                            <span className="flex items-center gap-x-2">
-                                <LuCalendar size={16} className="text-gray-500" />
-                                <p className="text-sm text-gray-700">{new Date(preventivo.fecha).toLocaleDateString('es-ES')}</p>
-                            </span>
-                            <span className="flex items-center gap-x-2">
-                                <LuUsers size={16} className="text-gray-500" />
-                                <p className="text-sm text-gray-700" >{preventivo.responsable}</p>
-                            </span>
-                            <span className="flex items-center gap-x-2">
-                                <LuClock4 size={16} className="text-gray-500" />
-                                <p className="text-sm text-gray-700">{preventivo.horario}</p>
-                            </span>
+                            
+                        <div className="flex items-center justify-between">
+                            <div className="flex flex-col gap-y-2 px-2">
+                                <span className="flex items-center gap-x-2">
+                                    <LuCalendar size={16} className="text-red-500" />
+                                    <p className="text-m text-gray-700">{new Date(preventivo.fecha).toLocaleDateString('es-ES')}</p>
+                                </span>
+                                <span className="flex items-center gap-x-2">
+                                    <LuClock4 size={16} className="text-blue-500" />
+                                    <p className="text-sm text-gray-700">{preventivo.horario}</p>
+                                </span>
+                            </div>
+                            <div className="flex flex-col gap-y-2 px-2">
+                                <span className="flex items-center gap-x-2">
+                                    <LuUsers size={16} className="text-green-500" />
+                                    <p className="text-sm text-gray-700" >{preventivo.responsable}</p>
+                                </span>
+                                <span className="flex items-center gap-x-2">
+                                    <LuShield size={16} className="text-purple-500" />
+                                    <p className="text-sm text-gray-700">{preventivo.tipo}</p>
+                                </span>
+                            </div>
                         </div>
                         </CardInfo>
                     </div>

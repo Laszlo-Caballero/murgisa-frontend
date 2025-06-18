@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <div className="flex w-full flex-1">
       <main className="flex-1 flex w-full">
-        {/* <Aside /> */}
+        <Aside /> 
         {children}
       </main>
     </div>

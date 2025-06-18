@@ -12,7 +12,9 @@ import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Modal from "@/components/ui/modal/Modal";
-import Input from "@/components/ui/input/Input";
+import { correctivoData } from "@/data/correctivo";
+import { Correctivo } from "@/interfaces/response.interface";
+
 
 import { useState } from "react";
 import { LuSquarePen } from "react-icons/lu";
@@ -24,9 +26,12 @@ import { PiCity } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
 import { PiMapPinArea } from "react-icons/pi";
 import CrearCorrectivo from "@/modules/correctivo/crear/CrearCorrectivo";
+import ListarCorrectivo from "@/modules/correctivo/listar/Listar";
+import ListaCalendario from "@/modules/correctivo/calendario/calendario";
 
 export default function MantenimientoCorrectivo() {
   const [showModal, setShowModal] = useState(false);
+  const correctivos: Correctivo[] = correctivoData
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       {showModal && (
@@ -123,95 +128,9 @@ export default function MantenimientoCorrectivo() {
           }}
         />
       </div>
-      <Tabs headers={["Lista de Mantenimiento"]} className="mt-6">
-        <div className="py-4 flex w-full flex-col gap-y-4">
-          <div className="py-4 flex w-full flex-col gap-y-4">
-            <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-              <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
-                <LuFilter size={20} className="text-orange-700" />
-                Filtros de Búsqueda
-              </span>
-              <p className="text-sm mt-1 text-gray-500">
-                Utiliza los filtros para encontrar mantenimientos programados de
-                manera rápida
-              </p>
-            </section>
-          </div>
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <CardInfo
-              key={"UWU"}
-              title={"ID: MANC-001"}
-              icon={
-                <HiOutlineWrenchScrewdriver
-                  size={20}
-                  className="text-orange-600"
-                />
-              }
-              className={{
-                container: "bg-white",
-                header: {
-                  title: "text-md",
-                  description: "text-xl text-black font-semibold",
-                  icon: "bg-orange-100 rounded-lg",
-                },
-                span: "bg-green-100 text-green-700 border border-green-300 font-semibold ",
-              }}
-              description={"Reparacion de Motor Principal"}
-              span={"En Proceso"}
-            >
-              <div>
-                <p className="text-md text-gray-900">
-                  Reparación urgente del motor principal del compresor debido a
-                  sobrecalentamiento
-                </p>
-              </div>
-              <div className="flex justify-between gap-x-4 flex-col gap-y-2 py-3  ">
-                <span className="flex items-center gap-x-2">
-                  <PiCity size={15} className="text-blue-600" />
-                  <p className="text-sm text-blue-600 font-semibold flex items-center gap-x-1">
-                    Maquinaria:{" "}
-                    <span className="text-gray-600 text-sm">
-                      {"Compresor Industrial CI-001"}
-                    </span>
-                  </p>
-                </span>
-
-                <span className="flex items-center gap-x-2">
-                  <FaRegUser size={15} className="text-purple-600" />
-                  <p className="text-sm text-purple-600 font-semibold">
-                    Tecnico: <span className="text-gray-600 text-sm">{"Paco"}</span>
-                  </p>
-                </span>
-                <span className="flex items-center gap-x-2">
-                  <PiMapPinArea size={15} className="text-yellow-500" />
-                  <p className="text-sm text-yellow-600 font-semibold">
-                    Ubicacion:{" "}
-                    <span className="text-gray-600 text-sm">
-                      {"Plaza Principal - Sector A"}
-                    </span>
-                  </p>
-                </span>
-                <span className="flex items-center gap-x-2 ">
-                  <LuDollarSign size={15} className="text-green-600" />
-                  <p className="text-sm text-green-600 font-semibold flex items-center gap-x-1">
-                    Precio: <span className="text-gray-600 text-sm">{"S/. 200"}</span>
-                  </p>
-                </span>
-              </div>
-              <div className="flex items-center justify-between gap-x-2">
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
-                  <LuSquarePen size={15} />
-                  Editar
-                </Button>
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
-                  <LuEye size={15} />
-                  Desactivar
-                </Button>
-              </div>
-            </CardInfo>
-          </div>
-        </div>
-        <div>2</div>
+      <Tabs headers={["Lista de Mantenimiento","Vista calendario"]} className="mt-6">
+        <ListarCorrectivo data={correctivos}/>
+        <ListaCalendario data={correctivos}/>
       </Tabs>
     </div>
   );

@@ -5,7 +5,7 @@ import { LuCalendar } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
 import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
-
+import { LuShield } from "react-icons/lu";
 
 import Badge from "@/components/ui/badge/Badge";
 import Table from "@/components/ui/table/Table";
@@ -46,6 +46,9 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                         cell: (props) => {
                         return (
                             <div className="flex items-start gap-x-3">
+                                <span className="bg-red-100 p-2 rounded-lg">
+                                    <LuShield size={15} className="text-orange-600"/>
+                                </span>
                                 <div className="flex flex-col">
                                 <p className="font-semibold text-sm">{props.row.tipo}</p>
                                 <p className="text-xs text-gray-600">ID: PLAN-00{props.row.idPlanificacion}</p>
@@ -74,8 +77,8 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                             return(
                                 <div className="flex flex-col gap-y-1">
                                     <span className="flex items-center gap-x-2">
-                                        <LuUsers size={15} className="text-gray-500" />
-                                        <span className="text-sm font-bold">{props.row.responsable}</span>
+                                        <LuUsers size={15} className="text-green-500" />
+                                        <span className="text-sm font-semibold">{props.row.responsable}</span>
                                     </span>
                                     <span>
                                         <p className="text-xs text-gray-600"> {props.row.cantPersonal} técnicos</p>

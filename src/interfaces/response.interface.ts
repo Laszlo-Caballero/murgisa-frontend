@@ -214,3 +214,16 @@ export interface NotaEntrada{
   estado: boolean,
 }
 
+export interface Correctivo{
+  idCorrectivo: number;
+  tipo: string;
+  descripcion: string;
+  maquinaria: string;
+  responsable: string;
+  cantTecnicos: number;
+  progreso: string;
+  duracion: string;
+  precio: number;
+  fecha: string;
+  estado: boolean;
+}
