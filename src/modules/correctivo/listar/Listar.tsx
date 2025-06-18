@@ -1,6 +1,6 @@
-import { Correctivo } from "@/interfaces/response.interface"
-import CardInfo from "@/components/ui/card-info/CardInfo"
-import Button from "@/components/ui/button/Button"
+import { Correctivo } from "@/interfaces/response.interface";
+import CardInfo from "@/components/ui/card-info/CardInfo";
+import Button from "@/components/ui/button/Button";
 import { LuSquarePen, LuTrash } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
@@ -16,133 +16,140 @@ import Badge from "@/components/ui/badge/Badge";
 import { LuTrash2 } from "react-icons/lu";
 import { LuWrench } from "react-icons/lu";
 
-interface ListarCorrectivoProps{
-    data: Correctivo[]
+interface ListarCorrectivoProps {
+  data: Correctivo[];
 }
 
-export default function ListarCorrectivo({ data }: ListarCorrectivoProps){
-    return(
-        <div className="py-4 flex w-full flex-col gap-y-4">
-            <div className="py-4 flex w-full flex-col gap-y-4">
-                <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-                <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
-                    <LuFilter size={20} className="text-orange-600"/>
-                    Filtros de Búsqueda
-                </span>
-                <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar mantenimientos solicitados de manera rápida</p>
-                </section>
-            </div>
+export default function ListarCorrectivo({ data }: ListarCorrectivoProps) {
+  return (
+    <div className="py-4 flex w-full flex-col gap-y-4">
+      <div className="py-4 flex w-full flex-col gap-y-4">
+        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+            <LuFilter size={20} className="text-orange-600" />
+            Filtros de Búsqueda
+          </span>
+          <p className="text-sm mt-1 text-gray-500">
+            Utiliza los filtros para encontrar mantenimientos solicitados de
+            manera rápida
+          </p>
+        </section>
+      </div>
 
-            <div className="flex flex-col  w-full rounded-md shadow-md p-4 bg-white">
-                <div className="flex items-center justify-between w-full">
-                    <p className="font-medium text-black text-xl">
-                    Mantenimientos Registrados
-                    </p>
-                    <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
-                    Total: 5
+      <div className="flex flex-col  w-full rounded-md shadow-md p-4 bg-white">
+        <div className="flex items-center justify-between w-full">
+          <p className="font-medium text-black text-xl">
+            Mantenimientos Registrados
+          </p>
+          <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+            Total: 5
+          </span>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500 mt-1">
+            Gestiona todos los mantenimiento correctivos registrados en el
+            sistema{" "}
+          </p>
+        </div>
+        {
+          <Table
+            className="mt-4 bg-white w-full rounded-md "
+            data={data}
+            columns={[
+              {
+                header: "Mantenimiento",
+                cell: (props) => {
+                  return (
+                    <div className="flex items-start gap-x-3">
+                      <span className="bg-red-100 p-2 rounded-lg">
+                        <LuWrench size={15} className="text-orange-600" />
+                      </span>
+                      <div className="flex flex-col">
+                        <p className="font-semibold text-sm">
+                          {props.row.tipo}
+                        </p>
+                        <p className="text-xs text-gray-600">
+                          ID: CORR-00{props.row.idCorrectivo}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                },
+              },
+              {
+                header: "Responsable",
+                cell: (props) => {
+                  return (
+                    <div className="flex flex-col gap-y-1 text-center xl:text-start">
+                      <span className="flex xl:flex-row flex-col items-center gap-x-2">
+                        <LuUsers size={15} className="text-green-500" />
+                        <span className="text-sm font-semibold text-nowrap">
+                          {props.row.responsable}
+                        </span>
+                      </span>
+                      <span>
+                        <p className="text-xs text-gray-600">
+                          {" "}
+                          {props.row.cantTecnicos} técnicos
+                        </p>
+                      </span>
+                    </div>
+                  );
+                },
+              },
+              {
+                header: "Fecha Programada",
+                cell: (props) => {
+                  return (
+                    <div className="flex flex-col gap-y-1">
+                      <span className="flex items-center gap-x-2">
+                        <LuCalendar size={15} className="text-blue-500" />
+                        <p className="text-sm font-semibold">
+                          {" "}
+                          {new Date(props.row.fecha).toLocaleDateString(
+                            "es-ES"
+                          )}
+                        </p>
+                      </span>
+                    </div>
+                  );
+                },
+              },
+              {
+                header: "Maquinaria",
+                cell: (props) => {
+                  return (
+                    <span className="text-sm">{props.row.maquinaria}</span>
+                  );
+                },
+              },
+              {
+                header: "Estado",
+                cell: (props) => {
+                  return (
+                    <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
+                      Activo
+                    </Badge>
+                  );
+                },
+              },
+              {
+                header: "Acciones",
+                cell: (props) => {
+                  return (
+                    <span className="flex items-center gap-x-4">
+                      <LuSquarePen className="text-red-500" />
+                      <LuTrash2 className="text-gray-900" />
                     </span>
-                </div>
-                <div>
-                    <p className="text-sm text-gray-500 mt-1">
-                    Gestiona todos los mantenimiento correctivos registrados en el sistema{" "}
-                    </p>
-                </div>
-                {<Table
-                className="mt-4 bg-white w-full rounded-md "
-                data={data}
-                columns={[
-                    {
-                        header: "Mantenimiento",
-                            cell: (props) => {
-                            return (
-                            <div className="flex items-start gap-x-3">
-                                <span className="bg-red-100 p-2 rounded-lg">
-                                    <LuWrench size={15} className="text-orange-600"/>
-                                </span>
-                                <div className="flex flex-col">
-                                <p className="font-semibold text-sm">{props.row.tipo}</p>
-                                <p className="text-xs text-gray-600">ID: CORR-00{props.row.idCorrectivo}</p>
-                                </div>
-                            </div>
-                            );
-                        },
-                    },
-                    {
-                        header: "Responsable",
-                        cell: (props) => {
-                            return(
-                                <div className="flex flex-col gap-y-1">
-                                    <span className="flex items-center gap-x-2">
-                                        <LuUsers size={15} className="text-green-500" />
-                                        <span className="text-sm font-semibold">{props.row.responsable}</span>
-                                    </span>
-                                    <span>
-                                        <p className="text-xs text-gray-600"> {props.row.cantTecnicos} técnicos</p>
-                                    </span>
-                                </div>
-                            );
-                        },
-                    },
-                    {
-                        header: "Fecha Programada",
-                        cell: (props) => {
-                        return (
-                            <div className="flex flex-col gap-y-1">
-                                <span className="flex items-center gap-x-2">
-                                    <LuCalendar size={15} className="text-blue-500" />
-                                    <p className="text-sm font-semibold"> {new Date(props.row.fecha).toLocaleDateString('es-ES')}</p>
-                                </span>
-                            </div>
-                            );
-                        },                    
-                    },
-                    {
-                        header: "Maquinaria",
-                        cell: (props) => {
-                            return(
-                                <span className="text-sm">
-                                    {props.row.maquinaria}
-                                </span>
-                            )
-                        }
-                    },
-                    {
-                        header: "Estado",
-                        cell: (props) => {
-                        return (
-                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
-                                Activo
-                            </Badge>
-                            );
-                        },
-                    },
-                    {
-                        header: "Acciones",
-                        cell: (props) => {
-                        return (
-                            <span className="flex items-center gap-x-4">
-                                <LuSquarePen className="text-red-500" />
-                                <LuTrash2 className="text-gray-900"/>
-                            </span>
-                            );
-                        },
-                    }
-                ]}
-                > 
+                  );
+                },
+              },
+            ]}
+          ></Table>
+        }
+      </div>
 
-                </Table>}
-            </div>
-
-
-
-
-
-
-
-
-
-
-            {/* <div className="py-4 flex w-full flex-col gap-y-4">
+      {/* <div className="py-4 flex w-full flex-col gap-y-4">
                 <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
                     <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
                         <LuFilter size={20} className="text-orange-700" />
@@ -213,5 +220,5 @@ export default function ListarCorrectivo({ data }: ListarCorrectivoProps){
             )})}
         </div> */}
     </div>
-    )
+  );
 }

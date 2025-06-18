@@ -30,19 +30,19 @@ export default function RecursoPage() {
           onClose={() => {
             setShowModal(false);
           }}
-        > 
-          <CrearRecurso/>
+        >
+          <CrearRecurso />
         </Modal>
       )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-          <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
-            <LuPackage className="text-white size-8 lg:size-10" />
-          </span>
-          <div className="flex flex-col">
-            <p className="font-bold text-3xl">Gestión de Recursos</p>
-            <p className="text-sm mt-1">
-              Administra el inventario de recursos, equipos y materiales
-            </p>
+        <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+          <LuPackage className="text-white size-8 lg:size-10" />
+        </span>
+        <div className="flex flex-col">
+          <p className="font-bold text-3xl">Gestión de Recursos</p>
+          <p className="text-sm mt-1">
+            Administra el inventario de recursos, equipos y materiales
+          </p>
         </div>
         <Button
           className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-red-600 hover:bg-red-500 mb-2"
@@ -66,7 +66,7 @@ export default function RecursoPage() {
             text: {
               title: "text-blue-700",
               description: "text-blue-900 text-3xl",
-              extra: "text-blue-800 text-xs"
+              extra: "text-blue-800 text-xs",
             },
           }}
         />
@@ -81,7 +81,7 @@ export default function RecursoPage() {
             text: {
               title: "text-purple-700",
               description: "text-purple-900 text-3xl",
-              extra: "text-purpe-800 text-xs"
+              extra: "text-purpe-800 text-xs",
             },
           }}
         />
@@ -96,7 +96,7 @@ export default function RecursoPage() {
             text: {
               title: "text-purple-700",
               description: "text-purple-900 text-3xl",
-              extra: "text-purple-800 text-xs"
+              extra: "text-purple-800 text-xs",
             },
           }}
         />
@@ -111,7 +111,7 @@ export default function RecursoPage() {
             text: {
               title: "text-orange-700",
               description: "text-orange-900 text-3xl",
-              extra: "text-orange-800 text-xs"
+              extra: "text-orange-800 text-xs",
             },
           }}
         />
@@ -129,21 +129,19 @@ export default function RecursoPage() {
         </div>
       </div>
 
-        <div className="flex flex-col w-full rounded-md shadow-md p-4 bg-white">
-            <div className="flex items-center justify-between w-full">
-                <p className="font-medium text-black text-xl">
-                  Recursos Registrados
-                </p>
-                <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
-                  Total: 5
-                </span>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500 mt-1">
-                  Gestiona todos los recursos registrados en el sistema
-                </p>
-            </div>
-                  {
+      <div className="flex flex-col w-full rounded-md shadow-md p-4 bg-white">
+        <div className="flex items-center justify-between w-full">
+          <p className="font-medium text-black text-xl">Recursos Registrados</p>
+          <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+            Total: 5
+          </span>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500 mt-1">
+            Gestiona todos los recursos registrados en el sistema
+          </p>
+        </div>
+        {
           <Table
             className="mt-4 bg-white w-full rounded-md "
             data={recursoData}
@@ -156,7 +154,7 @@ export default function RecursoPage() {
                       <span className="bg-red-100 p-2 rounded-lg">
                         <LuPackage size={15} className="text-red-600" />
                       </span>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col text-nowrap">
                         <p className="font-semibold text-sm">
                           {props.row.nombre}
                         </p>
@@ -173,11 +171,15 @@ export default function RecursoPage() {
                 cell: (props) => {
                   return (
                     <div className="flex flex-col gap-y-2">
-                      <span className="flex items-center gap-x-2">
+                      <span className="flex xl:flex-row flex-col items-center gap-x-2">
                         <LuClipboardList size={15} className="text-blue-600" />
-                        <p className="font-semibold text-sm">{props.row.tipo}</p>
+                        <p className="font-semibold text-sm">
+                          {props.row.tipo}
+                        </p>
                       </span>
-                      <p className="text-gray-500 text-xs">Insertar breve descripcion </p>
+                      <p className="text-gray-500 text-xs text-center xl:text-start">
+                        Insertar breve descripcion{" "}
+                      </p>
                     </div>
                   );
                 },
@@ -206,7 +208,7 @@ export default function RecursoPage() {
                           {props.row.proveedor}
                         </p>
                       </span>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 text-nowrap">
                         Responsable: {props.row.proveedorResponsable}
                       </span>
                     </div>
@@ -217,9 +219,9 @@ export default function RecursoPage() {
                 header: "Precio",
                 cell: (props) => {
                   return (
-                    <span className="flex w-auto items-center gap-x-2">
+                    <span className="flex xl:flex-row flex-col w-auto items-center gap-x-2">
                       <PiMoneyWavyLight size={15} className="text-green-600" />
-                      <p className="font-semibold text-green-600 text-sm">
+                      <p className="font-semibold text-green-600 text-sm text-nowrap">
                         S/. {props.row.precio}
                       </p>
                     </span>
@@ -239,17 +241,18 @@ export default function RecursoPage() {
               {
                 header: "Acciones",
                 cell: (props) => {
-                return (
+                  return (
                     <span className="flex items-center gap-x-4">
-                        <LuSquarePen className="text-red-500" />
-                        <LuTrash2 className="text-gray-900"/>
+                      <LuSquarePen className="text-red-500" />
+                      <LuTrash2 className="text-gray-900" />
                     </span>
-                    );
+                  );
                 },
               },
             ]}
-          ></Table>}
-        </div>
+          ></Table>
+        }
+      </div>
     </div>
   );
 }

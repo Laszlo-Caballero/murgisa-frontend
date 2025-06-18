@@ -30,17 +30,15 @@ export default function ListarClientes({ data }: ListarClientesProps) {
 
       <div className="flex flex-col  w-full rounded-md shadow-md p-4 bg-white">
         <div className="flex items-center justify-between w-full">
-            <p className="font-medium text-black text-xl">
-              Clientes Registrados
-            </p>
-            <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
-              Total: 5
-            </span>
-          </div>
-          <div>
-            <p className="text-sm text-gray-500 mt-1">
-              Gestiona todos los clientes registrados en el sistema{" "}
-            </p>
+          <p className="font-medium text-black text-xl">Clientes Registrados</p>
+          <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+            Total: 5
+          </span>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500 mt-1">
+            Gestiona todos los clientes registrados en el sistema{" "}
+          </p>
         </div>
 
         <Table
@@ -86,9 +84,9 @@ export default function ListarClientes({ data }: ListarClientesProps) {
               cell: (props) => {
                 return (
                   <div className="flex flex-col">
-                    <span className="flex items-center gap-x-2">
+                    <span className="flex xl:flex-row flex-col items-center gap-x-2">
                       <HiOutlineLocationMarker className="text-red-400" />
-                      <p className="text-sm">
+                      <p className="text-sm text-nowrap">
                         Ciudad: {props.row.ciudad.nombre}
                       </p>
                     </span>
