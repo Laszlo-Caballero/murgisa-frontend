@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import Button from "@/components/ui/button/Button";
 import { LuUsers, LuBuilding } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
@@ -8,15 +7,9 @@ import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
 import ListarClientes from "@/modules/clientes/Listar/Listar";
 import { Cliente } from "@/interfaces/response.interface";
-import { env } from "@/config/env";
 import Modal from "@/components/ui/modal/Modal";
 import { clienteData } from "@/data/cliente";
 import { LuClock4 } from "react-icons/lu";
-import { IoPersonCircleOutline } from "react-icons/io5";
-import { MdOutlinePersonOutline } from "react-icons/md";
-import { FaAddressCard } from "react-icons/fa";
-import { CiMail, CiPhone, CiCirclePlus } from "react-icons/ci";
-import { LuMapPinHouse } from "react-icons/lu";
 import CrearCliente from "@/modules/clientes/crear/CrearClientes";
 import { LuStar } from "react-icons/lu";
 
@@ -41,7 +34,7 @@ export default function ClientesPage() {
         </Modal>
       )}
 
-      <header className="flex lg:flex-row flex-col lg:items-center relative gap-x-4">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
         <span className="bg-blue-600 p-3 rounded-lg max-w-max">
           <LuUsers size={40} className="text-white" />
         </span>
@@ -53,7 +46,7 @@ export default function ClientesPage() {
         </div>
 
         <Button
-          className="flex items-center absolute lg:static right-0 translate-y-[125%] lg:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
