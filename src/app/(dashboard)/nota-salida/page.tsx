@@ -108,7 +108,7 @@ export default function NotasDeSalidaPage() {
         </Button>
       </header>
 
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-4">
         <Card
           title="Total Notas"
           icon={<LuClipboardList size={28} className="text-white" />}
@@ -149,7 +149,7 @@ export default function NotasDeSalidaPage() {
         </span>
         <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de salida programadas de manera rápida</p>
         </section>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {notaSalidaData?.map((nota) => {
             return (
               <CardInfo

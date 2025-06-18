@@ -50,14 +50,14 @@ export default function Departamento() {
           Nuevo Departamento
         </Button>
       </header>
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 gap-y-4">
         <Card
           title="Total Departamentos"
           icon={<LuBuilding2 size={28} className="text-white" />}
           description="3"
           extra="Registrados en el sistema"
           className = {{ 
-            container: "bg-blue-50 shadow-lg" , 
+            container: "bg-blue-100 shadow-lg" , 
             icon: "bg-blue-600 rounded-full p-3", 
             text:{title:"text-blue-700" ,
             description:"text-blue-900 text-3xl" ,
@@ -69,7 +69,7 @@ export default function Departamento() {
           description="3"
           extra="Disponibles para asignacion"
           className = {{ 
-            container: "bg-purple-50 shadow-lg" , 
+            container: "bg-purple-100 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 
             text:{title:"text-purple-700" ,
             description:"text-purple-900 text-3xl" ,
@@ -81,7 +81,7 @@ export default function Departamento() {
           description="3"
           extra="Asignados a departamentos"
           className = {{ 
-            container: "bg-orange-50 shadow-lg" , 
+            container: "bg-orange-100 shadow-lg" , 
             icon: "bg-orange-600 rounded-full p-3", 
             text:{title:"text-orange-700" ,
             description:"text-orange-900 text-3xl" ,

@@ -62,14 +62,14 @@ export default function FormasDePagoPage() {
         </Button>
       </header>
 
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-4">
         <Card
           title="Total Métodos"
           icon={<LuCreditCard size={28} className="text-white" />}
           description="5"
           extra="Registrados en la empresa"
           className = {{ 
-            container: "bg-blue-50 shadow-lg" , 
+            container: "bg-blue-100 shadow-lg" , 
             icon: "bg-blue-600 rounded-full p-3", 
             text:{title:"text-blue-700" ,
             description:"text-blue-900 text-3xl" ,
@@ -81,7 +81,7 @@ export default function FormasDePagoPage() {
           description="4"
           extra="Disponibles para asignacion"
           className = {{ 
-            container: "bg-purple-50 shadow-lg" , 
+            container: "bg-purple-100 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 
             text:{title:"text-purple-700" ,
             description:"text-purple-900 text-3xl" ,
@@ -99,7 +99,7 @@ export default function FormasDePagoPage() {
             rápida
           </p>
         </section>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {formaPagoData?.map((forma) => {
             return (
               <CardInfo

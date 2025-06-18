@@ -18,13 +18,11 @@ import { useState } from "react";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
-import { FaRegTrashAlt } from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
 import { LuDollarSign } from "react-icons/lu";
 import { PiCity } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
 import { PiMapPinArea } from "react-icons/pi";
-import Select from "@/components/ui/select/Select";
 import CrearCorrectivo from "@/modules/correctivo/crear/CrearCorrectivo";
 
 export default function MantenimientoCorrectivo() {
@@ -62,7 +60,7 @@ export default function MantenimientoCorrectivo() {
           Nueva Orden
         </Button>
       </header>
-      <div className="grid grid-cols-5 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-5">
         <Card
           title="Total Ordenes"
           icon={<LuShield size={28} className="text-blue-600" />}
@@ -139,7 +137,7 @@ export default function MantenimientoCorrectivo() {
               </p>
             </section>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <CardInfo
               key={"UWU"}
               title={"ID: MANC-001"}
