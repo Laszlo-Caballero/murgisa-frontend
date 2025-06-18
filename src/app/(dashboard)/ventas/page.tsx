@@ -19,7 +19,7 @@ import { LuTrash2 } from "react-icons/lu";
 
 export default function VentasPagina() {
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full bg-gray-100 p-8 flex flex-col">
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
         <span className="bg-green-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
           <LuShoppingCart className="text-white size-8 lg:size-10" />
