@@ -2,6 +2,7 @@ import Card from "@/components/ui/card/Card";
 import {
   LuChartColumnIncreasing,
   LuShoppingCart,
+  LuUser,
   LuUsers,
 } from "react-icons/lu";
 import { PiWrenchBold } from "react-icons/pi";
@@ -36,25 +37,66 @@ export default function Home() {
           {date.split(",")[0]}
         </p>
       </header>
-      <div className="grid lg:grid-cols-4 gap-6">
+      <div className="grid lg:grid-cols-4 mg:grid-cols-2 gap-6">
         <Card
-          title="Ventas del Mes"
-          icon={<LuChartColumnIncreasing size={28} />}
-          description={"125.000"}
+          title="Total"
+          icon={<LuChartColumnIncreasing size={28} className="text-white" />}
+          description="125.000"
           extra="+12.5% desde el mes pasado"
+          className={{
+            container: "bg-blue-100 shadow-lg",
+            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-blue-700",
+              description: "text-blue-900 text-3xl",
+              extra: "text-blue-800 text-xs",
+            },
+          }}
         />
         <Card
           title="Ordenes de Mantenimiento"
-          icon={<PiWrenchBold size={28} />}
+          icon={<PiWrenchBold size={28} className="text-white" />}
           description="12"
           extra="28 completadas este mes"
+          className={{
+            container: "bg-emerald-100 shadow-lg",
+            icon: "bg-emerald-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-emerald-700",
+              description: "text-emerald-900 text-3xl",
+              extra: "text-purpe-800 text-xs",
+            },
+          }}
         />
-
         <Card
-          title="Personal Activo"
-          icon={<LuUsers size={28} />}
+          title="Perosonal Activo"
+          icon={<LuUser size={28} className="text-white" />}
           description="42"
           extra="En 5 departamentos"
+          className={{
+            container: "bg-purple-100 shadow-lg",
+            icon: "bg-purple-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-purple-700",
+              description: "text-purple-900 text-3xl",
+              extra: "text-purple-800 text-xs",
+            },
+          }}
+        />
+        <Card
+          title="Servicios Activos"
+          icon={<LuBriefcase size={28} className="text-white" />}
+          description="13"
+          extra="Disponibles para Venta"
+          className={{
+            container: "bg-orange-100 shadow-lg",
+            icon: "bg-orange-600 rounded-full p-3 shadow-xl",
+            text: {
+              title: "text-orange-700",
+              description: "text-orange-900 text-3xl",
+              extra: "text-orange-800 text-xs",
+            },
+          }}
         />
       </div>
 

@@ -6,7 +6,7 @@ import CardInfo from "@/components/ui/card-info/CardInfo";
 import Modal from "@/components/ui/modal/Modal";
 import React from "react";
 import { useState } from "react";
-
+import { LuStar } from "react-icons/lu";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { LuClock4 } from "react-icons/lu";
@@ -50,27 +50,34 @@ export default function page() {
             Nuevo Mantenimiento
           </Button>
         </header>
-        <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Card
             title="Total Tipos"
             icon={<LuSettings size={28} className="text-white" />}
             description="10"
             extra="Configurados"
-            className = {{ container: "bg-emerald-100 shadow-lg" , icon: "bg-emerald-500 rounded-full p-3", text:{title:"text-emerald-700" ,description:"text-emerald-900 text-3xl" ,extra: "text-emerald-600"} }}
+            className = {{ container: "bg-blue-100 shadow-lg" , icon: "bg-blue-500 rounded-full p-3", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" ,extra: "text-blue-600"} }}
           />
           <Card
             title="Tipos Activos"
             icon={<LuCircleCheckBig size={28} className="text-white" />}
             description="9"
             extra="Disponibles"
-            className = {{ container: "bg-blue-100 shadow-lg" , icon: "bg-blue-500 rounded-full p-3", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" ,extra: "text-blue-600"} }}
+            className = {{ container: "bg-blue-100 shadow-lg" , icon: "bg-emerald-500 rounded-full p-3", text:{title:"text-emerald-700" ,description:"text-emerald-900 text-3xl" ,extra: "text-emerald-600"} }}
           />
           <Card
             title="Total Usos"
             icon={<LuChartColumn size={28} className="text-white" />}
             description="108"
             extra="Aplicaciones"
-            className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-500 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" ,extra: "text-orange-600"} }}
+            className = {{ container: "bg-purple-100 shadow-lg" , icon: "bg-purple-500 rounded-full p-3", text:{title:"text-purple-700" ,description:"text-purple-900 text-3xl" ,extra: "text-purple-600"} }}
+          />
+          <Card
+            title="Mayor Demanda"
+            icon={<LuStar size={28} className="text-white" />}
+            description="Electrico"
+            extra="Mantenimiento más solicitado"
+            className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-500 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-xl" ,extra: "text-orange-600"} }}
           />
         </div>
         <div className="py-4 flex w-full flex-col gap-y-4">
