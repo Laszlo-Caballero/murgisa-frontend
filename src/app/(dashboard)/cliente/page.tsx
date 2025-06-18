@@ -34,28 +34,26 @@ export default function ClientesPage() {
   // }, []);
 
   return (
-    <div className="w-full h-full p-9 bg-gray-50 flex flex-col">
+    <div className="w-full h-full p-9 bg-gray-50 flex flex-col overflow-x-hidden">
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CrearCliente/>
+          <CrearCliente />
         </Modal>
       )}
 
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-blue-600 p-3 rounded-lg">
-            <LuUsers size={40} className="text-white" />
-          </span>
-          <div className="flex flex-col">
-            <p className="font-bold text-3xl">Gestión de Clientes</p>
-            <p className="text-sm">
-              Administra la información de tus clientes y sus ventas
-            </p>
-          </div>
+      <header className="flex lg:flex-row flex-col lg:items-center relative gap-x-4">
+        <span className="bg-blue-600 p-3 rounded-lg max-w-max">
+          <LuUsers size={40} className="text-white" />
+        </span>
+        <div className="flex flex-col">
+          <p className="font-bold text-3xl">Gestión de Clientes</p>
+          <p className="text-sm">
+            Administra la información de tus clientes y sus ventas
+          </p>
         </div>
 
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold hover:bg-blue-500"
+          className="flex items-center absolute lg:static right-0 translate-y-[125%] lg:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
@@ -69,60 +67,68 @@ export default function ClientesPage() {
           icon={<LuUsers size={28} className="text-white" />}
           description={"11"}
           extra="Registrados en el sistema"
-          className = {{ 
-            container: "bg-blue-50 shadow-lg " ,
-            icon: "bg-blue-600 rounded-full p-3", 
-            text:{
-            container:"gap-y-1",
-            title:"text-blue-700" ,
-            description:"text-blue-900 text-3xl" ,
-            extra: "text-blue-600"} }}
+          className={{
+            container: "bg-blue-50 shadow-lg ",
+            icon: "bg-blue-600 rounded-full p-3",
+            text: {
+              container: "gap-y-1",
+              title: "text-blue-700",
+              description: "text-blue-900 text-3xl",
+              extra: "text-blue-600",
+            },
+          }}
         />
         <Card
           title="Clientes Activos"
           icon={<LuBuilding size={28} className="text-white" />}
           description={"10"}
           extra="Disponibles para realizar ventas"
-          className = {{ 
-            container: "bg-emerald-50 shadow-lg" , 
-            icon: "bg-emerald-600 rounded-full p-3", 
-            text:{title:"text-emerald-700" ,
-            container:"gap-y-1",
-            description:"text-emerald-900 text-3xl" ,
-            extra: "text-emerald-600"} }}
+          className={{
+            container: "bg-emerald-50 shadow-lg",
+            icon: "bg-emerald-600 rounded-full p-3",
+            text: {
+              title: "text-emerald-700",
+              container: "gap-y-1",
+              description: "text-emerald-900 text-3xl",
+              extra: "text-emerald-600",
+            },
+          }}
         />
         <Card
           title="Cliente Más Frecuente"
           icon={<LuClock4 size={28} className="text-white" />}
           description={"Ñepito Ñispe"}
           extra="Según cantidad de Ventas"
-          className = {{ 
-            container: "bg-purple-50 shadow-lg" , 
-            icon: "bg-purple-600 rounded-full p-3", 
-            text:{title:"text-purple-700" ,
-            container:"gap-y-1",
-            description:"text-purple-900 text-3xl" ,
-            extra: "text-purple-600"} }}
+          className={{
+            container: "bg-purple-50 shadow-lg",
+            icon: "bg-purple-600 rounded-full p-3",
+            text: {
+              title: "text-purple-700",
+              container: "gap-y-1",
+              description: "text-purple-900 text-3xl",
+              extra: "text-purple-600",
+            },
+          }}
         />
         <Card
           title="Cliente Nuevo"
           icon={<LuStar size={28} className="text-white" />}
           description={"Juan Pérez"}
           extra="Nuevas oportunidades de Venta"
-          className = {{ 
-            container: "bg-orange-50 shadow-lg" , 
-            icon: "bg-orange-600 rounded-full p-3", 
-            text:{title:"text-orange-700" ,
-            container:"gap-y-1",
-            description:"text-orange-900 text-3xl" ,
-            extra: "text-orange-600"} }}
+          className={{
+            container: "bg-orange-50 shadow-lg",
+            icon: "bg-orange-600 rounded-full p-3",
+            text: {
+              title: "text-orange-700",
+              container: "gap-y-1",
+              description: "text-orange-900 text-3xl",
+              extra: "text-orange-600",
+            },
+          }}
         />
       </div>
 
-      <Tabs
-        headers={["Lista de Clientes"]}
-        className="mt-6"
-      >
+      <Tabs headers={["Lista de Clientes"]} className="mt-6">
         <ListarClientes data={clientes} />
       </Tabs>
     </div>

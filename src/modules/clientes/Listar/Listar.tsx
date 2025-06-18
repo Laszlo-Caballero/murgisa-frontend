@@ -17,25 +17,32 @@ interface ListarClientesProps {
 export default function ListarClientes({ data }: ListarClientesProps) {
   return (
     <div className="py-4 flex w-full flex-col gap-y-4">
-        <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
-            <LuFilter size={20} className="text-blue-500" />
-            Filtros de Búsqueda
-          </span>
-          <p className="text-sm mt-1 text-gray-500">
-            Utiliza los filtros para encontrar clientes específicos de manera
-            rápida
-          </p>
-        </div>
+      <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
+        <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+          <LuFilter className="text-blue-500 size-5" />
+          Filtros de Búsqueda
+        </span>
+        <p className="text-sm mt-1 text-gray-500">
+          Utiliza los filtros para encontrar clientes específicos de manera
+          rápida
+        </p>
+      </div>
       <div className="flex flex-col  w-full rounded-md shadow-md p-4 bg-white">
         <div className="flex items-center justify-between w-full">
           <div>
-              <p className="font-medium text-black text-xl">Clientes Registrados</p>
-              <p className="text-sm text-gray-500 mt-1">Gestiona todos los clientes registrados en el sistema </p>
+            <p className="font-medium text-black text-xl">
+              Clientes Registrados
+            </p>
+            <p className="text-sm text-gray-500 mt-1">
+              Gestiona todos los clientes registrados en el sistema{" "}
+            </p>
           </div>
           <div>
-              <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
-          </div>            
+            <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+              {" "}
+              Total: 5{" "}
+            </span>
+          </div>
         </div>
 
         <Table
@@ -114,12 +121,12 @@ export default function ListarClientes({ data }: ListarClientesProps) {
             {
               header: "Acciones",
               cell: (props) => {
-              return (
+                return (
                   <span className="flex items-center gap-x-4">
-                      <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900"/>
+                    <LuSquarePen className="text-red-500" />
+                    <LuTrash2 className="text-gray-900" />
                   </span>
-                  );
+                );
               },
             },
           ]}

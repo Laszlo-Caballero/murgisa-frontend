@@ -13,7 +13,12 @@ interface TableProps<T> {
 export default function Table<T>({ data, columns, className }: TableProps<T>) {
   const table = useTable({ columns, data });
   return (
-    <div className={cx("border border-gray-200 rounded-lg", className)}>
+    <div
+      className={cx(
+        "rounded-lg border border-gray-200 overflow-x-auto",
+        className
+      )}
+    >
       <table className={cx("w-full")}>
         <thead>
           <tr className="border-b border-gray-200 hover:bg-gray-100 transition-colors">
@@ -35,13 +40,7 @@ export default function Table<T>({ data, columns, className }: TableProps<T>) {
               <tr key={index} className="hover:bg-gray-100 transition-colors">
                 {row.map((cell, i) => {
                   return (
-                    <td
-                      key={i}
-                      className={cx(
-                        "p-4 border-gray-200",
-                        i != row.length - 1 && "border-b"
-                      )}
-                    >
+                    <td key={i} className={cx("p-4 border-gray-200 border-b")}>
                       {cell}
                     </td>
                   );

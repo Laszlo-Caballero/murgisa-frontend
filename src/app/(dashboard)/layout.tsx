@@ -10,7 +10,7 @@ export default function RootLayout({
     <div className="flex w-full flex-1">
       <main className="flex-1 flex w-full">
         {/* <Aside /> */}
-        <div className="flex-1 flex flex-col items-center">{children}</div>
+        {children}
       </main>
     </div>
   );

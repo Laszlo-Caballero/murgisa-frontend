@@ -60,19 +60,19 @@ export default function NotFound() {
             icon={<LuShoppingCart />}
             title="Ventas"
             subtitle="Volver a la página de ventas"
-            url="/"
+            url="/ventas"
           />
           <Card404
             icon={<LuUsers />}
             title="Clientes"
             subtitle="Volver a la página de clientes"
-            url="/"
+            url="/cliente"
           />
           <Card404
             icon={<LuWrench />}
             title="Servicios"
             subtitle="Volver a la página de servicios"
-            url="/"
+            url="/servicios"
           />
         </div>
       </main>
