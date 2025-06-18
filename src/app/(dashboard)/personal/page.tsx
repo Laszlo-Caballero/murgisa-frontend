@@ -9,6 +9,7 @@ import {
   LuBriefcase,
   LuCircleCheckBig,
   LuFilter,
+  LuTrendingUp,
   LuUsers,
 } from "react-icons/lu";
 
@@ -25,7 +26,6 @@ import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfo
 import Modal from "@/components/ui/modal/Modal";
 import CrearPersonal from "@/modules/personal/crear/CrearPersonal";
 import { personalData } from "@/data/personal";
-
 
 export default function PersonalPage() {
   const [showModal, setShowModal] = useState(false);
@@ -48,14 +48,14 @@ export default function PersonalPage() {
         </Modal>
       )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-          <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
-            <GrUserWorker className="text-white size-8 lg:size-10"  />
-          </span>
-          <div className="flex flex-col">
-            <p className="font-bold text-3xl">Gestión de Personal</p>
-            <p className="text-sm">
-              Administra la información de los empleados de MURGISA
-            </p>
+        <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+          <GrUserWorker className="text-white size-8 lg:size-10" />
+        </span>
+        <div className="flex flex-col">
+          <p className="font-bold text-3xl">Gestión de Personal</p>
+          <p className="text-sm">
+            Administra la información de los empleados de MURGISA
+          </p>
         </div>
 
         <Button
@@ -74,36 +74,60 @@ export default function PersonalPage() {
           icon={<LuUsers size={28} className="text-white" />}
           description="18"
           extra="Registrados en el sistema"
-          className = {{ 
-            container: "bg-emerald-100 shadow-lg" , 
-            icon: "bg-emerald-600 rounded-full p-3", 
-            text:{title:"text-emerald-700" ,
-            description:"text-emerald-900 text-3xl" ,
-            extra: "text-emerald-600"} }}
+          className={{
+            container: "bg-emerald-100 shadow-lg",
+            icon: "bg-emerald-600 rounded-full p-3",
+            text: {
+              title: "text-emerald-700",
+              description: "text-emerald-900 text-3xl",
+              extra: "text-emerald-600",
+            },
+          }}
         />
         <Card
           title="Empleados En Servicio"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="6"
           extra="Realizando su labor"
-          className = {{ 
-            container: "bg-orange-100 shadow-lg" , 
-            icon: "bg-orange-600 rounded-full p-3", 
-            text:{title:"text-orange-700" ,
-            description:"text-orange-900 text-3xl" ,
-            extra: "text-orange-600"} }}
+          className={{
+            container: "bg-orange-100 shadow-lg",
+            icon: "bg-orange-600 rounded-full p-3",
+            text: {
+              title: "text-orange-700",
+              description: "text-orange-900 text-3xl",
+              extra: "text-orange-600",
+            },
+          }}
         />
         <Card
           title="Empleados Activos"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="15"
           extra="Disponibles para asignación"
-          className = {{ 
-            container: "bg-purple-100 shadow-lg" , 
-            icon: "bg-purple-600 rounded-full p-3", 
-            text:{title:"text-purple-700" ,
-            description:"text-purple-900 text-3xl" ,
-            extra: "text-purple-600"} }}
+          className={{
+            container: "bg-purple-100 shadow-lg",
+            icon: "bg-purple-600 rounded-full p-3",
+            text: {
+              title: "text-purple-700",
+              description: "text-purple-900 text-3xl",
+              extra: "text-purple-600",
+            },
+          }}
+        />{" "}
+        <Card
+          title="Sueldo Promedio"
+          icon={<LuTrendingUp size={28} className="text-white" />}
+          description="S/. 1500"
+          extra="Sueldo promedio de empleados"
+          className={{
+            container: "bg-red-100 shadow-lg",
+            icon: "bg-red-600 rounded-full p-3",
+            text: {
+              title: "text-red-700",
+              description: "text-red-900 text-3xl",
+              extra: "text-red-600",
+            },
+          }}
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
@@ -113,8 +137,8 @@ export default function PersonalPage() {
             Filtros de Búsqueda
           </span>
           <p className="text-sm mt-1 text-gray-500">
-            Utiliza los filtros para encontrar trabajadores específicos de manera
-            rápida
+            Utiliza los filtros para encontrar trabajadores específicos de
+            manera rápida
           </p>
         </section>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -130,7 +154,7 @@ export default function PersonalPage() {
                 title={`${empleado.nombre} ${empleado.apellido_paterno} ${empleado.apellido_materno}`}
                 icon={<p>{empleado.nombre.split("")[0]}</p>}
                 className={{
-                  container:"bg-white",
+                  container: "bg-white",
                   header: {
                     icon: "bg-blue-100 text-center p-0 size-7 flex items-center justify-center uppercase",
                   },
