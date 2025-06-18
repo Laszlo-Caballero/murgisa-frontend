@@ -172,7 +172,7 @@ export default function MantenimientoPreventivoPage() {
                 icon: "bg-red-600 rounded-full p-3 shadow-xl",
                 text:{title:"text-red-700" ,
                 description:"text-red-900 text-3xl",
-                extra: "text-orange-900 text-xs"}}}
+                extra: "text-red-900 text-xs"}}}
             /> 
           </div>
           <Tabs

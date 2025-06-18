@@ -10,21 +10,15 @@ import Button from "@/components/ui/button/Button";
 import React from "react";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
-import CardInfo from "@/components/ui/card-info/CardInfo";
 import Modal from "@/components/ui/modal/Modal";
 import { correctivoData } from "@/data/correctivo";
 import { Correctivo } from "@/interfaces/response.interface";
 
 
 import { useState } from "react";
-import { LuSquarePen } from "react-icons/lu";
-import { LuEye } from "react-icons/lu";
-import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
+
 import { IoTimeOutline } from "react-icons/io5";
-import { LuDollarSign } from "react-icons/lu";
-import { PiCity } from "react-icons/pi";
-import { FaRegUser } from "react-icons/fa";
-import { PiMapPinArea } from "react-icons/pi";
+
 import CrearCorrectivo from "@/modules/correctivo/crear/CrearCorrectivo";
 import ListarCorrectivo from "@/modules/correctivo/listar/Listar";
 import ListaCalendario from "@/modules/correctivo/calendario/calendario";
@@ -65,65 +59,66 @@ export default function MantenimientoCorrectivo() {
       </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-5">
         <Card
-          title="Total Ordenes"
-          icon={<LuShield size={28} className="text-blue-600" />}
+          title="Total Mantenimiento"
+          icon={<LuShield size={28} className="text-white" />}
           description="10"
-          className={{
-            container: "bg-blue-100 shadow-lg",
-            text: {
-              title: "text-blue-700",
-              description: "text-blue-900 text-3xl",
-            },
-          }}
+          extra="Mantenimientos pedidos en el sistema"
+          className = {{ container: "bg-blue-100 shadow-lg", 
+            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+            text:{
+              title:"text-blue-700" ,
+              description:"text-blue-900 text-3xl",
+              extra: "text-blue-800 text-xs"
+          }}}
         />
         <Card
-          title="Pendientes"
-          icon={<IoTimeOutline size={28} className="text-yellow-600" />}
+          title="Atrasados"
+          icon={<IoTimeOutline size={28} className="text-white" />}
           description="10"
-          className={{
-            container: "bg-yellow-100 shadow-lg",
-            text: {
-              title: "text-yellow-700",
-              description: "text-yellow-900 text-3xl",
-            },
-          }}
+          extra=" No se completaron en la fecha estimada"
+              className = {{ 
+                container: "bg-red-100 shadow-lg",
+                icon: "bg-red-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-red-700" ,
+                description:"text-red-900 text-3xl",
+                extra: "text-red-900 text-xs"}}}
         />
         <Card
           title="En Progreso"
-          icon={<LuCirclePlay size={28} className="text-orange-600" />}
+          icon={<LuCirclePlay size={28} className="text-white" />}
           description="3"
-          className={{
-            container: "bg-orange-100 shadow-lg",
-            text: {
-              title: "text-orange-700",
-              description: "text-orange-900 text-3xl",
-            },
-          }}
+          extra="Están siendo trabajadas actualmente."
+              className = {{ 
+                container: "bg-orange-100 shadow-lg", 
+                icon: "bg-orange-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-orange-700" ,
+                description:"text-orange-900 text-3xl",
+                extra: "text-orange-800 text-xs" }}}
         />
         <Card
           title="Completados"
-          icon={<LuCircleCheck size={28} className="text-green-600" />}
+          icon={<LuCircleCheck size={28} className="text-white" />}
           description="6"
-          className={{
-            container: "bg-green-100 shadow-lg",
-            text: {
-              title: "text-green-700",
-              description: "text-green-900 text-3xl",
-            },
-          }}
+          extra="Correctamente por los responsables."
+              className = {{ 
+                container: "bg-green-100 shadow-lg", 
+                icon: "bg-green-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-green-700",
+                description:"text-green-800 text-3xl", 
+                extra: "text-green-800 text-xs"}}}
         />
 
         <Card
           title="Costo Total"
-          icon={<MdOutlineAttachMoney size={28} className="text-purple-600" />}
+          icon={<MdOutlineAttachMoney size={28} className="text-white" />}
           description="$100"
-          className={{
-            container: "bg-purple-100 shadow-lg",
-            text: {
-              title: "text-purple-700",
-              description: "text-purple-900 text-3xl",
-            },
-          }}
+          extra="En Mantenimientos"
+              className = {{ 
+                container: "bg-purple-100 shadow-lg", 
+                icon: "bg-purple-600 rounded-full p-3 shadow-xl",
+                text:{title:"text-purple-700",
+                description:"text-purple-800 text-3xl", 
+                extra: "text-purple-800 text-xs"}}}
         />
       </div>
       <Tabs headers={["Lista de Mantenimiento","Vista calendario"]} className="mt-6">
