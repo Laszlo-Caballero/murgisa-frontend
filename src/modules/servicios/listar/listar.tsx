@@ -26,7 +26,7 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
                 <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar servicios específicos de manera rápida</p>
                 </section>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {data.map((servicio) => {
                     return (
                         <CardInfo 

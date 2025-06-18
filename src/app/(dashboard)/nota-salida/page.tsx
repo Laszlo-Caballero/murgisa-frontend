@@ -28,7 +28,7 @@ export default function NotasDeSalidaPage() {
 //     },
 //   });
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-50">
       {showModal && (
         <Modal
           onClose={() => {
@@ -84,21 +84,19 @@ export default function NotasDeSalidaPage() {
         </Modal>
       )}
 
-      <header className="flex items-center justify-between gap-x-4">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-pink-600 p-3 rounded-lg">
-            <LuClipboardList size={40} className="text-white" />
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+          <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+            <LuClipboardList className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Notas de Salida</p>
             <p className="text-sm">
               Gestiona las notas de salida registradas en el sistema
             </p>
-          </div>
         </div>
 
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold bg-pink-600 hover:bg-pink-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-pink-600 hover:bg-pink-500 mb-2"
           onClick={() => {
             setShowModal(true);
           }}
@@ -108,7 +106,7 @@ export default function NotasDeSalidaPage() {
         </Button>
       </header>
 
-      <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Notas"
           icon={<LuClipboardList size={28} className="text-white" />}
@@ -149,7 +147,7 @@ export default function NotasDeSalidaPage() {
         </span>
         <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de salida programadas de manera rápida</p>
         </section>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {notaSalidaData?.map((nota) => {
             return (
               <CardInfo

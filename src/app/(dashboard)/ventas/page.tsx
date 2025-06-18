@@ -20,26 +20,24 @@ import { LuTrash2 } from "react-icons/lu";
 export default function VentasPagina() {
   return (
     <div className="w-full p-8 flex flex-col">
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-blue-100 p-3 rounded-full">
-            <LuShoppingCart size={24} className="text-blue-600" />
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+          <span className="bg-green-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+            <LuShoppingCart className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Ventas</p>
             <p className="text-sm">
               Administra y controla todas las ventas de MURGISA
             </p>
-          </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold px-6">
+        <Button className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-green-600 hover:bg-green-500 mb-2" >
           <FiPlus size={15} />
           Nueva Venta
         </Button>
       </header>
 
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Ventas"
           icon={<LuShoppingCart size={28} className="text-white" />}
@@ -54,7 +52,7 @@ export default function VentasPagina() {
         />
         <Card
           title="Ingresos Totales"
-          icon={<LuDollarSign size={35} className="text-white" />}
+          icon={<LuDollarSign size={28} className="text-white" />}
           description={"S/. 1800"}
           extra="Suma generada por venats"
           className = {{ 
@@ -66,7 +64,7 @@ export default function VentasPagina() {
         />
         <Card
           title="Ventas Completadas"
-          icon={<LuCircleCheckBig size={35} className="text-white" />}
+          icon={<LuCircleCheckBig size={28} className="text-white" />}
           description={"28"}
           extra="Finalizadas exitosamente"
           className = {{ 
@@ -78,7 +76,7 @@ export default function VentasPagina() {
         />
         <Card
           title="Ventas Canceladas"
-          icon={<IoWarningOutline size={35} className="text-white" />}
+          icon={<IoWarningOutline size={28} className="text-white" />}
           description={"0"}
           extra="Anuladas o sin Concretar"
           className = {{ 
@@ -103,13 +101,17 @@ export default function VentasPagina() {
         </div>
         <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
           <div className="flex items-center justify-between w-full">
-            <div>
-                <p className="font-medium text-black text-xl">Ventas Registradas</p>
-                <p className="text-sm text-gray-500 mt-1">Gestiona todas los ventas registradas en el sistema </p>
-            </div>
-            <div>
-                <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
-            </div>            
+              <p className="font-medium text-black text-xl">
+              Ventas Registradas
+              </p>
+              <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+              Total: 5
+              </span>
+          </div>
+          <div>
+              <p className="text-sm text-gray-500 mt-1">
+              Gestiona todos las ventas registradas en el sistema
+              </p>
           </div>
           {
             <Table

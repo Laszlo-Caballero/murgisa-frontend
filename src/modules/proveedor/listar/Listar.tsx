@@ -25,16 +25,22 @@ export default function ListarProveedor({data}: ListarProveedorProps){
                 <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar proveedores específicos de manera rápida</p>
                 </section>
             </div>
+
             <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
                 <div className="flex items-center justify-between w-full">
-                    <div>
-                        <p className="font-medium text-black text-xl">Proveedores Registrados</p>
-                        <p className="text-sm text-gray-500 mt-1">Gestiona todos los proveedores registrados en el sistema </p>
-                    </div>
-                    <div>
-                        <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
-                    </div>
+                    <p className="font-medium text-black text-xl">
+                    Proveedores Registrados
+                    </p>
+                    <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+                    Total: 5
+                    </span>
                 </div>
+                <div>
+                    <p className="text-sm text-gray-500 mt-1">
+                    Gestiona todos los proveedores registrados en el sistema
+                    </p>
+                </div>
+
                 {<Table 
                 className="mt-4 bg-white w-full rounded-md "
                 data={data}

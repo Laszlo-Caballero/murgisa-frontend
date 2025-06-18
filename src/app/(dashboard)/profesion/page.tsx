@@ -30,20 +30,18 @@ export default function ProfesionPage() {
           <CrearProfesion />
         </Modal>
       )}
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-blue-600 p-3 rounded-xl">
-            <LuGraduationCap size={40} className="text-white" />
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+          <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+            <LuGraduationCap className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Profesiones</p>
             <p className="text-sm mt-1">
               Administra las profesiones y criterios del sistema MURGISA
             </p>
-          </div>
         </div>
 
-        <Button className="flex items-center gap-x-3 py-3 font-semibold mt-4 hover:bg-blue-500" 
+        <Button className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500 mb-2" 
           onClick={() => {
             setShowModal(true);
           }}>
@@ -51,7 +49,7 @@ export default function ProfesionPage() {
           Nueva Profesión
         </Button>
       </header>
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Profesiones"
           icon={<LuBookOpen size={28} className="text-white" />}

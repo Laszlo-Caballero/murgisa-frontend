@@ -27,15 +27,20 @@ export default function ListarNotaEntrada({ data }: ListarNotaEntradaProps){
                 <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar notas de entrada programadas de manera rápida</p>
                 </section>
             </div>
+
             <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
                 <div className="flex items-center justify-between w-full">
-                    <div>
-                        <p className="font-medium text-black text-xl">Notas Registradas</p>
-                        <p className="text-sm text-gray-500 mt-1">Gestiona todas los notas registradas en el sistema </p>
-                    </div>
-                    <div>
-                        <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
-                    </div> 
+                    <p className="font-medium text-black text-xl">
+                    Notas Registradas
+                    </p>
+                    <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+                    Total: 5
+                    </span>
+                </div>
+                <div>
+                    <p className="text-sm text-gray-500 mt-1">
+                    Gestiona todos las notas registradas en el sistema
+                    </p>
                 </div>
 
                 { <Table

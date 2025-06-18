@@ -34,20 +34,18 @@ export default function RecursoPage() {
           <CrearRecurso/>
         </Modal>
       )}
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-red-600 p-3 rounded-xl">
-            <LuPackage size={40} className="text-white" />
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+          <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+            <LuPackage className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Recursos</p>
             <p className="text-sm mt-1">
               Administra el inventario de recursos, equipos y materiales
             </p>
-          </div>
         </div>
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-red-600 hover:bg-red-500 mb-2"
           onClick={() => {
             setShowModal(true);
           }}
@@ -56,7 +54,7 @@ export default function RecursoPage() {
           Nuevo Recurso
         </Button>
       </header>
-      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 ">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4 ">
         <Card
           title="Total"
           icon={<LuPackage size={28} className="text-white" />}
@@ -132,15 +130,19 @@ export default function RecursoPage() {
       </div>
 
         <div className="flex flex-col w-full rounded-md shadow-md p-4 bg-white">
-          <div className="flex items-center justify-between w-full">
-            <div>
-                <p className="font-medium text-black text-xl">Recursos Registrados</p>
-                <p className="text-sm text-gray-500 mt-1">Gestiona todas los recursos registrados en el sistema </p>
+            <div className="flex items-center justify-between w-full">
+                <p className="font-medium text-black text-xl">
+                  Recursos Registrados
+                </p>
+                <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+                  Total: 5
+                </span>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 mt-1">
+                  Gestiona todos los recursos registrados en el sistema
+                </p>
             </div>
-            <div>
-                <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1"> Total: 5 </span>
-            </div> 
-          </div>
                   {
           <Table
             className="mt-4 bg-white w-full rounded-md "

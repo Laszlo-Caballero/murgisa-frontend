@@ -29,20 +29,18 @@ export default function TipoRecursoPage() {
           <CrearTipoRecurso/>
         </Modal>
       )}
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="bg-red-600 p-3 rounded-xl">
-            <LuLayers size={40} className="text-white" />
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+          <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+            <LuLayers className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
             <p className="font-bold text-3xl">Gestión de Tipos de Recursos</p>
             <p className="text-sm mt-1">
               Configura y gestiona las categorías de recursos del sistema
             </p>
-          </div>
         </div>
         <Button
-          className="flex items-center gap-x-3 py-3 font-semibold mt-4 bg-red-600 text-white shadow-lg hover:bg-red-500"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-red-600 hover:bg-red-500 mb-2" 
           onClick={() => {
             setShowModal(true);
           }}
@@ -51,7 +49,7 @@ export default function TipoRecursoPage() {
           Nuevo Recurso
         </Button>
       </header>
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Tipos"
           icon={<LuLayers size={28} className="text-white" />}
@@ -98,7 +96,7 @@ export default function TipoRecursoPage() {
           }}
         />
       </div>
-      <div className="py-4 flex w-full flex-col gap-y-4">
+      <div className="py-4 flex w-full flex-col gap-y-3">
         <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
             <LuFilter size={20} className="text-red-600" />
@@ -110,7 +108,7 @@ export default function TipoRecursoPage() {
           </p>
         </section>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {tipoRecursoData.map((tipo) => {
           return (
             <CardInfo
