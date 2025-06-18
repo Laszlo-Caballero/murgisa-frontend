@@ -56,7 +56,7 @@ export default function RecursoPage() {
           Nuevo Recurso
         </Button>
       </header>
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 ">
         <Card
           title="Total"
           icon={<LuPackage size={28} className="text-white" />}

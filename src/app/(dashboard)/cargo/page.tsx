@@ -46,7 +46,6 @@ export default function Cargo() {
             </p>
           </div>
         </div>
-
         <Button
           className="flex items-center gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500" 
           onClick={() => {
@@ -57,7 +56,7 @@ export default function Cargo() {
           Nuevo Cargo
         </Button>
       </header>
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 gap-y-3">
         <Card
           title="Total Cargos"
           icon={<PiToolbox size={28} className="text-white" />}
@@ -107,7 +106,7 @@ export default function Cargo() {
           </p>
         </section>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {cargoData.map((cargo) => (
             <CardInfo
               key={cargo.idCargo}
