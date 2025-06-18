@@ -3,7 +3,7 @@ import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
 import { departamentoData } from "@/data/departamento";
-import ListarDepartamentos from "@/modules/forma-pago/listar/Listar";
+import ListarDepartamentos from "@/modules/departamento/listar/Listar";
 import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import { LuBuilding2, LuUsers } from "react-icons/lu";
