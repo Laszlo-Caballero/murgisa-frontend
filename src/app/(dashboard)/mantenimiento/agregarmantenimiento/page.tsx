@@ -52,7 +52,7 @@ export default function page() {
             Nuevo Mantenimiento
           </Button>
         </header>
-        <div className="grid grid-cols-3 items-center mt-6 gap-x-4">
+        <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-3">
           <Card
             title="Total Tipos"
             icon={<LuSettings size={28} className="text-white" />}
@@ -84,7 +84,7 @@ export default function page() {
             <p className="text-sm mt-1 text-gray-500">Utiliza los filtros para encontrar mantenimientos específicos de manera rápida</p>
           </section>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {tipoMantenimientoData.map((tipo) => {
               return(
                 <CardInfo

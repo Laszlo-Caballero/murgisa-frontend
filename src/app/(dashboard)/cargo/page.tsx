@@ -44,7 +44,7 @@ export default function Cargo() {
           Nuevo Cargo
         </Button>
       </header>
-      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 gap-y-3">
+      <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-4">
         <Card
           title="Total Cargos"
           icon={<PiToolbox size={28} className="text-white" />}

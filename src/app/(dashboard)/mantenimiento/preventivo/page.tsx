@@ -68,11 +68,11 @@ export default function MantenimientoPreventivoPage() {
                                     icon={<LuCirclePlus />}
                                     placeholder="Selecciona un recurso"
                                     options={[
-                                   { value: "1", label: "Grúa" },
-                                   { value: "2", label: "Excavadora" },
-                                   { value: "3", label: "Generador" }
-                                   ]}>
-                                   </Select>
+                                    { value: "1", label: "Grúa" },
+                                    { value: "2", label: "Excavadora" },
+                                    { value: "3", label: "Generador" }
+                                    ]}>
+                                  </Select>
                                   {/* Personal */}
                                     <Select
                                       label="Personal"
@@ -83,7 +83,7 @@ export default function MantenimientoPreventivoPage() {
                                     { value: "2", label: "Técnico 2" },
                                     { value: "3", label: "Técnico 3" }
                                     ]}>
-                                   </Select>
+                                  </Select>
                                    {/* Horario */}
                                     <Select
                                       label="Horario"
@@ -94,7 +94,7 @@ export default function MantenimientoPreventivoPage() {
                                     { value: "2", label: "10:00 - 12:00" },
                                     { value: "3", label: "14:00 - 16:00" }
                                     ]}>
-                                   </Select>
+                                  </Select>
                               </div>
                               <div>
                                 <Button className="flex items-center gap-x-3 mt-4  bg-orange-500 text-white py-3 font-semibold hover:bg-blue-500">
@@ -126,7 +126,7 @@ export default function MantenimientoPreventivoPage() {
               Planificar Mantenimiento
             </Button>
           </header>
-          <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+          <div className="grid grid-cols-1 items-center mt-6 gap-4 lg:grid-cols-4">
             <Card
               title="Total"
               icon={<LuShield size={28} className="text-white" />}
