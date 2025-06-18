@@ -7,6 +7,7 @@ import { LuBriefcase } from "react-icons/lu";
 import { PiToolbox } from "react-icons/pi";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
+import CrearCargo from "@/modules/cargo/crear/CrearCargo";
 import {
   LuCircleCheckBig,
   LuFilter,
@@ -29,35 +30,7 @@ export default function Cargo() {
             setShowModal(false);
           }}
         >
-          <div className="w-[800px] bg-white p-6 rounded-lg shadow-lg">
-            <header className="flex items-center gap-x-3">
-              <LuBriefcase size={40} className="text-blue-600" />
-              <div className="flex flex-col">
-                <p className="text-xl font-semibold">Agregar Nuevo Cargo</p>
-                <p className="text-sm text-gray-500">
-                  Completa los datos para registrar un nuevo cargo en el sistema
-                </p>
-              </div>
-            </header>
-            <div className="grid grid-cols-1 gap-4">
-              <Input
-                label="Nombre del Cargo"
-                icon={<BsFilePost />}
-                placeholder="Ej: Pendejo No Dura Nada"
-              />
-              <Input
-                label="Descripcion"
-                icon={<LuPencilLine />}
-                placeholder="Ej: Laszlo"
-              />
-            </div>
-            <div>
-              <Button className="flex items-center gap-x-3 mt-4 bg-blue-600 text-white py-3 font-semibold hover:bg-blue-500">
-                <FiPlus size={15} className="mr-2" />
-                Registrar Cargo
-              </Button>
-            </div>
-          </div>
+          <CrearCargo/>
         </Modal>
       )}
 
