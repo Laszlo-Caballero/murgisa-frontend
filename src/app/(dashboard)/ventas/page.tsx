@@ -24,7 +24,8 @@ export default function VentasPagina() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="w-full p-8 flex flex-col">
+    <div className="w-full h-full bg-gray-100 p-8 flex flex-col">
+      {" "}
       {showModal && (
         <Modal
           onClose={() => {
@@ -34,7 +35,6 @@ export default function VentasPagina() {
           <CrearVenta onClose={() => setShowModal(false)} />
         </Modal>
       )}
-
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
         <span className="bg-green-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
           <LuShoppingCart className="text-white size-8 lg:size-10" />
@@ -54,7 +54,6 @@ export default function VentasPagina() {
           Nueva Venta
         </Button>
       </header>
-
       <div className="grid grid-cols-1 items-center mt-6 gap-x-4 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Ventas"
@@ -117,7 +116,6 @@ export default function VentasPagina() {
           }}
         />
       </div>
-
       <div className="py-4 flex w-full flex-col gap-y-4">
         <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
           <span className="flex items-center gap-x-2 font-semibold text-black text-md">
