@@ -90,6 +90,21 @@ export default function Cargo() {
             },
           }}
         />
+        <Card
+          title="Cargo con Mayor Cantidad de Empleados"
+          icon={<LuCircleCheckBig size={28} className="text-white" />}
+          description="Cargo de Ventas"
+          extra="Disponibles para asignacion"
+          className={{
+            container: "bg-green-100 shadow-lg",
+            icon: "bg-emerald-600 rounded-full p-3",
+            text: {
+              title: "text-emerald-700",
+              description: "text-emerald-900 text-3xl",
+              extra: "text-emerald-600",
+            },
+          }}
+        />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4 ">
         <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white">

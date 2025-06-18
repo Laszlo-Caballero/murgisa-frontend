@@ -164,6 +164,7 @@ export default function NotasDeSalidaPage() {
                 title="Nota de Salida"
                 icon={<LuClipboardList size={20} className="text-red-400" />}
                 className={{
+                  container: "bg-white",
                   header: {
                     icon: "bg-red-100",
                     description: "font-semibold",
