@@ -67,6 +67,18 @@ export default function Departamento() {
           description="3"
           extra="Disponibles para asignacion"
           className = {{ 
+            container: "bg-emerald-100 shadow-lg" , 
+            icon: "bg-emerald-600 rounded-full p-3", 
+            text:{title:"text-emerald-700" ,
+            description:"text-emerald-900 text-3xl" ,
+            extra: "text-emrald-600"} }}
+        />
+        <Card
+          title="Total Empleados"
+          icon={<LuUsers size={28} className="text-white" />}
+          description="3"
+          extra="Asignados a departamentos"
+          className = {{ 
             container: "bg-purple-100 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 
             text:{title:"text-purple-700" ,
@@ -74,10 +86,10 @@ export default function Departamento() {
             extra: "text-purple-600"} }}
         />
         <Card
-          title="Total Empleados"
-          icon={<LuUsers size={28} className="text-white" />}
-          description="3"
-          extra="Asignados a departamentos"
+          title="Presupuesto"
+          icon={<LuBuilding2 size={28} className="text-white" />}
+          description="S/. 6500"
+          extra="Para Departamento"
           className = {{ 
             container: "bg-orange-100 shadow-lg" , 
             icon: "bg-orange-600 rounded-full p-3", 

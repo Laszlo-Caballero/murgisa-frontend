@@ -70,7 +70,14 @@ export default function ProveedorPage(){
                     icon={<LuShoppingCart size={28} className="text-white" />}
                     description="48"
                     extra="Del Mes"
-                    className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-600 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" ,extra: "text-orange-600"} }}
+                    className = {{ container: "bg-purple-100 shadow-lg" , icon: "bg-purple-600 rounded-full p-3", text:{title:"text-purple-700" ,description:"text-purple-900 text-3xl" ,extra: "text-purple-600"} }}
+                />
+                <Card
+                    title="Más Frecuente"
+                    icon={<LuShoppingCart size={28} className="text-white" />}
+                    description="Proveedor A "
+                    extra="Del Mes"
+                    className = {{ container: "bg-orange-100 shadow-lg" , icon: "bg-orange-600 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-xl" ,extra: "text-orange-600"} }}
                 />
             </div>
             <Tabs

@@ -16,6 +16,7 @@ import Table from "@/components/ui/table/Table";
 import { profesionData } from "@/data/profesion";
 import { useState } from "react";
 import Badge from "@/components/ui/badge/Badge";
+import { LuStar } from "react-icons/lu";
 
 export default function ProfesionPage() {
   const [showModal, setShowModal] = useState(false);
@@ -55,21 +56,28 @@ export default function ProfesionPage() {
           icon={<LuBookOpen size={28} className="text-white" />}
           description="5"
           extra="Registradas en la empresa"
-          className = {{ container: "bg-blue-50 shadow-lg" , icon: "bg-blue-600 rounded-full p-3", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" ,extra: "text-blue-600"} }}
+          className = {{ container: "bg-blue-100 shadow-lg" , icon: "bg-blue-600 rounded-full p-3", text:{title:"text-blue-700" ,description:"text-blue-900 text-3xl" ,extra: "text-blue-600"} }}
         />
         <Card
           title="Profesiones Activas"
           icon={<LuCircleCheckBig size={28} className="text-white" />}
           description="4"
           extra="Disponibles para asignación"
-          className = {{ container: "bg-purple-100 shadow-md", icon: "bg-purple-600 rounded-full p-3",text:{title:"text-purple-700" ,description:"text-purple-900 text-3xl" ,extra: "text-purple-600"}}}
+          className = {{ container: "bg-emerald-100 shadow-md", icon: "bg-emerald-600 rounded-full p-3",text:{title:"text-emerald-700" ,description:"text-emerald-900 text-3xl" ,extra: "text-emrald-600"}}}
         />
         <Card
           title="Personal Asignado"
           icon={<LuUsers size={28} className="text-white" />}
           description="31"
           extra="Empleados con profesión"
-          className = {{ container: "bg-orange-100 shadow-md", icon: "bg-orange-600 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-3xl" ,extra: "text-orange-600"} }}
+          className = {{ container: "bg-purple-100 shadow-md", icon: "bg-purple-600 rounded-full p-3", text:{title:"text-purple-700" ,description:"text-purple-900 text-3xl" ,extra: "text-purple-600"} }}
+        />
+        <Card
+          title="Mayor Demanda"
+          icon={<LuStar size={28} className="text-white" />}
+          description="Mecanico"
+          extra="Mayor cantidad de asignaciones"
+          className = {{ container: "bg-orange-100 shadow-md", icon: "bg-orange-600 rounded-full p-3", text:{title:"text-orange-700" ,description:"text-orange-900 text-xl" ,extra: "text-orange-600"} }}
 
         />
       </div>
