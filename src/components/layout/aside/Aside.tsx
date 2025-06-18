@@ -15,8 +15,7 @@ export default function Aside() {
   const [openAside, setOpenAside] = useState(true);
 
   useEffect(() => {
-
-    if(window.innerWidth < 1280){
+    if (window.innerWidth < 1280) {
       setOpenAside(false);
     }
     window.addEventListener("resize", () => {
@@ -173,10 +172,10 @@ export default function Aside() {
           </div>
 
           {open && (
-            <div className="absolute bottom-1/2 translate-y-1/2 left-full w-full translate-x-5 right-0 bg-white shadow-2xl">
+            <div className="absolute bottom-1/2 translate-y-1/2 py-4 px-8 left-full w-full max-w-max rounded-xl right-0 bg-white shadow-2xl">
               <Link
                 href="/login"
-                className="p-4 flex items-center gap-x-2 cursor-pointer"
+                className="flex items-center w-full gap-x-2 cursor-pointer"
               >
                 <RiLogoutCircleRLine />
                 Logout
