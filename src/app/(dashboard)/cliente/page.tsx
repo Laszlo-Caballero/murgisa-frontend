@@ -11,12 +11,14 @@ import { Cliente } from "@/interfaces/response.interface";
 import { env } from "@/config/env";
 import Modal from "@/components/ui/modal/Modal";
 import { clienteData } from "@/data/cliente";
+import { LuClock4 } from "react-icons/lu";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { FaAddressCard } from "react-icons/fa";
 import { CiMail, CiPhone, CiCirclePlus } from "react-icons/ci";
 import { LuMapPinHouse } from "react-icons/lu";
 import CrearCliente from "@/modules/clientes/crear/CrearClientes";
+import { LuStar } from "react-icons/lu";
 
 export default function ClientesPage() {
   const clientes: Cliente[] = clienteData;
@@ -61,16 +63,18 @@ export default function ClientesPage() {
         </Button>
       </header>
 
-      <div className="grid grid-cols-4 items-center mt-6 gap-x-4">
+      <div className="grid grid-cols-1 items-center mt-6 gap-x-4 lg:grid-cols-4 gap-y-3">
         <Card
           title="Total Clientes"
           icon={<LuUsers size={28} className="text-white" />}
           description={"11"}
           extra="Registrados en el sistema"
           className = {{ 
-            container: "bg-blue-50 shadow-lg" , 
+            container: "bg-blue-50 shadow-lg " ,
             icon: "bg-blue-600 rounded-full p-3", 
-            text:{title:"text-blue-700" ,
+            text:{
+            container:"gap-y-1",
+            title:"text-blue-700" ,
             description:"text-blue-900 text-3xl" ,
             extra: "text-blue-600"} }}
         />
@@ -80,11 +84,38 @@ export default function ClientesPage() {
           description={"10"}
           extra="Disponibles para realizar ventas"
           className = {{ 
+            container: "bg-emerald-50 shadow-lg" , 
+            icon: "bg-emerald-600 rounded-full p-3", 
+            text:{title:"text-emerald-700" ,
+            container:"gap-y-1",
+            description:"text-emerald-900 text-3xl" ,
+            extra: "text-emerald-600"} }}
+        />
+        <Card
+          title="Cliente Más Frecuente"
+          icon={<LuClock4 size={28} className="text-white" />}
+          description={"Ñepito Ñispe"}
+          extra="Según cantidad de Ventas"
+          className = {{ 
             container: "bg-purple-50 shadow-lg" , 
             icon: "bg-purple-600 rounded-full p-3", 
             text:{title:"text-purple-700" ,
+            container:"gap-y-1",
             description:"text-purple-900 text-3xl" ,
             extra: "text-purple-600"} }}
+        />
+        <Card
+          title="Cliente Nuevo"
+          icon={<LuStar size={28} className="text-white" />}
+          description={"Juan Pérez"}
+          extra="Nuevas oportunidades de Venta"
+          className = {{ 
+            container: "bg-orange-50 shadow-lg" , 
+            icon: "bg-orange-600 rounded-full p-3", 
+            text:{title:"text-orange-700" ,
+            container:"gap-y-1",
+            description:"text-orange-900 text-3xl" ,
+            extra: "text-orange-600"} }}
         />
       </div>
 
