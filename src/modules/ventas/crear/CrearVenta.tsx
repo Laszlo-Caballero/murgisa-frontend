@@ -24,7 +24,7 @@ interface CrearVentaProps {
 
 export default function CrearVenta({ onClose }: CrearVentaProps) {
   return (
-    <div className="w-[calc(100vw-3rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
+    <div className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
       <header className="flex pb-4 justify-between border-b border-gray-200">
         <div className="flex items-center gap-x-3">
           <div className="p-2 bg-green-100 rounded-lg">
@@ -41,7 +41,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
           <IoClose />
         </div>
       </header>
-      <StepFormProvider className="flex flex-col items-center justify-center w-full gap-y-4">
+      <StepFormProvider className="flex flex-col items-center justify-center overflow-y-auto w-full gap-y-4">
         <HeaderStep
           steps={[
             "Información",
@@ -51,7 +51,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
             "Confirmación",
           ]}
         />
-        <ContainerStep className="w-full border border-gray-200 rounded-lg p-4">
+        <ContainerStep className="w-full border border-gray-200 rounded-lg p-4 overflow-y-auto h-full">
           <div className="flex flex-col">
             <div className="flex items-center gap-x-2">
               <LuFileText className="size-6 text-blue-500" />
