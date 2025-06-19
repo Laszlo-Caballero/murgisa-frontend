@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { LuSettings } from "react-icons/lu";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import Hamburger from "hamburger-react";
 export default function Aside() {
   const pathName = usePathname();
   const [open, setOpen] = useState(false);
@@ -58,17 +59,16 @@ export default function Aside() {
           </div>
           <button
             className={cx(
-              "xl:hidden ml-auto top-4 left-4 z-20 bg-white p-2 rounded-full shadow-md",
+              "xl:hidden ml-auto top-4 left-4 z-20 bg-white rounded-full  shadow-md",
               !openAside && "fixed"
             )}
             onClick={() => setOpenAside(!openAside)}
           >
-            <LuBuilding2
-              size={25}
-              className={cx(
-                "text-blue-700 transition-transform",
-                openAside ? "rotate-180" : ""
-              )}
+            <Hamburger
+              toggled={openAside}
+              toggle={setOpenAside}
+              color="#155dfc"
+              size={20}
             />
           </button>
         </header>
