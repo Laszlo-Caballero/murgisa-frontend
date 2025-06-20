@@ -31,25 +31,26 @@ export default function ServiciosPage() {
         </Modal>
       )}
 
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-purple-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
-          <LuBriefcase className="text-white size-8 lg:size-10" />
-        </span>
-        <div className="flex flex-col dark:text-white">
-          <p className="font-bold text-3xl">Gestión de Servicios</p>
-          <p className="text-sm mt-1">
-            Administra el catálogo de servicios profesionales de MURGISAA
-          </p>
-        </div>
+    <header className="flex items-center justify-between p-6 rounded-xl bg-gradient-to-r from-purple-700 via-purple-600 to-purple-500 text-white shadow-md">
+  <div className="flex items-center gap-4">
+    <div className="bg-white/20 p-3 rounded-xl">
+      <LuBriefcase size={28} className="text-white" />
+    </div>
+    <div className="flex flex-col text-white">
+      <h1 className="text-3xl font-bold">Gestión de Servicios</h1>
+      <p className="text-sm">
+        Administra el catálogo de servicios profesionales de MURGISA
+      </p>
+    </div>
+  </div>
 
-        <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-purple-600 hover:bg-purple-500 mb-2 dark:bg-purple-500/40"
-          onClick={() => setShowModal(true)}
-        >
-          <FiPlus size={15} />
-          Nuevo Servicio
-        </Button>
-      </header>
+  <button
+    onClick={() => setShowModal(true)}
+    className="bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-4 rounded-lg transition"
+  >
+    + Nuevo Servicio
+  </button>
+</header>
 
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
