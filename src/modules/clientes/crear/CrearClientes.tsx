@@ -10,9 +10,9 @@ import Select from "@/components/ui/select/Select";
 
 export default function CrearCliente() {
   return (
-    <div className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600 ">
+    <div className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600 overflow-y-auto ">
       <header className="flex items-center gap-x-3">
-        <LuUsers size={40} className="text-blue-600" />
+        <LuUsers size={40} className="text-blue-600 dark:text-blue-400" />
         <div className="flex flex-col">
           <p className="text-xl font-semibold dark:text-gray-300">Agregar Nuevo Cliente</p>
           <p className="text-sm text-gray-500">

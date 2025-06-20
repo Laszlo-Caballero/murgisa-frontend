@@ -41,8 +41,8 @@ export default function FormasDePagoPage() {
           <CrearFormaPago />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700 ">
-        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600 ">
+        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-300/30">
           <LuCreditCard className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white">
@@ -53,7 +53,7 @@ export default function FormasDePagoPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-blue-400 mb-2 bg-blue-500/50 lg:px-6"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-blue-500 mb-2 bg-blue-500/50 lg:px-6"
           onClick={() => {
             setShowModal(true);
           }}
@@ -70,7 +70,7 @@ export default function FormasDePagoPage() {
           description="5"
           extra="Registrados en la empresa"
           className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10",
             icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
             text: {
               title: "text-blue-700 dark:text-blue-400",
