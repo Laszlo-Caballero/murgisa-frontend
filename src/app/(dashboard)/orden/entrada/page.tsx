@@ -15,6 +15,7 @@ import { LuTriangleAlert } from "react-icons/lu";
 import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
 import CrearNotaEntrada from "@/modules/nota-entrada/crear/CrearNotaEntrada";
+import cx from "@/libs/cx";
 
 export default function page() {
   const notas: NotaEntrada[] = notaEntradaData;
@@ -50,66 +51,70 @@ export default function page() {
         </Button>
       </header>  
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card
-          title="Total de Notas"
-          icon={<LuCar size={28} className="text-white" />}
-          description="20"
-          extra="Recursos en el sistema"
-          className={{
-            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
-            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
-            text: {
-              title: "text-blue-700 dark:text-blue-300",
-              description: "text-blue-900 text-3xl  dark:text-blue-100",
-              extra: "text-blue-800 text-xs dark:text-blue-400"
-            },
-          }}
-        />
-        <Card
+      <Card
+        title="Total de Notas"
+        icon={<LuCar size={28} className="text-white dark:text-blue-400" />}
+        description="20"
+        extra="Recursos en el sistema"
+        className={{
+          container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+          icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30 shadow-xl",
+          text: {
+            title: "text-blue-700 dark:text-blue-400",
+            description: "text-blue-900 text-3xl dark:text-blue-400",
+            extra: "text-blue-800 text-xs dark:text-blue-400",
+          },
+        }}
+      />
+
+          <Card
           title="Completadas"
-          icon={<LuCircleCheck size={28} className="text-white" />}
+          icon={<LuCircleCheck size={28} className="text-white dark:text-emerald-400" />}
           description="20"
           extra="Entregas exitosas"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800",
-            icon: "bg-green-600 rounded-full p-3 shadow-xl  ",
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-emerald-400/10 dark:transition-all",
+            icon: "bg-green-600 rounded-full p-3 dark:bg-emerald-500/30 shadow-xl",
             text: {
-              title: "text-green-700 dark:text-emerald-300",
-              description: "text-green-900 text-3xl dark:text-emerald-100",
-              extra: "text-green-800 text-xs dark:text-emerald-400"
+              title: "text-green-700 dark:text-emerald-400",
+              description: "text-green-900 text-3xl dark:text-emerald-400",
+              extra: "text-green-800 text-xs dark:text-emerald-400",
             },
           }}
         />
-        <Card
-          title="En proceso"
-          icon={<LuClock4 size={28} className="text-white" />}
-          description="20"
-          extra="Recibo pendiente"
-          className={{
-            container: "bg-yellow-100 shadow-lg dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800",
-            icon: "bg-yellow-600 rounded-full p-3 shadow-xl",
-            text: {
-              title: "text-yellow-700 dark:text-orange-300",
-              description: "text-yellow-900 text-3xl dark:text-orange-100",
-              extra: "text-yellow-800 text-xs dark:text-orange-400"
-            },
-          }}
-        />
+
+          <Card
+            title="En proceso"
+            icon={<LuClock4 size={28} className="text-white dark:text-orange-400" />}
+            description="20"
+            extra="Recibo pendiente"
+            className={{
+              container: "bg-yellow-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-orange-400/10 dark:transition-all",
+              icon: "bg-yellow-600 rounded-full p-3 dark:bg-orange-500/30 shadow-xl",
+              text: {
+                title: "text-yellow-700 dark:text-orange-400",
+                description: "text-yellow-900 text-3xl dark:text-orange-400",
+                extra: "text-yellow-800 text-xs dark:text-orange-400",
+              },
+            }}
+          />
+
         <Card
           title="Atrasado"
-          icon={<LuTriangleAlert size={28} className="text-white" />}
+          icon={<LuTriangleAlert size={28} className="text-white dark:text-red-400" />}
           description="20"
           extra="Pedidos sin recibir"
           className={{
-            container: "bg-red-100 shadow-lg dark:bg-red-900/50 dark:shadow-lg dark:border dark:border-red-800",
-            icon: "bg-red-600 rounded-full p-3 shadow-xl",
+            container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-400/10 dark:transition-all",
+            icon: "bg-red-600 rounded-full p-3 dark:bg-red-500/30 shadow-xl",
             text: {
-              title: "text-red-700 dark:text-red-300",
-              description: "text-red-900 text-3xl dark:text-red-100",
-              extra: "text-red-800 text-xs dark:text-red-400"
+              title: "text-red-700 dark:text-red-400",
+              description: "text-red-900 text-3xl dark:text-red-400",
+              extra: "text-red-800 text-xs dark:text-red-400",
             },
           }}
         />
+
       </div>
       <Tabs
       headers={["Catalogo de Entradas"]}

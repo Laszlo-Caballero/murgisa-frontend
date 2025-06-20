@@ -116,34 +116,36 @@ export default function NotasDeSalidaPage() {
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Notas"
-          icon={<LuClipboardList size={28} className="text-white" />}
+          icon={<LuClipboardList size={28} className="text-white dark:text-blue-400" />}
           description={notaSalidaData?.length.toString() || "0"}
           extra="Registradas en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
-            icon: "bg-blue-500 rounded-full p-3",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            icon: "bg-blue-500 rounded-full p-3 dark:bg-blue-500/30",
             text: {
-              title: "text-blue-700  dark:text-blue-300",
-              description: "text-blue-900 text-3xl  dark:text-blue-100",
-              extra: "text-blue-600  dark:text-blue-400",
+              title: "text-blue-700 dark:text-blue-400",
+              description: "text-blue-900 text-3xl dark:text-blue-400",
+              extra: "text-blue-600 dark:text-blue-400",
             },
           }}
         />
-        <Card
-          title="Notas Activas"
-          icon={<LuCircleCheckBig size={28} className="text-white" />}
-          description={"14"}
-          extra="Habilitadas y disponibles"
-          className={{
-            container: "bg-purple-100 shadow-lg  dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800",
-            icon: "bg-purple-500 rounded-full p-3",
-            text: {
-              title: "text-purple-700 dark:text-purple-300",
-              description: "text-purple-900 text-3xl  dark:text-purple-100",
-              extra: "text-purple-600  dark:text-purple-400",
-            },
-          }}
-        />
+
+      <Card
+        title="Notas Activas"
+        icon={<LuCircleCheckBig size={28} className="text-white dark:text-purple-400" />}
+        description={"14"}
+        extra="Habilitadas y disponibles"
+        className={{
+          container: "bg-purple-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+          icon: "bg-purple-500 rounded-full p-3 dark:bg-purple-500/30",
+          text: {
+            title: "text-purple-700 dark:text-purple-400",
+            description: "text-purple-900 text-3xl dark:text-purple-400",
+            extra: "text-purple-600 dark:text-purple-400",
+          },
+        }}
+      />
+
       </div>
 
       <div className="py-6 flex flex-col gap-y-6">
