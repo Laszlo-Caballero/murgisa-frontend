@@ -32,7 +32,7 @@ export default function NotasDeSalidaPage() {
   //     },
   //   });
   return (
-    <div className="w-full h-full p-8 flex flex-col bg-gray-100">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-100  dark:bg-gray-900 ">
       {showModal && (
         <Modal
           onClose={() => {
@@ -90,19 +90,19 @@ export default function NotasDeSalidaPage() {
         </Modal>
       )}
 
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-pink-500 to-pink-800 dark:from-pink-700">
         <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
           <LuClipboardList className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
-          <p className="font-bold text-3xl">Notas de Salida</p>
-          <p className="text-sm">
+          <p className="font-bold text-3xl text-white">Notas de Salida</p>
+          <p className="text-sm text-white">
             Gestiona las notas de salida registradas en el sistema
           </p>
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-pink-600 hover:bg-pink-500 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-pink-700 hover:bg-pink-600 mb-2"
           onClick={() => {
             setShowModal(true);
           }}
@@ -119,12 +119,12 @@ export default function NotasDeSalidaPage() {
           description={notaSalidaData?.length.toString() || "0"}
           extra="Registradas en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg",
+            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
             icon: "bg-blue-500 rounded-full p-3",
             text: {
-              title: "text-blue-700",
-              description: "text-blue-900 text-3xl",
-              extra: "text-blue-600",
+              title: "text-blue-700  dark:text-blue-300",
+              description: "text-blue-900 text-3xl  dark:text-blue-100",
+              extra: "text-blue-600  dark:text-blue-400",
             },
           }}
         />
@@ -134,20 +134,20 @@ export default function NotasDeSalidaPage() {
           description={"14"}
           extra="Habilitadas y disponibles"
           className={{
-            container: "bg-purple-100 shadow-lg",
+            container: "bg-purple-100 shadow-lg  dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800",
             icon: "bg-purple-500 rounded-full p-3",
             text: {
-              title: "text-purple-700",
-              description: "text-purple-900 text-3xl",
-              extra: "text-purple-600",
+              title: "text-purple-700 dark:text-purple-300",
+              description: "text-purple-900 text-3xl  dark:text-purple-100",
+              extra: "text-purple-600  dark:text-purple-400",
             },
           }}
         />
       </div>
 
       <div className="py-6 flex flex-col gap-y-6">
-        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">
             <LuFilter size={20} className="text-pink-600" />
             Filtros de Búsqueda
           </span>
@@ -164,26 +164,26 @@ export default function NotasDeSalidaPage() {
                 title="Nota de Salida"
                 icon={<LuClipboardList size={20} className="text-red-400" />}
                 className={{
-                  container: "bg-white",
+                  container: "bg-white  dark:bg-gray-800  dark:text-white ",
                   header: {
-                    icon: "bg-red-100",
-                    description: "font-semibold",
+                    icon: "bg-red-100  dark:bg-red-600/20",
+                    description: "font-semibold dark:bg-gray-800",
                   },
-                  span: "bg-green-100 text-green-700 border border-green-300 font-semibold ",
+                  span: "bg-green-100 text-green-700 border border-green-300 font-semibold  dark:bg-green-600 dark:text-white",
                 }}
                 description={"ID: NS-00" + nota.idNotaSalida.toString()}
                 span={nota.estado ? "Activo" : "Inactivo"}
               >
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between ">
                   <span className="flex flex-col gap-y-1">
-                    <p className="text-sm text-gray-900 font-medium">Fecha</p>
+                    <p className="text-sm text-gray-900 font-medium  dark:text-white">Fecha</p>
                     <p className="text-sm text-gray-600 font-semibold flex items-center gap-x-1">
-                      <LuCalendar className="text-blue-600" />{" "}
+                      <LuCalendar className="text-blue-600 " />{" "}
                       {nota.fecha.split("T")[0]}
                     </p>
                   </span>
                   <span className="flex flex-col gap-y-1">
-                    <p className="text-sm text-gray-900 font-medium">
+                    <p className="text-sm text-gray-900 font-medium  dark:text-white">
                       Maquinaria
                     </p>
                     <p className="text-gray-600 text-sm">
@@ -192,11 +192,11 @@ export default function NotasDeSalidaPage() {
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-x-2 mt-4">
-                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
+                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50 dark:bg-transparent dark:border-red-600 dark:text-red-400">
                     <LuSquarePen size={15} />
                     Editar
                   </Button>
-                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
+                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100 dark:bg-transparent dark:border-gray-600 dark:text-gray-400 ">
                     <LuEye size={15} />
                     Desactivar
                   </Button>
