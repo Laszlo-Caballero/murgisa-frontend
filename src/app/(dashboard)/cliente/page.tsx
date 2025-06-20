@@ -38,7 +38,7 @@ export default function ClientesPage() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700 ">
-        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
+        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-300/30">
           <LuUsers className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white">
@@ -49,7 +49,7 @@ export default function ClientesPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[165%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-400 mb-2 bg-blue-500/50"
+          className="flex items-center absolute md:static right-0 translate-y-[165%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
@@ -110,11 +110,11 @@ export default function ClientesPage() {
           extra="Nuevas oportunidades de Venta"
           className={{
             container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
-            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-600/30",
+            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
-              title: "text-orange-700 dark:text-orange-500",
-              description: "text-orange-900 text-3xl dark:text-orange-500",
-              extra: "text-orange-600 dark:text-orange-500",
+              title: "text-orange-700 dark:text-orange-400",
+              description: "text-orange-900 text-3xl dark:text-orange-400",
+              extra: "text-orange-600 dark:text-orange-400",
             },
           }}
         />
