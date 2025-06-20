@@ -1,12 +1,6 @@
 "use client";
-import { LuFilter } from "react-icons/lu";
+import { LuFilter, LuCalendar, LuUsers, LuSquarePen, LuTrash2, LuShield } from "react-icons/lu";
 import { PlanificacionPreventivo } from "@/interfaces/response.interface";
-import { LuCalendar } from "react-icons/lu";
-import { LuUsers } from "react-icons/lu";
-import { LuSquarePen } from "react-icons/lu";
-import { LuTrash2 } from "react-icons/lu";
-import { LuShield } from "react-icons/lu";
-
 import Badge from "@/components/ui/badge/Badge";
 import Table from "@/components/ui/table/Table";
 
@@ -17,143 +11,126 @@ interface ListarPreventivosProps {
 export default function ListarPreventivos({ data }: ListarPreventivosProps) {
   return (
     <div className="py-4 flex w-full flex-col gap-y-4">
-      <div className="py-4 flex w-full flex-col gap-y-4">
-        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
-            <LuFilter size={20} className="text-orange-600" />
-            Filtros de Búsqueda
-          </span>
-          <p className="text-sm mt-1 text-gray-500">
-            Utiliza los filtros para encontrar mantenimientos programados de
-            manera rápida
-          </p>
-        </section>
-      </div>
-      <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white">
+      {/* Filtros */}
+      <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white dark:bg-gray-800 dark:border dark:border-gray-700">
+        <span className="flex items-center gap-x-2 font-semibold text-black dark:text-white text-lg">
+          <LuFilter size={20} className="text-orange-600" />
+          Filtros de Búsqueda
+        </span>
+        <p className="text-sm mt-1 text-gray-500 dark:text-gray-300">
+          Utiliza los filtros para encontrar mantenimientos programados de manera rápida
+        </p>
+      </section>
+
+      {/* Lista de mantenimientos */}
+      <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white dark:bg-gray-800 dark:border dark:border-gray-700">
         <div className="flex items-center justify-between w-full">
           <div>
-            <p className="font-medium text-black text-xl">
+            <p className="font-medium text-black dark:text-white text-xl">
               Mantenimientos Registrados
             </p>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
               Gestiona todos los mantenimientos programados
             </p>
           </div>
           <div>
-            <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
-              {" "}
-              Total: 5{" "}
+            <span className="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 text-xs text-gray-600 font-semibold border border-gray-300 dark:border-gray-600 rounded-full px-3 py-1">
+              Total: {data.length}
             </span>
           </div>
         </div>
 
-        {
-          <Table
-            className="mt-4 bg-white w-full rounded-md "
-            data={data}
-            columns={[
-              {
-                header: "Mantenimiento",
-                cell: (props) => {
-                  return (
-                    <div className="flex items-start gap-x-3">
-                      <span className="bg-red-100 p-2 rounded-lg">
-                        <LuShield size={15} className="text-orange-600" />
-                      </span>
-                      <div className="flex flex-col">
-                        <p className="font-semibold text-sm">
-                          {props.row.tipo}
-                        </p>
-                        <p className="text-xs text-gray-600">
-                          ID: PLAN-00{props.row.idPlanificacion}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Fecha Programada",
-                cell: (props) => {
-                  return (
-                    <div className="flex flex-col gap-y-1">
-                      <span className="flex items-center gap-x-2">
-                        <LuCalendar size={15} className="text-blue-500" />
-                        <p className="text-sm font-semibold">
-                          {" "}
-                          {new Date(props.row.fecha).toLocaleDateString(
-                            "es-ES"
-                          )}
-                        </p>
-                      </span>
-                      <p className="text-sm text-gray-500">
-                        {props.row.horario}
-                      </p>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Responsable",
-                cell: (props) => {
-                  return (
-                    <div className="flex flex-col gap-y-1 text-center xl:text-start">
-                      <span className="flex xl:flex-row flex-col items-center gap-x-2">
-                        <LuUsers size={15} className="text-green-500" />
-                        <span className="text-sm font-semibold text-nowrap">
-                          {props.row.responsable}
-                        </span>
-                      </span>
-                      <span>
-                        <p className="text-xs text-gray-600">
-                          {" "}
-                          {props.row.cantPersonal} técnicos
-                        </p>
-                      </span>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Recurso",
-                cell: (props) => {
-                  return <span className="text-sm">{props.row.recurso}</span>;
-                },
-              },
-              {
-                header: "Prioridad",
-                cell: (props) => {
-                  return (
-                    <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold">
-                      Media
-                    </Badge>
-                  );
-                },
-              },
-              {
-                header: "Estado",
-                cell: (props) => {
-                  return (
-                    <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
-                      Activo
-                    </Badge>
-                  );
-                },
-              },
-              {
-                header: "Acciones",
-                cell: (props) => {
-                  return (
-                    <span className="flex items-center gap-x-4">
-                      <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900" />
+        <Table
+          className="mt-4 bg-white dark:bg-gray-900 w-full rounded-md"
+          data={data}
+          columns={[
+            {
+              header: "Mantenimiento",
+              cell: (props) => (
+                <div className="flex items-start gap-x-3">
+                  <span className="bg-red-100 dark:bg-red-500/20 p-2 rounded-lg">
+                    <LuShield size={15} className="text-orange-600" />
+                  </span>
+                  <div className="flex flex-col">
+                    <p className="font-semibold text-sm text-black dark:text-white">
+                      {props.row.tipo}
+                    </p>
+                    <p className="text-xs text-gray-600 dark:text-gray-300">
+                      ID: PLAN-00{props.row.idPlanificacion}
+                    </p>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              header: "Fecha Programada",
+              cell: (props) => (
+                <div className="flex flex-col gap-y-1">
+                  <span className="flex items-center gap-x-2">
+                    <LuCalendar size={15} className="text-blue-500" />
+                    <p className="text-sm font-semibold text-black dark:text-white">
+                      {new Date(props.row.fecha).toLocaleDateString("es-ES")}
+                    </p>
+                  </span>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">
+                    {props.row.horario}
+                  </p>
+                </div>
+              ),
+            },
+            {
+              header: "Responsable",
+              cell: (props) => (
+                <div className="flex flex-col gap-y-1 text-center xl:text-start">
+                  <span className="flex xl:flex-row flex-col items-center gap-x-2">
+                    <LuUsers size={15} className="text-green-500" />
+                    <span className="text-sm font-semibold text-black dark:text-white text-nowrap">
+                      {props.row.responsable}
                     </span>
-                  );
-                },
-              },
-            ]}
-          ></Table>
-        }
+                  </span>
+                  <span>
+                    <p className="text-xs text-gray-600 dark:text-gray-300">
+                      {props.row.cantPersonal} técnicos
+                    </p>
+                  </span>
+                </div>
+              ),
+            },
+            {
+              header: "Recurso",
+              cell: (props) => (
+                <span className="text-sm text-black dark:text-white">
+                  {props.row.recurso}
+                </span>
+              ),
+            },
+            {
+              header: "Prioridad",
+              cell: () => (
+                <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold dark:bg-yellow-500/20 dark:border-yellow-400 dark:text-yellow-300">
+                  Media
+                </Badge>
+              ),
+            },
+            {
+              header: "Estado",
+              cell: () => (
+                <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold dark:bg-green-500/20 dark:border-green-400 dark:text-green-300">
+                  Activo
+                </Badge>
+              ),
+            },
+            {
+              header: "Acciones",
+              cell: () => (
+                <span className="flex items-center gap-x-4">
+                  <LuSquarePen className="text-red-500" />
+                  <LuTrash2 className="text-gray-900 dark:text-gray-300" />
+                </span>
+              ),
+            },
+          ]}
+        />
       </div>
     </div>
   );
