@@ -59,12 +59,13 @@ export default function ServiciosPage() {
           description="5"
           extra="En catálogo"
           className={{
-            container: "bg-purple-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700",
-            icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
+            container: 
+             "bg-purple-100 shadow-lg dark:bg-purple-500/20 dark:border dark:border-purple-500/40",
+            icon:"bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
             text: {
-              title: "text-purple-700 dark:text-purple-400",
-              description: "text-purple-900 text-3xl dark:text-purple-400",
-              extra: "text-purple-600 dark:text-purple-400",
+              title: "text-purple-700 dark:text-purple-300",
+              description: "text-purple-900 text-3xl dark:text-purple-200",
+              extra: "text-purple-600 dark:text-purple-300",
             },
           }}
         />
@@ -74,12 +75,13 @@ export default function ServiciosPage() {
           description="4"
           extra="Disponibles"
           className={{
-            container: "bg-emerald-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700",
-            icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
-            text: {
-              title: "text-emerald-700 dark:text-emerald-400",
-              description: "text-emerald-900 text-3xl dark:text-emerald-400",
-              extra: "text-emerald-600 dark:text-emerald-400",
+            container:
+      "bg-emerald-100 shadow-lg dark:bg-emerald-500/20 dark:border dark:border-emerald-500/40",
+    icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
+    text: {
+      title: "text-emerald-700 dark:text-emerald-300",
+      description: "text-emerald-900 text-3xl dark:text-emerald-200",
+      extra: "text-emerald-600 dark:text-emerald-300",
             },
           }}
         />
@@ -89,12 +91,14 @@ export default function ServiciosPage() {
           description="31"
           extra="Servicios vendidos"
           className={{
-            container: "bg-blue-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700",
-            icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
-            text: {
-              title: "text-blue-700 dark:text-blue-400",
-              description: "text-blue-900 text-3xl dark:text-blue-400",
-              extra: "text-blue-600 dark:text-blue-400",
+           container:
+      "bg-blue-100 shadow-lg dark:bg-blue-500/20 dark:border dark:border-blue-500/40",
+    icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
+    text: {
+      title: "text-blue-700 dark:text-blue-300",
+      description: "text-blue-900 text-3xl dark:text-blue-200",
+      extra: "text-blue-600 dark:text-blue-300",
+
             },
           }}
         />
@@ -104,12 +108,13 @@ export default function ServiciosPage() {
           description="$ 1500"
           extra="Por servicios"
           className={{
-            container: "bg-orange-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700",
-            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
-            text: {
-              title: "text-orange-700 dark:text-orange-400",
-              description: "text-orange-900 text-3xl dark:text-orange-400",
-              extra: "text-orange-600 dark:text-orange-400",
+          container:
+      "bg-orange-100 shadow-lg dark:bg-orange-500/20 dark:border dark:border-orange-500/40",
+    icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
+    text: {
+      title: "text-orange-700 dark:text-orange-300",
+      description: "text-orange-900 text-3xl dark:text-orange-200",
+      extra: "text-orange-600 dark:text-orange-300",
             },
           }}
         />
