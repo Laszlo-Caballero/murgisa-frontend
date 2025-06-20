@@ -24,7 +24,7 @@ export default function Cargo() {
         </Modal>
       )}
 
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 ">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
         <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
           <PiToolbox className="text-white size-8 lg:size-10 " />
         </span>
@@ -106,8 +106,8 @@ export default function Cargo() {
           }}
         />
       </div>
-      <div className="py-4 flex w-full flex-col gap-y-4  dark:bg-gray-900">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white  dark:bg-gray-900">
+      <div className="py-4 flex w-full flex-col gap-y-4  dark:bg-gray-900 ">
+        <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
           <span className="flex items-center gap-x-2 font-semibold text-black text-lg  dark:text-white ">
             <LuFilter size={20} className="text-blue-500" />
             Filtros de Búsqueda
