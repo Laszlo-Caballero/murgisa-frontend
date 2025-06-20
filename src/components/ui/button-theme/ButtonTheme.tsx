@@ -11,7 +11,7 @@ export default function ButtonTheme() {
       onClick={toggleDarkmode}
       className="p-2 rounded-lg border border-slate-200"
     >
-      {isDarkmode ? <LuMoon /> : <LuSunMedium />}
+      {!isDarkmode ? <LuMoon /> : <LuSunMedium className="text-amber-300" />}
     </button>
   );
 }
