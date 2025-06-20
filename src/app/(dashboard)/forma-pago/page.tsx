@@ -20,14 +20,15 @@ import { formaPagoData } from "@/data/formaPago";
 import CrearFormaPago from "@/modules/forma-pago/crear/CrearFormaPago";
 import { LuStar } from "react-icons/lu";
 import { LuTrendingUp } from "react-icons/lu";
+import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 export default function FormasDePagoPage() {
   const [showModal, setShowModal] = useState(false);
-  //  const { data, isLoading } = useQuery<FormaPago[]>({
-  //   queryFn: async () => {
-  //     const response = await axios.get(`${env.url_api}/Forma-pago`);
-  //     return response.data;
-  //   },
-  // });
+  const { data, isLoading } = useQuery<FormaPago[]>({
+    queryFn: async () => {
+      const response = await axios.get(`${env.url_api}/Forma-pago`);
+      return response.data;
+    },
+  });
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col">
       {showModal && (
@@ -134,48 +135,52 @@ export default function FormasDePagoPage() {
             manera rápida
           </p>
         </section>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {formaPagoData?.map((forma) => {
-            return (
-              <CardInfo
-                key={forma.idFormaPago}
-                title={forma.tipo}
-                icon={
-                  <FaRegMoneyBillAlt size={20} className="text-green-400" />
-                }
-                className={{
-                  container: "bg-white",
-                  header: {
-                    icon: "bg-green-100",
-                  },
-                  span: "bg-green-100 text-green-700 font-bold",
-                }}
-                description={forma.descripcion}
-                span={forma.estado ? "Activo" : "Inactivo"}
-              >
-                <div className="flex items-center gap-x-24">
-                  <span className="flex flex-col gap-y-1">
-                    <p className="text-sm text-gray-600 font-medium">
-                      Comisión
-                    </p>
-                    <p className="text-sm font-semibold flex items-center ">
-                      <MdOutlineAttachMoney className="text-green-600" />{" "}
-                      {forma.comision}%
-                    </p>
-                  </span>
-                  <span className="flex flex-col gap-y-1">
-                    <p className="text-sm text-gray-600 font-medium">
-                      Comisión
-                    </p>
-                    <p className="text-sm font-semibold flex items-center gap-x-1">
-                      <LuCalendar className="text-blue-600" />{" "}
-                      {forma.registeredAt.split("T")[0]}
-                    </p>
-                  </span>
-                </div>
-              </CardInfo>
-            );
-          })}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
+          {isLoading
+            ? Array.from({ length: 3 }).map((_, index) => {
+                return <CardInfoSkeleton key={index} />;
+              })
+            : data?.map((forma) => {
+                return (
+                  <CardInfo
+                    key={forma.idFormaPago}
+                    title={forma.tipo}
+                    icon={
+                      <FaRegMoneyBillAlt size={20} className="text-green-400" />
+                    }
+                    className={{
+                      container: "bg-white",
+                      header: {
+                        icon: "bg-green-100",
+                      },
+                      span: "bg-green-100 text-green-700 font-bold",
+                    }}
+                    description={forma.descripcion}
+                    span={forma.estado ? "Activo" : "Inactivo"}
+                  >
+                    <div className="flex items-center gap-x-24">
+                      <span className="flex flex-col gap-y-1">
+                        <p className="text-sm text-gray-600 font-medium">
+                          Comisión
+                        </p>
+                        <p className="text-sm font-semibold flex items-center ">
+                          <MdOutlineAttachMoney className="text-green-600" />{" "}
+                          {forma.comision}%
+                        </p>
+                      </span>
+                      <span className="flex flex-col gap-y-1">
+                        <p className="text-sm text-gray-600 font-medium">
+                          Fecha de Registro
+                        </p>
+                        <p className="text-sm font-semibold flex items-center gap-x-1">
+                          <LuCalendar className="text-blue-600" />{" "}
+                          {forma.registeredAt.split("T")[0]}
+                        </p>
+                      </span>
+                    </div>
+                  </CardInfo>
+                );
+              })}
         </div>
       </div>
     </div>
