@@ -19,15 +19,15 @@ import Load from "@/components/ui/load/Load";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 
 export default function ClientesPage() {
-  // const clientes: Cliente[] = clienteData;
+  const clientes: Cliente[] = clienteData;
   const [showModal, setShowModal] = useState(false);
-  const { isLoading, data, isError, error } = useQuery<Cliente[]>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/cliente`);
-      return response.data;
-    },
-    dependencies: [],
-  });
+  // const { isLoading, data, isError, error } = useQuery<Cliente[]>({
+  //   queryFn: async () => {
+  //     const response = await axios.get(`${env.url_api}/cliente`);
+  //     return response.data;
+  //   },
+  //   dependencies: [],
+  // });
 
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden">
@@ -125,7 +125,7 @@ export default function ClientesPage() {
       </div>
 
       <Tabs headers={["Lista de Clientes"]} className="mt-6">
-        <ListarClientes data={data} isLoading={isLoading} />
+        <ListarClientes data={clientes} />
       </Tabs>
     </div>
   );

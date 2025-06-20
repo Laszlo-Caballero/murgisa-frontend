@@ -22,13 +22,14 @@ import { LuStar } from "react-icons/lu";
 import { LuTrendingUp } from "react-icons/lu";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 export default function FormasDePagoPage() {
+  const formas: FormaPago[] = formaPagoData;
   const [showModal, setShowModal] = useState(false);
-  const { data, isLoading } = useQuery<FormaPago[]>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/Forma-pago`);
-      return response.data;
-    },
-  });
+  // const { data, isLoading } = useQuery<FormaPago[]>({
+  //   queryFn: async () => {
+  //     const response = await axios.get(`${env.url_api}/Forma-pago`);
+  //     return response.data;
+  //   },
+  // });
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col">
       {showModal && (
@@ -136,11 +137,11 @@ export default function FormasDePagoPage() {
           </p>
         </section>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
-          {isLoading
+          {/* {isLoading
             ? Array.from({ length: 3 }).map((_, index) => {
                 return <CardInfoSkeleton key={index} />;
-              })
-            : data?.map((forma) => {
+              }) */}
+              {formas.map((forma) => {
                 return (
                   <CardInfo
                     key={forma.idFormaPago}
