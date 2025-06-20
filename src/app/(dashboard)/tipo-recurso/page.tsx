@@ -28,8 +28,8 @@ export default function TipoRecursoPage() {
           <CrearTipoRecurso />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-red-500 to-red-800 dark:from-red-700">
-        <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3 ">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-red-500 to-red-900 dark:from-red-600/80">
+        <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-red-300/30">
           <LuLayers className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
@@ -39,7 +39,7 @@ export default function TipoRecursoPage() {
           </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-red-700 hover:bg-red-400 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[20%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-red-500 mb-2 bg-red-500/50 lg:px-6"
           onClick={() => {
             setShowModal(true);
           }}
@@ -154,11 +154,11 @@ export default function TipoRecursoPage() {
                 </span>
               </div>
               <div className="flex items-center justify-between gap-x-2 mt-4">
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50 dark:bg-transparent dark:border-red-600 dark:text-red-400">
+                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-red-500/10 text-red-500 border border-red-300 dark:border-red-500 hover:bg-red-100 dark:hover:bg-red-600/20">
                   <LuSquarePen size={15} />
                   Editar
                 </Button>
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100 dark:bg-transparent dark:border-gray-600 dark:text-gray-400 ">
+                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-gray-700 text-black dark:text-white border border-gray-300 dark:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600">
                   <LuEye size={15} />
                   Desactivar
                 </Button>
