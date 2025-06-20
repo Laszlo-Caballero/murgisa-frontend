@@ -51,64 +51,69 @@ export default function TipoRecursoPage() {
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Tipos"
-          icon={<LuLayers size={28} className="text-white" />}
+          icon={<LuLayers size={28} className="text-white dark:text-emerald-400" />}
           description="10"
           extra="Configurados en el sistema"
           className={{
-            container: "bg-emerald-100 shadow-lg  dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800",
-            icon: "bg-emerald-500 rounded-full p-3",
+            container: "bg-emerald-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-emerald-400/10 dark:transition-all",
+            icon: "bg-emerald-500 rounded-full p-3 dark:bg-emerald-500/30",
             text: {
-              title: "text-emerald-700  dark:text-emerald-300",
-              description: "text-emerald-900 text-3xl  dark:text-emerald-100",
-              extra: "text-emerald-600  dark:text-emerald-400",
+              title: "text-emerald-700 dark:text-emerald-400",
+              description: "text-emerald-900 text-3xl dark:text-emerald-400",
+              extra: "text-emerald-600 dark:text-emerald-400",
             },
           }}
         />
-        <Card
-          title="Tipos Activos"
-          icon={<LuCircleCheckBig size={28} className="text-white" />}
-          description="9"
-          extra="Disponibles para asignacion"
-          className={{
-            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
-            icon: "bg-blue-500 rounded-full p-3",
-            text: {
-              title: "text-blue-700  dark:text-blue-300",
-              description: "text-blue-900 text-3xl  dark:text-blue-100",
-              extra: "text-blue-600  dark:text-blue-400",
-            },
-          }}
-        />
-        <Card
-          title="Total Recursos"
-          icon={<LuPackage size={28} className="text-white" />}
-          description="108"
-          extra="Designados a servicios"
-          className={{
-            container: "bg-purple-100 shadow-lg  dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800",
-            icon: "bg-purple-500 rounded-full p-3",
-            text: {
-              title: "text-purple-700  dark:text-purple-300",
-              description: "text-purple-900 text-3xl  dark:text-purple-100",
-              extra: "text-purple-600  dark:text-purple-400",
-            },
-          }}
-        />{" "}
+
+          <Card
+            title="Tipos Activos"
+            icon={<LuCircleCheckBig size={28} className="text-white dark:text-blue-400" />}
+            description="9"
+            extra="Disponibles para asignacion"
+            className={{
+              container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+              icon: "bg-blue-500 rounded-full p-3 dark:bg-blue-500/30",
+              text: {
+                title: "text-blue-700 dark:text-blue-400",
+                description: "text-blue-900 text-3xl dark:text-blue-400",
+                extra: "text-blue-600 dark:text-blue-400",
+              },
+            }}
+          />
+
+          <Card
+            title="Total Recursos"
+            icon={<LuPackage size={28} className="text-white dark:text-purple-400" />}
+            description="108"
+            extra="Designados a servicios"
+            className={{
+              container: "bg-purple-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+              icon: "bg-purple-500 rounded-full p-3 dark:bg-purple-500/30",
+              text: {
+                title: "text-purple-700 dark:text-purple-400",
+                description: "text-purple-900 text-3xl dark:text-purple-400",
+                extra: "text-purple-600 dark:text-purple-400",
+              },
+            }}
+          />
+
+        {" "}
         <Card
           title="Ultimo Tipo Creado"
-          icon={<LuBox size={28} className="text-white" />}
+          icon={<LuBox size={28} className="text-white dark:text-orange-400" />}
           description={"Herramientas"}
           extra="Recursos de mantenimiento"
           className={{
-            container: "bg-orange-100 shadow-lg  dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800",
-            icon: "bg-orange-600 rounded-full p-3",
+            container: "bg-orange-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-orange-400/10 dark:transition-all",
+            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
-              title: "text-orange-700  dark:text-orange-300",
-              description: "text-orange-900 text-3xl  dark:text-orange-100",
-              extra: "text-orange-600  dark:text-orange-400",
+              title: "text-orange-700 dark:text-orange-400",
+              description: "text-orange-900 text-3xl dark:text-orange-400",
+              extra: "text-orange-600 dark:text-orange-400",
             },
           }}
         />
+
       </div>
       <div className="py-4 flex w-full flex-col gap-y-3">
         <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
