@@ -47,7 +47,7 @@ export default function VentasPagina() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 hover:bg-green-500 mb-2 bg-green-400/50"
+          className="flex items-center absolute md:static right-0 translate-y-[165%] -translate-x-[22%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-green-500 mb-2 bg-green-400/50"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
