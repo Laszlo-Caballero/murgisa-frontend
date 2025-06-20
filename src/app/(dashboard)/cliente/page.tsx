@@ -110,11 +110,11 @@ export default function ClientesPage() {
           extra="Nuevas oportunidades de Venta"
           className={{
             container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
-            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-600/30",
+            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
-              title: "text-orange-700 dark:text-orange-500",
-              description: "text-orange-900 text-3xl dark:text-orange-500",
-              extra: "text-orange-600 dark:text-orange-500",
+              title: "text-orange-700 dark:text-orange-400",
+              description: "text-orange-900 text-3xl dark:text-orange-400",
+              extra: "text-orange-600 dark:text-orange-400",
             },
           }}
         />
