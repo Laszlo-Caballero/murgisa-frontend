@@ -12,6 +12,8 @@ import Button from "@/components/ui/button/Button";
 import { useQuery } from "@/hooks/useQuery";
 import axios from "axios";
 import { env } from "@/config/env";
+import { GrUserWorker } from "react-icons/gr";
+
 import {
   Departamento,
   Profesion,
@@ -51,19 +53,22 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
   });
 
   return (
-    <form className="w-full max-h-[600px] overflow-y-auto h-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4">
+    <form className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600 overflow-y-auto">
       {loadingProfesiones ||
         loadingCargos ||
         (loadingDepartamentos && <Load />)}
-
-      <header>
-        <p className="text-xl font-semibold">Agregar Nuevo Empleado</p>
-        <p className="text-sm text-gray-500">
-          Registra un nuevo empleado en el sistema
-        </p>
+      <header className="flex items-center gap-x-3">
+        <GrUserWorker size={40} className="text-blue-600 dark:text-blue-400" />
+        <div className="flex flex-col">
+          <p className="text-xl font-semibold dark:text-gray-300">Agregar Nuevo Empleado</p>
+          <p className="text-sm text-gray-500">
+            Completa los datos para registrar un nuevo empleado en el
+            sistema
+          </p>
+        </div>
       </header>
 
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-4 dark:text-gray-300">
         <Input
           label="Nombre"
           icon={<LuUserRound />}
@@ -123,11 +128,11 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
           placeholder="999999999"
         />
 
-        <div className="flex items-center gap-x-4 justify-end w-full col-span-2 scroll-py-20">
-          <Button className="bg-red-500 px-12">Cerrar</Button>
-
-          <Button className="px-12">Guardar</Button>
-        </div>
+      <div>
+        <Button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded hover:bg-blue-700 transition dark:bg-blue-500/30">
+          Registrar Empleado
+        </Button>
+      </div>
       </div>
     </form>
   );
