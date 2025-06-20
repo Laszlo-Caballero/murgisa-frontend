@@ -74,7 +74,7 @@ export default function Aside() {
           </button>
         </header>
 
-        <div className="px-4 pb-6 flex flex-col h-full w-full overflow-y-auto">
+        <div className="px-4 pb-6 flex flex-col h-full w-full overflow-y-auto dark:bg-gray-900">
           {links.map((linkGroup, index) => {
             const color = getColor(linkGroup.color);
 
@@ -151,15 +151,19 @@ export default function Aside() {
           })}
         </div>
 
-        <footer className="w-full p-4 bg-gray-50 dark:bg-black relative">
-          <div className="flex items-center justify-between p-3 bg-white rounded-lg shadow-md">
+        <footer className="w-full p-4 bg-gray-50 dark:border-t dark:border-gray-700 relative dark:bg-gray-800">
+          <div className="flex items-center justify-between p-3 bg-white dark:bg-gray-700 rounded-lg shadow-md">
             <div className="flex items-center">
               <span className="size-10 bg-blue-600 rounded-full text-white flex items-center justify-center">
                 A
               </span>
               <div className="ml-3">
-                <p className="text-sm font-semibold">Administrador</p>
-                <p className="text-xs text-gray-500">admin@gmail.com</p>
+                <p className="text-sm font-semibold dark:text-white">
+                  Administrador
+                </p>
+                <p className="text-xs text-gray-500 dark:text-white">
+                  admin@gmail.com
+                </p>
               </div>
             </div>
 
@@ -168,7 +172,7 @@ export default function Aside() {
               <button onClick={() => setOpen(!open)}>
                 <LuSettings
                   size={20}
-                  className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                  className="text-gray-600 dark:text-white hover:text-blue-600 transition-colors cursor-pointer"
                   aria-label="Configuración"
                 />
               </button>
@@ -176,12 +180,12 @@ export default function Aside() {
           </div>
 
           {open && (
-            <div className="absolute bottom-1/2 translate-y-1/2 py-4 px-8 left-full w-full max-w-max rounded-xl right-0 bg-white shadow-2xl">
+            <div className="absolute bottom-1/2 translate-y-1/2 py-4 px-8 left-full w-full max-w-max rounded-xl right-0 bg-white dark:bg-gray-900 shadow-2xl">
               <Link
                 href="/login"
-                className="flex items-center w-full gap-x-2 cursor-pointer"
+                className="flex items-center w-full gap-x-2 cursor-pointer dark:text-white"
               >
-                <RiLogoutCircleRLine />
+                <RiLogoutCircleRLine className="dark:text-white" />
                 Logout
               </Link>
             </div>
