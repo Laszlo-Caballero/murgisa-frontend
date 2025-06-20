@@ -13,48 +13,48 @@ interface ListarCorrectivoProps {
 
 export default function ListaCalendario({ data }: ListarCorrectivoProps){
     return(
-        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3 ">
             {data.map((correctivo)=>{
                 return(
-                    <div className="bg-white rounded-lg border border-gray-300 hover:shadow-md" key={correctivo.idCorrectivo}>
-                        <div className="flex items-center justify-between mt-4 mx-6">
-                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold py-1">
+                    <div className="bg-white rounded-lg border border-gray-300 hover:shadow-md  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700" key={correctivo.idCorrectivo}>
+                        <div className="flex items-center justify-between mt-4 mx-6 ">
+                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold py-1 dark:bg-green-600 dark:text-white">
                                 Activo
                             </Badge>
-                            <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold py-1">
+                            <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold py-1 dark:bg-yellow-600  dark:text-white">
                                 En progreso
                             </Badge>
                         </div>
 
                         <CardInfo 
                             title={correctivo.maquinaria}
-                            icon={<LuWrench size={20} className="text-orange-500" />}
+                            icon={<LuWrench size={20} className="text-orange-500 " />}
                             description=""
-                            className={{container:"gap-y-1 pointer-events-none pt-4", 
+                            className={{container:"gap-y-1 pointer-events-none pt-4 ", 
                                 header:{
-                                    icon: "bg-orange-100 rounded-lg p-2",
+                                    icon: "bg-orange-100 rounded-lg p-2  dark:bg-orange-600/20",
                                 }
                             }}>
                                 
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between ">
                                 <div className="flex flex-col gap-y-2 px-2">
-                                    <span className="flex items-center gap-x-2">
+                                    <span className="flex items-center gap-x-2 ">
                                         <LuCalendar size={16} className="text-red-500" />
-                                        <p className="text-m text-gray-700">{new Date(correctivo.fecha).toLocaleDateString('es-ES')}</p>
+                                        <p className="text-m text-gray-700 dark:text-gray-500">{new Date(correctivo.fecha).toLocaleDateString('es-ES')}</p>
                                     </span>
                                     <span className="flex items-center gap-x-2">
                                         <LuClock4 size={16} className="text-blue-500" />
-                                        <p className="text-sm text-gray-700">{correctivo.duracion}</p>
+                                        <p className="text-sm text-gray-700 dark:text-gray-500">{correctivo.duracion}</p>
                                     </span>
                                 </div>
                                 <div className="flex flex-col gap-y-2 px-2">
                                     <span className="flex items-center gap-x-2">
                                         <LuUsers size={16} className="text-green-500" />
-                                        <p className="text-sm text-gray-700" >{correctivo.responsable}</p>
+                                        <p className="text-sm text-gray-700 dark:text-gray-500" >{correctivo.responsable}</p>
                                     </span>
                                     <span className="flex items-center gap-x-2">
                                         <LuWrench size={16} className="text-purple-500" />
-                                        <p className="text-sm text-gray-700">{correctivo.tipo}</p>
+                                        <p className="text-sm text-gray-700 dark:text-gray-500">{correctivo.tipo}</p>
                                     </span>
                                 </div>
                             </div>
