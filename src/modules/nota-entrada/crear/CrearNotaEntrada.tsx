@@ -10,18 +10,18 @@ import { LuPackage } from "react-icons/lu";
 
 export default function CrearNotaEntrada() {
   return (
-    <div className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4">
+    <div className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 border dark:border-gray-700">
       <header className="flex items-center gap-x-3">
         <LuCar size={40} className="text-pink-600 mb-2" />
         <div className="flex flex-col">
-          <p className="text-xl font-semibold">Agregar Nueva Nota de Entrada</p>
+          <p className="text-xl font-semibold dark:text-white">Agregar Nueva Nota de Entrada</p>
           <p className="text-sm text-gray-500">
             Completa los datos para registrar una nueva nota de entrada en el
             sistema
           </p>
         </div>
       </header>
-      <div className="flex flex-col gap-y-4">
+      <div className="flex flex-col gap-y-4 dark:text-white">
         <Select
           label="Recurso"
           icon={<LuPackage />}
