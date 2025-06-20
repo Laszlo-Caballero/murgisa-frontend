@@ -24,18 +24,18 @@ export default function Cargo() {
         </Modal>
       )}
 
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700">
+        <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3 ">
           <PiToolbox className="text-white size-8 lg:size-10 " />
         </span>
-        <div className="flex flex-col dark:bg-gray-900 ">
-          <p className="font-bold text-3xl dark:text-white ">Gestión de Cargos</p>
-          <p className="text-sm dark:text-gray-500">
+        <div className="flex flex-col ">
+          <p className="font-bold text-3xl text-white ">Gestión de Cargos</p>
+          <p className="text-sm  text-white">
             Administra los puestos de trabajo y roles organizacionales
           </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-400 mb-2 bg-blue-500/50"
           onClick={() => {
             setShowModal(true);
           }}
