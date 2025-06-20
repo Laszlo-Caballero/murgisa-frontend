@@ -10,6 +10,7 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 import { LuSettings } from "react-icons/lu";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import Hamburger from "hamburger-react";
+import ButtonTheme from "@/components/ui/button-theme/ButtonTheme";
 export default function Aside() {
   const pathName = usePathname();
   const [open, setOpen] = useState(false);
@@ -150,7 +151,7 @@ export default function Aside() {
           })}
         </div>
 
-        <footer className="w-full p-4 bg-gray-50 relative">
+        <footer className="w-full p-4 bg-gray-50 dark:bg-black relative">
           <div className="flex items-center justify-between p-3 bg-white rounded-lg shadow-md">
             <div className="flex items-center">
               <span className="size-10 bg-blue-600 rounded-full text-white flex items-center justify-center">
@@ -162,13 +163,16 @@ export default function Aside() {
               </div>
             </div>
 
-            <button onClick={() => setOpen(!open)}>
-              <LuSettings
-                size={20}
-                className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
-                aria-label="Configuración"
-              />
-            </button>
+            <div className="flex items-center gap-x-2">
+              <ButtonTheme />
+              <button onClick={() => setOpen(!open)}>
+                <LuSettings
+                  size={20}
+                  className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                  aria-label="Configuración"
+                />
+              </button>
+            </div>
           </div>
 
           {open && (
