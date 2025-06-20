@@ -20,12 +20,16 @@ export default function Activity({
   };
 
   return (
-    <div className="flex p-3 rounded-lg bg-gray-50">
-      <span className="p-2 rounded-full bg-white max-h-max">{icon[tipo]}</span>
+    <div className="flex p-3 rounded-lg bg-gray-50 dark:bg-gray-900">
+      <span className="p-2 rounded-full bg-white max-h-max dark:bg-gray-800">
+        {icon[tipo]}
+      </span>
       <div className="w-full flex flex-col gap-y-1 ml-3">
-        <p className="font-medium text-sm">{titulo}</p>
-        <p className="text-sm text-gray-600">{descripcion}</p>
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="font-medium text-sm dark:text-white">{titulo}</p>
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          {descripcion}
+        </p>
+        <p className="text-xs text-gray-500 dark:text-gray-200 mt-1">
           {formatDistanceToNow(new Date(fecha), { locale: es })}
         </p>
       </div>

@@ -9,7 +9,7 @@ export const tips: Tip[] = [
   {
     label: "Asesoría en maquinaria",
     type: "Construccion",
-    icon: <FaHardHat size={20} />,
+    icon: <FaHardHat size={20} className="dark:text-blue-300" />,
     color: "blue",
     description:
       "Consúltanos antes de contratar maquinaria para tu proyecto. Nuestro equipo te asesorará según tus necesidades.",
@@ -17,7 +17,7 @@ export const tips: Tip[] = [
   {
     label: "Mantenimiento preventivo",
     type: "Construccion",
-    icon: <RiToolsFill size={20} />,
+    icon: <RiToolsFill size={20} className="dark:text-orange-300" />,
     color: "orange",
     description:
       "Mantener tus maquinaria en buen estado prolongará su vida útil y evitará averías costosas.",
@@ -25,7 +25,7 @@ export const tips: Tip[] = [
   {
     label: "Alquila si así conviene",
     type: "Construccion",
-    icon: <MdConstruction size={20} />,
+    icon: <MdConstruction size={20} className="dark:text-purple-300" />,
     color: "purple",
     description:
       "Considera contratar el servicio de alquiler si el proyecto es de corto plazo, así optimizarás tus recursos.",
@@ -33,7 +33,7 @@ export const tips: Tip[] = [
   {
     label: "Capacitación del operador",
     type: "Construccion",
-    icon: <RiToolsFill size={20} />,
+    icon: <RiToolsFill size={20} className="dark:text-green-500" />,
     color: "green",
     description:
       "Capacita a tus operadores para que trabajen de forma más segura y aumenten así la productividad en la obra.",
@@ -41,7 +41,7 @@ export const tips: Tip[] = [
   {
     label: "Calidad de los materiales",
     type: "construccion",
-    icon: <GiConcreteBag size={20} />,
+    icon: <GiConcreteBag size={20} className="dark:text-blue-300" />,
     color: "blue",
     description:
       "Usar materiales de calidad junto con maquinaria adecuada proporciona mejores resultados y más seguridad.",

@@ -10,6 +10,8 @@ interface LinkHomeProps {
   className?: {
     container?: string;
     icon?: string;
+    title?: string;
+    description?: string;
   };
 }
 
@@ -37,8 +39,12 @@ export default function LinkHome({
         {icon}
       </div>
       <div className="flex flex-col">
-        <span className="font-medium text-sm">{title}</span>
-        <span className="text-xs text-gray-500">{description}</span>
+        <span className={cx("font-medium text-sm", className?.title)}>
+          {title}
+        </span>
+        <span className={cx("text-xs text-gray-500", className?.description)}>
+          {description}
+        </span>
       </div>
 
       <div className="ml-auto">
