@@ -24,7 +24,7 @@ export default function VentasPagina() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="w-full h-full bg-gray-100 p-8 flex flex-col dark:bg-gray-900">
+    <div className="w-full h-full bg-gray-100 p-8 flex flex-col overflow-x-hidden dark:bg-gray-900">
       {" "}
       {showModal && (
         <Modal
@@ -119,8 +119,8 @@ export default function VentasPagina() {
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
         <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white dark:bg-gray-800 dark:border dark:border-gray-700 ">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-md dark:text-white">
-            <LuFilter size={20} className="text-blue-500 dark:text-blue-400" />
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">
+            <LuFilter size={20} className="text-green-500 dark:text-green-400" />
             Filtros de Búsqueda
           </span>
           <p className="text-sm mt-1 text-gray-500 dark:text-gray-400">
