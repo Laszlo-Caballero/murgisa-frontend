@@ -20,7 +20,7 @@ export default function page() {
   const notas: NotaEntrada[] = notaEntradaData;
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="w-full h-full p-8 flex flex-col bg-gray-100">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-100  dark:bg-gray-900">
       {showModal && (
         <Modal
           onClose={() => {
@@ -30,18 +30,18 @@ export default function page() {
           <CrearNotaEntrada />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-pink-500 to-pink-800 dark:from-pink-700">
           <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
             <LuCar className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
-            <p className="font-bold text-3xl">Gestión de Nota de Entrada</p>
-            <p className="text-sm mt-1">
+            <p className="font-bold text-3xl text-white ">Gestión de Nota de Entrada</p>
+            <p className="text-sm mt-1 text-white ">
               Administración de ingresos de recursos al inventario
             </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-pink-600 hover:bg-pink-500 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  bg-pink-700 hover:bg-pink-600 mb-2"
           onClick={() => {
             setShowModal(true);
           }}>
@@ -56,12 +56,12 @@ export default function page() {
           description="20"
           extra="Recursos en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg",
+            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
             icon: "bg-blue-600 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-blue-700",
-              description: "text-blue-900 text-3xl",
-              extra: "text-blue-800 text-xs"
+              title: "text-blue-700 dark:text-blue-300",
+              description: "text-blue-900 text-3xl  dark:text-blue-100",
+              extra: "text-blue-800 text-xs dark:text-blue-400"
             },
           }}
         />
@@ -71,12 +71,12 @@ export default function page() {
           description="20"
           extra="Entregas exitosas"
           className={{
-            container: "bg-green-100 shadow-lg",
-            icon: "bg-green-600 rounded-full p-3 shadow-xl",
+            container: "bg-green-100 shadow-lg dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800",
+            icon: "bg-green-600 rounded-full p-3 shadow-xl  ",
             text: {
-              title: "text-green-700",
-              description: "text-green-900 text-3xl",
-              extra: "text-green-800 text-xs"
+              title: "text-green-700 dark:text-emerald-300",
+              description: "text-green-900 text-3xl dark:text-emerald-100",
+              extra: "text-green-800 text-xs dark:text-emerald-400"
             },
           }}
         />
@@ -86,12 +86,12 @@ export default function page() {
           description="20"
           extra="Recibo pendiente"
           className={{
-            container: "bg-yellow-100 shadow-lg",
+            container: "bg-yellow-100 shadow-lg dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800",
             icon: "bg-yellow-600 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-yellow-700",
-              description: "text-yellow-900 text-3xl",
-              extra: "text-yellow-800 text-xs"
+              title: "text-yellow-700 dark:text-orange-300",
+              description: "text-yellow-900 text-3xl dark:text-orange-100",
+              extra: "text-yellow-800 text-xs dark:text-orange-400"
             },
           }}
         />
@@ -101,12 +101,12 @@ export default function page() {
           description="20"
           extra="Pedidos sin recibir"
           className={{
-            container: "bg-red-100 shadow-lg",
+            container: "bg-red-100 shadow-lg dark:bg-red-900/50 dark:shadow-lg dark:border dark:border-red-800",
             icon: "bg-red-600 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-red-700",
-              description: "text-red-900 text-3xl",
-              extra: "text-red-800 text-xs"
+              title: "text-red-700 dark:text-red-300",
+              description: "text-red-900 text-3xl dark:text-red-100",
+              extra: "text-red-800 text-xs dark:text-red-400"
             },
           }}
         />
