@@ -8,7 +8,7 @@ export default function CrearTipoMantenimiento() {
   return (
     <div className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white dark:bg-gray-800 p-8 flex flex-col gap-y-4">
       <header className="flex items-center gap-x-3">
-        <LuSettings size={30} className="text-orange-600 mb-2" />
+        <LuSettings size={40} className="text-orange-600 mb-2" />
         <div className="flex flex-col">
           <p className="text-xl font-semibold text-black dark:text-white">
             Agregar Nuevo Mantenimiento
@@ -43,7 +43,7 @@ export default function CrearTipoMantenimiento() {
       <div>
         <Button className="flex items-center gap-x-3 mt-4 bg-orange-600 text-white py-3 font-semibold hover:bg-orange-500">
           <FiPlus size={15} className="mr-2" />
-          Registrar Mantenimiento
+           Registrar Mantenimiento
         </Button>
       </div>
     </div>

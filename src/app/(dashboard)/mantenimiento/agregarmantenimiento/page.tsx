@@ -32,29 +32,28 @@ export default function Page() {
         </Modal>
       )}
 
-      {/* Header */}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-orange-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
-          <LuSettings className="text-white size-8 lg:size-10" />
-        </span>
-        <div className="flex flex-col text-black dark:text-white">
-          <p className="font-bold text-3xl">
-            Gestión de Tipos de Mantenimiento
-          </p>
-          <p className="text-sm mt-1 text-gray-600 dark:text-gray-300">
-            Administra y configura los diferentes tipos de mantenimiento disponibles
-          </p>
-        </div>
-        <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-orange-600 hover:bg-orange-500 mb-2 text-white"
-          onClick={() => setShowModal(true)}
-        >
-          <FiPlus size={15} />
-          Nuevo Mantenimiento
-        </Button>
-      </header>
+      <div className="relative w-full rounded-xl overflow-hidden shadow-md mb-6">
+  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-yellow-500 opacity-90 z-0 rounded-xl" />
+  <header className="relative flex flex-col md:flex-row md:items-center gap-x-4 p-6 z-10 text-white">
+    <span className="bg-white/20 p-3 rounded-xl max-w-max mb-2">
+      <LuSettings className="text-white size-8" />
+    </span>
+    <div className="flex flex-col">
+      <p className="font-bold text-2xl">Gestión de Tipos de Mantenimiento</p>
+      <p className="text-sm">
+        Administra y configura los diferentes tipos de mantenimiento disponibles
+      </p>
+    </div>
+    <Button
+      className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-orange-600 hover:bg-orange-500 mb-2 text-white border border-white/30"
+      onClick={() => setShowModal(true)}
+    >
+      <FiPlus size={15} />
+      Nuevo Mantenimiento
+    </Button>
+  </header>
+</div>
 
-      {/* Cards */}
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Tipos"
@@ -118,7 +117,7 @@ export default function Page() {
         />
       </div>
 
-      {/* Filtros */}
+
       <div className="py-4 flex w-full flex-col gap-y-4">
         <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white dark:bg-gray-800">
           <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">
@@ -131,7 +130,6 @@ export default function Page() {
         </section>
       </div>
 
-      {/* Listado */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {tipoMantenimientoData.map((tipo) => (
           <CardInfo
