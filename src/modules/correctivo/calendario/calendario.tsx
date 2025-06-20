@@ -18,10 +18,10 @@ export default function ListaCalendario({ data }: ListarCorrectivoProps){
                 return(
                     <div className="bg-white rounded-lg border border-gray-300 hover:shadow-md  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700" key={correctivo.idCorrectivo}>
                         <div className="flex items-center justify-between mt-4 mx-6 ">
-                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold py-1 dark:bg-green-600 dark:text-white">
+                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold py-1  dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800">
                                 Activo
                             </Badge>
-                            <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold py-1 dark:bg-yellow-600  dark:text-white">
+                            <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold py-1 dark:bg-orange-800/50 dark:shadow-lg dark:border dark:border-orange-800">
                                 En progreso
                             </Badge>
                         </div>
