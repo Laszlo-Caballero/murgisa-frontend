@@ -160,7 +160,7 @@ export default function Home() {
             }
             className={{
               icon: "bg-green-200 text-green-600 dark:bg-green-500/30 dark:text-green-400",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-green-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -172,7 +172,7 @@ export default function Home() {
             icon={<PiWrenchBold size={15} className="text-blue-400" />}
             className={{
               icon: "bg-blue-200 dark:bg-blue-500/30 text-blue-600",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-blue-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -184,7 +184,7 @@ export default function Home() {
             icon={<LuUsers size={15} />}
             className={{
               icon: "bg-purple-200 text-purple-600",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-purple-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -196,7 +196,7 @@ export default function Home() {
             icon={<LuBriefcase size={15} />}
             className={{
               icon: "bg-red-200 text-red-600",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-red-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -226,7 +226,7 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col gap-y-2">
-                    <Badge className="font-semibold dark:bg-amber-50">
+                    <Badge className="font-semibold max-w-max"> 
                       {tip.type}
                     </Badge>
                     <p className="text-sm font-semibold dark:text-white">

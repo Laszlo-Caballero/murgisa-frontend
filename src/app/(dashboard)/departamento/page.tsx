@@ -27,7 +27,7 @@ export default function Departamento() {
       )}
 
   <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 p-6 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 mb-6">
-  <span className="bg-white/20 p-3 rounded-xl max-w-max">
+  <span className="bg-white/20 p-3 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
     <LuBuilding2 className="text-white size-8 lg:size-10" />
   </span>
   <div className="flex flex-col text-white">
@@ -53,7 +53,7 @@ export default function Departamento() {
           description="3"
           extra="Registrados en el sistema"
           className={{
-            container: "bg-blue-100 dark:bg-blue-500/20 dark:border dark:border-blue-500/30 shadow-lg",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 dark:bg-blue-500/30 rounded-full p-3",
             text: {
               title: "text-blue-700 dark:text-blue-200",
@@ -68,7 +68,7 @@ export default function Departamento() {
           description="3"
           extra="Disponibles para asignación"
           className={{
-            container: "bg-emerald-100 dark:bg-emerald-500/20 dark:border dark:border-emerald-500/30 shadow-lg",
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
             icon: "bg-emerald-600 dark:bg-emerald-500/30 rounded-full p-3",
             text: {
               title: "text-emerald-700 dark:text-emerald-200",
@@ -83,7 +83,7 @@ export default function Departamento() {
           description="3"
           extra="Asignados a departamentos"
           className={{
-            container: "bg-purple-100 dark:bg-purple-500/20 dark:border dark:border-purple-500/30 shadow-lg",
+            container: "bg-purple-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
             icon: "bg-purple-600 dark:bg-purple-500/30 rounded-full p-3",
             text: {
               title: "text-purple-700 dark:text-purple-200",
@@ -98,7 +98,7 @@ export default function Departamento() {
           description="S/. 6500"
           extra="Para Departamento"
           className={{
-            container: "bg-orange-100 dark:bg-orange-500/20 dark:border dark:border-orange-500/30 shadow-lg",
+            container: "bg-orange-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
             icon: "bg-orange-600 dark:bg-orange-500/30 rounded-full p-3",
             text: {
               title: "text-orange-700 dark:text-orange-200",

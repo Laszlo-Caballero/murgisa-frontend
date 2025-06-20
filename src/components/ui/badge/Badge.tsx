@@ -12,7 +12,7 @@ export default function Badge({
   return (
     <span
       className={cx(
-        "px-2.5 py-0.5 rounded-full border text-xs",
+        "px-2.5 py-0.5 rounded-full border text-xs max-w-max",
         "border-gray-300 text-gray-700 bg-gray-100",
         "dark:border-gray-500 dark:text-gray-200 dark:bg-gray-700",
         className
