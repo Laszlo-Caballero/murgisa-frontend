@@ -201,7 +201,7 @@ export default function RecursoPage() {
                 header: "Proveedor",
                 cell: (props) => {
                   return (
-                    <div className="flex flex-col gap-y-2 dark:text-white">
+                    <div className="flex flex-col gap-y-2 text-white">
                       <span className="flex items-center gap-x-2">
                         <LuBuilding2 size={15} className="text-purple-600" />
                         <p className="font-semibold text-sm">
