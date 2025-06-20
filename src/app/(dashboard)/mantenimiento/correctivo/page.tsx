@@ -61,66 +61,85 @@ export default function MantenimientoCorrectivo() {
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-5">
         <Card
           title="Total Mantenimiento"
-          icon={<LuShield size={28} className="text-white" />}
+          icon={<LuShield size={28} className="text-white dark:text-blue-400" />}
           description="10"
           extra="Mantenimientos pedidos en el sistema"
-          className = {{ container: "bg-blue-100 shadow-lg dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800", 
-            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
-            text:{
-              title:"text-blue-700 dark:text-blue-300" ,
-              description:"text-blue-900 text-3xl dark:text-blue-100",
-              extra: "text-blue-800 text-xs dark:text-blue-400"
-          }}}
-        />
-        <Card
-          title="Atrasados"
-          icon={<IoTimeOutline size={28} className="text-white" />}
-          description="10"
-          extra=" No se completaron en la fecha estimada"
-              className = {{ 
-                container: "bg-red-100 shadow-lg dark:bg-red-900/50 dark:shadow-lg dark:border dark:border-red-800",
-                icon: "bg-red-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-red-700 dark:text-red-300" ,
-                description:"text-red-900 text-3xl dark:text-red-100",
-                extra: "text-red-900 text-xs dark:text-red-400"}}}
-        />
-        <Card
-          title="En Progreso"
-          icon={<LuCirclePlay size={28} className="text-white" />}
-          description="3"
-          extra="Están siendo trabajadas actualmente."
-              className = {{ 
-                container: "bg-orange-100 shadow-lg  dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800", 
-                icon: "bg-orange-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-orange-700 dark:text-orange-300" ,
-                description:"text-orange-900 text-3xl dark:text-orange-100",
-                extra: "text-orange-800 text-xs dark:text-orange-400" }}}
-        />
-        <Card
-          title="Completados"
-          icon={<LuCircleCheck size={28} className="text-white" />}
-          description="6"
-          extra="Correctamente por los responsables."
-              className = {{ 
-                container: "bg-green-100 shadow-lg dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800", 
-                icon: "bg-green-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-green-700 dark:text-emerald-300",
-                description:"text-green-800 text-3xl dark:text-emerald-100", 
-                extra: "text-green-800 text-xs dark:text-emerald-400"}}}
+          className={{
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30 shadow-xl",
+            text: {
+              title: "text-blue-700 dark:text-blue-400",
+              description: "text-blue-900 text-3xl dark:text-blue-400",
+              extra: "text-blue-800 text-xs dark:text-blue-400",
+            },
+          }}
         />
 
-        <Card
-          title="Costo Total"
-          icon={<MdOutlineAttachMoney size={28} className="text-white" />}
-          description="$100"
-          extra="En Mantenimientos"
-              className = {{ 
-                container: "bg-purple-100 shadow-lg dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800", 
-                icon: "bg-purple-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-purple-700 dark:text-purple-300",
-                description:"text-purple-800 text-3xl dark:text-purple-100", 
-                extra: "text-purple-800 text-xs dark:text-purple-400"}}}
-        />
+          <Card
+            title="Atrasados"
+            icon={<IoTimeOutline size={28} className="text-white dark:text-red-400" />}
+            description="10"
+            extra="No se completaron en la fecha estimada"
+            className={{
+              container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-400/10 dark:transition-all",
+              icon: "bg-red-600 rounded-full p-3 dark:bg-red-500/30 shadow-xl",
+              text: {
+                title: "text-red-700 dark:text-red-400",
+                description: "text-red-900 text-3xl dark:text-red-400",
+                extra: "text-red-900 text-xs dark:text-red-400",
+              },
+            }}
+          />
+
+          <Card
+            title="En Progreso"
+            icon={<LuCirclePlay size={28} className="text-white dark:text-orange-400" />}
+            description="3"
+            extra="Están siendo trabajadas actualmente."
+            className={{
+              container: "bg-orange-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-orange-400/10 dark:transition-all",
+              icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30 shadow-xl",
+              text: {
+                title: "text-orange-700 dark:text-orange-400",
+                description: "text-orange-900 text-3xl dark:text-orange-400",
+                extra: "text-orange-800 text-xs dark:text-orange-400",
+              },
+            }}
+          />
+
+          <Card
+            title="Completados"
+            icon={<LuCircleCheck size={28} className="text-white dark:text-emerald-400" />}
+            description="6"
+            extra="Correctamente por los responsables."
+            className={{
+              container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-emerald-400/10 dark:transition-all",
+              icon: "bg-green-600 rounded-full p-3 dark:bg-emerald-500/30 shadow-xl",
+              text: {
+                title: "text-green-700 dark:text-emerald-400",
+                description: "text-green-800 text-3xl dark:text-emerald-400",
+                extra: "text-green-800 text-xs dark:text-emerald-400",
+              },
+            }}
+          />
+
+
+          <Card
+            title="Costo Total"
+            icon={<MdOutlineAttachMoney size={28} className="text-white dark:text-purple-400" />}
+            description="$100"
+            extra="En Mantenimientos"
+            className={{
+              container: "bg-purple-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+              icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30 shadow-xl",
+              text: {
+                title: "text-purple-700 dark:text-purple-400",
+                description: "text-purple-800 text-3xl dark:text-purple-400",
+                extra: "text-purple-800 text-xs dark:text-purple-400",
+              },
+            }}
+          />
+
       </div>
       <Tabs headers={["Lista de Mantenimiento","Vista calendario"]} className="mt-6">
         <ListarCorrectivo data={correctivos}/>
