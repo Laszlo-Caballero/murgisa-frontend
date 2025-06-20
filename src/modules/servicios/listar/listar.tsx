@@ -85,7 +85,7 @@ export default function ListarServicios({ data }: ListarServiciosProps) {
               </div>
 
               <div className="flex items-center justify-between gap-x-2 mt-4">
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-gray-700 text-red-500 border border-red-300 dark:border-red-500 hover:bg-red-50 dark:hover:bg-red-600/20">
+                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-red-500/10 text-red-500 border border-red-300 dark:border-red-500 hover:bg-red-100 dark:hover:bg-red-600/20">
                   <LuSquarePen size={15} />
                   Editar
                 </Button>
