@@ -14,15 +14,13 @@ export default function Tabs({ headers, children, className }: TabsProps) {
 
   return (
     <div className={cx("flex flex-col w-full", className)}>
-      <div className="p-1 bg-gray-300/20 dark:bg-gray-700/30 rounded-sm flex items-center">
+      <div className="p-1 bg-gray-300/20 rounded-sm flex items-center">
         {headers.map((header, index) => (
           <button
             key={index}
             className={cx(
-              "py-1 px-4 rounded-sm w-full cursor-pointer font-medium text-sm transition",
-              activeTab === index
-                ? "bg-white text-gray-900 dark:bg-gray-800 dark:text-white"
-                : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              `py-1 px-4 rounded-sm w-full cursor-pointer font-medium text-sm`,
+              activeTab === index ? "bg-white text-gray-900" : "text-gray-600"
             )}
             onClick={() => setActiveTab(index)}
           >

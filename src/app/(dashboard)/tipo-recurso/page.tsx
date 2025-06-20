@@ -18,7 +18,7 @@ import Modal from "@/components/ui/modal/Modal";
 export default function TipoRecursoPage() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="w-full h-full p-8 flex flex-col bg-gray-100">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-100  dark:bg-gray-900 ">
       {showModal && (
         <Modal
           onClose={() => {
@@ -28,13 +28,13 @@ export default function TipoRecursoPage() {
           <CrearTipoRecurso />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4  dark:bg-gray-900  dark:text-white  ">
+        <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3 ">
           <LuLayers className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
           <p className="font-bold text-3xl">Gestión de Tipos de Recursos</p>
-          <p className="text-sm mt-1">
+          <p className="text-sm mt-1  dark:text-gray-500">
             Configura y gestiona las categorías de recursos del sistema
           </p>
         </div>
@@ -55,12 +55,12 @@ export default function TipoRecursoPage() {
           description="10"
           extra="Configurados en el sistema"
           className={{
-            container: "bg-emerald-100 shadow-lg",
+            container: "bg-emerald-100 shadow-lg  dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800",
             icon: "bg-emerald-500 rounded-full p-3",
             text: {
-              title: "text-emerald-700",
-              description: "text-emerald-900 text-3xl",
-              extra: "text-emerald-600",
+              title: "text-emerald-700  dark:text-emerald-300",
+              description: "text-emerald-900 text-3xl  dark:text-emerald-100",
+              extra: "text-emerald-600  dark:text-emerald-400",
             },
           }}
         />
@@ -70,12 +70,12 @@ export default function TipoRecursoPage() {
           description="9"
           extra="Disponibles para asignacion"
           className={{
-            container: "bg-blue-100 shadow-lg",
+            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
             icon: "bg-blue-500 rounded-full p-3",
             text: {
-              title: "text-blue-700",
-              description: "text-blue-900 text-3xl",
-              extra: "text-blue-600",
+              title: "text-blue-700  dark:text-blue-300",
+              description: "text-blue-900 text-3xl  dark:text-blue-100",
+              extra: "text-blue-600  dark:text-blue-400",
             },
           }}
         />
@@ -85,12 +85,12 @@ export default function TipoRecursoPage() {
           description="108"
           extra="Designados a servicios"
           className={{
-            container: "bg-purple-100 shadow-lg",
+            container: "bg-purple-100 shadow-lg  dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800",
             icon: "bg-purple-500 rounded-full p-3",
             text: {
-              title: "text-purple-700",
-              description: "text-purple-900 text-3xl",
-              extra: "text-purple-600",
+              title: "text-purple-700  dark:text-purple-300",
+              description: "text-purple-900 text-3xl  dark:text-purple-100",
+              extra: "text-purple-600  dark:text-purple-400",
             },
           }}
         />{" "}
@@ -100,19 +100,19 @@ export default function TipoRecursoPage() {
           description={"Herramientas"}
           extra="Recursos de mantenimiento"
           className={{
-            container: "bg-orange-100 shadow-lg",
+            container: "bg-orange-100 shadow-lg  dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800",
             icon: "bg-orange-600 rounded-full p-3",
             text: {
-              title: "text-orange-700",
-              description: "text-orange-900 text-3xl",
-              extra: "text-orange-600",
+              title: "text-orange-700  dark:text-orange-300",
+              description: "text-orange-900 text-3xl  dark:text-orange-100",
+              extra: "text-orange-600  dark:text-orange-400",
             },
           }}
         />
       </div>
       <div className="py-4 flex w-full flex-col gap-y-3">
-        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-lg">
+        <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg  dark:text-white">
             <LuFilter size={20} className="text-red-600" />
             Filtros de Búsqueda
           </span>
@@ -132,9 +132,9 @@ export default function TipoRecursoPage() {
               description={tipo.descripcion}
               span={tipo.estado ? "Activo" : "Inactivo"}
               className={{
-                container: "bg-white ",
-                span: "bg-green-100 text-green-800 border border-green-300",
-                header: { icon: "bg-red-100 rounded-md" },
+                container: "bg-white  dark:bg-gray-800  dark:text-white ",
+                span: "bg-green-100 text-green-800 border border-green-300 dark:bg-green-600 dark:text-white",
+                header: { icon: "bg-red-100 rounded-md dark:bg-red-600/20 " },
               }}
             >
               <div className="flex items-center justify-between">
@@ -143,17 +143,17 @@ export default function TipoRecursoPage() {
                 </span>
                 <span className="flex items-center gap-x-2">
                   <LuPackage size={15} className="text-blue-600" />
-                  <p className="text-xs text-gray-600 font-semibold">
+                  <p className="text-xs text-gray-600 font-semibold dark:text-blue-500">
                     Total: {tipo.total} recursos
                   </p>
                 </span>
               </div>
               <div className="flex items-center justify-between gap-x-2 mt-4">
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50">
+                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50 dark:bg-transparent dark:border-red-600 dark:text-red-400">
                   <LuSquarePen size={15} />
                   Editar
                 </Button>
-                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100">
+                <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100 dark:bg-transparent dark:border-gray-600 dark:text-gray-400 ">
                   <LuEye size={15} />
                   Desactivar
                 </Button>
