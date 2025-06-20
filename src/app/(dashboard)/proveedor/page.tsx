@@ -27,21 +27,22 @@ export default function ProveedorPage() {
         </Modal>
       )}
 
-      <header className="flex items-center justify-between p-6 rounded-xl bg-red-600 dark:bg-red-500 text-white shadow-md">
-        <div className="flex items-center gap-4">
-    <div className="bg-red-700/80 dark:bg-red-400/30 p-3 rounded-xl">
-      <LuBuilding2 size={28} className="text-white dark:text-red-100" />
-      </div>
+      <header className="flex items-center justify-between p-6 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-red-500 text-white shadow-md">
+  <div className="flex items-center gap-4">
+    <div className="bg-white/20 p-3 rounded-xl">
+      <LuBuilding2 size={28} className="text-white" />
+    </div>
     <div className="flex flex-col text-white">
       <h1 className="text-3xl font-bold">Gestión de Proveedores</h1>
       <p className="text-sm">
-        Administra y controla todos los proveedores de MURGISA</p>
-      </div>
+        Administra y controla todos los proveedores de MURGISA
+      </p>
     </div>
+  </div>
 
   <button
     onClick={() => setShowModal(true)}
-    className="bg-red-700 hover:bg-red-800 dark:bg-red-400 dark:hover:bg-red-300 text-white dark:text-black font-semibold py-2 px-4 rounded-lg transition"
+    className="bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-4 rounded-lg transition"
   >
     + Nuevo Proveedor
   </button>

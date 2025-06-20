@@ -31,10 +31,10 @@ export default function ServiciosPage() {
         </Modal>
       )}
 
-     <header className="flex items-center justify-between p-6 rounded-xl bg-purple-600 dark:bg-purple-500 text-white shadow-md">
+    <header className="flex items-center justify-between p-6 rounded-xl bg-gradient-to-r from-purple-700 via-purple-600 to-purple-500 text-white shadow-md">
   <div className="flex items-center gap-4">
-    <div className="bg-purple-700/80 dark:bg-purple-400/30 p-3 rounded-xl">
-      <LuBriefcase size={28} className="text-white dark:text-purple-100" />
+    <div className="bg-white/20 p-3 rounded-xl">
+      <LuBriefcase size={28} className="text-white" />
     </div>
     <div className="flex flex-col text-white">
       <h1 className="text-3xl font-bold">Gestión de Servicios</h1>
@@ -44,9 +44,9 @@ export default function ServiciosPage() {
     </div>
   </div>
 
-        <button
+  <button
     onClick={() => setShowModal(true)}
-    className="bg-purple-700 hover:bg-purple-800 dark:bg-purple-400 dark:hover:bg-purple-300 text-white dark:text-black font-semibold py-2 px-4 rounded-lg transition"
+    className="bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-4 rounded-lg transition"
   >
     + Nuevo Servicio
   </button>
