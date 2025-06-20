@@ -15,18 +15,18 @@ export default function Table<T>({ data, columns, className }: TableProps<T>) {
   return (
     <div
       className={cx(
-        "rounded-lg border border-gray-200 overflow-x-auto",
+        "rounded-lg border border-gray-200 overflow-x-auto dark:bg-gray-800  dark:border-gray-700",
         className
       )}
     >
       <table className={cx("w-full")}>
         <thead>
-          <tr className="border-b border-gray-200 hover:bg-gray-100 transition-colors">
+          <tr className="border-b border-gray-200 hover:bg-gray-100 transition-colors dark:border-gray-700 dark:hover:bg-gray-700">
             {table.getHeaders().map((header, i) => {
               return (
                 <th
                   key={i}
-                  className="font-medium text-sm text-gray-500 text-left p-4"
+                  className="font-medium text-sm text-gray-500 text-left p-4 dark:text-gray-400"
                 >
                   {header}
                 </th>
@@ -37,10 +37,10 @@ export default function Table<T>({ data, columns, className }: TableProps<T>) {
         <tbody>
           {table.getCells().map((row, index) => {
             return (
-              <tr key={index} className="hover:bg-gray-100 transition-colors">
+              <tr key={index} className="hover:bg-gray-100 transition-colors dark:hover:bg-gray-700">
                 {row.map((cell, i) => {
                   return (
-                    <td key={i} className={cx("p-4 border-gray-200 border-b")}>
+                    <td key={i} className={cx("p-4 border-gray-200 border-b dark:border-gray-700")}>
                       {cell}
                     </td>
                   );
