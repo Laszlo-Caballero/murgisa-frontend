@@ -31,7 +31,7 @@ export default function Input({
 
   return (
     <div className={cx("flex flex-col gap-y-2", classNameContainer)}>
-      <label htmlFor={id} className="text-sm font-medium text-gray-700 dark:text-white">
+      <label htmlFor={id} className="text-sm font-medium text-gray-700 dark:text-gray-300">
         {label}
       </label>
       <div className="w-full relative">
