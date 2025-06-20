@@ -25,7 +25,7 @@ export default function Cargo() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700">
-        <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3 ">
+        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30 ">
           <PiToolbox className="text-white size-8 lg:size-10 " />
         </span>
         <div className="flex flex-col ">
@@ -51,7 +51,7 @@ export default function Cargo() {
           description={"4"}
           extra="Registrados en la empresa"
           className={{
-            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 rounded-full p-3",
             text: {
               title: "text-blue-700 dark:text-blue-300",
@@ -66,50 +66,50 @@ export default function Cargo() {
           description={"2"}
           extra="Disponibles para asignacion"
           className={{
-            container: "bg-purple-100 shadow-lg dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800",
-            icon: "bg-purple-600 rounded-full p-3",
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
+            icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
             text: {
-              title: "text-purple-700 dark:text-purple-300",
-              description: "text-purple-900 text-3xl dark:text-purple-100",
-              extra: "text-purple-600 dark:text-purple-400",
+              title: "text-emerald-700 dark:text-emerald-400",
+              description: "text-emerald-900 text-3xl dark:text-emerald-400",
+              extra: "text-emrald-600 dark:text-emerald-400",
             },
           }}
         />
         <Card
           title="Total Empleados"
-          icon={<LuUsers size={28} className="text-white" />}
+          icon={<LuUsers size={28} className="text-white dark:text-purple-400" />}
           description={"15"}
           extra="Asignados a cargos"
           className={{
-            container: "bg-orange-100 shadow-lg dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800",
-            icon: "bg-orange-600 rounded-full p-3",
+            container: "bg-purple-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+            icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
             text: {
-              title: "text-orange-700 dark:text-orange-300",
-              description: "text-orange-900 text-3xl dark:text-orange-100",
-              extra: "text-orange-600 dark:text-orange-400",
+              title: "text-purple-700 dark:text-purple-400",
+              description: "text-purple-900 text-3xl dark:text-purple-400",
+              extra: "text-purple-600 dark:text-purple-400",
             },
           }}
         />
         <Card
           title="Cargo con Mayor Cantidad de Empleados"
-          icon={<LuCircleCheckBig size={28} className="text-white" />}
+          icon={<LuCircleCheckBig size={28} className="text-white dark:text-orange-400" />}
           description="Cargo de Ventas"
           extra="Disponibles para asignacion"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800",
-            icon: "bg-emerald-600 rounded-full p-3",
+            container: "bg-orange-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
+            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
-              title: "text-emerald-700 dark:text-emerald-300",
-              description: "text-emerald-900 text-3xl dark:text-emerald-100",
-              extra: "text-emerald-600 dark:text-emerald-400",
+              title: "text-orange-700 dark:text-orange-400",
+              description: "text-orange-900 text-xl dark:text-orange-400",
+              extra: "text-orange-600 dark:text-orange-400",
             },
           }}
         />
       </div>
-      <div className="py-4 flex w-full flex-col gap-y-4  dark:bg-gray-900 ">
-        <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
-          <span className="flex items-center gap-x-2 font-semibold text-black text-lg  dark:text-white ">
-            <LuFilter size={20} className="text-blue-500" />
+      <div className="py-4 flex w-full flex-col gap-y-4">
+        <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white dark:bg-gray-800 dark:border dark:border-gray-700">
+          <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">
+            <LuFilter size={20} className="size-5 text-blue-500 dark:text-blue-400"/>
             Filtros de Búsqueda
           </span>
           <p className="text-sm mt-1 text-gray-500">

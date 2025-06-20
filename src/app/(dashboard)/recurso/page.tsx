@@ -58,64 +58,68 @@ export default function RecursoPage() {
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4 ">
         <Card
           title="Total"
-          icon={<LuPackage size={28} className="text-white" />}
+          icon={<LuPackage size={28} className="text-white dark:text-blue-400" />}
           description="20"
           extra="Recursos en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg  dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800",
-            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30 shadow-xl",
             text: {
-              title: "text-blue-700 dark:text-blue-300",
-              description: "text-blue-900 text-3xl dark:text-blue-100",
+              title: "text-blue-700 dark:text-blue-400",
+              description: "text-blue-900 text-3xl dark:text-blue-400",
               extra: "text-blue-800 text-xs dark:text-blue-400",
             },
           }}
         />
+
         <Card
           title="Disponibles"
-          icon={<LuCircleCheckBig size={28} className="text-white" />}
+          icon={<LuCircleCheckBig size={28} className="text-white dark:text-emerald-400" />}
           description="11"
           extra="Listo para ser asignado"
           className={{
-            container: "bg-emerald-100 shadow-lg dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800",
-            icon: "bg-emerald-600 rounded-full p-3 shadow-xl",
+            container: "bg-emerald-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-emerald-400/10 dark:transition-all",
+            icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30 shadow-xl",
             text: {
-              title: "text-emerald-700 dark:text-emerald-300",
-              description: "text-emerald-900 text-3xl dark:text-emerald-100",
-              extra: "text-purpe-800 text-xs dark:text-emerald-400",
+              title: "text-emerald-700 dark:text-emerald-400",
+              description: "text-emerald-900 text-3xl dark:text-emerald-400",
+              extra: "text-emerald-800 text-xs dark:text-emerald-400",
             },
           }}
         />
+
         <Card
           title="En Uso"
-          icon={<LuClock4 size={28} className="text-white" />}
+          icon={<LuClock4 size={28} className="text-white dark:text-purple-400" />}
           description="7"
           extra="Asignado y en funcionamiento"
           className={{
-            container: "bg-purple-100 shadow-lg  dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800",
-            icon: "bg-purple-600 rounded-full p-3 shadow-xl",
+            container: "bg-purple-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+            icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30 shadow-xl",
             text: {
-              title: "text-purple-700 dark:text-purple-300",
-              description: "text-purple-900 text-3xl dark:text-purple-100",
+              title: "text-purple-700 dark:text-purple-400",
+              description: "text-purple-900 text-3xl dark:text-purple-400",
               extra: "text-purple-800 text-xs dark:text-purple-400",
             },
           }}
         />
-        <Card
-          title="En Mantenimiento"
-          icon={<LuWrench size={28} className="text-white" />}
-          description="2"
-          extra="Recurso en revisión técnica"
-          className={{
-            container: "bg-orange-100 shadow-lg  dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800",
-            icon: "bg-orange-600 rounded-full p-3 shadow-xl",
-            text: {
-              title: "text-orange-700 dark:text-orange-300",
-              description: "text-orange-900 text-3xl dark:text-orange-100",
-              extra: "text-orange-800 text-xs dark:text-orange-400",
-            },
-          }}
-        />
+
+          <Card
+            title="En Mantenimiento"
+            icon={<LuWrench size={28} className="text-white dark:text-orange-400" />}
+            description="2"
+            extra="Recurso en revisión técnica"
+            className={{
+              container: "bg-orange-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-orange-400/10 dark:transition-all",
+              icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30 shadow-xl",
+              text: {
+                title: "text-orange-700 dark:text-orange-400",
+                description: "text-orange-900 text-3xl dark:text-orange-400",
+                extra: "text-orange-800 text-xs dark:text-orange-400",
+              },
+            }}
+          />
+
       </div>
       <div className="py-4 flex w-full flex-col gap-y-4">
         <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white dark:bg-gray-800 dark:shadow-lg dark:border dark:border-gray-700">

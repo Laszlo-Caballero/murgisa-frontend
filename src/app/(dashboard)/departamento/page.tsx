@@ -26,8 +26,8 @@ export default function Departamento() {
         </Modal>
       )}
 
-  <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 p-6 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 mb-6">
-  <span className="bg-white/20 p-3 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
+  <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700">
+  <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
     <LuBuilding2 className="text-white size-8 lg:size-10" />
   </span>
   <div className="flex flex-col text-white">
