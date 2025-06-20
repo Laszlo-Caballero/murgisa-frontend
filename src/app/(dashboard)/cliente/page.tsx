@@ -12,19 +12,22 @@ import { clienteData } from "@/data/cliente";
 import { LuClock4 } from "react-icons/lu";
 import CrearCliente from "@/modules/clientes/crear/CrearClientes";
 import { LuStar } from "react-icons/lu";
+import { useQuery } from "@/hooks/useQuery";
+import axios from "axios";
+import { env } from "@/config/env";
+import Load from "@/components/ui/load/Load";
+import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 
 export default function ClientesPage() {
-  const clientes: Cliente[] = clienteData;
+  // const clientes: Cliente[] = clienteData;
   const [showModal, setShowModal] = useState(false);
-  // const [clientes, setClientes] = useState<Cliente[]>([]);
-
-  // useEffect(() => {
-  //   axios.get(`${env.url_api}/cliente`).then((res) => {
-  //     if (res.status === 200) {
-  //       setClientes(res.data);
-  //     }
-  //   });
-  // }, []);
+  const { isLoading, data, isError, error } = useQuery<Cliente[]>({
+    queryFn: async () => {
+      const response = await axios.get(`${env.url_api}/cliente`);
+      return response.data;
+    },
+    dependencies: [],
+  });
 
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden">
@@ -122,7 +125,7 @@ export default function ClientesPage() {
       </div>
 
       <Tabs headers={["Lista de Clientes"]} className="mt-6">
-        <ListarClientes data={clientes} />
+        <ListarClientes data={data} isLoading={isLoading} />
       </Tabs>
     </div>
   );
