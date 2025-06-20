@@ -10,12 +10,12 @@ import Input from "@/components/ui/input/Input";
 
 export default function CrearProveedor() {
   return (
-    <div className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4">
+    <div className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white dark:bg-gray-900 p-8 flex flex-col gap-y-4 text-gray-900 dark:text-white">
       <header className="flex items-center gap-x-3">
         <LuBuilding2 size={40} className="text-red-600 mb-2" />
         <div className="flex flex-col">
           <p className="text-xl font-semibold">Agregar Nuevo Proveedor</p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-300">
             Completa los datos para registrar un nuevo proveedor en el sistema
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function CrearProveedor() {
         <Input
           label="Email"
           icon={<LuMail />}
-          placeholder="Ej: 45672198"
+          placeholder="Ej: correo@ejemplo.com"
           type="email"
         />
       </div>
