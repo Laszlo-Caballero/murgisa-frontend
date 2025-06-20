@@ -35,11 +35,11 @@ export default function VentasPagina() {
           <CrearVenta onClose={() => setShowModal(false)} />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 dark:p-6 dark:rounded-xl dark:bg-gradient-to-r from-green-600 to-emerald-600">
-        <span className="bg-green-500 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-700">
+        <span className="bg-green-500 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-green-400/30">
           <LuShoppingCart className="text-white size-8 lg:size-10" />
         </span>
-        <div className="flex flex-col dark:text-white">
+        <div className="flex flex-col text-white">
           <p className="font-bold text-3xl ">Gestión de Ventas</p>
           <p className="text-sm">
             Administra y controla todas las ventas de MURGISA
@@ -47,7 +47,7 @@ export default function VentasPagina() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-green-600 hover:bg-green-500 mb-2 dark:bg-green-400/50"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 hover:bg-green-500 mb-2 bg-green-400/50"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />

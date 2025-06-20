@@ -12,13 +12,13 @@ export default function ButtonsStep({ maxSteps }: ButtonsStepProps) {
   return (
     <div className="w-full flex items-center ">
       {currentStep > 1 && (
-        <Button type="button" onClick={() => setCurrentStep(currentStep - 1)}>
+        <Button type="button" onClick={() => setCurrentStep(currentStep - 1)} className="dark:bg-blue-500/30">
           Atras
         </Button>
       )}
 
       <Button
-        className="px-12 flex ml-auto items-center gap-x-4 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-12 flex ml-auto items-center gap-x-4 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-blue-500/30"
         onClick={() => setCurrentStep(currentStep + 1)}
         disabled={maxSteps ? currentStep >= maxSteps : false}
         type="button"

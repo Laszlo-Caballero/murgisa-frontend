@@ -24,24 +24,24 @@ interface CrearVentaProps {
 
 export default function CrearVenta({ onClose }: CrearVentaProps) {
   return (
-    <div className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4">
-      <header className="flex pb-4 justify-between border-b border-gray-200">
+    <div className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600">
+      <header className="flex pb-4 justify-between border-b border-gray-200 dark:border-gray-600">
         <div className="flex items-center gap-x-3">
-          <div className="p-2 bg-green-100 rounded-lg">
-            <LuPlus className="size-6 text-green-600" />
+          <div className="p-2 bg-green-100 rounded-lg dark:bg-green-500/30">
+            <LuPlus className="size-6 text-green-600 dark:text-green-400" />
           </div>
           <div>
-            <p className="font-bold text-xl">Realizar Nueva Venta</p>
-            <p className="text-sm text-gray-500 font-normal">
+            <p className="font-bold text-xl dark:text-gray-200">Realizar Nueva Venta</p>
+            <p className="text-sm text-gray-500 font-normal dark:text-gray-400">
               Complete la información paso a paso
             </p>
           </div>
         </div>
         <div className="h-full cursor-pointer" onClick={onClose}>
-          <IoClose />
+          <IoClose className="dark:text-white"/>
         </div>
       </header>
-      <StepFormProvider className="flex flex-col items-center justify-center overflow-y-auto w-full gap-y-4">
+      <StepFormProvider className="flex flex-col items-center justify-center overflow-y-auto w-full gap-y-4 dark:text-gray-300">
         <HeaderStep
           steps={[
             "Información",
@@ -51,10 +51,10 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
             "Confirmación",
           ]}
         />
-        <ContainerStep className="w-full border border-gray-200 rounded-lg p-4 overflow-y-auto h-full">
+        <ContainerStep className="w-full border border-gray-200 rounded-lg p-4 overflow-y-auto h-full dark:border-gray-600">
           <div className="flex flex-col">
             <div className="flex items-center gap-x-2">
-              <LuFileText className="size-6 text-blue-500" />
+              <LuFileText className="size-6 text-blue-500 dark:text-blue-400" />
               <p className="font-bold text-xl">
                 Informacion Basica de la venta
               </p>
@@ -74,7 +74,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-x-2">
-              <LuUsers className="size-6 text-blue-500" />
+              <LuUsers className="size-6 text-blue-500 dark:text-blue-400" />
               <p className="font-bold text-xl">Informacion del cliente</p>
             </div>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
@@ -84,7 +84,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                   placeholder="Ingrese el nombre o razon social del cliente"
                   classNameContainer="w-full"
                 />
-                <Button className="py-3">Buscar</Button>
+                <Button className="py-3 dark:bg-blue-500/30">Buscar</Button>
               </div>
               <Input
                 label="RUC/C.I:"
@@ -160,7 +160,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-x-2">
-              <LuUserCheck className="size-6 text-purple-500" />
+              <LuUserCheck className="size-6 text-purple-500 dark:text-purple-400" />
               <p className="font-bold text-xl">Asignación de Personal</p>
             </div>
             <div className="flex flex-col gap-4 mt-4">
@@ -182,14 +182,14 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                     header: "Servicio",
                     cell: (props) => (
                       <span className="flex items-center gap-x-2">
-                        <LuUserCheck className="size-6 text-purple-500" />
+                        <LuUserCheck className="size-6 text-purple-500 dark:text-purple-400" />
                         {props.row.name}
                       </span>
                     ),
                   },
                   {
                     header: "Profesión",
-                    cell: (props) => <Badge>{props.row.profesion}</Badge>,
+                    cell: (props) => <Badge className="dark:border-gray-500">{props.row.profesion}</Badge>,
                   },
                   {
                     header: "Fecha Inicio",
@@ -198,7 +198,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                   {
                     header: "Salario",
                     cell: (props) => (
-                      <span className="text-purple-500 font-bold">
+                      <span className="text-purple-500 font-bold dark:text-purple-400">
                         {props.row.salario}
                       </span>
                     ),
@@ -246,7 +246,7 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                 </p>
                 <p>
                   <span className="font-bold">Estado</span>:{" "}
-                  <Badge className="bg-amber-100 text-amber-600 font-bold border-none">
+                  <Badge className="bg-amber-100 text-amber-600 font-bold border-none dark:bg-amber-500/20 dark:text-amber-500">
                     Pendiente
                   </Badge>
                 </p>
@@ -258,12 +258,12 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                 icon={<LuShoppingCart size={28} className="text-white" />}
                 description={"S/. 1000"}
                 className={{
-                  container: "bg-blue-100 shadow-lg",
-                  icon: "bg-blue-600 rounded-full p-3",
+                  container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+                  icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
                   text: {
-                    title: "text-blue-700",
-                    description: "text-blue-900 text-3xl",
-                    extra: "text-blue-600",
+                  title: "text-blue-700 dark:text-blue-400",
+                  description: "text-blue-900 text-3xl dark:text-blue-400",
+                  extra: "text-blue-600 dark:text-blue-400",
                   },
                 }}
               />
@@ -272,12 +272,12 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                 icon={<LuUsers size={28} className="text-white" />}
                 description={"S/. 1800"}
                 className={{
-                  container: "bg-purple-100 shadow-lg",
-                  icon: "bg-purple-600 rounded-full p-3",
+                  container: "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+                  icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
                   text: {
-                    title: "text-purple-700",
-                    description: "text-purple-900 text-3xl",
-                    extra: "text-purple-600",
+                    title: "text-purple-700 dark:text-purple-400",
+                    description: "text-purple-900 text-3xl dark:text-purple-400",
+                    extra: "text-purple-600 dark:text-purple-400",
                   },
                 }}
               />
@@ -286,12 +286,12 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
                 icon={<LuDollarSign size={28} className="text-white" />}
                 description={"S/. 2800"}
                 className={{
-                  container: "bg-green-100 shadow-lg",
-                  icon: "bg-green-600 rounded-full p-3",
+                  container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
+                  icon: "bg-green-600 rounded-full p-3 dark:bg-green-500/30",
                   text: {
-                    title: "text-green-700",
-                    description: "text-green-900 text-3xl",
-                    extra: "text-green-600",
+                    title: "text-green-700 dark:text-green-400",
+                    description: "text-green-900 text-3xl dark:text-green-400",
+                    extra: "text-green-600 dark:text-green-400",
                   },
                 }}
               />
