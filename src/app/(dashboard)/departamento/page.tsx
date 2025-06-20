@@ -26,27 +26,25 @@ export default function Departamento() {
         </Modal>
       )}
 
-  
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
-        <span className="bg-blue-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
-          <LuBuilding2 className="text-white size-8 lg:size-10" />
-        </span>
-        <div className="flex flex-col text-black dark:text-white">
-          <p className="font-bold text-3xl">Departamentos</p>
-          <p className="text-sm dark:text-gray-300">
-            Administra la estructura organizacional de MURGISA
-          </p>
-        </div>
+  <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 p-6 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 mb-6">
+  <span className="bg-white/20 p-3 rounded-xl max-w-max">
+    <LuBuilding2 className="text-white size-8 lg:size-10" />
+  </span>
+  <div className="flex flex-col text-white">
+    <p className="font-bold text-3xl">Departamentos</p>
+    <p className="text-sm mt-1">
+      Administra la estructura organizacional de MURGISA
+    </p>
+  </div>
 
-        <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500 mb-2 text-white"
-          onClick={() => setShowModal(true)}
-        >
-          <FiPlus size={15} />
-          Nuevo Departamento
-        </Button>
-      </header>
-
+  <Button
+    className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-2 py-2 px-4 text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700"
+    onClick={() => setShowModal(true)}
+  >
+    <FiPlus size={15} />
+    Nuevo Departamento
+  </Button>
+</header>
   
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
