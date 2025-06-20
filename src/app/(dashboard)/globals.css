@@ -5,3 +5,31 @@
 * {
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    @apply bg-neutral-200;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    @apply bg-zinc-400;
+  }
+  ::-webkit-scrollbar-corner {
+    @apply bg-neutral-200;
+  }
+
+  .dark {
+    ::-webkit-scrollbar {
+      @apply bg-slate-950;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-slate-800;
+    }
+
+    ::-webkit-scrollbar-corner {
+      @apply bg-neutral-900;
+    }
+  }
+}
