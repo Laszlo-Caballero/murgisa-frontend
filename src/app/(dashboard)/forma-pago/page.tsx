@@ -53,7 +53,7 @@ export default function FormasDePagoPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-blue-400 mb-2 bg-blue-500/50 lg:px-6"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-blue-500 mb-2 bg-blue-500/50 lg:px-6"
           onClick={() => {
             setShowModal(true);
           }}

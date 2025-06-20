@@ -15,7 +15,7 @@ export default function Tabs({ headers, children, className }: TabsProps) {
   return (
     <div className={cx("flex flex-col w-full", className)}>
       {/* Contenedor de pestañas */}
-      <div className="p-1 bg-gray-300/20 dark:bg-gray-700/30 rounded-sm flex items-center">
+      <div className="p-1 bg-gray-300/20 dark:bg-gray-600/50 rounded-sm flex items-center">
         {headers.map((header, index) => (
           <button
             key={index}
