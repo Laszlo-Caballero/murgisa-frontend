@@ -35,7 +35,7 @@ export default function VentasPagina() {
           <CrearVenta onClose={() => setShowModal(false)} />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 dark:p-6 dark:rounded-xl dark:bg-gradient-to-r from-green-600 to-emerald-600">
         <span className="bg-green-500 p-2 rounded-xl max-w-max mb-2 lg:p-3">
           <LuShoppingCart className="text-white size-8 lg:size-10" />
         </span>
@@ -47,7 +47,7 @@ export default function VentasPagina() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-green-600 hover:bg-green-500 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-green-600 hover:bg-green-500 mb-2 dark:bg-green-400/50"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />
@@ -62,7 +62,7 @@ export default function VentasPagina() {
           description={"20"}
           extra="Registradas en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
             text: {
               title: "text-blue-700 dark:text-blue-400",
@@ -77,7 +77,7 @@ export default function VentasPagina() {
           description={"S/. 1800"}
           extra="Suma generada por venats"
           className={{
-            container: "bg-purple-100 shadow-xl  dark:bg-gray-800 dark:border dark:border-gray-700",
+            container: "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
             icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
             text: {
               title: "text-purple-700 dark:text-purple-400",
@@ -92,7 +92,7 @@ export default function VentasPagina() {
           description={"28"}
           extra="Finalizadas exitosamente"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700",
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
             icon: "bg-green-600 rounded-full p-3 dark:bg-green-500/30",
             text: {
               title: "text-green-700 dark:text-green-400",
@@ -107,7 +107,7 @@ export default function VentasPagina() {
           description={"0"}
           extra="Anuladas o sin Concretar"
           className={{
-            container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700",
+            container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
             icon: "bg-red-600 rounded-full p-3 dark:bg-red-600/30",
             text: {
               title: "text-red-700 dark:text-red-500",
