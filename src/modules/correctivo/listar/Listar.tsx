@@ -42,7 +42,7 @@ export default function ListarCorrectivo({ data }: ListarCorrectivoProps) {
           <p className="font-medium text-black text-xl dark:text-white">
             Mantenimientos Registrados
           </p>
-          <span className="bg-gray-300 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+          <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300">
             Total: 5
           </span>
         </div>
@@ -147,7 +147,7 @@ export default function ListarCorrectivo({ data }: ListarCorrectivoProps) {
                   return (
                     <span className="flex items-center gap-x-4">
                       <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900" />
+                      <LuTrash2 className="text-gray-900 dark:text-gray-300" />
                     </span>
                   );
                 },

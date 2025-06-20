@@ -133,7 +133,7 @@ export default function RecursoPage() {
       <div className="flex flex-col w-full rounded-md shadow-md p-4 bg-white dark:bg-gray-800 dark:shadow-lg dark:border dark:border-gray-700">
         <div className="flex items-center justify-between w-full ">
           <p className="font-medium text-black text-xl dark:text-white">Recursos Registrados</p>
-          <span className="bg-gray-300 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+          <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300">
             Total: 5
           </span>
         </div>
@@ -252,7 +252,7 @@ export default function RecursoPage() {
                   return (
                     <span className="flex items-center gap-x-4">
                       <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900" />
+                      <LuTrash2 className="text-gray-900 dark:text-gray-400" />
                     </span>
                   );
                 },

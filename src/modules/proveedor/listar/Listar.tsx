@@ -112,7 +112,7 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
               cell: () => (
                 <span className="flex items-center gap-x-4">
                   <LuSquarePen className="text-red-500" />
-                  <LuTrash2 className="text-gray-900 dark:text-gray-100" />
+                  <LuTrash2 className="text-gray-900 dark:text-gray-400" />
                 </span>
               ),
             },

@@ -41,7 +41,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
         </div>
 
         <Table
-          className="mt-4 bg-white dark:bg-gray-900 w-full rounded-md"
+          className="mt-4 bg-white w-full rounded-md"
           data={data}
           columns={[
             {

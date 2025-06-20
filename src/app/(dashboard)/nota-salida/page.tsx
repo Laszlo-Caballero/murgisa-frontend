@@ -22,6 +22,7 @@ import { LuCirclePlus } from "react-icons/lu";
 import { notaSalidaData } from "@/data/notaSalida";
 import { LuSquarePen } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
+import cx from "@/libs/cx";
 
 export default function NotasDeSalidaPage() {
   const [showModal, setShowModal] = useState(false);

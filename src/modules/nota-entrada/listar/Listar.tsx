@@ -10,6 +10,7 @@ import { LuPackage } from "react-icons/lu";
 import { PiMoneyWavy } from "react-icons/pi";
 import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
+import cx from "@/libs/cx";
 
 interface ListarNotaEntradaProps {
   data: NotaEntrada[];
@@ -34,7 +35,7 @@ export default function ListarNotaEntrada({ data }: ListarNotaEntradaProps) {
       <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
         <div className="flex items-center justify-between w-full">
           <p className="font-medium text-black text-xl dark:text-white">Notas Registradas</p>
-          <span className="bg-gray-300 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1">
+          <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300">
             Total: 5
           </span>
         </div>
@@ -126,23 +127,30 @@ export default function ListarNotaEntrada({ data }: ListarNotaEntradaProps) {
                   );
                 },
               },
-              {
-                header: "Estado",
-                cell: (props) => {
-                  return (
-                    <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold">
-                      Activo
-                    </Badge>
+          {
+             header: "Estado",
+             cell: (props) => {
+                return (
+                   <span
+                     className={cx(
+                       `px-2 py-1 rounded-full text-xs`,
+                        props.row.estado
+                          ? "bg-green-100 text-green-600 dark:bg-green-500/30 dark:text-green-300 dark:border-green-700"
+                          : "bg-red-100 text-red-600 dark:bg-red-500/30 dark:text-red-300 dark:border-red-700"
+                      )}
+                    >
+                      {props.row.estado ? "Activo" : "Inactivo"}
+                    </span>
                   );
                 },
-              },
+          },
               {
                 header: "Acciones",
                 cell: (props) => {
                   return (
                     <span className="flex items-center gap-x-4">
                       <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900" />
+                      <LuTrash2 className="text-gray-900 dark:text-gray-400" />
                     </span>
                   );
                 },
