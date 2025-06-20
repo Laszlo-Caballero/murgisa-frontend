@@ -14,13 +14,16 @@ export default function Tabs({ headers, children, className }: TabsProps) {
 
   return (
     <div className={cx("flex flex-col w-full", className)}>
-      <div className="p-1 bg-gray-300/20 rounded-sm flex items-center dark:bg-gray-800">
+      {/* Contenedor de pestañas */}
+      <div className="p-1 bg-gray-300/20 dark:bg-gray-700/30 rounded-sm flex items-center">
         {headers.map((header, index) => (
           <button
             key={index}
             className={cx(
-              `py-1 px-4 rounded-sm w-full cursor-pointer font-medium text-sm`,
-              activeTab === index ? "bg-white text-gray-900 dark:bg-gray-700 dark:text-gray-300" : "text-gray-600 "
+              "py-1 px-4 rounded-sm w-full cursor-pointer font-medium text-sm transition",
+              activeTab === index
+                ? "bg-white text-gray-900 dark:bg-gray-800 dark:text-white"
+                : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
             )}
             onClick={() => setActiveTab(index)}
           >
@@ -28,9 +31,13 @@ export default function Tabs({ headers, children, className }: TabsProps) {
           </button>
         ))}
       </div>
-      {Children.map(children, (child, index) => {
-        return index === activeTab ? child : null;
-      })}
+
+      {/* Contenido del tab */}
+      <div className="mt-2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-md p-4 shadow">
+        {Children.map(children, (child, index) => {
+          return index === activeTab ? child : null;
+        })}
+      </div>
     </div>
   );
 }

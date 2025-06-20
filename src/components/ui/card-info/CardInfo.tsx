@@ -30,7 +30,7 @@ export default function CardInfo({
   return (
     <div
       className={cx(
-        "flex w-full flex-col rounded-lg shadow-lg hover:shadow-2xl transition-all duration-200 p-6 gap-y-3",
+        "flex w-full flex-col rounded-lg shadow-lg hover:shadow-2xl transition-all duration-200 p-6 gap-y-3 dark:hover:shadow-gray-800/40",
         className?.container
       )}
     >
