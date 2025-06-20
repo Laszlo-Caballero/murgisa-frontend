@@ -7,6 +7,7 @@ import { recursoData } from "@/data/recurso";
 import Badge from "@/components/ui/badge/Badge";
 import CrearRecurso from "@/modules/recurso/crear/CrearRecurso";
 import Modal from "@/components/ui/modal/Modal";
+import cx from "@/libs/cx";
 
 import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
@@ -232,9 +233,16 @@ export default function RecursoPage() {
                 header: "Estado",
                 cell: (props) => {
                   return (
-                    <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold">
-                      Activo
-                    </Badge>
+                    <span
+                      className={cx(
+                        `px-2 py-1 rounded-full text-xs`,
+                        props.row.estado
+                          ? "bg-green-100 text-green-600 dark:bg-green-500/30 dark:text-green-300 dark:border-green-700"
+                          : "bg-red-100 text-red-600 dark:bg-red-500/30 dark:text-red-300 dark:border-red-700"
+                      )}
+                    >
+                      {props.row.estado ? "Activo" : "Inactivo"}
+                    </span>
                   );
                 },
               },
