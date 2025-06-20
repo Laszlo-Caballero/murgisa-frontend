@@ -27,12 +27,12 @@ export default function Home() {
   const date = new Date().toLocaleString();
 
   return (
-    <div className="w-full h-full p-8 flex flex-col gap-y-6 bg-gray-50">
+    <div className="w-full h-full p-8 flex flex-col gap-y-6 bg-gray-50 dark:bg-gray-900">
       <header className="flex flex-col">
-        <p className="text-3xl font-bold text-gray-900">
+        <p className="text-3xl font-bold text-gray-900 dark:text-white">
           {greeting}, Administrador 👋
         </p>
-        <p className="text-gray-600 mt-1">
+        <p className="text-gray-600 dark:text-gray-300 mt-1">
           Aquí tienes un resumen de las actividades de MURGISA -{" "}
           {date.split(",")[0]}
         </p>
@@ -40,61 +40,82 @@ export default function Home() {
       <div className="grid lg:grid-cols-4 mg:grid-cols-2 gap-6">
         <Card
           title="Total"
-          icon={<LuChartColumnIncreasing size={28} className="text-white" />}
+          icon={
+            <LuChartColumnIncreasing
+              size={28}
+              className="text-white dark:text-blue-400"
+            />
+          }
           description="125.000"
           extra="+12.5% desde el mes pasado"
           className={{
-            container: "bg-blue-100 shadow-lg",
-            icon: "bg-blue-600 rounded-full p-3 shadow-xl",
+            container:
+              "bg-blue-100 dark:bg-gray-800 dark:border dark:border-gray-700 shadow-lg hover:dark:shadow-blue-400/20 transition-all",
+            icon: "bg-blue-600 dark:bg-blue-500/30 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-blue-700",
-              description: "text-blue-900 text-3xl",
-              extra: "text-blue-800 text-xs",
+              title: "text-blue-700 dark:text-blue-400",
+              description: "text-blue-900 text-3xl dark:text-blue-400",
+              extra: "text-blue-800 text-xs dark:text-blue-400",
             },
           }}
         />
         <Card
           title="Ordenes de Mantenimiento"
-          icon={<PiWrenchBold size={28} className="text-white" />}
+          icon={
+            <PiWrenchBold
+              size={28}
+              className="text-white dark:text-emerald-400"
+            />
+          }
           description="12"
           extra="28 completadas este mes"
           className={{
-            container: "bg-emerald-100 shadow-lg",
-            icon: "bg-emerald-600 rounded-full p-3 shadow-xl",
+            container:
+              "bg-emerald-100 dark:bg-gray-800 dark:border dark:border-gray-700 hover:dark:shadow-emerald-400/20 shadow-lg",
+            icon: "bg-emerald-600 dark:bg-emerald-500/30 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-emerald-700",
-              description: "text-emerald-900 text-3xl",
-              extra: "text-purpe-800 text-xs",
+              title: "text-emerald-700 dark:text-emerald-400",
+              description: "text-emerald-900 text-3xl dark:text-emerald-400",
+              extra: "text-emerald-800 text-xs dark:text-emerald-400",
             },
           }}
         />
         <Card
           title="Perosonal Activo"
-          icon={<LuUser size={28} className="text-white" />}
+          icon={
+            <LuUser size={28} className="text-white dark:text-purple-400" />
+          }
           description="42"
           extra="En 5 departamentos"
           className={{
-            container: "bg-purple-100 shadow-lg",
-            icon: "bg-purple-600 rounded-full p-3 shadow-xl",
+            container:
+              "bg-purple-100 dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/20 shadow-lg",
+            icon: "bg-purple-600 dark:bg-purple-500/30 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-purple-700",
-              description: "text-purple-900 text-3xl",
-              extra: "text-purple-800 text-xs",
+              title: "text-purple-700 dark:text-purple-400",
+              description: "text-purple-900 text-3xl dark:text-purple-400",
+              extra: "text-purple-800 text-xs dark:text-purple-400",
             },
           }}
         />
         <Card
           title="Servicios Activos"
-          icon={<LuBriefcase size={28} className="text-white" />}
+          icon={
+            <LuBriefcase
+              size={28}
+              className="text-white dark:text-orange-400"
+            />
+          }
           description="13"
           extra="Disponibles para Venta"
           className={{
-            container: "bg-orange-100 shadow-lg",
-            icon: "bg-orange-600 rounded-full p-3 shadow-xl",
+            container:
+              "bg-orange-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 hover:dark:shadow-orange-400/20",
+            icon: "bg-orange-600 dark:bg-orange-500/30 rounded-full p-3 shadow-xl",
             text: {
-              title: "text-orange-700",
-              description: "text-orange-900 text-3xl",
-              extra: "text-orange-800 text-xs",
+              title: "text-orange-700 dark:text-orange-400",
+              description: "text-orange-900 text-3xl dark:text-orange-400",
+              extra: "text-orange-800 text-xs dark:text-orange-400",
             },
           }}
         />
@@ -102,13 +123,13 @@ export default function Home() {
 
       <div className="grid lg:grid-cols-3 gap-6 grid-rows-3">
         {/* Actividades Recientes */}
-        <div className="lg:col-span-2 row-span-3 p-6 rounded-lg bg-white shadow-sm flex flex-col gap-y-4">
+        <div className="lg:col-span-2 row-span-3 p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-2">
             <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
-              <LuActivity />
-              <span>Actividades Recientes</span>
+              <LuActivity className="dark:text-green-200" />
+              <span className="dark:text-white">Actividades Recientes</span>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground dark:text-gray-100">
               Últimas acciones realizadas en el sistema
             </p>
           </div>
@@ -118,31 +139,42 @@ export default function Home() {
         </div>
 
         {/* Acciones Rápidas */}
-        <div className="p-6 rounded-lg row-span-2 bg-white shadow-sm max-h-max gap-y-4 flex flex-col">
+        <div className="p-6 rounded-lg row-span-2 bg-white dark:bg-gray-800 shadow-sm max-h-max gap-y-4 flex flex-col">
           <div className="flex flex-col gap-y-2">
             <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
-              <LuTarget />
-              <span>Acciones Rápidas</span>
+              <LuTarget className="dark:text-purple-400" />
+              <span className="dark:text-white">Acciones Rápidas</span>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground dark:text-gray-100">
               Accesos directos a funciones principales
             </p>
           </div>
 
           <LinkHome
             href="/ventas"
-            icon={<LuChartColumnIncreasing size={15} />}
+            icon={
+              <LuChartColumnIncreasing
+                size={15}
+                className="dark:text-green-400"
+              />
+            }
             className={{
-              icon: "bg-green-200 text-green-600",
+              icon: "bg-green-200 text-green-600 dark:bg-green-500/30 dark:text-green-400",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              description: "dark:text-gray-300",
+              title: "dark:text-white",
             }}
             title="Nueva Venta"
             description="Registra una nueva venta de productos o servicios"
           />
           <LinkHome
             href="/mantenimiento-correctivo"
-            icon={<PiWrenchBold size={15} />}
+            icon={<PiWrenchBold size={15} className="text-blue-400" />}
             className={{
-              icon: "bg-blue-200 text-blue-600",
+              icon: "bg-blue-200 dark:bg-blue-500/30 text-blue-600",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              description: "dark:text-gray-300",
+              title: "dark:text-white",
             }}
             title="Orden de Mantenimiento"
             description="Registra una nueva orden de mantenimiento"
@@ -152,6 +184,9 @@ export default function Home() {
             icon={<LuUsers size={15} />}
             className={{
               icon: "bg-purple-200 text-purple-600",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              description: "dark:text-gray-300",
+              title: "dark:text-white",
             }}
             title="Registrar Cliente"
             description="Añade un nuevo cliente al sistema"
@@ -161,13 +196,16 @@ export default function Home() {
             icon={<LuBriefcase size={15} />}
             className={{
               icon: "bg-red-200 text-red-600",
+              container: "dark:bg-gray-900 dark:border dark:border-gray-700",
+              description: "dark:text-gray-300",
+              title: "dark:text-white",
             }}
             title="Registrar Personal"
             description="Añade un nuevo miembro del personal al sistema"
           />
         </div>
 
-        <div className="rounded-lg p-6 bg-white shadow-sm gap-y-4 items-center justify-center flex flex-col h-full">
+        <div className="rounded-lg p-6 bg-white dark:bg-gray-800 shadow-sm gap-y-4 items-center justify-center flex flex-col h-full">
           <Carousel>
             {tips.map((tip, index) => {
               const color = getColor(tip.color);
@@ -175,7 +213,7 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className="flex gap-x-4 items-center p-4 border border-gray-200 shadow-xs rounded-lg  w-full"
+                  className="flex gap-x-4 items-center p-4 border dark:bg-gray-900/80 border-gray-200 dark:border-gray-700 shadow-xs rounded-lg  w-full"
                 >
                   <div
                     className={cx(
@@ -188,9 +226,13 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col gap-y-2">
-                    <Badge className="font-semibold">{tip.type}</Badge>
-                    <p className="text-sm font-semibold">{tip.label}</p>
-                    <p className="text-xs text-muted-foreground">
+                    <Badge className="font-semibold dark:bg-amber-50">
+                      {tip.type}
+                    </Badge>
+                    <p className="text-sm font-semibold dark:text-white">
+                      {tip.label}
+                    </p>
+                    <p className="text-xs text-muted-foreground dark:text-gray-300">
                       {tip.description}
                     </p>
                   </div>
@@ -203,13 +245,15 @@ export default function Home() {
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Equipos que requieren atención */}
-        <div className="p-6 rounded-lg bg-white shadow-sm flex flex-col gap-y-4">
+        <div className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-2">
             <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
               <IoWarningOutline className="text-yellow-500" />
-              <span>Equipos que Requieren Atención</span>
+              <span className="dark:text-white">
+                Equipos que Requieren Atención
+              </span>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground dark:text-gray-100">
               Equipos con mantenimiento pendiente o en estado crítico
             </p>
           </div>
@@ -217,11 +261,15 @@ export default function Home() {
             return (
               <div
                 key={equipo.idEquipo}
-                className="p-4 border rounded-lg border-gray-300 flex flex-col w-full gap-y-2"
+                className="p-4 border rounded-lg border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex flex-col w-full gap-y-2"
               >
-                <h4 className="font-medium text-sm">{equipo.nombre}</h4>
+                <h4 className="font-medium text-sm dark:text-white">
+                  {equipo.nombre}
+                </h4>
                 <span className="flex w-full justify-between">
-                  <p className="text-sm text-muted-foreground">Estado:</p>
+                  <p className="text-sm text-muted-foreground dark:text-gray-300">
+                    Estado:
+                  </p>
                   <Badge
                     className={cx(
                       "font-semibold",
@@ -235,7 +283,7 @@ export default function Home() {
                     {equipo.estado}
                   </Badge>
                 </span>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground dark:text-gray-300">
                   Último Mantenimiento: {equipo.ultimoMantenimiento}
                 </p>
               </div>
@@ -243,13 +291,13 @@ export default function Home() {
           })}
         </div>
         {/* Ventas Recientes */}
-        <div className="p-6 rounded-lg bg-white shadow-sm flex flex-col gap-y-4">
+        <div className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex flex-col gap-y-4">
           <div className="flex flex-col gap-y-2">
             <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
               <LuShoppingCart className="text-green-500" />
-              <span>Ventas Recientes</span>
+              <span className="dark:text-white">Ventas Recientes</span>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground dark:text-gray-300">
               Últimas órdenes de venta registradas
             </p>
           </div>
@@ -257,11 +305,13 @@ export default function Home() {
             return (
               <div
                 key={venta.idVenta}
-                className="p-4 border rounded-lg border-gray-300 flex flex-col w-full gap-y-2"
+                className="p-4 border rounded-lg border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex flex-col w-full gap-y-2"
               >
                 <span className="flex w-full justify-between">
                   {" "}
-                  <h4 className="font-medium text-sm">{venta.titulo}</h4>
+                  <h4 className="font-medium text-sm dark:text-white">
+                    {venta.titulo}
+                  </h4>
                   <Badge
                     className={cx(
                       "font-semibold",
@@ -277,50 +327,58 @@ export default function Home() {
                 </span>
 
                 <span className="flex w-full justify-between">
-                  <p className="text-sm text-muted-foreground">Cliente:</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground dark:text-gray-300">
+                    Cliente:
+                  </p>
+                  <p className="text-sm text-muted-foreground dark:text-gray-300">
                     {venta.cliente}
                   </p>
                 </span>
 
                 <span className="flex w-full justify-between">
-                  <p className="text-sm text-muted-foreground">Fecha:</p>
-                  <p className="text-sm text-muted-foreground">{venta.fecha}</p>
+                  <p className="text-sm text-muted-foreground dark:text-gray-300">
+                    Fecha:
+                  </p>
+                  <p className="text-sm text-muted-foreground dark:text-gray-300">
+                    {venta.fecha}
+                  </p>
                 </span>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="p-6 rounded-lg row-span-2 bg-white shadow-sm max-h-max gap-y-4 flex flex-col">
+      <div className="p-6 rounded-lg row-span-2 bg-white dark:bg-gray-800 shadow-sm max-h-max gap-y-4 flex flex-col">
         <div className="flex flex-col gap-y-2">
           <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
             <LuDollarSign className="text-purple-600" />
-            <span>Resumen Financiero del Mes</span>
+            <span className="dark:text-purple-400">
+              Resumen Financiero del Mes
+            </span>
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground dark:text-purple-100">
             Estado financiero actual de la empresa
           </p>
         </div>
 
         <div className="grid lg:grid-cols-4 gap-6">
           <span className="text-center">
-            <p>Ingresos</p>
+            <p className="dark:text-white">Ingresos</p>
             <p className="text-2xl font-bold text-green-600">$ 150,000</p>
           </span>
 
           <span className="text-center">
-            <p>Gastos</p>
+            <p className="dark:text-white">Gastos</p>
             <p className="text-2xl font-bold text-red-600">$ 150,000</p>
           </span>
 
           <span className="text-center">
-            <p>Utilidad</p>
+            <p className="dark:text-white">Utilidad</p>
             <p className="text-2xl font-bold text-blue-600">$ 150,000</p>
           </span>
 
           <span className="text-center">
-            <p>Margen</p>
+            <p className="dark:text-white">Margen</p>
             <p className="text-2xl font-bold text-purple-600">32.4%</p>
           </span>
         </div>

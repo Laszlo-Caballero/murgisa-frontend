@@ -47,7 +47,7 @@ export default function Input({
         <input
           id={id}
           className={cx(
-            "w-full px-10 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500",
+            "w-full px-10 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-500/40",
             className
           )}
           {...props}

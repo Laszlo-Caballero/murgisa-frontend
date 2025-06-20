@@ -26,16 +26,16 @@ export default function HeaderStep({ steps }: HeaderStepProps) {
 
   if (isMobile) {
     return (
-      <div className="flex w-full items-center flex-col gap-y-2 justify-center bg-gray-50 p-4 rounded-lg">
+      <div className="flex w-full items-center flex-col gap-y-2 justify-center bg-gray-50 p-4 rounded-lg dark:bg-gray-700/50">
         <div
           className={cx(
             "size-10 rounded-full min-w-[40px] flex items-center justify-center",
-            "bg-green-600 text-white"
+            "bg-green-600 text-white dark:bg-green-400/50"
           )}
         >
           {currentStep}
         </div>
-        <p className="text-sm ml-2 text-green-600 font-semibold">
+        <p className="text-sm ml-2 text-green-600 font-semibold dark:text-emerald-600 ">
           {steps[currentStep - 1]}
         </p>
       </div>
@@ -43,7 +43,7 @@ export default function HeaderStep({ steps }: HeaderStepProps) {
   }
 
   return (
-    <div className="flex w-full items-center justify-center relative bg-gray-50 p-4 rounded-lg">
+    <div className="flex w-full items-center justify-center relative bg-gray-50 p-4 rounded-lg dark:bg-gray-700/50">
       {steps.map((step, index) => (
         <div
           className={cx(
@@ -57,22 +57,22 @@ export default function HeaderStep({ steps }: HeaderStepProps) {
               className={cx(
                 "size-10 rounded-full min-w-[40px] flex items-center justify-center",
                 currentStep === index + 1 || currentStep > index + 1
-                  ? "bg-green-600 text-white"
-                  : "bg-gray-200 text-gray-800",
+                  ? "bg-green-600 text-white dark:bg-green-400/50"
+                  : "bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-300",
                 currentStep + 1 === index + 1 &&
-                  "bg-green-100 text-green-500 border border-green-200"
+                  "bg-green-100 text-green-500 border border-green-200 dark:bg-green-400/20 dark:border-none dark:text-gray-300"
               )}
             >
               {index + 1}
             </div>
             {index + 1 !== steps.length && (
-              <span className="h-1 w-full bg-slate-200" />
+              <span className="h-1 w-full bg-slate-200 dark:bg-gray-600" />
             )}
           </div>
           <p
             className={cx(
               "text-sm",
-              index + 1 === currentStep && "text-green-600 font-semibold"
+              index + 1 === currentStep && "text-green-600 font-semibold dark:text-emerald-600 "
             )}
           >
             {step}
