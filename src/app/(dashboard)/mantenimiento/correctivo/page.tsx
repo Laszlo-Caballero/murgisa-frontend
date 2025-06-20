@@ -39,7 +39,7 @@ export default function MantenimientoCorrectivo() {
         </Modal>
       )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-orange-500 to-orange-800 dark:from-orange-700">
-          <span className="bg-orange-500 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+          <span className="bg-orange-400 p-2 rounded-xl max-w-max mb-2 lg:p-3">
             <PiWrenchBold className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
