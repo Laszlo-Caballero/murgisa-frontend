@@ -81,7 +81,7 @@ export default function Home() {
           }}
         />
         <Card
-          title="Perosonal Activo"
+          title="Personal Activo"
           icon={
             <LuUser size={28} className="text-white dark:text-purple-400" />
           }
@@ -181,9 +181,9 @@ export default function Home() {
           />
           <LinkHome
             href="/cliente"
-            icon={<LuUsers size={15} />}
+            icon={<LuUsers size={15} className="text-purple-400"/>}
             className={{
-              icon: "bg-purple-200 text-purple-600",
+              icon: "bg-purple-200 text-purple-600 dark:bg-purple-500/30",
               container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-purple-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
@@ -193,9 +193,9 @@ export default function Home() {
           />
           <LinkHome
             href="/personal"
-            icon={<LuBriefcase size={15} />}
+            icon={<LuBriefcase size={15} className="text-red-500"/>}
             className={{
-              icon: "bg-red-200 text-red-600",
+              icon: "bg-red-200 text-red-600 dark:bg-red-500/30",
               container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-red-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
