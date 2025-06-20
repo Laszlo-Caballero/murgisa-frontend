@@ -19,15 +19,14 @@ import Load from "@/components/ui/load/Load";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 
 export default function ClientesPage() {
-  const clientes: Cliente[] = clienteData;
   const [showModal, setShowModal] = useState(false);
-  // const { isLoading, data, isError, error } = useQuery<Cliente[]>({
-  //   queryFn: async () => {
-  //     const response = await axios.get(`${env.url_api}/cliente`);
-  //     return response.data;
-  //   },
-  //   dependencies: [],
-  // });
+  const { isLoading, data, isError, error } = useQuery<Cliente[]>({
+    queryFn: async () => {
+      const response = await axios.get(`${env.url_api}/cliente`);
+      return response.data;
+    },
+    dependencies: [],
+  });
 
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden dark:bg-gray-900">
@@ -64,7 +63,8 @@ export default function ClientesPage() {
           description={"11"}
           extra="Registrados en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            container:
+              "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
             text: {
               title: "text-blue-700 dark:text-blue-400",
@@ -75,11 +75,17 @@ export default function ClientesPage() {
         />
         <Card
           title="Clientes Activos"
-          icon={<LuBuilding size={28} className="text-white dark:text-emerald-400" />}
+          icon={
+            <LuBuilding
+              size={28}
+              className="text-white dark:text-emerald-400"
+            />
+          }
           description={"10"}
           extra="Disponibles para realizar ventas"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
+            container:
+              "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
             icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
             text: {
               title: "text-emerald-700 dark:text-emerald-400",
@@ -90,11 +96,14 @@ export default function ClientesPage() {
         />
         <Card
           title="Cliente Más Frecuente"
-          icon={<LuClock4 size={28} className="text-white dark:text-purple-400" />}
+          icon={
+            <LuClock4 size={28} className="text-white dark:text-purple-400" />
+          }
           description={"Ana Torres"}
           extra="Según cantidad de Ventas"
           className={{
-            container: "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+            container:
+              "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
             icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
             text: {
               title: "text-purple-700 dark:text-purple-400",
@@ -105,11 +114,14 @@ export default function ClientesPage() {
         />
         <Card
           title="Cliente Nuevo"
-          icon={<LuStar size={28} className="text-white dark:text-orange-400" />}
+          icon={
+            <LuStar size={28} className="text-white dark:text-orange-400" />
+          }
           description={"Juan Pérez"}
           extra="Nuevas oportunidades de Venta"
           className={{
-            container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
+            container:
+              "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
             icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
               title: "text-orange-700 dark:text-orange-400",
@@ -121,7 +133,7 @@ export default function ClientesPage() {
       </div>
 
       <Tabs headers={["Lista de Clientes"]} className="mt-6">
-        <ListarClientes data={clientes} />
+        <ListarClientes data={data} isLoading={isLoading} />
       </Tabs>
     </div>
   );
