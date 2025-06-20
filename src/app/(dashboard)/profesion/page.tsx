@@ -44,7 +44,7 @@ export default function ProfesionPage() {
         </div>
 
         <Button 
-        className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-blue-600 hover:bg-blue-500 mb-2" 
+        className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50"
           onClick={() => {
             setShowModal(true);
           }}>
@@ -59,14 +59,14 @@ export default function ProfesionPage() {
           description="5"
           extra="Registradas en la empresa"
           className = {{ 
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all" , 
+          container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all" , 
           icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30", 
           text:{
             title:"text-blue-700 dark:text-blue-400" ,
             description:"text-blue-900 text-3xl dark:text-blue-400" ,
             extra: "text-blue-600 dark:text-blue-400"
           },
-         }}
+        }}
         />
         <Card
           title="Profesiones Activas"
@@ -107,9 +107,9 @@ export default function ProfesionPage() {
             container: "bg-orange-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all", 
             icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30", 
             text:{
-              title:"text-orange-700 dark:text-orange-400" ,
-              description:"text-orange-900 text-xl dark:text-orange-400" ,
-              extra: "text-orange-600 dark:text-orange-400"
+              title:"text-orange-700 dark:text-orange-400/80" ,
+              description:"text-orange-900 text-xl dark:text-orange-400/80" ,
+              extra: "text-orange-600 dark:text-orange-400/80"
             } 
           }}
 
@@ -128,13 +128,15 @@ export default function ProfesionPage() {
 
       <div className="flex flex-col w-full rounded-md shadow-md p-4 bg-white dark:bg-gray-800 dark:border dark:border-gray-700">
         <div className="flex items-center justify-between w-full">
-          <div>
-            <p className="font-medium text-black text-xl dark:text-white">Profesiones Registradas</p>
-            <p className="text-sm text-gray-500 mt-1 dark:text-gray-400">Gestiona las profesiones disponibles en el sistema</p>
-          </div>
-          <div>
-            <span className="bg-gray-50 text-xs text-gray-600 font-semibold border border-gray-300 rounded-full px-3 py-1 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300"> Total: 5 </span>
-          </div>
+          <p className="font-medium text-black text-xl  dark:text-white ">Profesiones Registradas</p>
+            <Badge className="bg-gray-50 text-xs text-gray-600 font-bold border-gray-300 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300"> 
+              Total: 5
+            </Badge>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500 mt-1 dark:text-gray-400">
+            Gestiona todoas las profesiones registradas en el sistema
+          </p>
         </div>
 
         { <Table className="mt-4 bg-white w-full rounded-md " data={profesionData} columns={[
@@ -143,12 +145,12 @@ export default function ProfesionPage() {
             cell: (props) => {
               return (
               <div className="flex items-start gap-x-3 dark:text-gray-300">
-                <span className="bg-blue-100 p-2 rounded-xl">
-                  <LuGraduationCap size={15} className="text-blue-600" />
+                <span className="bg-blue-100 p-2 rounded-xl dark:bg-blue-500/30">
+                  <LuGraduationCap size={15} className="text-blue-600 dark:text-blue-400" />
                 </span>
                 <div className="flex flex-col">
                   <p className="font-semibold text-sm">{props.row.titulo}</p>
-                  <p className="text-xs text-gray-600">ID: PROF-00{props.row.idProfesion}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">ID: PROF-00{props.row.idProfesion}</p>
                 </div>
               </div>
 
@@ -159,7 +161,7 @@ export default function ProfesionPage() {
             header: "Descripción ",
             cell: (props) => {
               return (
-                <p className="text-xs text-gray-600">{props.row.descripcion}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">{props.row.descripcion}</p>
               );
             }
           },
@@ -168,10 +170,10 @@ export default function ProfesionPage() {
             cell: (props) => {
               return (
                 <div className="flex items-center gap-x-2">
-                  <LuUsers size={15} className="text-gray-500" />
-                  <span className="text-sm font-bold dark:text-gray-400">{props.row.cantidad}
+                  <LuUsers size={15} className="text-gray-500 dark:text-gray-400" />
+                  <span className="text-sm font-bold dark:text-gray-300">{props.row.cantidad}
                   </span>
-                  <p className="text-xs text-gray-500"> empleados</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400"> empleados</p>
                 </div>
               );
             }

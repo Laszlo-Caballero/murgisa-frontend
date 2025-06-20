@@ -11,7 +11,7 @@ interface ListarDepartamentosProps {
 
 export default function ListarDepartamentos({ data }: ListarDepartamentosProps) {
   return (
-    <div className="py-4 flex w-full flex-col gap-y-4">
+    <div className="py-4 flex w-full flex-col gap-y-4 ">
     
       <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white dark:bg-gray-800">
         <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">

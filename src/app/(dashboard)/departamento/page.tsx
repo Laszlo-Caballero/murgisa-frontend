@@ -38,7 +38,7 @@ export default function Departamento() {
   </div>
 
   <Button
-    className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-2 py-2 px-4 text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700"
+    className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-4  hover:bg-blue-500 mb-2 bg-blue-500/50 lg:px-6"
     onClick={() => setShowModal(true)}
   >
     <FiPlus size={15} />
@@ -52,29 +52,29 @@ export default function Departamento() {
           icon={<LuBuilding2 size={28} className="text-white dark:text-blue-300" />}
           description="3"
           extra="Registrados en el sistema"
-          className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
-            icon: "bg-blue-600 dark:bg-blue-500/30 rounded-full p-3",
-            text: {
-              title: "text-blue-700 dark:text-blue-200",
-              description: "text-blue-900 text-3xl dark:text-blue-100",
-              extra: "text-blue-600 dark:text-blue-300",
-            },
-          }}
+          className = {{ 
+          container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all" , 
+          icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30", 
+          text:{
+            title:"text-blue-700 dark:text-blue-400" ,
+            description:"text-blue-900 text-3xl dark:text-blue-400" ,
+            extra: "text-blue-600 dark:text-blue-400"
+          },
+        }}
         />
         <Card
           title="Departamentos Activos"
           icon={<LuCircleCheckBig size={28} className="text-white dark:text-emerald-300" />}
           description="3"
           extra="Disponibles para asignación"
-          className={{
-            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
-            icon: "bg-emerald-600 dark:bg-emerald-500/30 rounded-full p-3",
-            text: {
-              title: "text-emerald-700 dark:text-emerald-200",
-              description: "text-emerald-900 text-3xl dark:text-emerald-100",
-              extra: "text-emerald-600 dark:text-emerald-300",
-            },
+          className = {{ 
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all", 
+            icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
+            text:{
+              title:"text-emerald-700 dark:text-emerald-400" ,
+              description:"text-emerald-900 text-3xl dark:text-emerald-400" ,
+              extra: "text-emrald-600 dark:text-emerald-400"
+            }
           }}
         />
         <Card
@@ -82,14 +82,14 @@ export default function Departamento() {
           icon={<LuUsers size={28} className="text-white dark:text-purple-300" />}
           description="3"
           extra="Asignados a departamentos"
-          className={{
-            container: "bg-purple-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
-            icon: "bg-purple-600 dark:bg-purple-500/30 rounded-full p-3",
-            text: {
-              title: "text-purple-700 dark:text-purple-200",
-              description: "text-purple-900 text-3xl dark:text-purple-100",
-              extra: "text-purple-600 dark:text-purple-300",
-            },
+          className = {{ 
+            container: "bg-purple-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all", 
+            icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30", 
+            text:{
+              title:"text-purple-700 dark:text-purple-400" ,
+              description:"text-purple-900 text-3xl dark:text-purple-400" ,
+              extra: "text-purple-600 dark:text-purple-400"
+            } 
           }}
         />
         <Card
@@ -97,14 +97,14 @@ export default function Departamento() {
           icon={<LuBuilding2 size={28} className="text-white dark:text-orange-300" />}
           description="S/. 6500"
           extra="Para Departamento"
-          className={{
-            container: "bg-orange-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
-            icon: "bg-orange-600 dark:bg-orange-500/30 rounded-full p-3",
-            text: {
-              title: "text-orange-700 dark:text-orange-200",
-              description: "text-orange-900 text-3xl dark:text-orange-100",
-              extra: "text-orange-600 dark:text-orange-300",
-            },
+          className = {{ 
+            container: "bg-orange-100 shadow-md dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all", 
+            icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30", 
+            text:{
+              title:"text-orange-700 dark:text-orange-400" ,
+              description:"text-orange-900 text-xl dark:text-orange-400" ,
+              extra: "text-orange-600 dark:text-orange-400"
+            } 
           }}
         />
       </div>
