@@ -32,7 +32,7 @@ export default function ProfesionPage() {
           <CrearProfesion />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700 "> 
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600 "> 
           <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
             <LuGraduationCap className="text-white size-8 lg:size-10" />
           </span>

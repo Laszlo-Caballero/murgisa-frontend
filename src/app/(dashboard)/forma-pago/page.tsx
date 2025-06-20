@@ -70,8 +70,8 @@ export default function FormasDePagoPage() {
           description="5"
           extra="Registrados en la empresa"
           className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10",
-            icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            icon: "bg-blue-600 rounded-full p-3",
             text: {
               title: "text-blue-700 dark:text-blue-400",
               description: "text-blue-900 text-3xl dark:text-blue-400",
@@ -85,7 +85,7 @@ export default function FormasDePagoPage() {
           description="4"
           extra="Disponibles para asignacion"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10",
             icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
             text: {
               title: "text-emerald-700 dark:text-emerald-400",

@@ -49,7 +49,7 @@ export default function ClientesPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[165%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50"
+          className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />

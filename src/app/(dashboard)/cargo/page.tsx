@@ -24,7 +24,7 @@ export default function Cargo() {
         </Modal>
       )}
 
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-700">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600">
         <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30 ">
           <PiToolbox className="text-white size-8 lg:size-10 " />
         </span>
@@ -35,7 +35,7 @@ export default function Cargo() {
           </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-400 mb-2 bg-blue-500/50"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[22%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50 "
           onClick={() => {
             setShowModal(true);
           }}
@@ -47,22 +47,22 @@ export default function Cargo() {
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4  dark:bg-gray-900">
         <Card
           title="Total Cargos"
-          icon={<PiToolbox size={28} className="text-white" />}
+          icon={<PiToolbox size={28} className="text-white dark:text-blue-300" />}
           description={"4"}
           extra="Registrados en la empresa"
           className={{
             container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 rounded-full p-3",
             text: {
-              title: "text-blue-700 dark:text-blue-300",
-              description: "text-blue-900 text-3xl dark:text-blue-100",
+              title: "text-blue-700 dark:text-blue-400",
+              description: "text-blue-900 text-3xl dark:text-blue-400",
               extra: "text-blue-600 dark:text-blue-400",
             },
           }}
         />
         <Card
           title="Cargos Activos"
-          icon={<LuCircleCheckBig size={28} className="text-white" />}
+          icon={<LuCircleCheckBig size={28} className="text-white dark:text-green-400" />}
           description={"2"}
           extra="Disponibles para asignacion"
           className={{
@@ -91,7 +91,7 @@ export default function Cargo() {
           }}
         />
         <Card
-          title="Cargo con Mayor Cantidad de Empleados"
+          title="Mayor demanda"
           icon={<LuCircleCheckBig size={28} className="text-white dark:text-orange-400" />}
           description="Cargo de Ventas"
           extra="Disponibles para asignacion"

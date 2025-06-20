@@ -32,27 +32,25 @@ export default function Page() {
         </Modal>
       )}
 
-      <div className="relative w-full rounded-xl overflow-hidden shadow-md mb-6">
-  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-yellow-500 opacity-90 z-0 rounded-xl" />
-  <header className="relative flex flex-col md:flex-row md:items-center gap-x-4 p-6 z-10 text-white">
-    <span className="bg-white/20 p-3 rounded-xl max-w-max mb-2">
-      <LuSettings className="text-white size-8" />
+
+  <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
+    <span className="bg-white/20 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-orange-300/30">
+      <LuSettings className="text-white size-8 lg:size-10" />
     </span>
-    <div className="flex flex-col">
-      <p className="font-bold text-2xl">Gestión de Tipos de Mantenimiento</p>
+    <div className="flex flex-col text-white">
+      <p className="font-bold text-3xl">Gestión de Tipos de Mantenimiento</p>
       <p className="text-sm">
         Administra y configura los diferentes tipos de mantenimiento disponibles
       </p>
     </div>
     <Button
-      className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-orange-600 hover:bg-orange-500 mb-2 text-white border border-white/30"
+      className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-amber-600 mb-2 bg-orange-500/50 lg:px-6 "
       onClick={() => setShowModal(true)}
     >
       <FiPlus size={15} />
       Nuevo Mantenimiento
     </Button>
   </header>
-</div>
 
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
