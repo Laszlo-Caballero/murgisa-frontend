@@ -75,11 +75,11 @@ export default function Select({
         </div>
       </div>
       {open && (
-        <div className="absolute top-full flex flex-col gap-y-2 left-0 translate-y-2 w-full bg-white border border-slate-300 rounded-md shadow-lg z-10">
+        <div className="absolute top-full flex flex-col gap-y-2 left-0 translate-y-2 w-full bg-white border border-slate-300 rounded-md shadow-lg z-10 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-500 ">
           {options?.map((option) => {
             return (
               <div
-                className="w-full px-10 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:bg-gray-100"
+                className="w-full px-10 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
                 key={option.value}
                 onClick={() => {
                   onChange?.(option.value);
