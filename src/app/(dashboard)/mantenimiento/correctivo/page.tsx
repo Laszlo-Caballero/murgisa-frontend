@@ -27,7 +27,7 @@ export default function MantenimientoCorrectivo() {
   const [showModal, setShowModal] = useState(false);
   const correctivos: Correctivo[] = correctivoData
   return (
-    <div className="w-full h-full p-8 flex flex-col bg-gray-100">
+    <div className="w-full h-full p-8 flex flex-col bg-gray-100 dark:bg-gray-900">
       {showModal && (
         <Modal
           onClose={() => {
@@ -37,18 +37,18 @@ export default function MantenimientoCorrectivo() {
           <CrearCorrectivo/>
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-orange-500 to-orange-800 dark:from-orange-700">
           <span className="bg-orange-500 p-2 rounded-xl max-w-max mb-2 lg:p-3">
             <PiWrenchBold className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
-            <p className="font-bold text-3xl">Mantenimiento Correctivo</p>
-            <p className="text-sm mt-1">
+            <p className="font-bold text-3xl text-white">Mantenimiento Correctivo</p>
+            <p className="text-sm mt-1 text-white">
               Gestiona y monitorea los mantenimientos correctivos programados
             </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-orange-500 hover:bg-orange-400 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 hover:bg-orange-400 mb-2 bg-orange-500/50"
           onClick={() => {
             setShowModal(true);
           }}
@@ -63,12 +63,12 @@ export default function MantenimientoCorrectivo() {
           icon={<LuShield size={28} className="text-white" />}
           description="10"
           extra="Mantenimientos pedidos en el sistema"
-          className = {{ container: "bg-blue-100 shadow-lg", 
+          className = {{ container: "bg-blue-100 shadow-lg dark:bg-blue-900/50 dark:shadow-lg dark:border dark:border-blue-800", 
             icon: "bg-blue-600 rounded-full p-3 shadow-xl",
             text:{
-              title:"text-blue-700" ,
-              description:"text-blue-900 text-3xl",
-              extra: "text-blue-800 text-xs"
+              title:"text-blue-700 dark:text-blue-300" ,
+              description:"text-blue-900 text-3xl dark:text-blue-100",
+              extra: "text-blue-800 text-xs dark:text-blue-400"
           }}}
         />
         <Card
@@ -77,11 +77,11 @@ export default function MantenimientoCorrectivo() {
           description="10"
           extra=" No se completaron en la fecha estimada"
               className = {{ 
-                container: "bg-red-100 shadow-lg",
+                container: "bg-red-100 shadow-lg dark:bg-red-900/50 dark:shadow-lg dark:border dark:border-red-800",
                 icon: "bg-red-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-red-700" ,
-                description:"text-red-900 text-3xl",
-                extra: "text-red-900 text-xs"}}}
+                text:{title:"text-red-700 dark:text-red-300" ,
+                description:"text-red-900 text-3xl dark:text-red-100",
+                extra: "text-red-900 text-xs dark:text-red-400"}}}
         />
         <Card
           title="En Progreso"
@@ -89,11 +89,11 @@ export default function MantenimientoCorrectivo() {
           description="3"
           extra="Están siendo trabajadas actualmente."
               className = {{ 
-                container: "bg-orange-100 shadow-lg", 
+                container: "bg-orange-100 shadow-lg  dark:bg-orange-900/50 dark:shadow-lg dark:border dark:border-orange-800", 
                 icon: "bg-orange-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-orange-700" ,
-                description:"text-orange-900 text-3xl",
-                extra: "text-orange-800 text-xs" }}}
+                text:{title:"text-orange-700 dark:text-orange-300" ,
+                description:"text-orange-900 text-3xl dark:text-orange-100",
+                extra: "text-orange-800 text-xs dark:text-orange-400" }}}
         />
         <Card
           title="Completados"
@@ -101,11 +101,11 @@ export default function MantenimientoCorrectivo() {
           description="6"
           extra="Correctamente por los responsables."
               className = {{ 
-                container: "bg-green-100 shadow-lg", 
+                container: "bg-green-100 shadow-lg dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800", 
                 icon: "bg-green-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-green-700",
-                description:"text-green-800 text-3xl", 
-                extra: "text-green-800 text-xs"}}}
+                text:{title:"text-green-700 dark:text-emerald-300",
+                description:"text-green-800 text-3xl dark:text-emerald-100", 
+                extra: "text-green-800 text-xs dark:text-emerald-400"}}}
         />
 
         <Card
@@ -114,11 +114,11 @@ export default function MantenimientoCorrectivo() {
           description="$100"
           extra="En Mantenimientos"
               className = {{ 
-                container: "bg-purple-100 shadow-lg", 
+                container: "bg-purple-100 shadow-lg dark:bg-purple-900/50 dark:shadow-lg dark:border dark:border-purple-800", 
                 icon: "bg-purple-600 rounded-full p-3 shadow-xl",
-                text:{title:"text-purple-700",
-                description:"text-purple-800 text-3xl", 
-                extra: "text-purple-800 text-xs"}}}
+                text:{title:"text-purple-700 dark:text-purple-300",
+                description:"text-purple-800 text-3xl dark:text-purple-100", 
+                extra: "text-purple-800 text-xs dark:text-purple-400"}}}
         />
       </div>
       <Tabs headers={["Lista de Mantenimiento","Vista calendario"]} className="mt-6">

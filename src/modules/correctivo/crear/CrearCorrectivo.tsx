@@ -11,11 +11,11 @@ import { FiPlus } from "react-icons/fi";
 
 export default function CrearCorrectivo() {
   return (
-    <div className="w-full max-w-sm md:max-w-3xl bg-white p-6 rounded-lg shadow-lg">
+    <div className="w-full max-w-sm md:max-w-3xl bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800 border dark:border-gray-700">
       <header className="flex items-center gap-x-3">
         <PiWrenchBold size={40} className="text-orange-600" />
         <div className="flex flex-col">
-          <p className="text-xl font-semibold">
+          <p className="text-xl font-semibold dark:text-white">
             Agregar Mantenimiento Correctivo
           </p>
           <p className="text-sm text-gray-500">
@@ -24,7 +24,7 @@ export default function CrearCorrectivo() {
           </p>
         </div>
       </header>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 dark:text-white">
         <Select
           label="Categoria"
           icon={<PiWrenchBold />}
