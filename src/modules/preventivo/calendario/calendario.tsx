@@ -14,7 +14,7 @@ export default function ListarCalendario({ data }: ListarPreventivosProps) {
       {data.map((preventivo) => (
         <div
           key={preventivo.idPlanificacion}
-          className="bg-white dark:bg-gray-800 rounded-lg border border-gray-300 dark:border-gray-600 hover:shadow-md"
+          className="bg-white rounded-lg border border-gray-300 hover:shadow-md  dark:bg-gray-800 dark:shadow-lg dark:border-none"
         >
           <div className="flex items-center justify-between mt-4 mx-6">
             <Badge className="bg-green-100 dark:bg-green-500/20 dark:border-green-400/40 border-green-300 text-green-700 dark:text-green-300 font-semibold py-1">
@@ -30,7 +30,7 @@ export default function ListarCalendario({ data }: ListarPreventivosProps) {
             icon={<LuShield size={20} className="text-orange-500" />}
             description=""
             className={{
-              container: "gap-y-1 pointer-events-none pt-4",
+              container:"bg-white dark:bg-gray-800 dark:text-gray-300",
               header: {
                 icon: "bg-orange-100 dark:bg-orange-500/20 rounded-lg p-2",
               },
@@ -40,13 +40,13 @@ export default function ListarCalendario({ data }: ListarPreventivosProps) {
               <div className="flex flex-col gap-y-2 px-2">
                 <span className="flex items-center gap-x-2">
                   <LuCalendar size={16} className="text-red-500" />
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-gray-700 dark:text-gray-500">
                     {new Date(preventivo.fecha).toLocaleDateString("es-ES")}
                   </p>
                 </span>
                 <span className="flex items-center gap-x-2">
                   <LuClock4 size={16} className="text-blue-500" />
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-gray-700 dark:text-gray-500">
                     {preventivo.horario}
                   </p>
                 </span>
@@ -55,13 +55,13 @@ export default function ListarCalendario({ data }: ListarPreventivosProps) {
               <div className="flex flex-col gap-y-2 px-2">
                 <span className="flex items-center gap-x-2">
                   <LuUsers size={16} className="text-green-500" />
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-gray-700 dark:text-gray-500">
                     {preventivo.responsable}
                   </p>
                 </span>
                 <span className="flex items-center gap-x-2">
                   <LuShield size={16} className="text-purple-500" />
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-gray-700 dark:text-gray-500">
                     {preventivo.tipo}
                   </p>
                 </span>

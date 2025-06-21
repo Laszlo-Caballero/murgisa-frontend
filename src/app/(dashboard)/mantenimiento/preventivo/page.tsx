@@ -133,21 +133,18 @@ export default function MantenimientoPreventivoPage() {
         </Modal>
       )}
 
-    
-      <div className="relative w-full rounded-xl overflow-hidden shadow-md mb-6">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500 opacity-90 z-0 rounded-xl" />
-       <header className="relative flex md:flex-row flex-col md:items-center gap-x-4 p-6 z-10">
-          <span className="bg-white/20 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
+          <span className="bg-white/20 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-orange-300/30">
             <LuShield className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col text-white">
             <p className="font-bold text-3xl">Mantenimiento Preventivo</p>
-            <p className="text-sm">
+            <p className="text-sm mt-1 text-white">
               Gestiona y monitorea los mantenimientos preventivos programados
             </p>
           </div>
           <Button
-            className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-orange-500 hover:bg-orange-400 mb-2 text-white border border-white/30"
+            className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-amber-600 mb-2 bg-orange-500/50 lg:px-6 "
             onClick={() => {
               setShowModal(true);
             }}
@@ -156,8 +153,6 @@ export default function MantenimientoPreventivoPage() {
             Planificar Mantenimiento
           </Button>
         </header>
-      </div>
-
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total"
@@ -165,64 +160,64 @@ export default function MantenimientoPreventivoPage() {
           description="10"
           extra="Mantenimientos planificados en el sistema"
           className={{
-            container:
-              "bg-blue-100 shadow-lg dark:bg-blue-500/20 dark:border dark:border-blue-500/40",
+            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
             text: {
-              title: "text-blue-700 dark:text-blue-300",
-              description: "text-blue-900 text-3xl dark:text-blue-200",
-              extra: "text-blue-800 text-xs dark:text-blue-300",
+              title: "text-blue-700 dark:text-blue-400",
+              description: "text-blue-900 text-3xl dark:text-blue-400",
+              extra: "text-blue-800 text-xs dark:text-blue-400",
             },
           }}
         />
+
         <Card
           title="Completados"
           icon={<LuCircleCheck size={28} className="text-white dark:text-green-400" />}
           description="6"
           extra="Correctamente por los responsables."
           className={{
-            container:
-              "bg-green-100 shadow-lg dark:bg-green-500/20 dark:border dark:border-green-500/40",
+            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
             icon: "bg-green-600 rounded-full p-3 dark:bg-green-500/30",
             text: {
-              title: "text-green-700 dark:text-green-300",
-              description: "text-green-800 text-3xl dark:text-green-200",
-              extra: "text-green-800 text-xs dark:text-green-300",
+              title: "text-green-700 dark:text-green-400",
+              description: "text-green-800 text-3xl dark:text-green-400",
+              extra: "text-green-800 text-xs dark:text-green-400",
             },
           }}
         />
+
         <Card
           title="En Progreso"
           icon={<LuCirclePlay size={28} className="text-white dark:text-orange-400" />}
           description="3"
           extra="Están siendo trabajadas actualmente."
           className={{
-            container:
-              "bg-orange-100 shadow-lg dark:bg-orange-500/20 dark:border dark:border-orange-500/40",
+            container: "bg-orange-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-orange-400/10 dark:transition-all",
             icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
-              title: "text-orange-700 dark:text-orange-300",
-              description: "text-orange-900 text-3xl dark:text-orange-200",
-              extra: "text-orange-800 text-xs dark:text-orange-300",
+              title: "text-orange-700 dark:text-orange-400",
+              description: "text-orange-900 text-3xl dark:text-orange-400",
+              extra: "text-orange-800 text-xs dark:text-orange-400",
             },
           }}
         />
-        <Card
-          title="Atrasados"
-          icon={<LuTriangleAlert size={28} className="text-white dark:text-red-400" />}
-          description="1"
-          extra="No se completaron en la fecha estimada"
-          className={{
-            container:
-              "bg-red-100 shadow-lg dark:bg-red-500/20 dark:border dark:border-red-500/40",
-            icon: "bg-red-600 rounded-full p-3 dark:bg-red-500/30",
-            text: {
-              title: "text-red-700 dark:text-red-300",
-              description: "text-red-900 text-3xl dark:text-red-200",
-              extra: "text-red-900 text-xs dark:text-red-300",
-            },
-          }}
-        />
+
+      <Card
+        title="Atrasados"
+        icon={<LuTriangleAlert size={28} className="text-white dark:text-red-400" />}
+        description="1"
+        extra="No se completaron en la fecha estimada"
+        className={{
+          container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-400/10 dark:transition-all",
+          icon: "bg-red-600 rounded-full p-3 dark:bg-red-500/30",
+          text: {
+            title: "text-red-700 dark:text-red-400",
+            description: "text-red-900 text-3xl dark:text-red-400",
+            extra: "text-red-900 text-xs dark:text-red-400",
+          },
+        }}
+      />
+
       </div>
 
  

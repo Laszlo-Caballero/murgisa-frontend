@@ -15,21 +15,18 @@ import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
 import Input from "@/components/ui/input/Input";
 import { useQuery } from "@/hooks/useQuery";
-import { MdOutlinePayments } from "react-icons/md";
-import { formaPagoData } from "@/data/formaPago";
 import CrearFormaPago from "@/modules/forma-pago/crear/CrearFormaPago";
 import { LuStar } from "react-icons/lu";
 import { LuTrendingUp } from "react-icons/lu";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 export default function FormasDePagoPage() {
-  const formas: FormaPago[] = formaPagoData;
   const [showModal, setShowModal] = useState(false);
-  // const { data, isLoading } = useQuery<FormaPago[]>({
-  //   queryFn: async () => {
-  //     const response = await axios.get(`${env.url_api}/Forma-pago`);
-  //     return response.data;
-  //   },
-  // });
+  const { data, isLoading } = useQuery<FormaPago[]>({
+    queryFn: async () => {
+      const response = await axios.get(`${env.url_api}/Forma-pago`);
+      return response.data;
+    },
+  });
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col dark:bg-gray-900">
       {showModal && (
@@ -66,12 +63,15 @@ export default function FormasDePagoPage() {
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total Métodos"
-          icon={<LuCreditCard size={28} className="text-white dark:text-blue-400" />}
+          icon={
+            <LuCreditCard size={28} className="text-white dark:text-blue-400" />
+          }
           description="5"
           extra="Registrados en la empresa"
           className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10",
-            icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
+            container:
+              "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            icon: "bg-blue-600 rounded-full p-3",
             text: {
               title: "text-blue-700 dark:text-blue-400",
               description: "text-blue-900 text-3xl dark:text-blue-400",
@@ -81,11 +81,17 @@ export default function FormasDePagoPage() {
         />
         <Card
           title="Metodos Activos"
-          icon={<LuCircleCheckBig size={28} className="text-white dark:text-emerald-400" />}
+          icon={
+            <LuCircleCheckBig
+              size={28}
+              className="text-white dark:text-emerald-400"
+            />
+          }
           description="4"
           extra="Disponibles para asignacion"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
+            container:
+              "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10",
             icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
             text: {
               title: "text-emerald-700 dark:text-emerald-400",
@@ -96,11 +102,14 @@ export default function FormasDePagoPage() {
         />
         <Card
           title="Método preferido"
-          icon={<LuStar size={28} className="text-white dark:text-purple-400" />}
+          icon={
+            <LuStar size={28} className="text-white dark:text-purple-400" />
+          }
           description="Tarjeta"
           extra="Al momento de Pagar"
           className={{
-            container: "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+            container:
+              "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
             icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
             text: {
               title: "text-purple-700 dark:text-purple-400",
@@ -111,11 +120,17 @@ export default function FormasDePagoPage() {
         />
         <Card
           title="Comisión Promedio"
-          icon={<LuTrendingUp size={28} className="text-white dark:text-orange-400" />}
+          icon={
+            <LuTrendingUp
+              size={28}
+              className="text-white dark:text-orange-400"
+            />
+          }
           description="2.5%"
           extra="Comisión promedio"
           className={{
-            container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
+            container:
+              "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
             icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
               title: "text-orange-700 dark:text-orange-400",
@@ -137,11 +152,11 @@ export default function FormasDePagoPage() {
           </p>
         </section>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
-          {/* {isLoading
+          {isLoading
             ? Array.from({ length: 3 }).map((_, index) => {
                 return <CardInfoSkeleton key={index} />;
-              }) */}
-              {formas.map((forma) => {
+              })
+            : data?.map((forma) => {
                 return (
                   <CardInfo
                     key={forma.idFormaPago}
@@ -150,10 +165,11 @@ export default function FormasDePagoPage() {
                       <FaRegMoneyBillAlt size={20} className="text-green-400" />
                     }
                     className={{
-                      container: "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-300",
+                      container:
+                        "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-300",
                       header: {
                         icon: "bg-green-100 dark:bg-green-500/30",
-                        description:"dark:text-gray-400"
+                        description: "dark:text-gray-400",
                       },
                       span: "bg-green-100 text-green-700 font-bold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
                     }}

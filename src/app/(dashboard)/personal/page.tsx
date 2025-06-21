@@ -2,7 +2,6 @@
 import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
-import { Personal } from "@/interfaces/response.interface";
 import axios from "axios";
 import { FiPlus } from "react-icons/fi";
 import {
@@ -25,16 +24,16 @@ import { env } from "@/config/env";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 import Modal from "@/components/ui/modal/Modal";
 import CrearPersonal from "@/modules/personal/crear/CrearPersonal";
-import { personalData } from "@/data/personal";
+import { Personal } from "@/interfaces/responsefinal.interface";
 
 export default function PersonalPage() {
   const [showModal, setShowModal] = useState(false);
-  // const { data, isLoading } = useQuery<Personal[]>({
-  //   queryFn: async () => {
-  //     const response = await axios.get(`${env.url_api}/personal`);
-  //     return response.data;
-  //   },
-  // });
+  const { data, isLoading } = useQuery<Personal[]>({
+    queryFn: async () => {
+      const response = await axios.get(`${env.url_api}/personal`);
+      return response.data;
+    },
+  });
 
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden dark:bg-gray-900">
@@ -75,7 +74,8 @@ export default function PersonalPage() {
           description="18"
           extra="Registrados en el sistema"
           className={{
-            container: "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
+            container:
+              "bg-blue-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
             icon: "bg-blue-600 rounded-full p-3 dark:bg-blue-500/30",
             text: {
               title: "text-blue-700 dark:text-blue-400",
@@ -86,11 +86,17 @@ export default function PersonalPage() {
         />
         <Card
           title="Empleados En Servicio"
-          icon={<GrUserWorker size={28} className="text-white dark:text-emerald-400"  />}
+          icon={
+            <GrUserWorker
+              size={28}
+              className="text-white dark:text-emerald-400"
+            />
+          }
           description="6"
           extra="Realizando su labor"
           className={{
-            container: "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
+            container:
+              "bg-green-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-green-400/10 dark:transition-all",
             icon: "bg-emerald-600 rounded-full p-3 dark:bg-emerald-500/30",
             text: {
               title: "text-emerald-700 dark:text-emerald-400",
@@ -101,11 +107,17 @@ export default function PersonalPage() {
         />
         <Card
           title="Empleados Activos"
-          icon={<LuCircleCheckBig size={28} className="text-white dark:text-purple-400" />}
+          icon={
+            <LuCircleCheckBig
+              size={28}
+              className="text-white dark:text-purple-400"
+            />
+          }
           description="15"
           extra="Disponibles para asignación"
           className={{
-            container: "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
+            container:
+              "bg-purple-100 shadow-lg  dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/10 dark:transition-all",
             icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
             text: {
               title: "text-purple-700 dark:text-purple-400",
@@ -116,11 +128,17 @@ export default function PersonalPage() {
         />
         <Card
           title="Sueldo Promedio"
-          icon={<LuTrendingUp size={28} className="text-white dark:text-orange-400" />}
+          icon={
+            <LuTrendingUp
+              size={28}
+              className="text-white dark:text-orange-400"
+            />
+          }
           description="S/. 1500"
           extra="Sueldo promedio de empleados"
           className={{
-            container: "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
+            container:
+              "bg-red-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-red-500/10 dark:transition-all",
             icon: "bg-orange-600 rounded-full p-3 dark:bg-orange-500/30",
             text: {
               title: "text-orange-700 dark:text-orange-400",
@@ -142,26 +160,27 @@ export default function PersonalPage() {
           </p>
         </section>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {/* {isLoading &&
+          {isLoading &&
             Array.from({ length: 3 }).map((_, index) => {
               return <CardInfoSkeleton key={index} />;
-            })} */}
+            })}
 
-          {personalData?.map((empleado) => {
+          {data?.map((empleado) => {
             return (
               <CardInfo
                 key={empleado.idPersonal}
                 title={`${empleado.nombre} ${empleado.apellido_paterno} ${empleado.apellido_materno}`}
                 icon={<p>{empleado.nombre.split("")[0]}</p>}
                 className={{
-                  container: "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-200 ",
+                  container:
+                    "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-200 ",
                   header: {
                     icon: "bg-blue-100 text-center p-0 size-7 flex items-center justify-center uppercase dark:bg-blue-500/30",
-                    description:"dark:text-gray-400"
+                    description: "dark:text-gray-400",
                   },
                   span: "bg-green-100 text-green-600 font-bold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
                 }}
-                description={empleado.cargo}
+                description={empleado.cargo.cargo}
                 span={empleado.estado ? "Activo" : "Inactivo"}
               >
                 <div className="flex flex-col gap-y-2">
@@ -175,7 +194,7 @@ export default function PersonalPage() {
                     <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
                       <MdOutlineEmail /> Correo:{" "}
                       <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado?.correo || "No disponible"}
+                        {empleado?.usuario.correo || "No disponible"}
                       </p>
                     </span>
                     <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
@@ -200,7 +219,7 @@ export default function PersonalPage() {
                     <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
                       <LuBriefcase /> Profesion:{" "}
                       <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado.profesion || "No disponible"}
+                        {empleado.profesion.titulo || "No disponible"}
                       </p>
                     </span>
                   </div>

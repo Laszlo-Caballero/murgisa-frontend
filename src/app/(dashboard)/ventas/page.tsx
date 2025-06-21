@@ -36,7 +36,7 @@ export default function VentasPagina() {
         </Modal>
       )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-700">
-        <span className="bg-green-500 p-2 rounded-xl max-w-max mb-2 lg:p-3 ">
+        <span className="bg-green-500 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-green-400/30">
           <LuShoppingCart className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white">

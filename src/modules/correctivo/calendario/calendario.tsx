@@ -16,12 +16,12 @@ export default function ListaCalendario({ data }: ListarCorrectivoProps){
         <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3 ">
             {data.map((correctivo)=>{
                 return(
-                    <div className="bg-white rounded-lg border border-gray-300 hover:shadow-md  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700" key={correctivo.idCorrectivo}>
+                    <div className="bg-white rounded-lg border border-gray-300 hover:shadow-md  dark:bg-gray-800 dark:shadow-lg dark:border-none" key={correctivo.idCorrectivo}>
                         <div className="flex items-center justify-between mt-4 mx-6 ">
-                            <Badge className="bg-green-100 border-green-300 text-green-700 font-semibold py-1  dark:bg-green-900/50 dark:shadow-lg dark:border dark:border-green-800">
+                            <Badge className="bg-green-100 dark:bg-green-500/20 dark:border-green-400/40 border-green-300 text-green-700 dark:text-green-300 font-semibold py-1">
                                 Activo
                             </Badge>
-                            <Badge className="bg-yellow-100 border-yellow-300 text-yellow-700 font-semibold py-1 dark:bg-orange-800/50 dark:shadow-lg dark:border dark:border-orange-800">
+                            <Badge className="bg-yellow-100 dark:bg-yellow-500/20 dark:border-yellow-400/40 border-yellow-300 text-yellow-700 dark:text-yellow-300 font-semibold py-1">
                                 En progreso
                             </Badge>
                         </div>
@@ -30,7 +30,7 @@ export default function ListaCalendario({ data }: ListarCorrectivoProps){
                             title={correctivo.maquinaria}
                             icon={<LuWrench size={20} className="text-orange-500 " />}
                             description=""
-                            className={{container:"gap-y-1 pointer-events-none pt-4 ", 
+                            className={{container:"bg-white dark:bg-gray-800 dark:text-gray-300", 
                                 header:{
                                     icon: "bg-orange-100 rounded-lg p-2  dark:bg-orange-600/20",
                                 }
