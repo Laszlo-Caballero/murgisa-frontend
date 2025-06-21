@@ -53,7 +53,7 @@ export default function CrearCliente() {
         <Select
           label="Ciudad"
           icon={<CiCirclePlus />}
-          placeholder="Selecciona un Proveedor"
+          placeholder="Selecciona una ciudad"
           options={[{ value: "1", label: "Ciudad1" } ,{ value: "2", label: "Ciudad2" } ]}
         ></Select>     
       </div>
