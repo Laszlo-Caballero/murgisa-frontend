@@ -24,6 +24,14 @@ export function ThemeProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     const storedDarkmode = localStorage.getItem("darkmode");
+
+    if (!storedDarkmode) {
+      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setIsDarkmode(isDark);
+      localStorage.setItem("darkmode", isDark ? "true" : "false");
+      return;
+    }
+
     if (storedDarkmode === "true") {
       setIsDarkmode(true);
     } else {
