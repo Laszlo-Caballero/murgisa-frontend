@@ -11,6 +11,7 @@ import {
 } from "react";
 import Cookie from "js-cookie";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 type AuthContextType = {
   user: UserReponse | null;
@@ -45,10 +46,14 @@ export function AuthProvider({ children }: PropsWithChildren) {
       setUser(userData.usuario);
       Cookie.set("auth_token", userData.usuario.token);
       localStorage.setItem("user", JSON.stringify(userData.usuario));
+      toast.success("Inicio de sesión exitoso");
       router.push("/");
     } catch (error) {
       Cookie.remove("auth_token");
       localStorage.removeItem("user");
+      toast.error(
+        "Error al iniciar sesión. Por favor, verifica tus credenciales."
+      );
     }
   };
 
