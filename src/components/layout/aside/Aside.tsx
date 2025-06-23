@@ -11,10 +11,13 @@ import { LuSettings } from "react-icons/lu";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import Hamburger from "hamburger-react";
 import ButtonTheme from "@/components/ui/button-theme/ButtonTheme";
+import { useAuth } from "@/context/AuthContext";
 export default function Aside() {
   const pathName = usePathname();
   const [open, setOpen] = useState(false);
   const [openAside, setOpenAside] = useState(true);
+
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     if (window.innerWidth < 1280) {
@@ -155,14 +158,14 @@ export default function Aside() {
           <div className="flex items-center justify-between p-3 bg-white dark:bg-gray-700 rounded-lg shadow-md">
             <div className="flex items-center">
               <span className="size-10 bg-blue-600 rounded-full text-white flex items-center justify-center">
-                A
+                {user?.personal.nombre?.charAt(0).toUpperCase()}
               </span>
               <div className="ml-3">
                 <p className="text-sm font-semibold dark:text-white">
-                  Administrador
+                  {`${user?.personal.nombre} ${user?.personal.apellido_paterno}`}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-white">
-                  admin@gmail.com
+                  {user?.correo}
                 </p>
               </div>
             </div>
@@ -181,13 +184,15 @@ export default function Aside() {
 
           {open && (
             <div className="absolute bottom-1/2 translate-y-1/2 py-4 px-8 left-full w-full max-w-max rounded-xl right-0 bg-white dark:bg-gray-900 shadow-2xl">
-              <Link
-                href="/login"
+              <button
                 className="flex items-center w-full gap-x-2 cursor-pointer dark:text-white"
+                onClick={() => {
+                  logout();
+                }}
               >
                 <RiLogoutCircleRLine className="dark:text-white" />
                 Logout
-              </Link>
+              </button>
             </div>
           )}
         </footer>

@@ -5,10 +5,25 @@ import { MdOutlineEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import Checkbox from "@/components/ui/checkbox/Checkbox";
 import Button from "@/components/ui/button/Button";
-import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { LoginSchema } from "@/schemas/Login.schema";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LoginPage() {
-  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(LoginSchema),
+  });
+
+  const { login } = useAuth();
+
+  const onSubmit = (data: { email: string; password: string }) => {
+    login(data.email, data.password);
+  };
 
   return (
     <main className="flex-1 flex w-full h-full flex-col items-center justify-center bg-gray-100">
@@ -22,10 +37,7 @@ export default function LoginPage() {
 
       <form
         className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center mt-5 bg-white"
-        onSubmit={(e) => {
-          e.preventDefault();
-          router.push("/");
-        }}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <p className="text-2xl font-semibold">Iniciar Sesión</p>
         <p className="text-sm mt-1">
@@ -38,6 +50,8 @@ export default function LoginPage() {
             label="Correo Electrónico"
             id="email"
             placeholder="tu@empresa.com"
+            {...register("email")}
+            error={errors.email?.message}
           />
           <Input
             icon={<IoLockClosedOutline />}
@@ -45,6 +59,8 @@ export default function LoginPage() {
             id="password"
             type="password"
             placeholder="••••••••"
+            {...register("password")}
+            error={errors.password?.message}
           />
 
           <div className="flex items-center justify-between w-full">

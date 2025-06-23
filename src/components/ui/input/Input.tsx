@@ -13,6 +13,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
   className?: string;
   classNameContainer?: string;
+  error?: string;
 }
 
 export default function Input({
@@ -21,6 +22,7 @@ export default function Input({
   id,
   label,
   classNameContainer,
+  error,
   ...props
 }: InputProps) {
   const parseIcon = icon as ReactElement<{
@@ -31,7 +33,10 @@ export default function Input({
 
   return (
     <div className={cx("flex flex-col gap-y-2", classNameContainer)}>
-      <label htmlFor={id} className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-gray-700 dark:text-gray-300"
+      >
         {label}
       </label>
       <div className="w-full relative">
@@ -53,6 +58,8 @@ export default function Input({
           {...props}
         />
       </div>
+
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>
   );
 }
