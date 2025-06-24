@@ -17,6 +17,7 @@ import { GrUserWorker } from "react-icons/gr";
 import { LuSettings } from "react-icons/lu";
 import { LuPackage } from "react-icons/lu";
 import { LuLayers } from "react-icons/lu";
+import { GrVmMaintenance } from "react-icons/gr";
 
 export const links: Link[] = [
   {
@@ -96,6 +97,11 @@ export const links: Link[] = [
         href: "/mantenimiento/agregarmantenimiento",
         label: "Agregar Tipo Mantenimiento",
       },
+      {
+        label: "Pedido - Reemplazo",
+        href: "/mantenimiento/pedido-reemplazo",
+        icono: <GrVmMaintenance />,
+      },
     ],
   },
   {
@@ -106,7 +112,7 @@ export const links: Link[] = [
         label: "Servicios",
         href: "/servicios",
         icono: <LuBriefcase />,
-      }
+      },
     ],
   },
   {
