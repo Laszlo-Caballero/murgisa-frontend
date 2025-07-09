@@ -15,9 +15,9 @@ export default function Card404({ icon, title, subtitle, url }: Card404Props) {
       className="flex justify-center w-full bg-white items-center rounded-lg flex-col gap-y-2 p-6 shadow-lg hover:shadow-2xl transition-all dark:bg-gray-700/50"
     >
       <div className="p-3 bg-blue-100 rounded-full dark:bg-blue-500/30">
-        {cloneElement(icon as ReactElement<{ size: number; color: string}>, {
+        {cloneElement(icon as ReactElement<{ size: number; color: string, className?:string}>, {
           size: 24,
-          color: "#2563EB",
+          className: "dark:text-blue-400 text-blue-600",
         })}
       </div>
 
