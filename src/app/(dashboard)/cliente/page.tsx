@@ -37,7 +37,7 @@ export default function ClientesPage() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600 ">
-        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-300/30">
+        <span className="p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-300/30">
           <LuUsers className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white">
@@ -132,8 +132,8 @@ export default function ClientesPage() {
         />
       </div>
 
-      <Tabs headers={["Lista de Clientes"]} className="mt-6">
-        <ListarClientes data={data} isLoading={isLoading} />
+      <Tabs headers={["Lista de Clientes"]} className="mt-6 ">
+        <ListarClientes data={data} isLoading={isLoading}/>
       </Tabs>
     </div>
   );

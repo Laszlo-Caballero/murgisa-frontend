@@ -37,7 +37,7 @@ export default function DepartamentoPage() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600">
-        <span className="bg-blue-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-blue-400/30">
+        <span className="p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-300/30">
           <LuBuilding2 className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white">
@@ -48,7 +48,7 @@ export default function DepartamentoPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-4  hover:bg-blue-500 mb-2 bg-blue-500/50 lg:px-6"
+          className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-4  hover:bg-blue-500 mb-2 bg-blue-300/30 lg:px-6"
           onClick={() => setShowModal(true)}
         >
           <FiPlus size={15} />

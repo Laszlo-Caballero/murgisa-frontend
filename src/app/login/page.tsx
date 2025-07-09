@@ -26,17 +26,17 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex-1 flex w-full h-full flex-col items-center justify-center bg-gray-100">
-      <span className="bg-blue-500 size-14 rounded-full flex items-center justify-center">
-        <LuBuilding2 className="text-white" size={35} />
+    <main className="flex-1 flex w-full h-full flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
+      <span className="bg-blue-500 size-14 rounded-full flex items-center justify-center dark:bg-blue-500/30 p-3">
+        <LuBuilding2 className="text-white dark:text-blue-400" size={35} />
       </span>
-      <div className="flex text-center flex-col gap-y-3 mt-3">
+      <div className="flex text-center flex-col gap-y-3 mt-3 dark:text-white">
         <p className="text-3xl font-bold">MURGISA</p>
         <p>Servicios Profesionales</p>
       </div>
 
       <form
-        className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center mt-5 bg-white"
+        className="flex flex-col py-4 shadow-xl rounded-lg px-6 items-center justify-center mt-5 bg-white dark:bg-gray-700/50 dark:text-white"
         onSubmit={handleSubmit(onSubmit)}
       >
         <p className="text-2xl font-semibold">Iniciar Sesión</p>

@@ -31,8 +31,8 @@ export default function ServiciosPage() {
         </Modal>
       )}
 
-  <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-purple-500/60 via-purple-600 to-purple-700/80 text-white shadow-md">
-        <span className="bg-purple-600 p-2 rounded-lg max-w-max mb-2 lg:p-3 dark:bg-purple-300/30">
+  <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-purple-600 to-purple-700 ">
+        <span className=" p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-purple-300/30">
           <LuBriefcase className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white">
@@ -43,7 +43,7 @@ export default function ServiciosPage() {
         </div>
 
     <Button
-      className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-purple-500 mb-2 bg-purple-500/50 lg:px-6"
+      className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-purple-500 mb-2 bg-purple-300/30 lg:px-6"
       onClick={() => {
         setShowModal(true);
       }}
@@ -55,16 +55,16 @@ export default function ServiciosPage() {
    <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Total de Servicios"
-          icon={<LuBriefcase size={28} className="text-white dark:text-blue-400" />}
+          icon={<LuBriefcase size={28} className="text-white dark:text-purple-400" />}
           description="5"
           extra="En catálogo"
           className={{
             container: "bg-purple-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-blue-400/10 dark:transition-all",
-          icon: "bg-purple-600 rounded-full p-3 dark:bg-blue-500/30",
+          icon: "bg-purple-600 rounded-full p-3 dark:bg-purple-500/30",
           text: {
-            title: "text-purple-700 dark:text-blue-400",
-            description: "text-purple-900 text-3xl dark:text-blue-400",
-            extra: "text-purple-600 dark:text-blue-400",
+            title: "text-purple-700 dark:text-purple-400",
+            description: "text-purple-900 text-3xl dark:text-purple-400",
+            extra: "text-purple-600 dark:text-purple-400",
        },
      }}
      />

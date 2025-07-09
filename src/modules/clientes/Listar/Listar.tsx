@@ -22,7 +22,7 @@ export default function ListarClientes({
   isLoading,
 }: ListarClientesProps) {
   return (
-    <div className="py-4 flex w-full flex-col gap-y-4">
+    <div className="py-3 flex w-full flex-col gap-y-4">
       <div className="flex w-full flex-col p-4 rounded-md shadow-md bg-white dark:bg-gray-800 dark:border dark:border-gray-700">
         <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">
           <LuFilter className="size-5 text-blue-500 dark:text-blue-400" />

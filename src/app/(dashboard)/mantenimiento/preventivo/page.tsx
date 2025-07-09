@@ -134,7 +134,7 @@ export default function MantenimientoPreventivoPage() {
       )}
 
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
-          <span className="bg-white/20 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-orange-300/30">
+          <span className="p-2 rounded-xl max-w-max mb-2 lg:p-3 bg-orange-300/30">
             <LuShield className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col text-white">
@@ -144,7 +144,7 @@ export default function MantenimientoPreventivoPage() {
             </p>
           </div>
           <Button
-            className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-amber-600 mb-2 bg-orange-500/50 lg:px-6 "
+            className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-amber-600 mb-2 bg-orange-300/30  lg:px-6 "
             onClick={() => {
               setShowModal(true);
             }}

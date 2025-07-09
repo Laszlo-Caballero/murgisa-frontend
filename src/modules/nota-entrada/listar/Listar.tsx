@@ -18,8 +18,7 @@ interface ListarNotaEntradaProps {
 
 export default function ListarNotaEntrada({ data }: ListarNotaEntradaProps) {
   return (
-    <div className="py-4 flex w-full flex-col gap-y-4">
-      <div className="py-4 flex w-full flex-col gap-y-4">
+    <div className="py-3 flex w-full flex-col gap-y-4">
         <section className="flex w-full flex-col p-4 rounded-md shadow-md bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
           <span className="flex items-center gap-x-2 font-semibold text-black text-lg dark:text-white">
             <LuFilter size={20} className="text-pink-600" />
@@ -30,7 +29,6 @@ export default function ListarNotaEntrada({ data }: ListarNotaEntradaProps) {
             manera rápida
           </p>
         </section>
-      </div>
 
       <div className="flex flex-col items-start justify-between w-full rounded-md shadow-md p-4 bg-white  dark:bg-gray-800/50 dark:shadow-lg dark:border dark:border-gray-700">
         <div className="flex items-center justify-between w-full">

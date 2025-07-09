@@ -31,8 +31,8 @@ export default function page() {
           <CrearNotaEntrada />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-pink-500 to-pink-800 dark:from-pink-700">
-          <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-rose-500/80 to-rose-700/80 dark:from-rose-500/80 dark:to-rose-800/90">
+          <span className="dark:bg-rose-400/40 p-2 rounded-xl max-w-max mb-2 lg:p-3 bg-rose-400">
             <LuCar className="text-white size-8 lg:size-10" />
           </span>
           <div className="flex flex-col">
@@ -42,7 +42,7 @@ export default function page() {
             </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  bg-pink-700 hover:bg-pink-600 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-rose-400/60 mb-2 bg-rose-400/40 dark:hover:bg-rose-500/60"
           onClick={() => {
             setShowModal(true);
           }}>

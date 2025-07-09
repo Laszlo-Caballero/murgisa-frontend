@@ -12,6 +12,7 @@ import { LuCirclePlay } from "react-icons/lu";
 import ListarCorrectivo from "@/modules/correctivo/listar/Listar";
 import ListaCalendario from "@/modules/correctivo/calendario/calendario";
 import { correctivoData } from "@/data/correctivo";
+import { FiPlus } from "react-icons/fi";
 
 export default function page() {
   const [showModal, setShowModal] = useState(false);
@@ -25,23 +26,23 @@ export default function page() {
         ></Modal>
       )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
-        <span className="bg-white/20 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-orange-300/30">
+        <span className="p-2 rounded-xl max-w-max mb-2 lg:p-3 bg-orange-300/30">
           <GrVmMaintenance className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
-          <p className="font-bold text-3xl text-white">Pedido Reemplazo</p>
+          <h1 className="font-bold text-3xl text-white">Pedido Reemplazo</h1>
           <p className="text-sm mt-1 text-white">
             Gestiona y monitorea Pedido Reemplazo
           </p>
         </div>
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[18%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-amber-600 mb-2 bg-orange-500/50 "
+          className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-orange-400/70 mb-2 bg-orange-300/30 "
           onClick={() => {
             setShowModal(true);
           }}
         >
-          <GrVmMaintenance size={15} />
-          Nuevo Pedido Reemplazo
+          <FiPlus size={15} />
+          Nuevo Pedido
         </Button>
       </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -133,7 +134,6 @@ export default function page() {
         headers={[
           "Pedidos Activos",
           "Maquinaria Disponible",
-          "Vista calendario",
         ]}
         className="mt-6"
       >

@@ -33,7 +33,7 @@ export default function Tabs({ headers, children, className }: TabsProps) {
       </div>
 
       {/* Contenido del tab */}
-      <div className="mt-2 bg-white dark:bg-gray-900 text-black dark:text-white rounded-md p-4 shadow">
+      <div className=" text-black dark:text-white rounded-md px-4 py-2">
         {Children.map(children, (child, index) => {
           return index === activeTab ? child : null;
         })}

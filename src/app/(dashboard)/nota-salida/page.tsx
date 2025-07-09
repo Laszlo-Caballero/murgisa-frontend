@@ -91,8 +91,8 @@ export default function NotasDeSalidaPage() {
         </Modal>
       )}
 
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-pink-500 to-pink-800 dark:from-pink-700">
-        <span className="bg-pink-600 p-2 rounded-xl max-w-max mb-2 lg:p-3">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-rose-500/80 to-rose-700/80 dark:from-rose-500/80 dark:to-rose-800/90">
+        <span className="dark:bg-rose-400/40 p-2 rounded-xl max-w-max mb-2 lg:p-3 bg-rose-400">
           <LuClipboardList className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col">
@@ -103,7 +103,7 @@ export default function NotasDeSalidaPage() {
         </div>
 
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[125%] md:translate-y-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6 bg-pink-700 hover:bg-pink-600 mb-2"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-rose-400/60 mb-2 bg-rose-400/40 dark:hover:bg-rose-500/60"
           onClick={() => {
             setShowModal(true);
           }}
@@ -165,14 +165,14 @@ export default function NotasDeSalidaPage() {
               <CardInfo
                 key={nota.idNotaSalida}
                 title="Nota de Salida"
-                icon={<LuClipboardList size={20} className="text-red-400" />}
+                icon={<LuClipboardList size={20} className="text-rose-400" />}
                 className={{
                   container: "bg-white  dark:bg-gray-800  dark:text-white ",
                   header: {
-                    icon: "bg-red-100  dark:bg-red-600/20",
+                    icon: "bg-red-100  dark:bg-rose-600/20",
                     description: "font-semibold dark:bg-gray-800",
                   },
-                  span: "bg-green-100 text-green-700 border border-green-300 font-semibold  dark:bg-green-600 dark:text-white",
+                  span: "bg-green-100 text-green-700 border border-green-300 font-semibold  dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
                 }}
                 description={"ID: NS-00" + nota.idNotaSalida.toString()}
                 span={nota.estado ? "Activo" : "Inactivo"}
@@ -195,11 +195,11 @@ export default function NotasDeSalidaPage() {
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-x-2 mt-4">
-                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-red-500 border border-red-300 hover:bg-red-50 dark:bg-transparent dark:border-red-600 dark:text-red-400">
+                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-red-500/10 text-red-500 border border-red-300 dark:border-red-500 hover:bg-red-100 dark:hover:bg-red-600/20">
                     <LuSquarePen size={15} />
                     Editar
                   </Button>
-                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white text-black border border-gray-300 hover:bg-gray-100 dark:bg-transparent dark:border-gray-600 dark:text-gray-400 ">
+                  <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-gray-700 text-black dark:text-white border border-gray-300 dark:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600">
                     <LuEye size={15} />
                     Desactivar
                   </Button>

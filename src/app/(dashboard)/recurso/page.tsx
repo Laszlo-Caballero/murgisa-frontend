@@ -35,18 +35,18 @@ export default function RecursoPage() {
           <CrearRecurso />
         </Modal>
       )}
-      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-red-500 to-red-900 dark:from-red-600/80">
-        <span className="bg-red-600 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-red-300/30">
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-red-500 to-red-700 dark:from-red-600/90 dark:to-red-900">
+        <span className="bg-red-400/60 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-red-400/30 ">
           <LuPackage className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white ">
-          <p className="font-bold text-3xl">Gestión de Recursos</p>
+          <h1 className="font-bold text-3xl">Gestión de Recursos</h1>
           <p className="text-sm mt-1 ">
             Administra el inventario de recursos, equipos y materiales
           </p>
-        </div>
+        </div>s
         <Button
-          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[20%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-red-500 mb-2 bg-red-500/50 lg:px-6"
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[20%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-red-500/70 mb-2 bg-red-400/40 dark:bg-red-500/50 lg:px-6"
           onClick={() => {
             setShowModal(true);
           }}

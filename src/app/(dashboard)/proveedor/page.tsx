@@ -27,26 +27,26 @@ export default function ProveedorPage() {
         </Modal>
       )}
 
-      <header className="flex items-center justify-between p-6 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-red-500 text-white shadow-md">
-  <div className="flex items-center gap-4">
-    <div className="bg-white/20 p-3 rounded-xl">
-      <LuBuilding2 size={28} className="text-white" />
-    </div>
-    <div className="flex flex-col text-white">
-      <h1 className="text-3xl font-bold">Gestión de Proveedores</h1>
-      <p className="text-sm">
-        Administra y controla todos los proveedores de MURGISA
-      </p>
-    </div>
-  </div>
-
-  <button
-    onClick={() => setShowModal(true)}
-    className="bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-4 rounded-lg transition"
-  >
-    + Nuevo Proveedor
-  </button>
-</header>
+      <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-red-500 to-red-700 dark:from-red-600/90 dark:to-red-900">
+        <span className="bg-red-400/60 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-red-400/30">
+          <LuBuilding2 className="text-white size-8 lg:size-10" />
+        </span>
+        <div className="flex flex-col text-white ">
+          <p className="font-bold text-3xl">Gestión de Proveedores</p>
+          <p className="text-sm mt-1 ">
+            Administra y controla todos los proveedores de MURGISA
+          </p>
+        </div>
+        <Button
+          className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[20%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-red-500/70 mb-2 bg-red-400/40 dark:bg-red-500/50"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          <FiPlus size={15} />
+          Nuevo Proveedor
+        </Button>
+      </header>
 
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
        <Card
