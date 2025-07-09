@@ -98,7 +98,7 @@ export const links: Link[] = [
         label: "Agregar Tipo Mantenimiento",
       },
       {
-        label: "Pedido - Reemplazo",
+        label: "Pedido Reemplazo",
         href: "/mantenimiento/pedido-reemplazo",
         icono: <GrVmMaintenance />,
       },
