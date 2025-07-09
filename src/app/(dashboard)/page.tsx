@@ -21,6 +21,7 @@ import Carousel from "@/components/ui/carousel/Carousel";
 import { tips } from "@/data/tips";
 import { getColor } from "@/libs/getColor";
 import { LuDollarSign } from "react-icons/lu";
+import HeaderHome from "@/components/layout/header-home/HeaderHome";
 export default function Home() {
   const actualHour = new Date().getHours();
   const greeting = actualHour > 12 ? "¡Buenos días!" : "¡Buenas tardes!";
@@ -29,9 +30,7 @@ export default function Home() {
   return (
     <div className="w-full h-full p-8 flex flex-col gap-y-6 bg-gray-50 dark:bg-gray-900">
       <header className="flex flex-col">
-        <p className="text-3xl font-bold text-gray-900 dark:text-white">
-          {greeting}, Administrador 👋
-        </p>
+        <HeaderHome greeting={greeting} />
         <p className="text-gray-600 dark:text-gray-300 mt-1">
           Aquí tienes un resumen de las actividades de MURGISA -{" "}
           {date.split(",")[0]}
@@ -160,7 +159,8 @@ export default function Home() {
             }
             className={{
               icon: "bg-green-200 text-green-600 dark:bg-green-500/30 dark:text-green-400",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-green-400/20",
+              container:
+                "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-green-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -172,7 +172,8 @@ export default function Home() {
             icon={<PiWrenchBold size={15} className="text-blue-400" />}
             className={{
               icon: "bg-blue-200 dark:bg-blue-500/30 text-blue-600",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-blue-400/20",
+              container:
+                "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-blue-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -181,10 +182,11 @@ export default function Home() {
           />
           <LinkHome
             href="/cliente"
-            icon={<LuUsers size={15} className="text-purple-400"/>}
+            icon={<LuUsers size={15} className="text-purple-400" />}
             className={{
               icon: "bg-purple-200 text-purple-600 dark:bg-purple-500/30",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-purple-400/20",
+              container:
+                "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-purple-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -193,10 +195,11 @@ export default function Home() {
           />
           <LinkHome
             href="/personal"
-            icon={<LuBriefcase size={15} className="text-red-500"/>}
+            icon={<LuBriefcase size={15} className="text-red-500" />}
             className={{
               icon: "bg-red-200 text-red-600 dark:bg-red-500/30",
-              container: "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-red-400/20",
+              container:
+                "dark:bg-gray-900 dark:border dark:border-gray-700 dark:hover:bg-red-400/20",
               description: "dark:text-gray-300",
               title: "dark:text-white",
             }}
@@ -226,7 +229,7 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col gap-y-2">
-                    <Badge className="font-semibold max-w-max"> 
+                    <Badge className="font-semibold max-w-max">
                       {tip.type}
                     </Badge>
                     <p className="text-sm font-semibold dark:text-white">
