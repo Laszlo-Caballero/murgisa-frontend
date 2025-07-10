@@ -15,7 +15,7 @@ import { LuStar } from "react-icons/lu";
 import { useQuery } from "@/hooks/useQuery";
 import axios from "axios";
 import { env } from "@/config/env";
-import Load from "@/components/ui/load/Load";
+import Load from "@/components/share/load/Load";
 import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
 
 export default function ClientesPage() {
@@ -133,7 +133,7 @@ export default function ClientesPage() {
       </div>
 
       <Tabs headers={["Lista de Clientes"]} className="mt-6 ">
-        <ListarClientes data={data} isLoading={isLoading}/>
+        <ListarClientes data={data} isLoading={isLoading} />
       </Tabs>
     </div>
   );

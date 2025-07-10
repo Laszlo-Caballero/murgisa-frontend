@@ -9,6 +9,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ProfesionSchema } from "@/schemas/Profesion.schema";
 import { z } from "zod";
 import { ModalProps } from "@/interfaces/modal.interface";
+import { useMutation } from "@/hooks/useMutation";
+import axios from "axios";
+import { toast } from "sonner";
+import { Profesion, Response } from "@/interfaces/responsefinal.interface";
+import { useTableContext } from "@/context/TableContext";
+import Load from "@/components/share/load/Load";
 
 export default function CrearProfesion({ onClose }: ModalProps) {
   const {
@@ -18,15 +24,37 @@ export default function CrearProfesion({ onClose }: ModalProps) {
   } = useForm({
     resolver: zodResolver(ProfesionSchema),
   });
-  const onSubmit = (data: z.infer<typeof ProfesionSchema>) => {
-    console.log("Datos de la profesión:", data);
-    onClose?.();
-  };
+  const { refresh } = useTableContext<Profesion>();
+
+  const { mutate, isLoading } = useMutation<
+    z.infer<typeof ProfesionSchema>,
+    Response<Profesion[]>
+  >({
+    mutationFn: async (data, urlApi, token) => {
+      const res = await axios.post(`${urlApi}/profesion`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return res.data;
+    },
+    onSuccess: (data) => {
+      toast.success("Profesión registrada correctamente");
+      refresh(data.data);
+      onClose?.();
+    },
+    onError: () => {
+      toast.error("Error al registrar la profesión, intente nuevamente");
+    },
+  });
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(mutate)}
       className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white dark:bg-gray-800 p-8 flex flex-col gap-y-4"
     >
+      {isLoading && <Load />}
       <header className="flex items-center gap-x-3">
         <LuGraduationCap size={40} className="text-blue-600 mb-2" />
         <div className="flex flex-col">
