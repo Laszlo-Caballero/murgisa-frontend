@@ -1,3 +1,4 @@
+"use client";
 import cx from "@/libs/cx";
 import React, {
   cloneElement,
@@ -17,9 +18,10 @@ interface SelectProps {
   icon?: ReactNode;
   className?: string;
   options?: Options[];
-  onChange?: (value: string) => void;
+  onChange?: (value: Options) => void;
   value?: Options;
   placeholder?: string;
+  error?: string;
 }
 export default function Select({
   className,
@@ -30,6 +32,7 @@ export default function Select({
   options,
   value,
   placeholder,
+  error,
 }: SelectProps) {
   const parseIcon = icon as ReactElement<{
     size?: number;
@@ -82,7 +85,7 @@ export default function Select({
                 className="w-full px-10 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
                 key={option.value}
                 onClick={() => {
-                  onChange?.(option.value);
+                  onChange?.(option);
                   setOpen(false);
                 }}
               >
@@ -92,6 +95,7 @@ export default function Select({
           })}
         </div>
       )}
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>
   );
 }

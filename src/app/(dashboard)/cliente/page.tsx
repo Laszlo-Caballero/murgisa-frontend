@@ -1,41 +1,23 @@
-"use client";
-import { useState } from "react";
-import Button from "@/components/ui/button/Button";
 import { LuUsers, LuBuilding } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
 import ListarClientes from "@/modules/clientes/Listar/Listar";
 import { Cliente } from "@/interfaces/response.interface";
-import Modal from "@/components/ui/modal/Modal";
-import { clienteData } from "@/data/cliente";
 import { LuClock4 } from "react-icons/lu";
 import CrearCliente from "@/modules/clientes/crear/CrearClientes";
 import { LuStar } from "react-icons/lu";
-import { useQuery } from "@/hooks/useQuery";
-import axios from "axios";
-import { env } from "@/config/env";
-import Load from "@/components/share/load/Load";
-import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import { ApiRequest } from "@/libs/api";
 
-export default function ClientesPage() {
-  const [showModal, setShowModal] = useState(false);
-  const { isLoading, data, isError, error } = useQuery<Cliente[]>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/cliente`);
-      return response.data;
-    },
-    dependencies: [],
+export default async function ClientesPage() {
+  const data = await ApiRequest<Cliente[]>({
+    metod: "get",
+    endpoint: "cliente",
   });
 
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden dark:bg-gray-900">
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <CrearCliente />
-        </Modal>
-      )}
-
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600 ">
         <span className="p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-300/30">
           <LuUsers className="text-white size-8 lg:size-10" />
@@ -47,13 +29,13 @@ export default function ClientesPage() {
           </p>
         </div>
 
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50"
-          onClick={() => setShowModal(true)}
+          modal={<CrearCliente />}
         >
           <FiPlus size={15} />
           Nuevo Cliente
-        </Button>
+        </ButtonModal>
       </header>
 
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -133,7 +115,7 @@ export default function ClientesPage() {
       </div>
 
       <Tabs headers={["Lista de Clientes"]} className="mt-6 ">
-        <ListarClientes data={data} isLoading={isLoading} />
+        <ListarClientes data={data} />
       </Tabs>
     </div>
   );

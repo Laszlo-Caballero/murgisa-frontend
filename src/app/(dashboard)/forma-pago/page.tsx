@@ -1,5 +1,3 @@
-"use client";
-import Button from "@/components/ui/button/Button";
 import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { FiPlus } from "react-icons/fi";
@@ -8,36 +6,19 @@ import { LuCircleCheckBig } from "react-icons/lu";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { LuCalendar } from "react-icons/lu";
-import axios from "axios";
-import { env } from "@/config/env";
 import { FormaPago } from "@/interfaces/response.interface";
-import { useState } from "react";
-import Modal from "@/components/ui/modal/Modal";
-import Input from "@/components/ui/input/Input";
-import { useQuery } from "@/hooks/useQuery";
 import CrearFormaPago from "@/modules/forma-pago/crear/CrearFormaPago";
 import { LuStar } from "react-icons/lu";
 import { LuTrendingUp } from "react-icons/lu";
-import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
-export default function FormasDePagoPage() {
-  const [showModal, setShowModal] = useState(false);
-  const { data, isLoading } = useQuery<FormaPago[]>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/Forma-pago`);
-      return response.data;
-    },
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import { ApiRequest } from "@/libs/api";
+export default async function FormasDePagoPage() {
+  const data = await ApiRequest<FormaPago[]>({
+    metod: "get",
+    endpoint: "forma-pago",
   });
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col dark:bg-gray-900">
-      {showModal && (
-        <Modal
-          onClose={() => {
-            setShowModal(false);
-          }}
-        >
-          <CrearFormaPago />
-        </Modal>
-      )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600 ">
         <span className="p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-400/30">
           <LuCreditCard className="text-white size-8 lg:size-10" />
@@ -49,15 +30,13 @@ export default function FormasDePagoPage() {
           </p>
         </div>
 
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[12%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-blue-500 mb-2 bg-blue-500/50 lg:px-6"
-          onClick={() => {
-            setShowModal(true);
-          }}
+          modal={<CrearFormaPago />}
         >
           <FiPlus size={15} />
           Nueva Forma de Pago
-        </Button>
+        </ButtonModal>
       </header>
 
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -152,53 +131,49 @@ export default function FormasDePagoPage() {
           </p>
         </section>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
-          {isLoading
-            ? Array.from({ length: 3 }).map((_, index) => {
-                return <CardInfoSkeleton key={index} />;
-              })
-            : data?.map((forma) => {
-                return (
-                  <CardInfo
-                    key={forma.idFormaPago}
-                    title={forma.tipo}
-                    icon={
-                      <FaRegMoneyBillAlt size={20} className="text-green-400" />
-                    }
-                    className={{
-                      container:
-                        "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-300",
-                      header: {
-                        icon: "bg-green-100 dark:bg-green-500/30",
-                        description: "dark:text-gray-400",
-                      },
-                      span: "bg-green-100 text-green-700 font-bold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
-                    }}
-                    description={forma.descripcion}
-                    span={forma.estado ? "Activo" : "Inactivo"}
-                  >
-                    <div className="flex items-center gap-x-24">
-                      <span className="flex flex-col gap-y-1">
-                        <p className="text-sm text-gray-600 font-medium dark:text-gray-500">
-                          Comisión
-                        </p>
-                        <p className="text-sm font-semibold flex items-center ">
-                          <MdOutlineAttachMoney className="text-green-600 dark:text-green-400" />{" "}
-                          {forma.comision}%
-                        </p>
-                      </span>
-                      <span className="flex flex-col gap-y-1">
-                        <p className="text-sm text-gray-600 font-medium dark:text-gray-500">
-                          Fecha de Registro
-                        </p>
-                        <p className="text-sm font-semibold flex items-center gap-x-1">
-                          <LuCalendar className="text-blue-600 dark:text-blue-400" />{" "}
-                          {forma.registeredAt.split("T")[0]}
-                        </p>
-                      </span>
-                    </div>
-                  </CardInfo>
-                );
-              })}
+          {data?.map((forma) => {
+            return (
+              <CardInfo
+                key={forma.idFormaPago}
+                title={forma.tipo}
+                icon={
+                  <FaRegMoneyBillAlt size={20} className="text-green-400" />
+                }
+                className={{
+                  container:
+                    "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-300",
+                  header: {
+                    icon: "bg-green-100 dark:bg-green-500/30",
+                    description: "dark:text-gray-400",
+                  },
+                  span: "bg-green-100 text-green-700 font-bold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
+                }}
+                description={forma.descripcion}
+                span={forma.estado ? "Activo" : "Inactivo"}
+              >
+                <div className="flex items-center gap-x-24">
+                  <span className="flex flex-col gap-y-1">
+                    <p className="text-sm text-gray-600 font-medium dark:text-gray-500">
+                      Comisión
+                    </p>
+                    <p className="text-sm font-semibold flex items-center ">
+                      <MdOutlineAttachMoney className="text-green-600 dark:text-green-400" />{" "}
+                      {forma.comision}%
+                    </p>
+                  </span>
+                  <span className="flex flex-col gap-y-1">
+                    <p className="text-sm text-gray-600 font-medium dark:text-gray-500">
+                      Fecha de Registro
+                    </p>
+                    <p className="text-sm font-semibold flex items-center gap-x-1">
+                      <LuCalendar className="text-blue-600 dark:text-blue-400" />{" "}
+                      {forma.registeredAt.split("T")[0]}
+                    </p>
+                  </span>
+                </div>
+              </CardInfo>
+            );
+          })}
         </div>
       </div>
     </div>
