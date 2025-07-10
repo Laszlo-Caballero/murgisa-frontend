@@ -1,7 +1,15 @@
 "use client";
 import Button from "@/components/ui/button/Button";
 import Modal from "@/components/ui/modal/Modal";
-import React, { PropsWithChildren, ReactNode, useState } from "react";
+import { ModalProps } from "@/interfaces/modal.interface";
+import React, {
+  cloneElement,
+  isValidElement,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+  useState,
+} from "react";
 
 interface CrearProfesionProps {
   modal: ReactNode;
@@ -31,7 +39,12 @@ export default function ButtonModal({
             setShowModal(false);
           }}
         >
-          {modal}
+          {isValidElement(modal) &&
+            cloneElement<ModalProps>(modal as ReactElement<ModalProps>, {
+              onClose: () => {
+                setShowModal(false);
+              },
+            })}
         </Modal>
       )}
     </>
