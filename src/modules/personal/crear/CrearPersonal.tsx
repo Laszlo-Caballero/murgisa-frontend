@@ -19,7 +19,7 @@ import {
   Profesion,
   ResponseCargo,
 } from "@/interfaces/response.interface";
-import Load from "@/components/ui/load/Load";
+import Load from "@/components/share/load/Load";
 
 interface CrearPersonalProps {
   onClose?: () => void;
@@ -60,10 +60,11 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
       <header className="flex items-center gap-x-3">
         <GrUserWorker size={40} className="text-blue-600 dark:text-blue-400" />
         <div className="flex flex-col">
-          <p className="text-xl font-semibold dark:text-gray-300">Agregar Nuevo Empleado</p>
+          <p className="text-xl font-semibold dark:text-gray-300">
+            Agregar Nuevo Empleado
+          </p>
           <p className="text-sm text-gray-500">
-            Completa los datos para registrar un nuevo empleado en el
-            sistema
+            Completa los datos para registrar un nuevo empleado en el sistema
           </p>
         </div>
       </header>
@@ -128,11 +129,11 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
           placeholder="999999999"
         />
 
-      <div>
-        <Button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded hover:bg-blue-700 transition dark:bg-blue-500/30">
-          Registrar Empleado
-        </Button>
-      </div>
+        <div>
+          <Button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded hover:bg-blue-700 transition dark:bg-blue-500/30">
+            Registrar Empleado
+          </Button>
+        </div>
       </div>
     </form>
   );

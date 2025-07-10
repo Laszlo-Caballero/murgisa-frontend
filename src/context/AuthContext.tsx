@@ -17,6 +17,7 @@ type AuthContextType = {
   user: UserReponse | null;
   login: (email: string, password: string) => void;
   logout: () => void;
+  loading: boolean;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -24,6 +25,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<UserReponse | null>(null);
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const userLocal = localStorage.getItem("user");
@@ -36,6 +38,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
   const login = async (email: string, password: string) => {
     try {
+      setLoading(true);
       const response = await axios.post(`${env.url_api}/auth/login`, {
         correo: email,
         contrasena: password,
@@ -54,6 +57,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
       toast.error(
         "Error al iniciar sesión. Por favor, verifica tus credenciales."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -65,7 +70,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

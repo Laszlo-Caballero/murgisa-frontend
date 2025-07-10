@@ -9,7 +9,7 @@ interface TableProps<T> {
 export function useTable<T>({ columns, data }: TableProps<T>) {
   const getHeaders = useCallback(() => {
     return columns.map((column) => column.header || column.headerComponent?.());
-  }, [columns]);
+  }, [columns, data]);
 
   const getCells = useCallback(() => {
     return data.map((row) => {
@@ -23,7 +23,7 @@ export function useTable<T>({ columns, data }: TableProps<T>) {
 
   const getFooter = useCallback(() => {
     return columns.map((column) => column.footer || column.footerComponent?.());
-  }, [columns]);
+  }, [columns, data]);
 
   return {
     getHeaders,

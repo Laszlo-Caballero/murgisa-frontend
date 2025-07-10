@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "@/schemas/Login.schema";
 import { useAuth } from "@/context/AuthContext";
+import Load from "@/components/share/load/Load";
 
 export default function LoginPage() {
   const {
@@ -19,7 +20,7 @@ export default function LoginPage() {
     resolver: zodResolver(LoginSchema),
   });
 
-  const { login } = useAuth();
+  const { login, loading } = useAuth();
 
   const onSubmit = (data: { email: string; password: string }) => {
     login(data.email, data.password);
@@ -27,6 +28,7 @@ export default function LoginPage() {
 
   return (
     <main className="flex-1 flex w-full h-full flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
+      {loading && <Load />}
       <span className="bg-blue-500 size-14 rounded-full flex items-center justify-center dark:bg-blue-500/30 p-3">
         <LuBuilding2 className="text-white dark:text-blue-400" size={35} />
       </span>

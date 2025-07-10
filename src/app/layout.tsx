@@ -4,6 +4,7 @@ import "./(dashboard)/globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "sonner";
+import { TableProvider } from "@/context/TableContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,11 @@ export default function RootLayout({
       >
         <AuthProvider>
           <ThemeProvider>
-            <div className="min-h-screen w-full flex flex-col">{children}</div>
+            <TableProvider>
+              <div className="min-h-screen w-full flex flex-col">
+                {children}
+              </div>
+            </TableProvider>
 
             <Toaster richColors position="top-right" />
           </ThemeProvider>

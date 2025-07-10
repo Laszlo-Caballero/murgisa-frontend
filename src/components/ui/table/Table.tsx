@@ -1,8 +1,10 @@
 "use client";
 
+import { useTableContext } from "@/context/TableContext";
 import { useTable } from "@/hooks/useTable";
 import { ColumnDef } from "@/interfaces/table.interface";
 import cx from "@/libs/cx";
+import { useEffect, useState } from "react";
 
 interface TableProps<T> {
   data: T[];
@@ -10,8 +12,15 @@ interface TableProps<T> {
   className?: string;
 }
 
-export default function Table<T>({ data, columns, className }: TableProps<T>) {
-  const table = useTable({ columns, data });
+export default function Table<T>({ columns, className, data }: TableProps<T>) {
+  const { data: contextData, refresh } = useTableContext<T>();
+
+  const table = useTable({ columns, data: contextData });
+
+  useEffect(() => {
+    refresh(data);
+  }, []);
+
   return (
     <div
       className={cx(
@@ -37,10 +46,18 @@ export default function Table<T>({ data, columns, className }: TableProps<T>) {
         <tbody>
           {table.getCells().map((row, index) => {
             return (
-              <tr key={index} className="hover:bg-gray-100 transition-colors dark:hover:bg-gray-700">
+              <tr
+                key={index}
+                className="hover:bg-gray-100 transition-colors dark:hover:bg-gray-700"
+              >
                 {row.map((cell, i) => {
                   return (
-                    <td key={i} className={cx("p-4 border-gray-200 border-b dark:border-gray-700")}>
+                    <td
+                      key={i}
+                      className={cx(
+                        "p-4 border-gray-200 border-b dark:border-gray-700"
+                      )}
+                    >
                       {cell}
                     </td>
                   );
