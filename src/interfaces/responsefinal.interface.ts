@@ -48,3 +48,20 @@ export interface Response<T> {
   status: number;
   data: T;
 }
+export interface Cliente {
+  idCliente: number;
+  nombre: string;
+  dni: string;
+  correo: string;
+  telefono: string;
+  razonSocial: string;
+  direccion: string;
+  fechaNacimiento: string;
+  estado: boolean;
+  ciudad: Ciudad;
+}
+
+export interface Ciudad {
+  idCiudad: number;
+  nombre: string;
+}

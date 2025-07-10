@@ -3,12 +3,12 @@ import { FiPlus } from "react-icons/fi";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
 import ListarClientes from "@/modules/clientes/Listar/Listar";
-import { Cliente } from "@/interfaces/response.interface";
 import { LuClock4 } from "react-icons/lu";
 import CrearCliente from "@/modules/clientes/crear/CrearClientes";
 import { LuStar } from "react-icons/lu";
 import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import { ApiRequest } from "@/libs/api";
+import { Cliente } from "@/interfaces/responsefinal.interface";
 
 export default async function ClientesPage() {
   const data = await ApiRequest<Cliente[]>({

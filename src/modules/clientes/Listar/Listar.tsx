@@ -6,11 +6,10 @@ import { AiOutlineMail } from "react-icons/ai";
 import { LuPhone } from "react-icons/lu";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import cx from "@/libs/cx";
-import { Cliente } from "@/interfaces/response.interface";
 import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
-import TableSkeleton from "@/components/skeletons/table-skeleton/TableSkeleton";
 import Badge from "@/components/ui/badge/Badge";
+import { Cliente } from "@/interfaces/responsefinal.interface";
 
 interface ListarClientesProps {
   data?: Cliente[] | null;
@@ -91,7 +90,7 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                     <span className="flex xl:flex-row flex-col items-center gap-x-2">
                       <HiOutlineLocationMarker className="text-red-500" />
                       <p className="text-sm text-nowrap dark:text-gray-400">
-                        Ciudad: {props.row.ciudad.nombre}
+                        Ciudad: {props.row.ciudad?.nombre}
                       </p>
                     </span>
                     <p className="text-xs text-gray-500">
