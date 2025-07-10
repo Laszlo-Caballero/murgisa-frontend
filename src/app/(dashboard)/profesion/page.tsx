@@ -19,13 +19,21 @@ import { useState } from "react";
 import Badge from "@/components/ui/badge/Badge";
 import { LuStar } from "react-icons/lu";
 import { useQuery } from "@/hooks/useQuery";
-import { Profesion } from "@/interfaces/responsefinal.interface";
+import { Profesion, Response } from "@/interfaces/responsefinal.interface";
 import { env } from "@/config/env";
 import TableSkeleton from "@/components/skeletons/table-skeleton/TableSkeleton";
 
+interface ResponseProfesion {
+  profesiones: Profesion[];
+  total: number;
+  profesionesActivas: number;
+}
+
 export default function ProfesionPage() {
   const [showModal, setShowModal] = useState(false);
-  const { data, isLoading, isError, error } = useQuery<Profesion[]>({
+  const { data, isLoading, isError, error } = useQuery<
+    Response<ResponseProfesion>
+  >({
     queryFn: async () => {
       const response = await fetch(`${env.url_api}/profesion`);
       if (!response.ok) {
@@ -182,7 +190,7 @@ export default function ProfesionPage() {
         ) : (
           <Table
             className="mt-4 bg-white w-full rounded-md "
-            data={data ?? []}
+            data={data?.data.profesiones || []}
             columns={[
               {
                 header: "Profesión",

@@ -42,3 +42,9 @@ export interface Departamento {
   estado: boolean;
   presupuesto: number;
 }
+
+export interface Response<T> {
+  message: string;
+  status: number;
+  data: T;
+}
