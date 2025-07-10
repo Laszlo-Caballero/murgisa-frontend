@@ -97,11 +97,11 @@ export const links: Link[] = [
         href: "/mantenimiento/agregarmantenimiento",
         label: "Agregar Tipo Mantenimiento",
       },
-      {
-        label: "Pedido Reemplazo",
-        href: "/mantenimiento/pedido-reemplazo",
-        icono: <GrVmMaintenance />,
-      },
+      // {
+      //   label: "Pedido Reemplazo",
+      //   href: "/mantenimiento/pedido-reemplazo",
+      //   icono: <GrVmMaintenance />,
+      // },
     ],
   },
   {
