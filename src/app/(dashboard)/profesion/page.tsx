@@ -4,9 +4,6 @@ import { LuBookOpen } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
-import { LuSquarePen } from "react-icons/lu";
-import { LuTrash2 } from "react-icons/lu";
-import cx from "@/libs/cx";
 
 import CrearProfesion from "@/modules/profesion/crear/CrearProfesion";
 import Card from "@/components/ui/card/Card";
@@ -22,6 +19,8 @@ interface ResponseProfesion {
   profesiones: Profesion[];
   total: number;
   profesionesActivas: number;
+  personalAsignado: number;
+  profesionMayor: Profesion | null;
 }
 
 export default async function ProfesionPage() {
@@ -57,7 +56,7 @@ export default async function ProfesionPage() {
           icon={
             <LuBookOpen size={28} className="text-white dark:text-blue-400" />
           }
-          description="5"
+          description={data?.data.total.toString()}
           extra="Registradas en la empresa"
           className={{
             container:
@@ -78,7 +77,7 @@ export default async function ProfesionPage() {
               className="text-white dark:text-emerald-400"
             />
           }
-          description="4"
+          description={data?.data.profesionesActivas.toString() || "0"}
           extra="Disponibles para asignación"
           className={{
             container:
@@ -96,7 +95,7 @@ export default async function ProfesionPage() {
           icon={
             <LuUsers size={28} className="text-white dark:text-purple-400" />
           }
-          description="31"
+          description={data?.data.personalAsignado.toString() || "0"}
           extra="Empleados con profesión"
           className={{
             container:
@@ -114,7 +113,7 @@ export default async function ProfesionPage() {
           icon={
             <LuStar size={28} className="text-white dark:text-orange-400" />
           }
-          description="Mecanico"
+          description={data?.data.profesionMayor?.titulo || "N/A"}
           extra="Mayor cantidad de asignaciones"
           className={{
             container:
@@ -151,7 +150,7 @@ export default async function ProfesionPage() {
             Profesiones Registradas
           </p>
           <Badge className="bg-gray-50 text-xs text-gray-600 font-bold border-gray-300 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300">
-            Total: 5
+            Total: {data?.data.total || 0}
           </Badge>
         </div>
         <div>
