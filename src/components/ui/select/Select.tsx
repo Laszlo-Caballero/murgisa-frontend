@@ -5,6 +5,8 @@ import React, {
   isValidElement,
   ReactElement,
   ReactNode,
+  useEffect,
+  useRef,
   useState,
 } from "react";
 type Options = {
@@ -40,8 +42,23 @@ export default function Select({
     className?: string;
   }>;
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col relative gap-y-2">
+    <div className="flex flex-col relative gap-y-2 cursor-pointer" ref={ref}>
       <label
         htmlFor={id}
         className="text-sm font-medium"
@@ -61,7 +78,7 @@ export default function Select({
           cloneElement(parseIcon, {
             size: 20,
             className: cx(
-              "absolute top-1/2 -translate-y-1/2 left-3 text-slate-500",
+              "absolute top-1/2 -translate-y-1/2 left-3 text-slate-500 z-10",
               parseIcon.props.className
             ),
             color: "#94A3B8",
@@ -78,7 +95,7 @@ export default function Select({
         </div>
       </div>
       {open && (
-        <div className="absolute top-full flex flex-col gap-y-2 left-0 translate-y-2 w-full bg-white border border-slate-300 rounded-md shadow-lg z-10 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-500 ">
+        <div className="absolute max-h-[150px] overflow-y-scroll top-full flex flex-col gap-y-2 left-0 translate-y-2 w-full bg-white border border-slate-300 rounded-md shadow-lg z-10 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-500 ">
           {options?.map((option) => {
             return (
               <div

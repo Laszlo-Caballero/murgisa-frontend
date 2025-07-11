@@ -20,6 +20,7 @@ import { Ciudad, Response } from "@/interfaces/responsefinal.interface";
 import Load from "@/components/share/load/Load";
 import { useQuery } from "@/hooks/useQuery";
 import { env } from "@/config/env";
+import InputDate from "@/components/ui/input-date/InputDate";
 
 export default function CrearCliente({ onClose }: ModalProps) {
   const { data, isLoading: loadingClientes } = useQuery({
@@ -83,7 +84,7 @@ export default function CrearCliente({ onClose }: ModalProps) {
   return (
     <form
       onSubmit={handleSubmit(mutate)}
-      className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600 overflow-y-auto "
+      className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600"
     >
       {(isLoading || loadingClientes) && <Load />}
       <header className="flex items-center gap-x-3">
@@ -135,12 +136,10 @@ export default function CrearCliente({ onClose }: ModalProps) {
           error={errors.telefono?.message}
         />
 
-        <Input
+        <InputDate
           label="Fecha de Nacimiento"
           icon={<CiCirclePlus />}
-          type="date"
           placeholder="Selecciona una fecha"
-          {...register("fechaNacimiento")}
           error={errors.fechaNacimiento?.message}
         />
 

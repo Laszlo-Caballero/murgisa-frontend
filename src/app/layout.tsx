@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "sonner";
 import { TableProvider } from "@/context/TableContext";
-
+import "react-day-picker/style.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
