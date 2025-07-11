@@ -45,7 +45,7 @@ export default function ActualizarDepartamento({
     Response<Departamento[]>
   >({
     mutationFn: async (data, url, token) => {
-      const response = await axios.patch(
+      const response = await axios.put(
         `${url}/departamento/${id}`,
         {
           titulo: data.titulo,
