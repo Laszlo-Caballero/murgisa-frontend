@@ -1,3 +1,5 @@
+"use client";
+
 import { useStepForm } from "@/components/context/step-form/StepFormContext";
 import { Children, PropsWithChildren } from "react";
 

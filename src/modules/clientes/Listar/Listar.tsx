@@ -10,6 +10,7 @@ import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
 import Badge from "@/components/ui/badge/Badge";
 import { Cliente } from "@/interfaces/responsefinal.interface";
+import DeleteModal from "@/components/share/delete-modal/DeleteModal";
 
 interface ListarClientesProps {
   data?: Cliente[] | null;
@@ -55,10 +56,13 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                   <div className="flex flex-col dark:text-gray-300">
                     <p className="font-medium">{props.row?.nombre}</p>
                     <p className="text-sm text-gray-500">
-                      {props.row.razonSocial}
+                      {props.row?.razonSocial}
                     </p>
                     <p className="text-xs text-gray-500">
-                      DNI: {props.row.dni}
+                      DNI: {props.row?.dni}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      RUC: {props.row?.ruc}
                     </p>
                   </div>
                 );
@@ -71,12 +75,12 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                   <div className="flex flex-col dark:text-gray-400">
                     <span className="flex items-center gap-x-2">
                       <AiOutlineMail className="text-blue-400" />
-                      <p className="text-sm">{props.row.correo}</p>
+                      <p className="text-sm">{props.row?.correo}</p>
                     </span>
 
                     <span className="flex items-center gap-x-2">
                       <LuPhone className="text-green-400" />
-                      <p className="text-sm">{props.row.telefono}</p>
+                      <p className="text-sm">{props.row?.telefono}</p>
                     </span>
                   </div>
                 );
@@ -90,11 +94,11 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                     <span className="flex xl:flex-row flex-col items-center gap-x-2">
                       <HiOutlineLocationMarker className="text-red-500" />
                       <p className="text-sm text-nowrap dark:text-gray-400">
-                        Ciudad: {props.row.ciudad?.nombre}
+                        Ciudad: {props.row?.ciudad?.nombre}
                       </p>
                     </span>
                     <p className="text-xs text-gray-500">
-                      {props.row.direccion}
+                      {props.row?.direccion}
                     </p>
                   </div>
                 );
@@ -107,12 +111,12 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                   <span
                     className={cx(
                       `px-2 py-1 rounded-full text-xs`,
-                      props.row.estado
+                      props.row?.estado
                         ? "bg-green-100 text-green-600 dark:bg-green-500/30 dark:text-green-300 dark:border-green-700"
                         : "bg-red-100 text-red-600 dark:bg-red-500/30 dark:text-red-300 dark:border-red-700"
                     )}
                   >
-                    {props.row.estado ? "Activo" : "Inactivo"}
+                    {props.row?.estado ? "Activo" : "Inactivo"}
                   </span>
                 );
               },
@@ -123,7 +127,9 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                 return (
                   <span className="flex items-center gap-x-4">
                     <LuSquarePen className="text-red-500" />
-                    <LuTrash2 className="text-gray-900 dark:text-gray-400" />
+                    <DeleteModal id={props.row?.idCliente} endpoint="cliente">
+                      <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
+                    </DeleteModal>
                   </span>
                 );
               },

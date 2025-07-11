@@ -1,11 +1,6 @@
-"use client";
-import Button from "@/components/ui/button/Button";
-import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
-import axios from "axios";
 import { FiPlus } from "react-icons/fi";
 import {
-  LuBriefcase,
   LuCircleCheckBig,
   LuFilter,
   LuTrendingUp,
@@ -13,39 +8,21 @@ import {
 } from "react-icons/lu";
 
 import { GrUserWorker } from "react-icons/gr";
-import { MdNumbers } from "react-icons/md";
-import { MdOutlineEmail } from "react-icons/md";
-import { LuPhone } from "react-icons/lu";
-import { MdMoneyOff } from "react-icons/md";
-import { LuCalendar } from "react-icons/lu";
-import { useState } from "react";
-import { useQuery } from "@/hooks/useQuery";
-import { env } from "@/config/env";
-import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
-import Modal from "@/components/ui/modal/Modal";
 import CrearPersonal from "@/modules/personal/crear/CrearPersonal";
-import { Personal } from "@/interfaces/responsefinal.interface";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import CardsLoad from "@/components/share/cards-load/CardsLoad";
+import { ApiRequest } from "@/libs/api";
+import { Personal, Response } from "@/interfaces/responsefinal.interface";
+import { PersonalCard } from "@/cards/PersonalCard";
 
-export default function PersonalPage() {
-  const [showModal, setShowModal] = useState(false);
-  const { data, isLoading } = useQuery<Personal[]>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/personal`);
-      return response.data;
-    },
+export default async function PersonalPage() {
+  const data = await ApiRequest<Response<Personal[]>>({
+    metod: "get",
+    endpoint: `personal`,
   });
 
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden dark:bg-gray-900">
-      {showModal && (
-        <Modal
-          onClose={() => {
-            setShowModal(false);
-          }}
-        >
-          <CrearPersonal />
-        </Modal>
-      )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-900 dark:from-blue-600 ">
         <span className="p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-300/30">
           <GrUserWorker className="text-white size-8 lg:size-10" />
@@ -57,15 +34,13 @@ export default function PersonalPage() {
           </p>
         </div>
 
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[168%] -translate-x-[14%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50"
-          onClick={() => {
-            setShowModal(true);
-          }}
+          modal={<CrearPersonal />}
         >
           <FiPlus size={15} />
           Nuevo Empleado
-        </Button>
+        </ButtonModal>
       </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
@@ -160,73 +135,7 @@ export default function PersonalPage() {
           </p>
         </section>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {isLoading &&
-            Array.from({ length: 3 }).map((_, index) => {
-              return <CardInfoSkeleton key={index} />;
-            })}
-
-          {data?.map((empleado) => {
-            return (
-              <CardInfo
-                key={empleado.idPersonal}
-                title={`${empleado.nombre} ${empleado.apellido_paterno} ${empleado.apellido_materno}`}
-                icon={<p>{empleado.nombre.split("")[0]}</p>}
-                className={{
-                  container:
-                    "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-200 ",
-                  header: {
-                    icon: "bg-blue-100 text-center p-0 size-7 flex items-center justify-center uppercase dark:bg-blue-500/30",
-                    description: "dark:text-gray-400",
-                  },
-                  span: "bg-green-100 text-green-600 font-bold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
-                }}
-                description={empleado.cargo.cargo}
-                span={empleado.estado ? "Activo" : "Inactivo"}
-              >
-                <div className="flex flex-col gap-y-2">
-                  <div className="flex flex-col border-b border-gray-200 pb-2 gap-y-2 dark:border-gray-600">
-                    <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
-                      <MdNumbers /> Numero de documento:{" "}
-                      <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado.numeroDocumento}
-                      </p>
-                    </span>
-                    <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
-                      <MdOutlineEmail /> Correo:{" "}
-                      <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado?.usuario.correo || "No disponible"}
-                      </p>
-                    </span>
-                    <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
-                      <LuPhone /> Telefono:{" "}
-                      <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado.telefono}
-                      </p>
-                    </span>
-                    <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
-                      <MdMoneyOff /> Sueldo:{" "}
-                      <p className="font-semibold text-green-600">
-                        {empleado.sueldo}
-                      </p>
-                    </span>
-                    <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
-                      <LuCalendar /> Ingreso:{" "}
-                      <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado.fechaIngreso.split("T")[0]}
-                      </p>
-                    </span>
-
-                    <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
-                      <LuBriefcase /> Profesion:{" "}
-                      <p className="font-semibold text-black dark:text-gray-500">
-                        {empleado.profesion.titulo || "No disponible"}
-                      </p>
-                    </span>
-                  </div>
-                </div>
-              </CardInfo>
-            );
-          })}
+          <CardsLoad data={data?.data || []} render={PersonalCard} />
         </div>
       </div>
     </div>

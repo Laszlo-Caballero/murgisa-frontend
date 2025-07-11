@@ -1,5 +1,6 @@
+"use client";
 import cx from "@/libs/cx";
-import { cloneElement, PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 
 interface CardInfoProps {
   icon: ReactNode;
@@ -17,6 +18,7 @@ interface CardInfoProps {
     children?: string;
     span?: string;
   };
+  onClick?: () => void;
 }
 
 export default function CardInfo({
@@ -26,6 +28,7 @@ export default function CardInfo({
   children,
   span,
   className,
+  onClick,
 }: PropsWithChildren<CardInfoProps>) {
   return (
     <div
@@ -33,6 +36,7 @@ export default function CardInfo({
         "flex w-full flex-col rounded-lg shadow-lg hover:shadow-2xl transition-all duration-200 p-6 gap-y-3 dark:hover:shadow-gray-800/40",
         className?.container
       )}
+      onClick={onClick}
     >
       <header
         className={cx("flex flex-col gap-y-2", className?.header?.container)}

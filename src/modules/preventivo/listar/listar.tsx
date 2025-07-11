@@ -1,5 +1,12 @@
 "use client";
-import { LuFilter, LuCalendar, LuUsers, LuSquarePen, LuTrash2, LuShield } from "react-icons/lu";
+import {
+  LuFilter,
+  LuCalendar,
+  LuUsers,
+  LuSquarePen,
+  LuTrash2,
+  LuShield,
+} from "react-icons/lu";
 import { PlanificacionPreventivo } from "@/interfaces/response.interface";
 import Badge from "@/components/ui/badge/Badge";
 import Table from "@/components/ui/table/Table";
@@ -7,7 +14,6 @@ import { MantenimientoPreventivo } from "@/interfaces/responsefinal.interface";
 
 interface ListarPreventivosProps {
   data: MantenimientoPreventivo[];
-
 }
 
 export default function ListarPreventivos({ data }: ListarPreventivosProps) {
@@ -20,7 +26,8 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
           Filtros de Búsqueda
         </span>
         <p className="text-sm mt-1 text-gray-500 dark:text-gray-300">
-          Utiliza los filtros para encontrar mantenimientos programados de manera rápida
+          Utiliza los filtros para encontrar mantenimientos programados de
+          manera rápida
         </p>
       </section>
 
@@ -37,14 +44,14 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
           </div>
           <div>
             <span className="bg-gray-50 dark:bg-gray-700 dark:text-gray-300 text-xs text-gray-600 font-semibold border border-gray-300 dark:border-gray-600 rounded-full px-3 py-1">
-            Total: {data?.length}
+              Total: {data?.length}
             </span>
           </div>
         </div>
 
         <Table
           className="mt-4 bg-white w-full rounded-md"
-           data={data}
+          data={data}
           columns={[
             {
               header: "Mantenimiento",
@@ -55,15 +62,10 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                   </span>
                   <div className="flex flex-col">
                     <div className="grid grid-cols-3 gap-2">
-                  {props.row?.tipo.map((tipo, index)=>{
-                    return (
-                      <Badge
-                        key={index}>
-                          {tipo.nombre}
-                        </Badge>
-                    )
-                  })}
-                </div>
+                      {props.row?.tipo?.map((tipo, index) => {
+                        return <Badge key={index}>{tipo.nombre}</Badge>;
+                      })}
+                    </div>
                     <p className="text-xs text-gray-600 dark:text-gray-300">
                       ID: PLAN-00{props.row?.mantenimientoPreventivoId}
                     </p>
@@ -78,11 +80,13 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                   <span className="flex items-center gap-x-2">
                     <LuCalendar size={15} className="text-blue-500" />
                     <p className="text-sm font-semibold text-black dark:text-white">
-                      {new Date(props.row?.fechaMantenimiento).toLocaleDateString("es-ES")}
+                      {new Date(
+                        props.row?.fechaMantenimiento
+                      ).toLocaleDateString("es-ES")}
                     </p>
                   </span>
                   <p className="text-sm text-gray-500 dark:text-gray-300">
-                    {props.row?.horario.horaInicio}
+                    {props.row?.horario?.horaInicio}
                   </p>
                 </div>
               ),
@@ -94,10 +98,8 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
                   <span className="flex xl:flex-row flex-col items-center gap-x-2">
                     <LuUsers size={15} className="text-green-500" />
                     <span className="text-sm font-semibold text-black dark:text-white text-nowrap">
-                      {props.row?.personal.apellido_paterno}
+                      {props.row?.personal?.apellido_paterno}
                     </span>
-                  </span>
-                  <span>
                   </span>
                 </div>
               ),
@@ -106,7 +108,7 @@ export default function ListarPreventivos({ data }: ListarPreventivosProps) {
               header: "Recurso",
               cell: (props) => (
                 <span className="text-sm text-black dark:text-white">
-                  {props.row?.recurso.nombre}
+                  {props.row?.recurso?.nombre}
                 </span>
               ),
             },

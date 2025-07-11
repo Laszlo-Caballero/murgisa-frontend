@@ -1,9 +1,8 @@
-import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
-import CardInfo from "@/components/ui/card-info/CardInfo";
-
 import CrearTipoMantenimiento from "@/modules/tipoMantenimiento/CrearTipoMantenimiento";
-import { tipoMantenimientoData } from "@/data/tipomantenimiento";
+import { Response, TipoMantenimiento } from "@/interfaces/responsefinal.interface";
+import { ApiRequest } from "@/libs/api";
+import CardsLoad from "@/components/share/cards-load/CardsLoad";
 
 import {
   LuStar,
@@ -17,8 +16,14 @@ import {
 } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import { TipoMantenimientoCards } from "@/cards/TipoMantenimiento";
 
 export default async function TipoMantenimientoPage() {
+  const data = await ApiRequest<Response<TipoMantenimiento[]>>({
+    metod: "get",
+    endpoint: "tipo-mantenimiento",
+  });
+  console.log(data)
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-100 dark:bg-gray-900">
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
@@ -141,49 +146,7 @@ export default async function TipoMantenimientoPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {tipoMantenimientoData.map((tipo) => (
-          <CardInfo
-            key={tipo.idTipoMantenimiento}
-            title={tipo.nombre}
-            icon={<LuSettings size={20} className="text-orange-600" />}
-            description={tipo.descripcion}
-            span={tipo.estado ? "Activo" : "Inactivo"}
-            className={{
-              container: "bg-white dark:bg-gray-800 dark:text-white",
-              span: tipo.estado
-                ? "bg-green-100 text-green-800 border border-green-300 dark:bg-green-500/10 dark:text-green-300 dark:border-green-400/40 m-2"
-                : "bg-red-100 text-red-800 border border-red-300 dark:bg-red-500/10 dark:text-red-300 dark:border-red-400/40",
-              header: {
-                icon: "bg-orange-100 dark:bg-orange-500/10 rounded-md",
-              },
-            }}
-          >
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-x-2">
-                <LuClock4
-                  size={15}
-                  className="text-blue-600 dark:text-blue-300"
-                />
-                <p className="text-xs text-gray-600 dark:text-gray-300 font-semibold">
-                  {tipo.duracion} horas
-                </p>
-              </span>
-              <span className="text-xs text-gray-600 dark:text-gray-300 font-semibold">
-                Usado {tipo.total} veces
-              </span>
-            </div>
-            <div className="flex items-center justify-between gap-x-2 mt-4">
-              <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-gray-700 text-red-500 border border-red-300 dark:border-red-400 hover:bg-red-50 dark:hover:bg-red-500/10">
-                <LuSquarePen size={15} />
-                Editar
-              </Button>
-              <Button className="flex items-center gap-x-3 py-1 font-semibold mt-4 bg-white dark:bg-gray-700 text-black dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600">
-                <LuEye size={15} />
-                Desactivar
-              </Button>
-            </div>
-          </CardInfo>
-        ))}
+        <CardsLoad data={data?.data || []} render={TipoMantenimientoCards} />
       </div>
     </div>
   );

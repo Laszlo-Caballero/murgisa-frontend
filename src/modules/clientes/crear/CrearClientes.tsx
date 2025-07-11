@@ -59,6 +59,7 @@ export default function CrearCliente({ onClose }: ModalProps) {
           ciudadId: parseInt(data.ciudad.value),
           fechaNacimiento: data.fechaNacimiento,
           razonSocial: data.razonSocial,
+          ruc: data.ruc,
         },
         {
           headers: {
@@ -153,6 +154,13 @@ export default function CrearCliente({ onClose }: ModalProps) {
           placeholder="Ej: Empresa S.A.C."
           {...register("razonSocial")}
           error={errors.razonSocial?.message}
+        />
+        <Input
+          label="RUC"
+          icon={<FaAddressCard />}
+          placeholder="Ej: 12345678901"
+          {...register("ruc")}
+          error={errors.ruc?.message}
         />
 
         <Select

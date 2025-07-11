@@ -1,22 +1,21 @@
 "use client";
-
 import React from "react";
 import { LuPlus } from "react-icons/lu";
-import { IoClose } from "react-icons/io5";
 import StepFormProvider from "@/components/context/step-form/StepFormContext";
 import HeaderStep from "@/components/ui/header-step/HeaderStep";
 import ContainerStep from "@/components/ui/container-step/ContainerStep";
 import ButtonsStep from "@/components/ui/buttons-steps/ButtonsStep";
-import StepOne from "../pasos/StepOne";
 import StepTwo from "../pasos/StepTwo";
 import StepThree from "../pasos/StepThree";
 import StepFour from "../pasos/StepFour";
 import Confirm from "../confirmar/Confirm";
-interface CrearVentaProps {
-  onClose?: () => void;
-}
+import { ModalProps } from "@/interfaces/modal.interface";
+import StepOne from "../pasos/StepOne";
+import { IoClose } from "react-icons/io5";
+import StepFive from "../pasos/StepFive";
+import StepSix from "../pasos/StepSix";
 
-export default function CrearVenta({ onClose }: CrearVentaProps) {
+export default function CrearVenta({ onClose }: ModalProps) {
   return (
     <div className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600">
       <header className="flex pb-4 justify-between border-b border-gray-200 dark:border-gray-600">
@@ -33,10 +32,16 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
             </p>
           </div>
         </div>
-        <div className="h-full cursor-pointer" onClick={onClose}>
+        <div
+          className="h-full cursor-pointer"
+          onClick={() => {
+            onClose?.();
+          }}
+        >
           <IoClose className="dark:text-white" />
         </div>
       </header>
+
       <StepFormProvider className="flex flex-col items-center justify-center overflow-y-auto md:overflow-visible w-full gap-y-4 dark:text-gray-300">
         <HeaderStep
           steps={[
@@ -44,17 +49,21 @@ export default function CrearVenta({ onClose }: CrearVentaProps) {
             "Cliente",
             "Servicios",
             "Personal",
+            "Recursos",
+            "Forma de Pago",
             "Confirmación",
           ]}
         />
+
         <ContainerStep className="w-full border border-gray-200 rounded-lg p-4  h-full dark:border-gray-600">
           <StepOne />
           <StepTwo />
           <StepThree />
           <StepFour />
-          <Confirm />
+          <StepFive />
+          <StepSix />
+          <Confirm onClose={onClose} />
         </ContainerStep>
-        <ButtonsStep maxSteps={5} />
       </StepFormProvider>
     </div>
   );

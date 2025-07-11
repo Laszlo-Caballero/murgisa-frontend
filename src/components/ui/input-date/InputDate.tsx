@@ -1,7 +1,7 @@
 "use client";
 
 import cx from "@/libs/cx";
-import { format, parse } from "date-fns";
+import { parse } from "date-fns";
 import {
   cloneElement,
   isValidElement,
@@ -23,6 +23,7 @@ interface InputDateProps {
   onChange?: (date: string) => void;
   value?: string;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export default function InputDate({
@@ -35,6 +36,7 @@ export default function InputDate({
   onChange,
   value,
   placeholder,
+  disabled,
 }: InputDateProps) {
   const parseIcon = icon as ReactElement<{
     size?: number;
@@ -65,7 +67,9 @@ export default function InputDate({
       <label
         htmlFor={id}
         className="text-sm font-medium text-gray-700 dark:text-gray-300"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          !disabled && setOpen(!open);
+        }}
       >
         {label}
       </label>
@@ -86,7 +90,9 @@ export default function InputDate({
             className,
             error && "border-red-500 dark:border-red-500"
           )}
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            !disabled && setOpen(!open);
+          }}
         >
           <p className={cx(error && "dark:text-red-500")}>
             {value || placeholder}
