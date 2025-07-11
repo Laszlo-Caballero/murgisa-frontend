@@ -72,32 +72,36 @@ export interface Disponibilidad {
 }
 
 export interface Recurso {
-  idRecurso: number
-  nombre: string
-  precio: number
-  estado: boolean
-  tipoRecurso: TipoRecurso
-  proveedor: Proveedor
-  disponibilidad: Disponibilidad
+  idRecurso: number;
+  nombre: string;
+  precio: number;
+  estado: boolean;
+  tipoRecurso: TipoRecurso;
+  proveedor: Proveedor;
+  disponibilidad: Disponibilidad;
 }
 
 export interface TipoRecurso {
-  idTipoRecurso: number
-  nombre: string
-  descripcion: string
-  estado: boolean
+  idTipoRecurso: number;
+  nombre: string;
+  descripcion: string;
+  estado: boolean;
 }
 
 export interface Proveedor {
-  idProovedor: number
-  razonSocial: string
-  ruc: string
-  nombreResponsable: string
-  dniResponsable: string
-  correo: string
-  telefono: string
-  estado: boolean
+  idProovedor: number;
+  razonSocial: string;
+  ruc: string;
+  nombreResponsable: string;
+  dniResponsable: string;
+  correo: string;
+  telefono: string;
+  estado: boolean;
 }
 
-
-
+export interface TipoServicio {
+  idTipoServicio: number;
+  nombre: string;
+  descripcion: string;
+  estado: boolean;
+}

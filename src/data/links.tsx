@@ -113,6 +113,11 @@ export const links: Link[] = [
         href: "/servicios",
         icono: <LuBriefcase />,
       },
+      {
+        label: "Tipo de Servicio",
+        href: "/tipo-servicio",
+        icono: <LuLayers />,
+      },
     ],
   },
   {
