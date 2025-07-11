@@ -1,13 +1,31 @@
+"use client";
+import Load from "@/components/share/load/Load";
 import Badge from "@/components/ui/badge/Badge";
 import Select from "@/components/ui/select/Select";
 import Table from "@/components/ui/table/Table";
+import { useQuery } from "@/hooks/useQuery";
+import { Personal, Response } from "@/interfaces/responsefinal.interface";
+import axios from "axios";
 import React from "react";
 import { LuUserCheck } from "react-icons/lu";
 import { RxCrossCircled } from "react-icons/rx";
 
 export default function StepFour() {
+  const { data, isLoading } = useQuery<Response<Personal[]>>({
+    queryFn: async (url, token) => {
+      const res = await axios.get<Response<Personal[]>>(`${url}/personal`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return res.data;
+    },
+  });
+
   return (
-    <div className="flex flex-col">
+    <form className="flex flex-col">
+      {isLoading && <Load />}
+
       <div className="flex items-center gap-x-2">
         <LuUserCheck className="size-6 text-purple-500 dark:text-purple-400" />
         <p className="font-bold text-xl">Asignación de Personal</p>
@@ -69,6 +87,6 @@ export default function StepFour() {
           ]}
         />
       </div>
-    </div>
+    </form>
   );
 }

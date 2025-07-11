@@ -23,4 +23,8 @@ export const ClienteSchema = z.object({
   ),
   fechaNacimiento: z.string().min(1, "La fecha de nacimiento es requerida"),
   razonSocial: z.string().min(1, "La razón social es requerida"),
+  ruc: z
+    .string()
+    .min(11, "El RUC debe tener 11 caracteres")
+    .max(11, "El RUC no debe exceder los 11 caracteres"),
 });

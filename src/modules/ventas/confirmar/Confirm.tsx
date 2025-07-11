@@ -1,3 +1,4 @@
+"use client";
 import Badge from "@/components/ui/badge/Badge";
 import Card from "@/components/ui/card/Card";
 import React from "react";

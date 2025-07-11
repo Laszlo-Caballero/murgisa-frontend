@@ -1,9 +1,15 @@
 "use client";
+import { VentaSteps } from "@/interfaces/venta.interface";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 type StepFormContextProps = {
   currentStep: number;
   setCurrentStep: (step: number) => void;
+  updateStep: <K extends keyof VentaSteps>(
+    step: K,
+    data: VentaSteps[K]
+  ) => void;
+  data: VentaSteps;
 };
 
 const StepFormContext = createContext<StepFormContextProps | undefined>(
@@ -15,12 +21,57 @@ export default function StepFormProvider({
   className,
 }: PropsWithChildren<{ className?: string }>) {
   const [currentStep, setCurrentStep] = useState(1);
+  const [data, setData] = useState<VentaSteps>({
+    stepOne: {
+      fechaVenta: "",
+      tipoServicio: {
+        value: "",
+        label: "",
+      },
+    },
+    stepTwo: {
+      telefono: "",
+      razonSocial: "",
+      ruc: "",
+      idCliente: 0,
+      ciudad: {
+        value: "",
+        label: "",
+      },
+      correo: "",
+      direccion: "",
+      dni: "",
+      nombre: "",
+      fechaNacimiento: "",
+    },
+    stepThree: {
+      servicios: [],
+    },
+    stepFour: {
+      personal: [],
+    },
+  });
+
+  const updateStep = <K extends keyof VentaSteps>(
+    step: K,
+    newData: VentaSteps[K]
+  ) => {
+    setData((prevData) => ({
+      ...prevData,
+      [step]: {
+        ...prevData[step],
+        ...newData,
+      },
+    }));
+  };
 
   return (
     <StepFormContext.Provider
       value={{
         currentStep,
         setCurrentStep,
+        updateStep,
+        data,
       }}
     >
       <div className={className}>{children}</div>

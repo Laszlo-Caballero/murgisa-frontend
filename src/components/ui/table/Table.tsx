@@ -19,7 +19,7 @@ export default function Table<T>({ columns, className, data }: TableProps<T>) {
 
   useEffect(() => {
     refresh(data);
-  }, []);
+  }, [data]);
 
   return (
     <div

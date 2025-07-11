@@ -51,6 +51,7 @@ export interface Response<T> {
 export interface Cliente {
   idCliente: number;
   nombre: string;
+  ruc: string;
   dni: string;
   correo: string;
   telefono: string;
@@ -125,8 +126,8 @@ export interface TipoServicio {
 }
 
 export interface Cargo {
-  idCargo: number
-  cargo: string
-  descripcion: string
-  estado: boolean
+  idCargo: number;
+  cargo: string;
+  descripcion: string;
+  estado: boolean;
 }

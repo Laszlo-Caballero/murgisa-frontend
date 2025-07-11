@@ -36,7 +36,7 @@ export default async function CargoPage() {
         </div>
         <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[22%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50 "
-          modal={<CrearCargo/>}
+          modal={<CrearCargo />}
         >
           <FiPlus size={15} />
           Nuevo Cargo
@@ -137,9 +137,9 @@ export default async function CargoPage() {
           </p>
         </section>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <CardsLoad data={data?.data.cargos || []} render={CargoCard} />
-      </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <CardsLoad data={data?.data.cargos || []} render={CargoCard} />
+        </div>
       </div>
     </div>
   );

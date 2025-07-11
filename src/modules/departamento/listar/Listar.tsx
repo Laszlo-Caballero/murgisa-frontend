@@ -1,10 +1,8 @@
-
 import { Departamento } from "@/interfaces/responsefinal.interface";
 import React from "react";
 import { LuFilter, LuUsers } from "react-icons/lu";
 import CardsLoad from "@/components/share/cards-load/CardsLoad";
-import {DepartamentoCard } from "@/cards/DepartamentoCard";
-
+import { DepartamentoCard } from "@/cards/DepartamentoCard";
 
 interface ListarDepartamentosProps {
   data: Departamento[];
