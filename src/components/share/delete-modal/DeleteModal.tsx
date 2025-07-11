@@ -11,6 +11,7 @@ import axios from "axios";
 import { Response } from "@/interfaces/responsefinal.interface";
 import { toast } from "sonner";
 import Load from "../load/Load";
+import { LuTriangleAlert } from "react-icons/lu";
 
 interface DeleteModalProps extends PropsWithChildren {
   id: number | string;
@@ -59,14 +60,18 @@ export default function DeleteModal<T>({
       {open && (
         <Modal onClose={() => setOpen(false)}>
           {isLoading && <Load />}
-          <div className="flex flex-col p-4 gap-4 bg-white dark:bg-slate-800 items-center rounded-xl">
-            <span className="p-8 max-w-max rounded-full border border-red-500 bg-red-100 dark:bg-red-600/20 text-red-500 dark:text-red-400">
-              <IoMdClose size={40} />
-            </span>
-            <p className="text-gray-800 dark:text-gray-200 text-center text-lg font-semibold mt-4">
-              ¿Esta seguro de desactivar este elemento? <br /> Esta acción no se
-              puede deshacer.
-            </p>
+          <div className="flex flex-col p-10 gap-4 bg-white dark:bg-slate-800 items-center rounded-xl w-full max-w-lg ">
+            <div className="flex flex-col items-center justify-center gap-y-3">
+              <span className=" p-4 max-w-max rounded-full  border border-red-500 bg-red-100 dark:bg-red-500/10 text-red-500 dark:text-red-400 dark:border-none">
+                  <LuTriangleAlert size={30}/>
+              </span>
+              <h2 className="text-2xl font-bold text-black dark:text-white">
+                ¿Seguro de desactivar este elemento?
+              </h2>
+              <p className="text-xl text-black dark:text-white">
+                Esta acción no se puede deshacer. El elemento será eliminado permanentemente.
+              </p>
+            </div> 
             <div className="flex items-center gap-x-4">
               <Button onClick={() => setOpen(false)}>Cancelar</Button>
               <Button
