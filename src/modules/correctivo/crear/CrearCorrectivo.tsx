@@ -42,6 +42,11 @@ export default function CrearCorrectivo() {
           placeholder="Selecciona un Tecnico"
           options={[{ value: "1", label: "Paco" }]}
         ></Select>
+        <Input
+          label="Fecha del mantenimiento"
+          type="date"
+          placeholder="Seleccione la fecha del mantenimiento"
+        />        
       </div>
       <div>
         <Button className="flex items-center gap-x-3 mt-4 bg-orange-600 text-white py-3 font-semibold hover:bg-blue-500">
