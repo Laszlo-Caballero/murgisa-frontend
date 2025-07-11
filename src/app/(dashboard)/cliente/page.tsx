@@ -15,7 +15,7 @@ export default async function ClientesPage() {
     metod: "get",
     endpoint: "cliente",
   });
-
+  console.log(data);
   return (
     <div className="w-full h-full p-9 bg-gray-100 flex flex-col overflow-x-hidden dark:bg-gray-900">
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600 ">
