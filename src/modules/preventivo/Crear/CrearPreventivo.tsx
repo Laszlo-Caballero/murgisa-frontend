@@ -46,6 +46,27 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
         return response.data;
       },
     });
+    const { data: recurso, isLoading: isLoadingRecurso } = useQuery<Response<Recurso[]>>({
+     queryFn: async (url, token) => {
+    const res = await axios.get<Response<Recurso[]>>(`${url}/recurso`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res.data;
+   },
+   });
+   const { data: personal, isLoading: isLoadingPersonal } = useQuery<Response<Personal[]>>({
+     queryFn: async (url, token) => {
+    const res = await axios.get<Response<Personal[]>>(`${url}/personal`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res.data;
+   },
+   });
+
     const {
       register,
       setValue,
@@ -56,20 +77,34 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
       resolver: zodResolver(MantenimientoPreventivoSchema),
     });
     const { refresh } = useTableContext<MantenimientoPreventivo>();
-  
+    const getPrioridadLabel = (value: string | undefined) => {
+    switch (value) {
+    case "1":
+      return "Alta";
+    case "2":
+      return "Media";
+    case "3":
+      return "Baja";
+    default:
+      return "";
+  }
+};
+
     const { mutate, isLoading } = useMutation<
       z.infer<typeof MantenimientoPreventivoSchema>,
       Response<MantenimientoPreventivo[]>
     >({
       mutationFn: async (data, url, token) => {
+        console.log("Datos enviados:", data); 
         const response = await axios.post(
           `${url}/mantenimiento-preventivo`,
           {
             fechaMantenimiento: data.fechaMantenimiento,
             prioridad: data.Prioridad,
-            horarioId: parseInt(data.horario.value),
-            personalId: parseInt(data.personal.value),
             recursoId: parseInt(data.recurso.value),
+            personalId: parseInt(data.personal.value),
+            horarioId: parseInt(data.horario.value),
+            
           },
           {
             headers: {
@@ -129,17 +164,23 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
                      </div>
                   </div>
                  <div className="flex flex-col gap-y-1">
-                   <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                     Prioridad
-                   </label>
-                   <div className="flex items-center gap-x-2 border rounded-md px-3 py-2 bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600">
-                     <MdLowPriority className="text-gray-500 dark:text-gray-300" />
-                     <select className="w-full bg-transparent outline-none text-sm dark:bg-gray-700 dark:text-white">
-                       <option>Selecciona la prioridad</option>
-                       <option value="1">Alta</option>
-                       <option value="2">Media</option>
-                       <option value="3">Baja</option>
-                     </select>
+                   <div className="grid lg:grid-cols-2 gap-4 dark:text-gray-300">
+                   <Select
+                      label="Prioridad"
+                      icon={<MdLowPriority />}
+                      placeholder="Selecciona una Prioridad"
+                      options={[
+                        { label: "Alta", value: "1" },
+                        { label: "Media", value: "2" },
+                        { label: "Baja", value: "3" },
+                      ]}
+                      onChange={(value) => {
+                        setValue("Prioridad", value.value);
+                      }}
+                      value={{ label: getPrioridadLabel(watch("Prioridad")), value: watch("Prioridad") }}
+                      error={errors.Prioridad?.message}
+                    />
+
                    </div>
                  </div>
                  <div className="flex flex-col gap-y-1">
@@ -148,7 +189,20 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
                               label="Recurso"
                               icon={<CiCirclePlus />}
                               placeholder="Selecciona un Recurso"
-                              
+                              options={recurso?.data?.map((recurso) => {
+                                return {
+                                  label: recurso.nombre,
+                                  value: recurso.idRecurso.toString(),
+                                };
+                              })}
+                              onChange={(value) => {
+                                setValue("recurso", {
+                                  value: value.value,
+                                  label: value.label?.toString() || "",
+                                });
+                              }}
+                              value={watch("recurso")}
+                              error={errors.recurso?.message}
                       />
                    </div>
                  </div>
@@ -159,7 +213,20 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
                               label="Personal"
                               icon={<CiCirclePlus />}
                               placeholder="Selecciona un Personal"
-                              
+                               options={personal?.data?.map((personal) => {
+                                return {
+                                  label: personal.nombre,
+                                  value: personal.idPersonal.toString(),
+                                };
+                              })}
+                              onChange={(value) => {
+                                setValue("personal", {
+                                  value: value.value,
+                                  label: value.label?.toString() || "",
+                                });
+                              }}
+                              value={watch("personal")}
+                              error={errors.personal?.message}
                       />
                    </div>
                  </div>
