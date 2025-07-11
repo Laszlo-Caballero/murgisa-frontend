@@ -43,7 +43,11 @@ export const CorrectivoSchema = z.object({
     }
   ),
 
-  fechaMantenimiento: z.string().min(1, {
+  fechaInicio: z.string().min(1, {
     message: "Fecha de mantenimiento es requerida",
   }),
+
+  precio: z.string().min(1,{
+    message: "Precio es requerido",
+  })
 });

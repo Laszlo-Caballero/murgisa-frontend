@@ -25,7 +25,7 @@ export default async function MantenimientoCorrectivoPage() {
     metod: "get",
     endpoint: "mantenimiento-correctivo",
   });
-
+  console.log(data)
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-100 dark:bg-gray-900">
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
@@ -153,11 +153,12 @@ export default async function MantenimientoCorrectivoPage() {
         />
       </div>
       <Tabs
-        headers={["Lista de Mantenimiento", "Vista calendario"]}
+        headers={["Lista de Mantenimiento"]}
         className="mt-6"
       >
         <ListarCorrectivo data={data?.data || []} />
-        <ListaCalendario data={data?.data || []} />
+        {/* <ListaCalendario data={data?.data || []} /> */}
+        {/* "Vista calendario" */}
       </Tabs>
     </div>
   );
