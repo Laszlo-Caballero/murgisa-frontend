@@ -30,13 +30,17 @@ export const MantenimientoPreventivoSchema = z.object({
       message: "Horario inválido",
     }
   ),
-   TipoMantenimiento: z.object(
+    tipo: z.object(
     {
-      value: z.string().min(1, "El mantenimiento es requerido"),
-      label: z.string().min(1, "El nombre del mantenimiento es requerido"),
+      label: z.string().min(1, {
+        message: "Tipo de mantenimiento es requerido",
+      }),
+      value: z.string().min(1, {
+        message: "Tipo de mantenimiento es requerido",
+      }),
     },
     {
-      message: "Mantenimiento inválido",
+      message: "Tipo de mantenimiento es requerido",
     }
   ),
 });

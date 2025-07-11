@@ -1,7 +1,7 @@
 "use client";
 import { LuBuilding2 } from "react-icons/lu";
 import { LuUserRound } from "react-icons/lu";
-import { PiIdentificationCardLight } from "react-icons/pi";
+import { PiIdentificationCardLight, PiWrenchBold } from "react-icons/pi";
 import { LuMail } from "react-icons/lu";
 import { LuBarcode } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
@@ -69,19 +69,20 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
     return res.data;
    },
    });
-   const { data: tipos, isLoading: isLoadingTipoMantenimiento} = useQuery<Response<TipoMantenimiento[]>>({
-       queryFn: async (url, token) => {
-         const res = await axios.get<Response<TipoMantenimiento[]>>(
-           `${url}/tipo-mantenimiento`,
-           {
-             headers: {
-               Authorization: `Bearer ${token}`,
-             },
-           }
-         );
-         return res.data;
-       },
-     });
+ 
+  const { data: tipos, isLoading: isLoadingTipos } = useQuery<Response<TipoMantenimiento[]>>({
+    queryFn: async (url, token) => {
+      const res = await axios.get<Response<TipoMantenimiento[]>>(
+        `${url}/tipo-mantenimiento`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return res.data;
+    },
+  });
 
     const {
       register,
@@ -115,12 +116,13 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
         const response = await axios.post(
           `${url}/mantenimiento-preventivo`,
           {
+            tipoIds: [parseInt(data.tipo.value)], 
             fechaMantenimiento: data.fechaMantenimiento,
             prioridad: data.Prioridad,
             recursoId: parseInt(data.recurso.value),
             personalId: parseInt(data.personal.value),
             horarioId: parseInt(data.horario.value),
-            tipoId: parseInt(data.TipoMantenimiento.value),
+            
             
           },
           {
@@ -275,24 +277,24 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
                     <div className="flex flex-col gap-y-1">
                     <div className="grid lg:grid-cols-2 gap-4 dark:text-gray-300">
                       <Select
-                              label="Tipo de Mantenimiento"
-                              icon={<CiCirclePlus />}
-                              placeholder="Selecciona un Tipo de Mantenimiento"
-                              options={tipoMantenimientoData?.map((TipoMantenimientoData) => {
-                                return {
-                                  label: TipoMantenimientoData.nombre,
-                                  value: TipoMantenimientoData.idTipoMantenimiento.toString(),
-                                };
-                              })}
-                              onChange={(value) => {
-                                setValue("TipoMantenimiento", {
-                                  value: value.value,
-                                  label: value.label?.toString() || "",
-                                });
-                              }}
-                              value={watch("TipoMantenimiento")}
-                              error={errors.TipoMantenimiento?.message}
-                      />
+                                label="Tipo de Mantenimiento"
+                                icon={<PiWrenchBold />}
+                                placeholder="Tipo de Mantenimiento Correctivo"
+                                options={tipos?.data.map((tipo) => {
+                                  return {
+                                    label: tipo.nombre,
+                                    value: tipo.idTipoMantenimiento.toString(),
+                                  };
+                                })}
+                                onChange={(value) => {
+                                  setValue("tipo", {
+                                    value: value.value,
+                                    label: value.label?.toString() || "",
+                                  });
+                                }}
+                                value={watch("tipo")}
+                                error={errors.tipo?.message}
+                              ></Select>
                    </div>
                  </div>
                </div>
