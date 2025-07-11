@@ -14,12 +14,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FiPlus } from "react-icons/fi";
 import { TipoRecursoSchema } from "@/schemas/TipoRecurso.schema";
 
-import { LuPackage } from "react-icons/lu";
-import { MdSocialDistance } from "react-icons/md";
-import { LuBuilding2 } from "react-icons/lu";
-import { CiMoneyBill } from "react-icons/ci";
-
-import { RecursoSchema } from "@/schemas/Recurso.schema";
 import { useMutation } from "@/hooks/useMutation";
 import { toast } from "sonner";
 import { useTableContext } from "@/context/TableContext";
@@ -32,8 +26,6 @@ import Load from "@/components/share/load/Load";
 export default function CrearTipoRecurso({ onClose }: ModalProps) {
   const {
     register,
-    setValue,
-    watch,
     formState: { errors },
     handleSubmit,
   } = useForm({

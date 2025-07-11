@@ -109,6 +109,14 @@ export interface Servicio {
   tipoServicio: TipoServicio;
 }
 
+export interface Departamento {
+  idDepartamento: number;
+  titulo: string;
+  descripcion: string;
+  estado: boolean;
+  presupuesto: number;
+}
+
 export interface TipoServicio {
   idTipoServicio: number;
   nombre: string;
