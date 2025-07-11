@@ -65,3 +65,39 @@ export interface Ciudad {
   idCiudad: number;
   nombre: string;
 }
+
+export interface Disponibilidad {
+  disponibilidadId: number;
+  disponibilidad: string;
+}
+
+export interface Recurso {
+  idRecurso: number
+  nombre: string
+  precio: number
+  estado: boolean
+  tipoRecurso: TipoRecurso
+  proveedor: Proveedor
+  disponibilidad: Disponibilidad
+}
+
+export interface TipoRecurso {
+  idTipoRecurso: number
+  nombre: string
+  descripcion: string
+  estado: boolean
+}
+
+export interface Proveedor {
+  idProovedor: number
+  razonSocial: string
+  ruc: string
+  nombreResponsable: string
+  dniResponsable: string
+  correo: string
+  telefono: string
+  estado: boolean
+}
+
+
+
