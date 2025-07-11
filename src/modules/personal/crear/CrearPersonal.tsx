@@ -27,36 +27,36 @@ interface CrearPersonalProps {
 }
 
 export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
-  const { data: profesiones, isLoading: loadingProfesiones } = useQuery<
-    Profesion[]
-  >({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/profesion`);
-      return response.data;
-    },
-  });
+  // const { data: profesiones, isLoading: loadingProfesiones } = useQuery<
+  //   Profesion[]
+  // >({
+  //   queryFn: async () => {
+  //     const response = await axios.get(`${env.url_api}/profesion`);
+  //     return response.data;
+  //   },
+  // });
 
-  const { data: cargos, isLoading: loadingCargos } = useQuery<ResponseCargo>({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/cargo`);
-      return response.data;
-    },
-  });
+  // const { data: cargos, isLoading: loadingCargos } = useQuery<ResponseCargo>({
+  //   queryFn: async () => {
+  //     const response = await axios.get(`${env.url_api}/cargo`);
+  //     return response.data;
+  //   },
+  // });
 
-  const { data: departamentos, isLoading: loadingDepartamentos } = useQuery<
-    Departamento[]
-  >({
-    queryFn: async () => {
-      const response = await axios.get(`${env.url_api}/departamento`);
-      return response.data;
-    },
-  });
+  // const { data: departamentos, isLoading: loadingDepartamentos } = useQuery<
+  //   Departamento[]
+  // >({
+  //   queryFn: async () => {
+  //     const response = await axios.get(`${env.url_api}/departamento`);
+  //     return response.data;
+  //   },
+  // });
 
   return (
     <form className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600 overflow-y-auto">
-      {loadingProfesiones ||
+      {/* {loadingProfesiones ||
         loadingCargos ||
-        (loadingDepartamentos && <Load />)}
+        (loadingDepartamentos && <Load />)} */}
       <header className="flex items-center gap-x-3">
         <GrUserWorker size={40} className="text-blue-600 dark:text-blue-400" />
         <div className="flex flex-col">
@@ -97,30 +97,30 @@ export default function CrearPersonal({ onClose, onSave }: CrearPersonalProps) {
           icon={<LuUserRound />}
           label="Cargo"
           placeholder="Seleccione un cargo"
-          options={cargos?.cargos.map((cargo) => ({
-            value: cargo.idCargo.toString(),
-            label: cargo.cargo,
-          }))}
+          // options={cargos?.cargos.map((cargo) => ({
+          //   value: cargo.idCargo.toString(),
+          //   label: cargo.cargo,
+          // }))}
         />
 
         <Select
           icon={<LuUserRound />}
           label="Profesion"
           placeholder="Seleccione una profesion"
-          options={profesiones?.map((profesion) => ({
-            value: profesion.idProfesion.toString(),
-            label: profesion.titulo,
-          }))}
+          // options={profesiones?.map((profesion) => ({
+          //   value: profesion.idProfesion.toString(),
+          //   label: profesion.titulo,
+          // }))}
         />
 
         <Select
           icon={<LuHouse />}
           label="Departamento"
           placeholder="Seleccione un departamento"
-          options={departamentos?.map((departamento) => ({
-            value: departamento.idDepartamento.toString(),
-            label: departamento.titulo,
-          }))}
+          // options={departamentos?.map((departamento) => ({
+          //   value: departamento.idDepartamento.toString(),
+          //   label: departamento.titulo,
+          // }))}
         />
 
         <Input

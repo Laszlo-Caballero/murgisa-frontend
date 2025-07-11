@@ -16,10 +16,21 @@ import { z } from "zod";
 import { ModalProps } from "@/interfaces/modal.interface";
 import { useTableContext } from "@/context/TableContext";
 import { Cliente } from "@/interfaces/response.interface";
-import { Response } from "@/interfaces/responsefinal.interface";
+import { Ciudad, Response } from "@/interfaces/responsefinal.interface";
 import Load from "@/components/share/load/Load";
+import { useQuery } from "@/hooks/useQuery";
+import { env } from "@/config/env";
 
 export default function CrearCliente({ onClose }: ModalProps) {
+  const { data, isLoading: loadingClientes } = useQuery({
+    queryFn: async () => {
+      const response = await axios.get<Response<Ciudad[]>>(
+        `${env.url_api}/utils/ciudades`
+      );
+      return response.data;
+    },
+  });
+
   const {
     register,
     setValue,
@@ -74,7 +85,7 @@ export default function CrearCliente({ onClose }: ModalProps) {
       onSubmit={handleSubmit(mutate)}
       className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600 overflow-y-auto "
     >
-      {isLoading && <Load />}
+      {(isLoading || loadingClientes) && <Load />}
       <header className="flex items-center gap-x-3">
         <LuUsers size={40} className="text-blue-600 dark:text-blue-400" />
         <div className="flex flex-col">
@@ -145,10 +156,12 @@ export default function CrearCliente({ onClose }: ModalProps) {
           label="Ciudad"
           icon={<CiCirclePlus />}
           placeholder="Selecciona una ciudad"
-          options={[
-            { value: "1", label: "Ciudad1" },
-            { value: "2", label: "Ciudad2" },
-          ]}
+          options={data?.data?.map((ciudad) => {
+            return {
+              label: ciudad.nombre,
+              value: ciudad.idCiudad.toString(),
+            };
+          })}
           onChange={(value) => {
             setValue("ciudad", {
               value: value.value,
