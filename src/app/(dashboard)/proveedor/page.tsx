@@ -129,11 +129,10 @@ export default async function ProveedorPage() {
       </div>
 
       <Tabs
-        headers={["Catálogo de Proveedores", "Por Tipo de Recurso"]}
+        headers={["Catálogo de Proveedores"]}
         className="mt-6 dark:text-red-400"
       >
         <ListarProveedor data={data?.data || []} />
-        <ListarTipoRecurso data={tipoRecursoData} />
       </Tabs>
     </div>
   );

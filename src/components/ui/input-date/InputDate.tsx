@@ -58,7 +58,6 @@ export default function InputDate({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  console.log(value);
   return (
     <div
       className={cx("flex flex-col gap-y-2 cursor-pointer", classNameContainer)}
@@ -118,6 +117,7 @@ export default function InputDate({
               }
               onSelect={(date) => {
                 onChange?.(date ? date.toISOString().split("T")[0] : "");
+                setOpen(false);
               }}
             />
           </div>

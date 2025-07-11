@@ -12,6 +12,7 @@ import {
   LuSquarePen,
   LuTrash2,
 } from "react-icons/lu";
+import { ProveedorColumns } from "@/columns/ProveedorColumns";
 
 interface ListarProveedorProps {
   data: Proveedor[];
@@ -48,89 +49,7 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
         <Table
           className="mt-4 bg-white dark:bg-gray-800 w-full rounded-md"
           data={data}
-          columns={[
-            {
-              header: "Profesion",
-              cell: (props) => (
-                <div className="flex xl:flex-row flex-col items-center lg:items-start gap-x-3">
-                  <span className="bg-red-100 dark:bg-red-500/10 p-2 rounded-lg">
-                    <LuBuilding
-                      size={15}
-                      className="text-red-600 dark:text-red-400"
-                    />
-                  </span>
-                  <div className="flex flex-col gap-y-1 text-center lg:text-start">
-                    <p className="font-semibold text-nowrap">
-                      {props.row?.razonSocial}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
-                      RUC: {props.row?.ruc}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
-                      ID: PROV-00{props.row?.idProovedor}
-                    </p>
-                  </div>
-                </div>
-              ),
-            },
-            {
-              header: "Responsable",
-              cell: (props) => (
-                <div className="flex flex-col gap-y-1">
-                  <span className="flex items-center gap-x-2">
-                    <LuUser size={15} className="text-black dark:text-white" />
-                    <p className="font-semibold">
-                      {props.row?.nombreResponsable}
-                    </p>
-                  </span>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    DNI: {props.row?.dniResponsable}
-                  </p>
-                  <span className="flex items-center gap-x-2">
-                    <LuMail
-                      size={15}
-                      className="text-yellow-600 dark:text-yellow-400"
-                    />
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      {props.row?.correo}
-                    </p>
-                  </span>
-                </div>
-              ),
-            },
-
-            {
-              header: "Última Compra",
-              cell: (props) => (
-                <div className="flex flex-col gap-y-1">
-                  <span className="flex items-center gap-x-2">
-                    <LuCalendar
-                      size={15}
-                      className="text-blue-500 dark:text-blue-300"
-                    />
-                    <p className="text-sm font-semibold"></p>
-                  </span>
-                </div>
-              ),
-            },
-            {
-              header: "Estado",
-              cell: () => (
-                <Badge className="bg-green-100 dark:bg-green-500/10 text-green-800 dark:text-green-300 font-semibold">
-                  Activo
-                </Badge>
-              ),
-            },
-            {
-              header: "Acciones",
-              cell: () => (
-                <span className="flex items-center gap-x-4">
-                  <LuSquarePen className="text-red-500" />
-                  <LuTrash2 className="text-gray-900 dark:text-gray-400" />
-                </span>
-              ),
-            },
-          ]}
+          columns={ProveedorColumns}
         />
       </div>
     </div>
