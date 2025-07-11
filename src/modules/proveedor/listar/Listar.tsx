@@ -1,4 +1,5 @@
-import { Proveedor } from "@/interfaces/response.interface";
+"use client";
+import { Proveedor } from "@/interfaces/responsefinal.interface";
 import Table from "@/components/ui/table/Table";
 import Badge from "@/components/ui/badge/Badge";
 
@@ -26,7 +27,8 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
           Filtros de Búsqueda
         </span>
         <p className="text-sm mt-1 text-gray-500 dark:text-gray-300">
-          Utiliza los filtros para encontrar proveedores específicos de manera rápida
+          Utiliza los filtros para encontrar proveedores específicos de manera
+          rápida
         </p>
       </section>
 
@@ -52,12 +54,21 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
               cell: (props) => (
                 <div className="flex xl:flex-row flex-col items-center lg:items-start gap-x-3">
                   <span className="bg-red-100 dark:bg-red-500/10 p-2 rounded-lg">
-                    <LuBuilding size={15} className="text-red-600 dark:text-red-400" />
+                    <LuBuilding
+                      size={15}
+                      className="text-red-600 dark:text-red-400"
+                    />
                   </span>
                   <div className="flex flex-col gap-y-1 text-center lg:text-start">
-                    <p className="font-semibold text-nowrap">{props.row.razSocial}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">RUC: {props.row.ruc}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">ID: PROV-00{props.row.idProveedor}</p>
+                    <p className="font-semibold text-nowrap">
+                      {props.row?.razonSocial}
+                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                      RUC: {props.row?.ruc}
+                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                      ID: PROV-00{props.row?.idProovedor}
+                    </p>
                   </div>
                 </div>
               ),
@@ -68,33 +79,36 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
                 <div className="flex flex-col gap-y-1">
                   <span className="flex items-center gap-x-2">
                     <LuUser size={15} className="text-black dark:text-white" />
-                    <p className="font-semibold">{props.row.responsable}</p>
+                    <p className="font-semibold">
+                      {props.row?.nombreResponsable}
+                    </p>
                   </span>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">DNI: {props.row.dni}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    DNI: {props.row?.dniResponsable}
+                  </p>
                   <span className="flex items-center gap-x-2">
-                    <LuMail size={15} className="text-yellow-600 dark:text-yellow-400" />
-                    <p className="text-sm text-gray-600 dark:text-gray-300">{props.row.email}</p>
+                    <LuMail
+                      size={15}
+                      className="text-yellow-600 dark:text-yellow-400"
+                    />
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {props.row?.correo}
+                    </p>
                   </span>
                 </div>
               ),
             },
-            {
-              header: "Tipo Recurso",
-              cell: (props) => (
-                <Badge className="bg-purple-100 dark:bg-purple-500/10 text-purple-800 dark:text-purple-300 font-semibold">
-                  {props.row.tipoRecurso}
-                </Badge>
-              ),
-            },
+
             {
               header: "Última Compra",
               cell: (props) => (
                 <div className="flex flex-col gap-y-1">
                   <span className="flex items-center gap-x-2">
-                    <LuCalendar size={15} className="text-blue-500 dark:text-blue-300" />
-                    <p className="text-sm font-semibold">
-                      {new Date(props.row.ultimaCompra).toLocaleDateString("es-ES")}
-                    </p>
+                    <LuCalendar
+                      size={15}
+                      className="text-blue-500 dark:text-blue-300"
+                    />
+                    <p className="text-sm font-semibold"></p>
                   </span>
                 </div>
               ),
