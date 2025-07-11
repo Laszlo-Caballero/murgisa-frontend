@@ -12,6 +12,8 @@ import Confirm from "../confirmar/Confirm";
 import { ModalProps } from "@/interfaces/modal.interface";
 import StepOne from "../pasos/StepOne";
 import { IoClose } from "react-icons/io5";
+import StepFive from "../pasos/StepFive";
+import StepSix from "../pasos/StepSix";
 
 export default function CrearVenta({ onClose }: ModalProps) {
   return (
@@ -47,6 +49,8 @@ export default function CrearVenta({ onClose }: ModalProps) {
             "Cliente",
             "Servicios",
             "Personal",
+            "Recursos",
+            "Forma de Pago",
             "Confirmación",
           ]}
         />
@@ -56,6 +60,8 @@ export default function CrearVenta({ onClose }: ModalProps) {
           <StepTwo />
           <StepThree />
           <StepFour />
+          <StepFive />
+          <StepSix />
           <Confirm />
         </ContainerStep>
       </StepFormProvider>

@@ -19,7 +19,7 @@ export const PersonalCard = (empleado: Personal) => {
         },
         span: "bg-green-100 text-green-600 font-bold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
       }}
-      description={empleado?.cargo.cargo}
+      description={empleado?.cargo?.cargo}
       span={empleado?.estado ? "Activo" : "Inactivo"}
     >
       <div className="flex flex-col gap-y-2">
@@ -49,14 +49,14 @@ export const PersonalCard = (empleado: Personal) => {
           <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
             <LuCalendar /> Ingreso:{" "}
             <p className="font-semibold text-black dark:text-gray-500">
-              {empleado?.fechaIngreso.split("T")[0]}
+              {empleado?.fechaIngreso?.split("T")[0]}
             </p>
           </span>
 
           <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
             <LuBriefcase /> Profesion:{" "}
             <p className="font-semibold text-black dark:text-gray-500">
-              {empleado?.profesion.titulo || "No disponible"}
+              {empleado?.profesion?.titulo || "No disponible"}
             </p>
           </span>
         </div>

@@ -28,6 +28,8 @@ export default function StepFormProvider({
         value: "",
         label: "",
       },
+      fechaFin: "",
+      fechaInicio: "",
     },
     stepTwo: {
       telefono: "",
@@ -48,7 +50,14 @@ export default function StepFormProvider({
       servicios: [],
     },
     stepFour: {
+      recurso: [],
+    },
+    stepFive: {
       personal: [],
+    },
+    stepSix: {
+      formaPagoId: -1,
+      nombre: "",
     },
   });
 

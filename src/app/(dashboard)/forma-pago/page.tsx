@@ -1,11 +1,7 @@
-import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
 import { FiPlus } from "react-icons/fi";
 import { LuCreditCard, LuFilter } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
-import { FaRegMoneyBillAlt } from "react-icons/fa";
-import { MdOutlineAttachMoney } from "react-icons/md";
-import { LuCalendar } from "react-icons/lu";
 import { FormaPago } from "@/interfaces/response.interface";
 import CrearFormaPago from "@/modules/forma-pago/crear/CrearFormaPago";
 import { LuStar } from "react-icons/lu";

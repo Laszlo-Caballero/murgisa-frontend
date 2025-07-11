@@ -95,6 +95,26 @@ export default function StepOne() {
           value={watch("fechaVenta")}
           error={errors.fechaVenta?.message}
         />
+        <InputDate
+          icon={<LuCalendarCheck2 />}
+          label="Fecha de Inicio"
+          placeholder="Seleccione la fecha de inicio"
+          onChange={(date) => {
+            setValue("fechaInicio", date);
+          }}
+          value={watch("fechaInicio")}
+          error={errors.fechaInicio?.message}
+        />
+        <InputDate
+          icon={<LuCalendarCheck2 />}
+          label="Fecha de Fin"
+          placeholder="Seleccione la fecha de fin"
+          onChange={(date) => {
+            setValue("fechaFin", date);
+          }}
+          value={watch("fechaFin")}
+          error={errors.fechaFin?.message}
+        />
       </div>
       <ButtonsStep maxSteps={5} />
     </form>

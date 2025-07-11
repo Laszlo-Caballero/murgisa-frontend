@@ -3,7 +3,7 @@ import { useStepForm } from "@/components/context/step-form/StepFormContext";
 import Load from "@/components/share/load/Load";
 import ButtonsStep from "@/components/ui/buttons-steps/ButtonsStep";
 import Select from "@/components/ui/select/Select";
-import Table from "@/components/ui/table/Table";
+import Table from "@/components/ui/single-table/SingleTable";
 import { useQuery } from "@/hooks/useQuery";
 import { Response, Servicio } from "@/interfaces/responsefinal.interface";
 import { StepThreeSchema } from "@/schemas/Venta/StepThree.schema";
@@ -72,7 +72,7 @@ export default function StepThree() {
           }
           onChange={(value) => {
             const selectedServicio = data?.data.find(
-              (servicio) => servicio.idServicio?.toString() === value.value
+              (servicio) => servicio.idServicio?.toString() === value?.value
             );
             if (selectedServicio) {
               console.log("Selected Servicio:", selectedServicio);
@@ -97,17 +97,17 @@ export default function StepThree() {
           columns={[
             {
               header: "Servicio",
-              cell: (props) => <span>{props.row.nombre}</span>,
+              cell: (props) => <span>{props.row?.nombre}</span>,
             },
             {
               header: "Duración",
-              cell: (props) => <span>{props.row.duracion}</span>,
+              cell: (props) => <span>{props.row?.duracion}</span>,
             },
             {
               header: "Precio",
               cell: (props) => (
                 <span className="text-green-500 font-bold">
-                  {props.row.precio}
+                  {props.row?.precio}
                 </span>
               ),
             },
@@ -120,7 +120,7 @@ export default function StepThree() {
                     onClick={() => {
                       const updatedServicios = servicios.filter(
                         (servicio) =>
-                          servicio.idServicio !== props.row.idServicio
+                          servicio.idServicio !== props.row?.idServicio
                       );
                       setValue("servicios", updatedServicios);
                     }}

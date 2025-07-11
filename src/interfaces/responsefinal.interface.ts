@@ -132,26 +132,35 @@ export interface Cargo {
   estado: boolean;
 }
 export interface MantenimientoPreventivo {
-  mantenimientoPreventivoId: number
-  fechaMantenimiento: string
-  prioridad: string
-  estado: boolean
-  tipo: Tipo[]
-  recurso: Recurso
-  personal: Personal
-  horario: Horario
+  mantenimientoPreventivoId: number;
+  fechaMantenimiento: string;
+  prioridad: string;
+  estado: boolean;
+  tipo: Tipo[];
+  recurso: Recurso;
+  personal: Personal;
+  horario: Horario;
 }
 
 export interface Tipo {
-  tipoMantenimientoId: number
-  nombre: string
-  descripcion: string
-  duracion: string
+  tipoMantenimientoId: number;
+  nombre: string;
+  descripcion: string;
+  duracion: string;
 }
 
 export interface Horario {
-  idhorario: number
-  horaInicio: string
-  horaFin: string
-  estado: boolean
+  idhorario: number;
+  horaInicio: string;
+  horaFin: string;
+  estado: boolean;
+}
+
+export interface FormaPago {
+  idFormaPago: number;
+  tipo: string;
+  descripcion: string;
+  comision: number;
+  estado: boolean;
+  registeredAt: string;
 }

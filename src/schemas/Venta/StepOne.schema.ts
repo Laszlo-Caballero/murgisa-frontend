@@ -11,4 +11,14 @@ export const StepOneSchema = z.object({
       message: "Tipo de servicio es requerido",
     }
   ),
+  fechaInicio: z
+    .string({
+      message: "Fecha de inicio es requerida",
+    })
+    .min(1, "Fecha de inicio es requerida"),
+  fechaFin: z
+    .string({
+      message: "Fecha de fin es requerida",
+    })
+    .min(1, "Fecha de fin es requerida"),
 });
