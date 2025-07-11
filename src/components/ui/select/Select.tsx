@@ -101,7 +101,7 @@ export default function Select({
           {options?.map((option) => {
             return (
               <div
-                className="w-full px-10 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="w-full px-10 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
                 key={option.value}
                 onClick={() => {
                   onChange?.(option);
