@@ -10,7 +10,7 @@ import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import { ApiRequest } from "@/libs/api";
 import CardsLoad from "@/components/share/cards-load/CardsLoad";
 import { Response, TipoRecurso } from "@/interfaces/responsefinal.interface";
-import { TipoRecursoCards } from "@/cards/RecursoCards";
+import { TipoRecursoCards } from "@/cards/TipoRecursoCards";
 
 export default async function TipoRecursoPage() {
   const data = await ApiRequest<Response<TipoRecurso[]>>({

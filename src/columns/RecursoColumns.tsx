@@ -69,11 +69,11 @@ export const RecusoColumns: ColumnDef<Recurso>[] = [
           <span className="flex items-center gap-x-2">
             <LuBuilding2 size={15} className="text-purple-600" />
             <p className="font-semibold text-sm">
-              {props.row.proveedor.razonSocial}
+              {props.row.proveedor?.razonSocial}
             </p>
           </span>
           <span className="text-xs text-gray-500 text-nowrap">
-            Responsable: {props.row.proveedor.nombreResponsable}
+            Responsable: {props.row.proveedor?.nombreResponsable}
           </span>
         </div>
       );
@@ -86,7 +86,7 @@ export const RecusoColumns: ColumnDef<Recurso>[] = [
         <span className="flex xl:flex-row flex-col w-auto items-center gap-x-2">
           <PiMoneyWavyLight size={15} className="text-green-600" />
           <p className="font-semibold text-green-600 text-sm text-nowrap">
-            S/. {props.row.precio}
+            S/. {props.row?.precio}
           </p>
         </span>
       );
@@ -104,7 +104,7 @@ export const RecusoColumns: ColumnDef<Recurso>[] = [
               : "bg-red-100 text-red-600 dark:bg-red-500/30 dark:text-red-300 dark:border-red-700"
           )}
         >
-          {props.row.estado ? "Activo" : "Inactivo"}
+          {props.row?.estado ? "Activo" : "Inactivo"}
         </span>
       );
     },
