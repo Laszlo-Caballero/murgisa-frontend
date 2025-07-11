@@ -1,6 +1,6 @@
 "use client";
 import Badge from "@/components/ui/badge/Badge";
-import { Venta } from "@/interfaces/response.interface";
+import { Venta } from "@/interfaces/responsefinal.interface";
 import { ColumnDef } from "@/interfaces/table.interface";
 import { CiDollar } from "react-icons/ci";
 import { IoDocumentOutline } from "react-icons/io5";
@@ -17,10 +17,10 @@ export const VentasColumns: ColumnDef<Venta>[] = [
           </span>
           <div className="flex flex-col gap-y-1">
             <span className="text-gray-500 text-xs dark:text-gray-400">
-              ID: VENT-00{props.row.idVenta}
+              ID: VENT-00{props.row?.idVenta}
             </span>
             <span className="font-semibold text-gray-800 text-sm dark:text-gray-300">
-              {props.row.cliente}
+              {props.row?.cliente?.nombre} {props.row?.cliente?.razonSocial}{" "}
             </span>
           </div>
         </div>
@@ -33,7 +33,9 @@ export const VentasColumns: ColumnDef<Venta>[] = [
       return (
         <div className="flex xl:flex-row flex-col items-center gap-x-2">
           <LuCalendar size={15} className="text-red-600 dark:text-red-500" />
-          <p className="text-nowrap dark:text-gray-200">{props.row.fecha}</p>
+          <p className="text-nowrap dark:text-gray-200">
+            {props.row?.fechaVenta?.split("T")[0]}
+          </p>
         </div>
       );
     },
@@ -46,13 +48,15 @@ export const VentasColumns: ColumnDef<Venta>[] = [
           <span className="flex xl:flex-row flex-col items-center gap-x-2">
             <LuBriefcase className="text-gray-800 dark:text-gray-300" />
             <p className="text-gray-800 text-sm text-nowrap dark:text-gray-300">
-              {props.row.recurso}
+              {props.row?.detalleVenta?.map((item) => item.recurso).join(", ")}
             </p>
           </span>
           <span className="flex items-center gap-x-2">
             <CiDollar className="text-green-600 dark:text-green-400" />
             <p className="text-green-600 text-sm dark:text-green-400">
-              {props.row.monto}
+              {props.row?.detalleVenta
+                ?.reduce((total, item) => total + item.precio, 0)
+                .toFixed(2)}
             </p>
           </span>
         </div>
@@ -64,7 +68,7 @@ export const VentasColumns: ColumnDef<Venta>[] = [
     cell: (props) => {
       return (
         <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700">
-          Activo
+          {props.row?.estado ? "Concretada" : "Anulada"}
         </Badge>
       );
     },

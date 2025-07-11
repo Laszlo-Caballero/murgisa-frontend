@@ -9,8 +9,15 @@ import { VentasColumns } from "@/columns/VentasColumns";
 import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import CrearVenta from "@/modules/ventas/crear/CrearVenta";
 import { FiPlus } from "react-icons/fi";
+import { ApiRequest } from "@/libs/api";
+import { Response, Venta } from "@/interfaces/responsefinal.interface";
 
-export default function VentasPagina() {
+export default async function VentasPagina() {
+  const data = await ApiRequest<Response<Venta[]>>({
+    metod: "get",
+    endpoint: "venta",
+  });
+
   return (
     <div className="w-full h-full bg-gray-100 p-8 flex flex-col overflow-x-hidden dark:bg-gray-900">
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-700">
@@ -149,7 +156,7 @@ export default function VentasPagina() {
           </div>
           <Table
             className="mt-4 bg-white w-full rounded-md "
-            data={[]}
+            data={data?.data || []}
             columns={VentasColumns}
           />
         </div>

@@ -164,3 +164,36 @@ export interface FormaPago {
   estado: boolean;
   registeredAt: string;
 }
+
+export interface Venta {
+  idVenta: number;
+  fechaInicioServicio: string;
+  fechaFFinServicio: string;
+  fechaVenta: string;
+  estado: boolean;
+  asignacionPersonal: AsignacionPersonal[];
+  cliente: Cliente;
+  servicios: Servicio[];
+  pagos: Pago[];
+  notasSalida: any[]; //TODO: Actualizar con el tipo correcto
+  detalleVenta: DetalleVenta[];
+}
+
+export interface AsignacionPersonal {
+  idAsignacionPersonal: number;
+  costo: number;
+  estado: boolean;
+}
+
+export interface Pago {
+  idPagoServicio: number;
+  fecha: string;
+  estado: boolean;
+}
+
+export interface DetalleVenta {
+  idDetalleVenta: number;
+  precio: number;
+  estado: boolean;
+  recurso: Recurso;
+}
