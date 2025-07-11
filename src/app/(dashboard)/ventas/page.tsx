@@ -146,7 +146,7 @@ export default async function VentasPagina() {
               Ventas Registradas
             </p>
             <Badge className="bg-gray-50 text-xs text-gray-600 font-bold border-gray-300 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-300">
-              Total: 5
+              Total: {data?.data.length || 0}
             </Badge>
           </div>
           <div>

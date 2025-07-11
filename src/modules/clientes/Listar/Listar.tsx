@@ -10,6 +10,7 @@ import { LuSquarePen } from "react-icons/lu";
 import { LuTrash2 } from "react-icons/lu";
 import Badge from "@/components/ui/badge/Badge";
 import { Cliente } from "@/interfaces/responsefinal.interface";
+import DeleteModal from "@/components/share/delete-modal/DeleteModal";
 
 interface ListarClientesProps {
   data?: Cliente[] | null;
@@ -126,7 +127,7 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                 return (
                   <span className="flex items-center gap-x-4">
                     <LuSquarePen className="text-red-500" />
-                    <LuTrash2 className="text-gray-900 dark:text-gray-400" />
+                    <DeleteModal id={props.row?.idCliente} endpoint="cliente" />
                   </span>
                 );
               },

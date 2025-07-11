@@ -1,4 +1,5 @@
 "use client";
+import DeleteModal from "@/components/share/delete-modal/DeleteModal";
 import Badge from "@/components/ui/badge/Badge";
 import { Venta } from "@/interfaces/responsefinal.interface";
 import { ColumnDef } from "@/interfaces/table.interface";
@@ -78,7 +79,7 @@ export const VentasColumns: ColumnDef<Venta>[] = [
     cell: (props) => {
       return (
         <span className="flex items-center gap-x-4">
-          <LuTrash2 className="text-gray-900 dark:text-gray-400" />
+          <DeleteModal id={props.row?.idVenta} endpoint="venta" />
         </span>
       );
     },
