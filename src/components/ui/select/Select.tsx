@@ -97,7 +97,7 @@ export default function Select({
         </div>
       </div>
       {open && (
-        <div className="absolute max-h-[150px] overflow-y-scroll top-full flex flex-col gap-y-2 left-0 translate-y-2 w-full bg-white border border-slate-300 rounded-md shadow-lg z-10 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-500 ">
+        <div className="absolute max-h-[50px] md:max-h-[150px] overflow-y-scroll top-full flex flex-col gap-y-2 left-0 translate-y-2 w-full bg-white border border-slate-300 rounded-md shadow-lg z-10 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-500 ">
           {options?.map((option) => {
             return (
               <div

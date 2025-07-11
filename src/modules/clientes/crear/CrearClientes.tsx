@@ -84,7 +84,7 @@ export default function CrearCliente({ onClose }: ModalProps) {
   return (
     <form
       onSubmit={handleSubmit(mutate)}
-      className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600"
+      className="w-[calc(100vw-3rem)] md:max-h-min max-h-[calc(100vh-4rem)] md:w-[700px] lg:w-[1000px] md:overflow-visible overflow-y-auto rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 dark:border dark:border-gray-600"
     >
       {(isLoading || loadingClientes) && <Load />}
       <header className="flex items-center gap-x-3">
