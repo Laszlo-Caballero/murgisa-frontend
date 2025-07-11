@@ -42,7 +42,7 @@ export default function ActualizarCargo({ onClose, id }: ActualizarCargoProps) {
   >({
     mutationFn: async (data, url, token) => {
       const response = await axios.patch(
-        `${url}/cargo`,
+        `${url}/cargo/${id}`,
         {
           cargo: data.cargo,
           descripcion: data.descripcion,
