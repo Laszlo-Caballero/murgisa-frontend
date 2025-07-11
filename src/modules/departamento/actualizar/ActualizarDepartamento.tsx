@@ -101,11 +101,10 @@ export default function ActualizarDepartamento({
         <LuBuilding2 size={40} className="text-blue-600" />
         <div className="flex flex-col">
           <p className="text-xl font-semibold text-black dark:text-white">
-            Agregar Departamento
+            Actualizar Departamento
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            Completa los datos para registrar un nuevo departamento en el
-            sistema
+            Completa los datos para actualizar el departamento en el sistema
           </p>
         </div>
       </header>
@@ -140,7 +139,7 @@ export default function ActualizarDepartamento({
       <div>
         <Button className="flex items-center gap-x-3 mt-4 bg-blue-600 text-white py-3 font-semibold hover:bg-blue-500">
           <FiPlus size={15} className="mr-2" />
-          Registrar Departamento
+          Actualizar Departamento
         </Button>
       </div>
     </form>
