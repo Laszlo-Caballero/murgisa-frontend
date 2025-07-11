@@ -1,18 +1,14 @@
-<<<<<<< HEAD
 "use client";
 import { LuBuilding2 } from "react-icons/lu";
 import { LuUserRound } from "react-icons/lu";
 import { PiIdentificationCardLight } from "react-icons/pi";
 import { LuMail } from "react-icons/lu";
 import { LuBarcode } from "react-icons/lu";
-=======
->>>>>>> 7dbe2157f1d5b8bc51ae89909f5cf80d7032ca01
 import { FiPlus } from "react-icons/fi";
 import { GrHostMaintenance, GrUserWorker } from "react-icons/gr";
 import { AiFillSchedule } from "react-icons/ai";
 import { MdDateRange, MdLowPriority } from "react-icons/md";
 import Button from "@/components/ui/button/Button";
-<<<<<<< HEAD
 import Input from "@/components/ui/input/Input";
 import {Response } from "@/interfaces/responsefinal.interface";
 import axios from "axios";
@@ -33,11 +29,6 @@ import {
   LuTriangleAlert,
   LuCirclePlus,
 } from "react-icons/lu";
-=======
-import { LuCirclePlus } from "react-icons/lu";
-import InputDate from "@/components/ui/input-date/InputDate";
-import Select from "@/components/ui/select/Select";
->>>>>>> 7dbe2157f1d5b8bc51ae89909f5cf80d7032ca01
 
 import { Recurso, Personal, Horario, MantenimientoPreventivo } from "@/interfaces/responsefinal.interface";
 import { MantenimientoPreventivoSchema } from "@/schemas/MantenimientoPreventivo.schema";
