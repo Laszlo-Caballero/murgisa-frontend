@@ -109,7 +109,7 @@ export default function CrearRecurso({ onClose }: ModalProps) {
     <form 
     onSubmit={handleSubmit(mutate)}
     className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 border dark:border-gray-700">
-      {(isLoading || loadingRecursos || loadingTipo || loadingProveedor ) && <Load />}
+      {(isLoading || loadingRecursos || loadingTipo ) && <Load />}
       <header className="flex items-center gap-x-3">
         <LuPackage size={40} className="text-red-600" />
         <div className="flex flex-col">
@@ -172,12 +172,13 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           label="Proveedor"
           icon={<LuBuilding2 />}
           placeholder="Selecciona un Proveedor"
-          options={Proveedor?.data.map((proveedor) => {
-            return{
-              label: proveedor.razonSocial,
-              value: proveedor.idProovedor.toString(),
-            }
-          })}
+          options={[{ value: "1", label: "Tipo de Recurso" }]}
+          // options={Proveedor?.data.map((proveedor) => {
+          //   return{
+          //     label: proveedor.razonSocial,
+          //     value: proveedor.idProovedor.toString(),
+          //   }
+          // })}
           onChange={(value) => {
             setValue("proveedor", {
               value: value.value,
