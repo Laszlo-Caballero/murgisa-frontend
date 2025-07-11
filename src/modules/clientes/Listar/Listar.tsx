@@ -11,6 +11,8 @@ import { LuTrash2 } from "react-icons/lu";
 import Badge from "@/components/ui/badge/Badge";
 import { Cliente } from "@/interfaces/responsefinal.interface";
 import DeleteModal from "@/components/share/delete-modal/DeleteModal";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import ActualizarCliente from "../actualizar/Actualizar";
 
 interface ListarClientesProps {
   data?: Cliente[] | null;
@@ -126,9 +128,17 @@ export default function ListarClientes({ data }: ListarClientesProps) {
               cell: (props) => {
                 return (
                   <span className="flex items-center gap-x-4">
-                    <LuSquarePen className="text-red-500" />
+                    <ButtonModal
+                      className="bg-transparent p-0"
+                      modal={<ActualizarCliente id={props.row?.idCliente} />}
+                    >
+                      <LuSquarePen className="text-red-500" size={20} />
+                    </ButtonModal>
                     <DeleteModal id={props.row?.idCliente} endpoint="cliente">
-                      <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
+                      <LuTrash2
+                        className="text-gray-900 dark:text-gray-400 cursor-pointer"
+                        size={20}
+                      />
                     </DeleteModal>
                   </span>
                 );
