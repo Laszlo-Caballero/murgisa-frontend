@@ -201,9 +201,16 @@ export interface DetalleVenta {
 }
 
 export interface TipoMantenimiento {
-  tipoMantenimientoId: number
-  nombre: string
-  descripcion: string
-  duracion: string
-  estado: boolean
+  tipoMantenimientoId: number;
+  nombre: string;
+  descripcion: string;
+  duracion: string;
+  estado: boolean;
+}
+
+export interface Log {
+  idLog: number;
+  tipo: string;
+  mensaje: string;
+  fecha: string;
 }
