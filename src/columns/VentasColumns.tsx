@@ -54,14 +54,29 @@ export const VentasColumns: ColumnDef<Venta>[] = [
   {
     header: "Item/Monto",
     cell: (props) => {
+      const totalDetalle = props.row?.detalleVenta?.reduce(
+        (total, item) => total + item.precio,
+        0
+      );
+
+      const totalServicio = props.row?.servicios?.reduce(
+        (total, item) => total + item.precio,
+        0
+      );
+
+      const totalPersonal = props.row?.asignacionPersonal?.reduce(
+        (total, item) => total + item.costo,
+        0
+      );
+
+      const total = totalDetalle + totalServicio + totalPersonal;
+
       return (
         <div className="flex items-center xl:items-start flex-col gap-y-2">
           <span className="flex items-center gap-x-2">
             <CiDollar className="text-green-600 dark:text-green-400" />
             <p className="text-green-600 text-sm dark:text-green-400">
-              {props.row?.detalleVenta
-                ?.reduce((total, item) => total + item.precio, 0)
-                .toFixed(2)}
+              {total}
             </p>
           </span>
         </div>
