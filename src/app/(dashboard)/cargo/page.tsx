@@ -1,44 +1,29 @@
-"use client";
-import Button from "@/components/ui/button/Button";
-import CardInfo from "@/components/ui/card-info/CardInfo";
 import Card from "@/components/ui/card/Card";
-import { cargoData } from "@/data/cargo";
 import { PiToolbox } from "react-icons/pi";
-import { AiOutlineCustomerService } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
 import CrearCargo from "@/modules/cargo/crear/CrearCargo";
 import { LuCircleCheckBig, LuFilter, LuUsers } from "react-icons/lu";
-import { useState } from "react";
-import Modal from "@/components/ui/modal/Modal";
-import { useQuery } from "@/hooks/useQuery";
-import { env } from "@/config/env";
-import { ResponseCargo } from "@/interfaces/response.interface";
-import CardInfoSkeleton from "@/components/skeletons/card-info-skeleton/CardInfoSkeleton";
-export default function CargoPage() {
-  const [showModal, setShowModal] = useState(false);
-  const { data, isLoading } = useQuery<ResponseCargo>({
-    queryFn: async () => {
-      const response = await fetch(`${env.url_api}/cargo`);
-      if (!response.ok) {
-        throw new Error("Error al obtener los cargos");
-      }
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import { ApiRequest } from "@/libs/api";
+import { Cargo, Response } from "@/interfaces/responsefinal.interface";
+import CardsLoad from "@/components/share/cards-load/CardsLoad";
+import { CargoCard } from "@/cards/CargoCard";
 
-      return response.json();
-    },
+interface ResponseCargo {
+  cargos: Cargo[];
+  total: number;
+  activos: number;
+  usuarios: number;
+}
+
+export default async function CargoPage() {
+  const data = await ApiRequest<Response<ResponseCargo>>({
+    metod: "get",
+    endpoint: `cargo`,
   });
 
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50  dark:bg-gray-900">
-      {showModal && (
-        <Modal
-          onClose={() => {
-            setShowModal(false);
-          }}
-        >
-          <CrearCargo />
-        </Modal>
-      )}
-
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600">
         <span className=" p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-400/30 ">
           <PiToolbox className="text-white size-8 lg:size-10 " />
@@ -49,15 +34,13 @@ export default function CargoPage() {
             Administra los puestos de trabajo y roles organizacionales
           </p>
         </div>
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[22%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-blue-500 mb-2 bg-blue-500/50 "
-          onClick={() => {
-            setShowModal(true);
-          }}
+          modal={<CrearCargo/>}
         >
           <FiPlus size={15} />
           Nuevo Cargo
-        </Button>
+        </ButtonModal>
       </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4  dark:bg-gray-900">
         <Card
@@ -65,7 +48,7 @@ export default function CargoPage() {
           icon={
             <PiToolbox size={28} className="text-white dark:text-blue-300" />
           }
-          description={data?.total.toString() || "0"}
+          description={data?.data.total.toString()}
           extra="Registrados en la empresa"
           className={{
             container:
@@ -86,7 +69,7 @@ export default function CargoPage() {
               className="text-white dark:text-green-400"
             />
           }
-          description={data?.activos.toString() || "0"}
+          description={data?.data.activos.toString()}
           extra="Disponibles para asignacion"
           className={{
             container:
@@ -104,7 +87,7 @@ export default function CargoPage() {
           icon={
             <LuUsers size={28} className="text-white dark:text-purple-400" />
           }
-          description={data?.usuarios.toString() || "0"}
+          description={data?.data.usuarios.toString()}
           extra="Asignados a cargos"
           className={{
             container:
@@ -154,42 +137,9 @@ export default function CargoPage() {
           </p>
         </section>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3  dark:bg-gray-900">
-          {isLoading &&
-            Array.from({ length: 3 }).map((_, index) => (
-              <CardInfoSkeleton key={index} />
-            ))}
-
-          {data?.cargos.map((cargo) => (
-            <CardInfo
-              key={cargo.idCargo}
-              title={cargo.cargo}
-              icon={
-                <AiOutlineCustomerService size={20} className="text-blue-400" />
-              }
-              className={{
-                container: "bg-white dark:bg-gray-800  dark:text-white",
-                header: {
-                  icon: "bg-blue-100 dark:bg-blue-900/50",
-                },
-                span: "bg-blue-100 text-blue-700 font-bold dark:bg-blue-600  dark:text-white",
-              }}
-              description={cargo.descripcion}
-              span={cargo.estado ? "Activo" : "Inactivo"}
-            >
-              <div className="flex flex-col gap-y-2 ">
-                <span className="flex items-center justify-between  dark:text-white">
-                  <p className="text-sm text-gray-600  dark:text-gray-500">
-                    Empleados
-                  </p>
-                  <p className="text-sm font-semibold flex items-center gap-x-1 ">
-                    <LuUsers /> {cargo.totalUsuario}
-                  </p>
-                </span>
-              </div>
-            </CardInfo>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <CardsLoad data={data?.data.cargos || []} render={CargoCard} />
+      </div>
       </div>
     </div>
   );

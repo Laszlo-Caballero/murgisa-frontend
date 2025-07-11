@@ -123,3 +123,10 @@ export interface TipoServicio {
   descripcion: string;
   estado: boolean;
 }
+
+export interface Cargo {
+  idCargo: number
+  cargo: string
+  descripcion: string
+  estado: boolean
+}
