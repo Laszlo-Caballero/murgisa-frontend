@@ -131,3 +131,27 @@ export interface Cargo {
   descripcion: string;
   estado: boolean;
 }
+export interface MantenimientoPreventivo {
+  mantenimientoPreventivoId: number
+  fechaMantenimiento: string
+  prioridad: string
+  estado: boolean
+  tipo: Tipo[]
+  recurso: Recurso
+  personal: Personal
+  horario: Horario
+}
+
+export interface Tipo {
+  tipoMantenimientoId: number
+  nombre: string
+  descripcion: string
+  duracion: string
+}
+
+export interface Horario {
+  idhorario: number
+  horaInicio: string
+  horaFin: string
+  estado: boolean
+}

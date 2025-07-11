@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import {
   LuShield,
@@ -22,117 +19,19 @@ import ListarPreventivos from "@/modules/preventivo/listar/listar";
 import ListarCalendario from "@/modules/preventivo/calendario/calendario";
 
 import { preventivoData } from "@/data/preventivo";
-import { PlanificacionPreventivo } from "@/interfaces/response.interface";
+import CrearPreventivo from "@/modules/preventivo/Crear/CrearPreventivo";
+import { ApiRequest } from "@/libs/api";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import { MantenimientoPreventivo, Response } from "@/interfaces/responsefinal.interface";
 
-export default function MantenimientoPreventivoPage() {
-  const [showModal, setShowModal] = useState(false);
-  const preventivo: PlanificacionPreventivo[] = preventivoData;
 
+export default async function MantenimientoPreventivoPage() {
+ const data = await ApiRequest<Response<MantenimientoPreventivo[]>>({
+    metod: "get",
+    endpoint: "mantenimiento-preventivo",
+  });
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-100 dark:bg-gray-900">
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <div className="w-full max-w-sm md:max-w-3xl bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-            <header className="flex items-center gap-x-3">
-              <GrHostMaintenance size={40} className="text-orange-500" />
-              <div className="flex flex-col">
-                <p className="text-xl font-semibold dark:text-white">
-                  Agregar una planificación de mantenimiento
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-300">
-                  Completa los datos para registrar una nueva planificación en
-                  el sistema
-                </p>
-              </div>
-            </header>
-
-         
-            <div className="grid grid-cols-1 gap-4 mt-4">
-              <div className="flex flex-col gap-y-1">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                  Fecha de mantenimiento
-                </label>
-                <div className="flex items-center gap-x-2 border rounded-md px-3 py-2 bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600">
-                  <MdDateRange className="text-gray-500 dark:text-gray-300" />
-                  <input
-                    type="date"
-                    className="w-full bg-transparent outline-none text-sm placeholder-gray-400 dark:placeholder-gray-400"
-                  />
-                </div>
-              </div>
-
-        
-              <div className="flex flex-col gap-y-1">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                  Prioridad
-                </label>
-                <div className="flex items-center gap-x-2 border rounded-md px-3 py-2 bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600">
-                  <MdLowPriority className="text-gray-500 dark:text-gray-300" />
-                  <select className="w-full bg-transparent outline-none text-sm dark:bg-gray-700 dark:text-white">
-                    <option>Selecciona la prioridad</option>
-                    <option value="1">Alta</option>
-                    <option value="2">Media</option>
-                    <option value="3">Baja</option>
-                  </select>
-                </div>
-              </div>
-
-         
-              <div className="flex flex-col gap-y-1">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                  Recurso
-                </label>
-                <div className="flex items-center gap-x-2 border rounded-md px-3 py-2 bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600">
-                  <LuCirclePlus className="text-gray-500 dark:text-gray-300" />
-                  <select className="w-full bg-transparent outline-none text-sm dark:bg-gray-700 dark:text-white">
-                    <option>Selecciona un recurso</option>
-                    <option value="1">Grúa</option>
-                    <option value="2">Excavadora</option>
-                    <option value="3">Generador</option>
-                  </select>
-                </div>
-              </div>
-
-           
-              <div className="flex flex-col gap-y-1">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                  Personal
-                </label>
-                <div className="flex items-center gap-x-2 border rounded-md px-3 py-2 bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600">
-                  <GrUserWorker className="text-gray-500 dark:text-gray-300" />
-                  <select className="w-full bg-transparent outline-none text-sm dark:bg-gray-700 dark:text-white">
-                    <option>Selecciona el responsable del mantenimiento</option>
-                    <option value="1">Técnico 1</option>
-                    <option value="2">Técnico 2</option>
-                    <option value="3">Técnico 3</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-y-1">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                  Horario
-                </label>
-                <div className="flex items-center gap-x-2 border rounded-md px-3 py-2 bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600">
-                  <AiFillSchedule className="text-gray-500 dark:text-gray-300" />
-                  <select className="w-full bg-transparent outline-none text-sm dark:bg-gray-700 dark:text-white">
-                    <option>Selecciona el horario</option>
-                    <option value="1">8:00 - 10:00</option>
-                    <option value="2">10:00 - 12:00</option>
-                    <option value="3">14:00 - 16:00</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-             <Button className="flex items-center gap-x-3 mt-4 bg-orange-500 text-white py-3 font-semibold hover:bg-orange-400">
-              <FiPlus size={15} className="mr-2" />
-              Registrar Planificación
-            </Button>
-          </div>
-        </Modal>
-      )}
-
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
           <span className="p-2 rounded-xl max-w-max mb-2 lg:p-3 bg-orange-300/30">
             <LuShield className="text-white size-8 lg:size-10" />
@@ -143,15 +42,13 @@ export default function MantenimientoPreventivoPage() {
               Gestiona y monitorea los mantenimientos preventivos programados
             </p>
           </div>
-          <Button
+          <ButtonModal
             className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-amber-600 mb-2 bg-orange-300/30  lg:px-6 "
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
+              modal={<CrearPreventivo />}
+              >
             <FiPlus size={15} />
             Planificar Mantenimiento
-          </Button>
+          </ButtonModal>
         </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card
@@ -225,8 +122,8 @@ export default function MantenimientoPreventivoPage() {
         headers={["Lista de Mantenimientos", "Vista Calendario"]}
         className="mt-6 dark:text-orange-400"
       >
-        <ListarPreventivos data={preventivo} />
-        <ListarCalendario data={preventivo} />
+        <ListarPreventivos data={data?.data||[]} />
+        <ListarCalendario data={preventivoData} />
       </Tabs>
     </div>
   );
