@@ -166,8 +166,8 @@ export const VentasColumns: ColumnDef<Venta>[] = [
     header: "Metodo de Pago",
     cell: (props) => {
       const forma = props.row?.pagos
-        .map((pago) => pago.formaPago.tipo)
-        .join(", ");
+        ?.map((pago) => pago.formaPago.tipo)
+        ?.join(", ");
       return (
         <Badge
           className={cx(
