@@ -12,7 +12,7 @@ import Button from "@/components/ui/button/Button";
 import Input from "@/components/ui/input/Input";
 import Select from "@/components/ui/select/Select";
 
-import { Response } from "@/interfaces/responsefinal.interface";
+import { Proveedor, Response, TipoRecurso } from "@/interfaces/responsefinal.interface";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RecursoSchema } from "@/schemas/Recurso.schema";
@@ -35,6 +35,24 @@ export default function CrearRecurso({ onClose }: ModalProps) {
     queryFn: async () => {
       const response = await axios.get<Response<Disponibilidad[]>>(
         `${env.url_api}/utils/disponibilidad`
+      );
+      return response.data;
+    },
+  });
+
+  const { data:TipoRecurso, isLoading: loadingTipo } = useQuery({
+    queryFn: async () => {
+      const response = await axios.get<Response<TipoRecurso[]>>(
+        `${env.url_api}/tipo-recurso`
+      );
+      return response.data;
+    },
+  });
+
+    const { data:Proveedor, isLoading: loadingProveedor} = useQuery({
+    queryFn: async () => {
+      const response = await axios.get<Response<Proveedor[]>>(
+        `${env.url_api}/proveedor`
       );
       return response.data;
     },
@@ -91,7 +109,7 @@ export default function CrearRecurso({ onClose }: ModalProps) {
     <form 
     onSubmit={handleSubmit(mutate)}
     className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 border dark:border-gray-700">
-      {(isLoading || loadingRecursos) && <Load />}
+      {(isLoading || loadingRecursos || loadingTipo || loadingProveedor ) && <Load />}
       <header className="flex items-center gap-x-3">
         <LuPackage size={40} className="text-red-600" />
         <div className="flex flex-col">
@@ -114,7 +132,12 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           label="Categoria"
           icon={<LuLayers />}
           placeholder="Selecciona una categoría"
-          options={[{ value: "1", label: "Tipo de Recurso" }]}
+          options={TipoRecurso?.data.map((tipo) => {
+            return{
+              label: tipo.nombre,
+              value: tipo.idTipoRecurso.toString(),
+            }
+          })}
           onChange={(value) => {
             setValue("categoria", {
               value: value.value,
@@ -149,7 +172,12 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           label="Proveedor"
           icon={<LuBuilding2 />}
           placeholder="Selecciona un Proveedor"
-          options={[{ value: "1", label: "Tipo de Recurso" }]}
+          options={Proveedor?.data.map((proveedor) => {
+            return{
+              label: proveedor.razonSocial,
+              value: proveedor.idProovedor.toString(),
+            }
+          })}
           onChange={(value) => {
             setValue("proveedor", {
               value: value.value,
