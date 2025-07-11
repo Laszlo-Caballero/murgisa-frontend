@@ -1,18 +1,8 @@
-"use client";
-
-import Button from "@/components/ui/button/Button";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import Card from "@/components/ui/card/Card";
 import Table from "@/components/ui/table/Table";
-import { recursoData } from "@/data/recurso";
-import Badge from "@/components/ui/badge/Badge";
 import CrearRecurso from "@/modules/recurso/crear/CrearRecurso";
-import Modal from "@/components/ui/modal/Modal";
-import cx from "@/libs/cx";
 
-import { LuSquarePen } from "react-icons/lu";
-import { LuTrash2 } from "react-icons/lu";
-import { LuBuilding2 } from "react-icons/lu";
-import { LuClipboardList } from "react-icons/lu";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { LuPackage } from "react-icons/lu";
 import { LuClock4 } from "react-icons/lu";
@@ -20,23 +10,21 @@ import { LuWrench } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import { PiMoneyWavyLight } from "react-icons/pi";
-import { useState } from "react";
+import { ApiRequest } from "@/libs/api";
+import { Recurso } from "@/interfaces/responsefinal.interface";
+import { Response } from "@/interfaces/responsefinal.interface";
+import { RecusoColumns } from "@/columns/RecursoColumns";
 
-export default function RecursoPage() {
-  const [showModal, setShowModal] = useState(false);
+export default async function RecursoPage() {
+  const data = await ApiRequest<Response<Recurso[]>>({
+    metod: "get",
+    endpoint: "recurso",
+  });
+  console.log(data)
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-100 dark:bg-gray-900">
-      {showModal && (
-        <Modal
-          onClose={() => {
-            setShowModal(false);
-          }}
-        >
-          <CrearRecurso />
-        </Modal>
-      )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-red-500 to-red-700 dark:from-red-600/90 dark:to-red-900">
-        <span className="bg-red-400/60 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-red-400/30 ">
+        <span className="bg-red-400/60 p-2 rounded-xl max-w-max mb-2 lg:p-3 dark:bg-red-400/50 ">
           <LuPackage className="text-white size-8 lg:size-10" />
         </span>
         <div className="flex flex-col text-white ">
@@ -45,15 +33,13 @@ export default function RecursoPage() {
             Administra el inventario de recursos, equipos y materiales
           </p>
         </div>s
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[169%] -translate-x-[20%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-2  hover:bg-red-500/70 mb-2 bg-red-400/40 dark:bg-red-500/50 lg:px-6"
-          onClick={() => {
-            setShowModal(true);
-          }}
+          modal={<CrearRecurso/>}
         >
           <FiPlus size={15} />
           Nuevo Recurso
-        </Button>
+        </ButtonModal>
       </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4 ">
         <Card
@@ -146,124 +132,12 @@ export default function RecursoPage() {
             Gestiona todos los recursos registrados en el sistema
           </p>
         </div>
-        {
-          <Table
-            className="mt-4 bg-white w-full rounded-md "
-            data={recursoData}
-            columns={[
-              {
-                header: "Recurso",
-                cell: (props) => {
-                  return (
-                    <div className="flex items-start gap-x-3 dark:text-white">
-                      <span className="bg-red-100 p-2 rounded-lg dark:bg-red-500/30">
-                        <LuPackage size={15} className="text-red-600 dark:text-red-500" />
-                      </span>
-                      <div className="flex flex-col text-nowrap">
-                        <p className="font-semibold text-sm">
-                          {props.row.nombre}
-                        </p>
-                        <p className="text-xs text-gray-600">
-                          ID: REC-00{props.row.idRecurso}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Categoria",
-                cell: (props) => {
-                  return (
-                    <div className="flex flex-col gap-y-2 dark:text-white">
-                      <span className="flex xl:flex-row flex-col items-center gap-x-2">
-                        <LuClipboardList size={15} className="text-blue-600" />
-                        <p className="font-semibold text-sm">
-                          {props.row.tipo}
-                        </p>
-                      </span>
-                      <p className="text-gray-500 text-xs text-center xl:text-start">
-                        Insertar breve descripcion{" "}
-                      </p>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Disponibilidad",
-                cell: (props) => {
-                  return (
-                    <div className="flex flex-col gap-y-2">
-                      <Badge className="bg-yellow-100 text-yellow-800 border-orange-200 font-semibold">
-                        En uso
-                      </Badge>
-                      <p className="text-xs text-gray-500">Vendido 10 veces</p>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Proveedor",
-                cell: (props) => {
-                  return (
-                    <div className="flex flex-col gap-y-2 text-white">
-                      <span className="flex items-center gap-x-2">
-                        <LuBuilding2 size={15} className="text-purple-600" />
-                        <p className="font-semibold text-sm">
-                          {props.row.proveedor}
-                        </p>
-                      </span>
-                      <span className="text-xs text-gray-500 text-nowrap">
-                        Responsable: {props.row.proveedorResponsable}
-                      </span>
-                    </div>
-                  );
-                },
-              },
-              {
-                header: "Precio",
-                cell: (props) => {
-                  return (
-                    <span className="flex xl:flex-row flex-col w-auto items-center gap-x-2">
-                      <PiMoneyWavyLight size={15} className="text-green-600" />
-                      <p className="font-semibold text-green-600 text-sm text-nowrap">
-                        S/. {props.row.precio}
-                      </p>
-                    </span>
-                  );
-                },
-              },
-              {
-                header: "Estado",
-                cell: (props) => {
-                  return (
-                    <span
-                      className={cx(
-                        `px-2 py-1 rounded-full text-xs`,
-                        props.row.estado
-                          ? "bg-green-100 text-green-600 dark:bg-green-500/30 dark:text-green-300 dark:border-green-700"
-                          : "bg-red-100 text-red-600 dark:bg-red-500/30 dark:text-red-300 dark:border-red-700"
-                      )}
-                    >
-                      {props.row.estado ? "Activo" : "Inactivo"}
-                    </span>
-                  );
-                },
-              },
-              {
-                header: "Acciones",
-                cell: (props) => {
-                  return (
-                    <span className="flex items-center gap-x-4">
-                      <LuSquarePen className="text-red-500" />
-                      <LuTrash2 className="text-gray-900 dark:text-gray-400" />
-                    </span>
-                  );
-                },
-              },
-            ]}
-          ></Table>
-        }
+
+        <Table
+          className="mt-4 bg-white w-full rounded-md "
+          data={data?.data || []}
+          columns={RecusoColumns}
+        />
       </div>
     </div>
   );

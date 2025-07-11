@@ -1,14 +1,82 @@
+"use client"
+
 import Input from "@/components/ui/input/Input";
 import React from "react";
 
+import { z } from "zod";
 import { LuLayers } from "react-icons/lu";
 import { LuPencilLine } from "react-icons/lu";
 import Button from "@/components/ui/button/Button";
-import { FiPlus } from "react-icons/fi";
+import { Response } from "@/interfaces/responsefinal.interface";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod"
 
-export default function CrearTipoRecurso() {
+import { FiPlus } from "react-icons/fi";
+import { TipoRecursoSchema } from "@/schemas/TipoRecurso.schema";
+
+
+import { LuPackage } from "react-icons/lu";
+import { MdSocialDistance } from "react-icons/md";
+import { LuBuilding2 } from "react-icons/lu";
+import { CiMoneyBill } from "react-icons/ci";
+
+import { RecursoSchema } from "@/schemas/Recurso.schema";
+import { useMutation } from "@/hooks/useMutation";
+import { toast } from "sonner";
+import { useTableContext } from "@/context/TableContext";
+import { ModalProps } from "@/interfaces/modal.interface";
+import axios from "axios";
+
+import { TipoRecurso } from "@/interfaces/response.interface";
+
+export default function CrearTipoRecurso({ onClose }: ModalProps) {
+    const {
+      register,
+      setValue, 
+      watch, 
+      formState:{errors},
+      handleSubmit,
+    } = useForm({
+      resolver: zodResolver(TipoRecursoSchema)
+    });
+
+      const { refresh } = useTableContext<TipoRecurso>();
+    
+      const { mutate, isLoading } = useMutation<
+        z.infer<typeof TipoRecursoSchema>,
+        Response<TipoRecurso[]>
+      >({
+        mutationFn: async (data, url, token) => {
+          const response = await axios.post(
+            `${url}/tipo-recurso`,
+            {
+              nombre: data.nombre,
+              descripcion: data.descripcion 
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+    
+          return response.data;
+        },
+        onSuccess: (data) => {
+          toast.success("Recurso registrado exitosamente");
+          refresh(data.data);
+          onClose?.();
+        },
+        onError: () => {
+          toast.error(
+            "Error al registrar el recurso. Por favor, intenta nuevamente."
+          );
+        },
+      });
   return (
-    <div className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4  dark:bg-gray-800 border dark:border-gray-700">
+    <form 
+    onSubmit={handleSubmit(mutate)}
+    className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4  dark:bg-gray-800 border dark:border-gray-700">
       <header className="flex items-center gap-x-3">
         <LuLayers size={40} className="text-red-600 mb-2" />
         <div className="flex flex-col">
@@ -24,11 +92,15 @@ export default function CrearTipoRecurso() {
           label="Nombre del Tipo de Recurso"
           icon={<LuLayers />}
           placeholder="Ej: Contrucción de Andenes"
+          {...register("nombre")}
+          error={errors.nombre?.message}
         />
         <Input
           label="Descripción"
           icon={<LuPencilLine />}
           placeholder="Describe las características del tipo de recurso"
+          {...register("descripcion")}
+          error={errors.descripcion?.message}
         />
       </div>
       <div>
@@ -37,6 +109,6 @@ export default function CrearTipoRecurso() {
           Registrar Tipo de recurso
         </Button>
       </div>
-    </div>
+    </form>
   );
 }
