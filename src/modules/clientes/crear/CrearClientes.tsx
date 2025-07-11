@@ -141,6 +141,10 @@ export default function CrearCliente({ onClose }: ModalProps) {
           icon={<CiCirclePlus />}
           placeholder="Selecciona una fecha"
           error={errors.fechaNacimiento?.message}
+          onChange={(date) => {
+            setValue("fechaNacimiento", date);
+          }}
+          value={watch("fechaNacimiento")}
         />
 
         <Input

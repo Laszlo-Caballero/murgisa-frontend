@@ -88,7 +88,9 @@ export default function Select({
           className={cx(
             "w-full  py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-500/40",
             icon ? "px-10" : "px-4",
-            className
+            className,
+            error &&
+              "border-red-500 dark:border-red-500 text-red-500 dark:text-red-500"
           )}
         >
           {value?.label || placeholder}

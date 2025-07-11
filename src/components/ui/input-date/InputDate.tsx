@@ -1,6 +1,7 @@
 "use client";
 
 import cx from "@/libs/cx";
+import { format, parse } from "date-fns";
 import {
   cloneElement,
   isValidElement,
@@ -19,7 +20,7 @@ interface InputDateProps {
   className?: string;
   classNameContainer?: string;
   error?: string;
-  onChange?: (value: string) => void;
+  onChange?: (date: string) => void;
   value?: string;
   placeholder?: string;
 }
@@ -55,7 +56,7 @@ export default function InputDate({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
+  console.log(value);
   return (
     <div
       className={cx("flex flex-col gap-y-2 cursor-pointer", classNameContainer)}
@@ -83,12 +84,11 @@ export default function InputDate({
           className={cx(
             "w-full px-10 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-500/40",
             className,
-            error &&
-              "border-red-500 focus:ring-red-500  dark:focus:ring-red-500 "
+            error && "border-red-500 dark:border-red-500"
           )}
           onClick={() => setOpen(!open)}
         >
-          <p className={cx(error && "dark:border-red-500")}>
+          <p className={cx(error && "dark:text-red-500")}>
             {value || placeholder}
           </p>
         </div>
@@ -106,6 +106,12 @@ export default function InputDate({
                 caption_label: "hidden",
                 selected: "bg-blue-500 text-white rounded-full",
                 today: "text-black dark:text-slate-300",
+              }}
+              selected={
+                value ? parse(value, "yyyy-MM-dd", new Date()) : undefined
+              }
+              onSelect={(date) => {
+                onChange?.(date ? date.toISOString().split("T")[0] : "");
               }}
             />
           </div>
