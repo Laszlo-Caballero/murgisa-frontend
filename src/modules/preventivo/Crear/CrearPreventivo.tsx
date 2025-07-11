@@ -35,6 +35,9 @@ import { MantenimientoPreventivoSchema } from "@/schemas/MantenimientoPreventivo
 import InputDate from "@/components/ui/input-date/InputDate";
 import { CiCirclePlus } from "react-icons/ci";
 import Select from "@/components/ui/select/Select";
+import { TipoMantenimiento } from "@/interfaces/response.interface";
+import { tipoMantenimientoData } from "@/data/tipomantenimiento";
+import { error } from "console";
 
 export default function CrearPreventivo({ onClose }: ModalProps) {
     const { data, isLoading: loadingMantenimientoPreventivo } = useQuery({
@@ -66,6 +69,19 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
     return res.data;
    },
    });
+   const { data: tipos, isLoading: isLoadingTipoMantenimiento} = useQuery<Response<TipoMantenimiento[]>>({
+       queryFn: async (url, token) => {
+         const res = await axios.get<Response<TipoMantenimiento[]>>(
+           `${url}/tipo-mantenimiento`,
+           {
+             headers: {
+               Authorization: `Bearer ${token}`,
+             },
+           }
+         );
+         return res.data;
+       },
+     });
 
     const {
       register,
@@ -104,6 +120,7 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
             recursoId: parseInt(data.recurso.value),
             personalId: parseInt(data.personal.value),
             horarioId: parseInt(data.horario.value),
+            tipoId: parseInt(data.TipoMantenimiento.value),
             
           },
           {
@@ -251,7 +268,30 @@ export default function CrearPreventivo({ onClose }: ModalProps) {
                               }}
                               value={watch("horario")}
                               error={errors.horario?.message}
-                            
+
+                      />
+                   </div>
+                   </div>
+                    <div className="flex flex-col gap-y-1">
+                    <div className="grid lg:grid-cols-2 gap-4 dark:text-gray-300">
+                      <Select
+                              label="Tipo de Mantenimiento"
+                              icon={<CiCirclePlus />}
+                              placeholder="Selecciona un Tipo de Mantenimiento"
+                              options={tipoMantenimientoData?.map((TipoMantenimientoData) => {
+                                return {
+                                  label: TipoMantenimientoData.nombre,
+                                  value: TipoMantenimientoData.idTipoMantenimiento.toString(),
+                                };
+                              })}
+                              onChange={(value) => {
+                                setValue("TipoMantenimiento", {
+                                  value: value.value,
+                                  label: value.label?.toString() || "",
+                                });
+                              }}
+                              value={watch("TipoMantenimiento")}
+                              error={errors.TipoMantenimiento?.message}
                       />
                    </div>
                  </div>
