@@ -1,4 +1,3 @@
-
 "use client";
 
 import { LuPackage } from "react-icons/lu";
@@ -12,7 +11,11 @@ import Button from "@/components/ui/button/Button";
 import Input from "@/components/ui/input/Input";
 import Select from "@/components/ui/select/Select";
 
-import { Proveedor, Response, TipoRecurso } from "@/interfaces/responsefinal.interface";
+import {
+  Proveedor,
+  Response,
+  TipoRecurso,
+} from "@/interfaces/responsefinal.interface";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RecursoSchema } from "@/schemas/Recurso.schema";
@@ -30,7 +33,6 @@ import { Recurso } from "@/interfaces/responsefinal.interface";
 import { Disponibilidad } from "@/interfaces/responsefinal.interface";
 
 export default function CrearRecurso({ onClose }: ModalProps) {
-
   const { data, isLoading: loadingRecursos } = useQuery({
     queryFn: async () => {
       const response = await axios.get<Response<Disponibilidad[]>>(
@@ -40,7 +42,7 @@ export default function CrearRecurso({ onClose }: ModalProps) {
     },
   });
 
-  const { data:TipoRecurso, isLoading: loadingTipo } = useQuery({
+  const { data: TipoRecurso, isLoading: loadingTipo } = useQuery({
     queryFn: async () => {
       const response = await axios.get<Response<TipoRecurso[]>>(
         `${env.url_api}/tipo-recurso`
@@ -49,7 +51,7 @@ export default function CrearRecurso({ onClose }: ModalProps) {
     },
   });
 
-    const { data:Proveedor, isLoading: loadingProveedor} = useQuery({
+  const { data: Proveedor, isLoading: loadingProveedor } = useQuery({
     queryFn: async () => {
       const response = await axios.get<Response<Proveedor[]>>(
         `${env.url_api}/proveedor`
@@ -60,12 +62,12 @@ export default function CrearRecurso({ onClose }: ModalProps) {
 
   const {
     register,
-    setValue, 
-    watch, 
-    formState:{errors},
+    setValue,
+    watch,
+    formState: { errors },
     handleSubmit,
   } = useForm({
-    resolver: zodResolver(RecursoSchema)
+    resolver: zodResolver(RecursoSchema),
   });
 
   const { refresh } = useTableContext<Recurso>();
@@ -82,7 +84,7 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           categoriaId: parseInt(data.categoria.value),
           proveedorId: parseInt(data.proveedor.value),
           disponibilidadId: parseInt(data.disponibilidad.value),
-          precio:data.precio,
+          precio: data.precio,
         },
         {
           headers: {
@@ -106,14 +108,19 @@ export default function CrearRecurso({ onClose }: ModalProps) {
   });
 
   return (
-    <form 
-    onSubmit={handleSubmit(mutate)}
-    className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 border dark:border-gray-700">
-      {(isLoading || loadingRecursos || loadingTipo ) && <Load />}
+    <form
+      onSubmit={handleSubmit(mutate)}
+      className="w-full max-w-sm md:max-w-3xl rounded-lg bg-white p-8 flex flex-col gap-y-4 dark:bg-gray-800 border dark:border-gray-700"
+    >
+      {(isLoading || loadingRecursos || loadingTipo || loadingProveedor) && (
+        <Load />
+      )}
       <header className="flex items-center gap-x-3">
         <LuPackage size={40} className="text-red-600" />
         <div className="flex flex-col">
-          <p className="text-xl font-semibold dark:twxt-white text-white">Agregar Recurso</p>
+          <p className="text-xl font-semibold dark:twxt-white text-white">
+            Agregar Recurso
+          </p>
           <p className="text-sm text-gray-500">
             Completa los datos para registrar un nuevo recurso en el sistema
           </p>
@@ -133,10 +140,10 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           icon={<LuLayers />}
           placeholder="Selecciona una categoría"
           options={TipoRecurso?.data.map((tipo) => {
-            return{
+            return {
               label: tipo.nombre,
               value: tipo.idTipoRecurso.toString(),
-            }
+            };
           })}
           onChange={(value) => {
             setValue("categoria", {
@@ -153,10 +160,10 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           icon={<MdSocialDistance />}
           placeholder="Selecciona Disponibilidad"
           options={data?.data.map((disponibilidad) => {
-            return{
+            return {
               label: disponibilidad.disponibilidad,
               value: disponibilidad.disponibilidadId?.toString(),
-            }
+            };
           })}
           onChange={(value) => {
             setValue("disponibilidad", {
@@ -172,13 +179,12 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           label="Proveedor"
           icon={<LuBuilding2 />}
           placeholder="Selecciona un Proveedor"
-          options={[{ value: "1", label: "Tipo de Recurso" }]}
-          // options={Proveedor?.data.map((proveedor) => {
-          //   return{
-          //     label: proveedor.razonSocial,
-          //     value: proveedor.idProovedor.toString(),
-          //   }
-          // })}
+          options={Proveedor?.data.map((proveedor) => {
+            return {
+              label: proveedor.razonSocial,
+              value: proveedor.idProovedor.toString(),
+            };
+          })}
           onChange={(value) => {
             setValue("proveedor", {
               value: value.value,
@@ -189,10 +195,10 @@ export default function CrearRecurso({ onClose }: ModalProps) {
           error={errors.proveedor?.message}
         ></Select>
 
-        <Input 
-          label="Precio" 
-          icon={<CiMoneyBill />} 
-          placeholder="Ej: 2 so" 
+        <Input
+          label="Precio"
+          icon={<CiMoneyBill />}
+          placeholder="Ej: 2 so"
           {...register("precio")}
           error={errors.precio?.message}
         />
