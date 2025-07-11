@@ -8,6 +8,7 @@ import {
 import cx from "@/libs/cx";
 import { ColumnDef } from "@/interfaces/table.interface";
 import { Profesion } from "@/interfaces/responsefinal.interface";
+import DeleteModal from "@/components/share/delete-modal/DeleteModal";
 
 export const ProfesionColumns: ColumnDef<Profesion>[] = [
   {
@@ -67,7 +68,9 @@ export const ProfesionColumns: ColumnDef<Profesion>[] = [
     cell: (props) => (
       <span className="flex items-center gap-x-4">
         <LuSquarePen className="text-red-500" />
-        <LuTrash2 className="text-gray-900 dark:text-gray-400" />
+        <DeleteModal id={props.row?.idProfesion} endpoint="profesion">
+          <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
+        </DeleteModal>
       </span>
     ),
   },
