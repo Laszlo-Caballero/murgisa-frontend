@@ -99,6 +99,16 @@ export interface Proveedor {
   estado: boolean;
 }
 
+export interface Servicio {
+  idServicio: number;
+  nombre: string;
+  descripcion: string;
+  duracion: string;
+  estado: boolean;
+  precio: number;
+  tipoServicio: TipoServicio;
+}
+
 export interface TipoServicio {
   idTipoServicio: number;
   nombre: string;
