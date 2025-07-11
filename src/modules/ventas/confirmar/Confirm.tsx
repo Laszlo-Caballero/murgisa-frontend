@@ -4,7 +4,10 @@ import Load from "@/components/share/load/Load";
 import Badge from "@/components/ui/badge/Badge";
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
+import { useTableContext } from "@/context/TableContext";
 import { useMutation } from "@/hooks/useMutation";
+import { ModalProps } from "@/interfaces/modal.interface";
+import { Response, Venta } from "@/interfaces/responsefinal.interface";
 import { VentaSteps } from "@/interfaces/venta.interface";
 import axios from "axios";
 import React from "react";
@@ -19,7 +22,7 @@ import {
 } from "react-icons/lu";
 import { toast } from "sonner";
 
-export default function Confirm() {
+export default function Confirm({ onClose }: ModalProps) {
   const { data, currentStep, setCurrentStep } = useStepForm();
   const totalServicios = data.stepThree.servicios.reduce((acc, curr) => {
     return acc + curr.precio;
@@ -35,7 +38,9 @@ export default function Confirm() {
     0
   );
 
-  const { mutate, isLoading } = useMutation<VentaSteps>({
+  const { refresh } = useTableContext<Venta>();
+
+  const { mutate, isLoading } = useMutation<VentaSteps, Response<Venta[]>>({
     mutationFn: async (data, urlApi, token) => {
       const response = await axios.post(
         `${urlApi}/venta`,
@@ -67,6 +72,8 @@ export default function Confirm() {
     },
     onSuccess: (data) => {
       toast.success("Venta confirmada exitosamente");
+      refresh(data?.data);
+      onClose?.();
     },
     onError: () => {
       toast.error(`Error al confirmar la venta: `);

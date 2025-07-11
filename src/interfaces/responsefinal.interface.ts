@@ -214,3 +214,12 @@ export interface Log {
   mensaje: string;
   fecha: string;
 }
+export interface MantenimientoCorrectivo {
+  mantenimientoCorrectivoId: number;
+  fechaInicio: string;
+  precio: number;
+  estado: boolean;
+  tipo: TipoMantenimiento[];
+  recurso: Recurso;
+  personal: Personal;
+}

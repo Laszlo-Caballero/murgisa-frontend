@@ -62,7 +62,7 @@ export default function CrearVenta({ onClose }: ModalProps) {
           <StepFour />
           <StepFive />
           <StepSix />
-          <Confirm />
+          <Confirm onClose={onClose} />
         </ContainerStep>
       </StepFormProvider>
     </div>
