@@ -8,6 +8,7 @@ import { PiCity } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
 import { PiMapPinArea } from "react-icons/pi";
 import { FiPlus } from "react-icons/fi";
+import InputDate from "@/components/ui/input-date/InputDate";
 
 export default function CrearCorrectivo() {
   return (
@@ -24,11 +25,11 @@ export default function CrearCorrectivo() {
           </p>
         </div>
       </header>
-      <div className="grid grid-cols-1 gap-4 dark:text-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 dark:text-white">
         <Select
           label="Tipo de Mantenimiento"
           icon={<PiWrenchBold />}
-          placeholder="Selecciona un Tipo de Mantenimiento Correctivo"
+          placeholder="Tipo de Mantenimiento Correctivo"
           options={[{ value: "1", label: "Construcción" }]}
         ></Select>
         <Input
@@ -42,11 +43,10 @@ export default function CrearCorrectivo() {
           placeholder="Selecciona un Tecnico"
           options={[{ value: "1", label: "Paco" }]}
         ></Select>
-        <Input
+        <InputDate
           label="Fecha del mantenimiento"
-          type="date"
-          placeholder="Seleccione la fecha del mantenimiento"
-        />        
+          placeholder="fecha del mantenimiento"
+        />
       </div>
       <div>
         <Button className="flex items-center gap-x-3 mt-4 bg-orange-600 text-white py-3 font-semibold hover:bg-blue-500">
