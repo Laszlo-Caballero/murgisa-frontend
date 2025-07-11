@@ -1,41 +1,26 @@
-"use client";
 
-import Button from "@/components/ui/button/Button";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
-import { departamentoData } from "@/data/departamento";
 import ListarDepartamentos from "@/modules/departamento/listar/Listar";
 import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import { LuBuilding2, LuUsers, LuCircleCheckBig } from "react-icons/lu";
-import Modal from "@/components/ui/modal/Modal";
-import { useState } from "react";
 import CrearDepartamento from "@/modules/departamento/crear/CrearDepartamento";
-import { env } from "@/config/env";
-import { useQuery } from "@/hooks/useQuery";
 import { Departamento } from "@/interfaces/responsefinal.interface";
+import { Response } from "@/interfaces/responsefinal.interface";
+import { ApiRequest } from "@/libs/api";
 
-export default function DepartamentoPage() {
-  const [showModal, setShowModal] = useState(false);
-  const { data, isLoading, isError, error } = useQuery<Departamento[]>({
-    queryFn: async () => {
-      const response = await fetch(`${env.url_api}/departamento`);
-      if (!response.ok) {
-        throw new Error("Error al obtener los departamentos");
-      }
-      return response.json();
-    },
-    dependencies: [],
-  });
 
+
+export default async function DepartamentoPage() {
+    const data = await ApiRequest<Response<Departamento[]>>({
+      metod: "get",
+      endpoint: "departamento",
+    });
+    console.log(data)
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50 dark:bg-gray-900">
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <CrearDepartamento />
-        </Modal>
-      )}
-
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600">
         <span className="p-2 rounded-lg max-w-max mb-2 lg:p-3 bg-blue-300/30">
           <LuBuilding2 className="text-white size-8 lg:size-10" />
@@ -47,13 +32,13 @@ export default function DepartamentoPage() {
           </p>
         </div>
 
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-4  hover:bg-blue-500 mb-2 bg-blue-300/30 lg:px-6"
-          onClick={() => setShowModal(true)}
+          modal={<CrearDepartamento/>}
         >
           <FiPlus size={15} />
           Nuevo Departamento
-        </Button>
+        </ButtonModal>
       </header>
 
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -141,7 +126,7 @@ export default function DepartamentoPage() {
         className="mt-4"
         headers={["Lista de Departamentos", "Organigrama"]}
       >
-        <ListarDepartamentos data={data} isLoading={isLoading} />
+        <ListarDepartamentos data={data?.data || []}  />
         <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white dark:bg-gray-800">
           <Image
             src="/organigrama.png"

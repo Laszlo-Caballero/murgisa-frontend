@@ -1,8 +1,10 @@
+import { env } from "@/config/env";
+import { useAuth } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 
 interface QueryProps<T> {
   dependencies?: unknown[];
-  queryFn: () => Promise<T>;
+  queryFn: (url: string, token: string) => Promise<T>;
 }
 
 export function useQuery<T>({ queryFn, dependencies }: QueryProps<T>) {
@@ -12,6 +14,7 @@ export function useQuery<T>({ queryFn, dependencies }: QueryProps<T>) {
     isError: boolean;
     error: string;
   }>({ isError: false, isLoading: true, error: "" });
+  const { user } = useAuth();
 
   const refreshData = (data: T) => {
     setFetch((prev) => ({ ...prev, data }));
@@ -26,7 +29,7 @@ export function useQuery<T>({ queryFn, dependencies }: QueryProps<T>) {
           error: "",
           data: undefined,
         });
-        const data = await queryFn();
+        const data = await queryFn(env.url_api || "", user?.token || "");
         setFetch({ isLoading: false, data, isError: false, error: "" });
       } catch (error: unknown) {
         setFetch({ isLoading: false, isError: true, error: String(error) });
