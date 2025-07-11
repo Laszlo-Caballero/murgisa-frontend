@@ -231,3 +231,13 @@ export interface NotaSalida {
   venta: Venta;
   recurso: Recurso;
 }
+
+export interface NotaEntrada {
+  idNotaEntrada: number;
+  cantidad: number;
+  monto: number;
+  estado: boolean;
+  fecha: string;
+  recurso: Recurso;
+  proveedor: Proveedor;
+}
