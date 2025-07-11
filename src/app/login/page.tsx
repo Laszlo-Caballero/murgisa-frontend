@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "@/schemas/Login.schema";
 import { useAuth } from "@/context/AuthContext";
 import Load from "@/components/share/load/Load";
+import ButtonTheme from "@/components/ui/button-theme/ButtonTheme";
 
 export default function LoginPage() {
   const {
@@ -29,6 +30,9 @@ export default function LoginPage() {
   return (
     <main className="flex-1 flex w-full h-full flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
       {loading && <Load />}
+
+      <ButtonTheme className="fixed right-2 top-2" />
+
       <span className="bg-blue-500 size-14 rounded-full flex items-center justify-center dark:bg-blue-500/30 p-3">
         <LuBuilding2 className="text-white dark:text-blue-400" size={35} />
       </span>
