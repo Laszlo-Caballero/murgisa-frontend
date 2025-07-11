@@ -1,42 +1,33 @@
-"use client";
 import { LuShield } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import { LuCircleCheck } from "react-icons/lu";
 import { LuCirclePlay } from "react-icons/lu";
 import { PiWrenchBold } from "react-icons/pi";
-import { LuFilter } from "react-icons/lu";
 import { MdOutlineAttachMoney } from "react-icons/md";
-import cx from "@/libs/cx";
-import Button from "@/components/ui/button/Button";
 import React from "react";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
-import Modal from "@/components/ui/modal/Modal";
-import { correctivoData } from "@/data/correctivo";
-import { Correctivo } from "@/interfaces/response.interface";
-
-import { useState } from "react";
 
 import { IoTimeOutline } from "react-icons/io5";
 
 import CrearCorrectivo from "@/modules/correctivo/crear/CrearCorrectivo";
 import ListarCorrectivo from "@/modules/correctivo/listar/Listar";
 import ListaCalendario from "@/modules/correctivo/calendario/calendario";
+import ButtonModal from "@/components/share/button-modal/ButtonModal";
+import { ApiRequest } from "@/libs/api";
+import {
+  MantenimientoCorrectivo,
+  Response,
+} from "@/interfaces/responsefinal.interface";
 
-export default function MantenimientoCorrectivo() {
-  const [showModal, setShowModal] = useState(false);
-  const correctivos: Correctivo[] = correctivoData;
+export default async function MantenimientoCorrectivoPage() {
+  const data = await ApiRequest<Response<MantenimientoCorrectivo[]>>({
+    metod: "get",
+    endpoint: "mantenimiento-correctivo",
+  });
+
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-100 dark:bg-gray-900">
-      {showModal && (
-        <Modal
-          onClose={() => {
-            setShowModal(false);
-          }}
-        >
-          <CrearCorrectivo />
-        </Modal>
-      )}
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-amber-500 to-orange-600/80 dark:from-amber-600">
         <span className="p-2 rounded-xl max-w-max mb-2 lg:p-3 bg-orange-300/30">
           <PiWrenchBold className="text-white size-8 lg:size-10" />
@@ -49,15 +40,13 @@ export default function MantenimientoCorrectivo() {
             Gestiona y monitorea los mantenimientos correctivos programados
           </p>
         </div>
-        <Button
+        <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[18%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-6  hover:bg-orange-400/70 mb-2  bg-orange-300/30 "
-          onClick={() => {
-            setShowModal(true);
-          }}
+          modal={<CrearCorrectivo />}
         >
           <FiPlus size={15} />
           Nueva Orden
-        </Button>
+        </ButtonModal>
       </header>
       <div className="grid grid-cols-1 items-center mt-6 gap-4 md:grid-cols-2 lg:grid-cols-5">
         <Card
@@ -167,8 +156,8 @@ export default function MantenimientoCorrectivo() {
         headers={["Lista de Mantenimiento", "Vista calendario"]}
         className="mt-6"
       >
-        <ListarCorrectivo data={correctivos} />
-        <ListaCalendario data={correctivos} />
+        <ListarCorrectivo data={data?.data || []} />
+        <ListaCalendario data={data?.data || []} />
       </Tabs>
     </div>
   );

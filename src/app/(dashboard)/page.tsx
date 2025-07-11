@@ -22,10 +22,33 @@ import { tips } from "@/data/tips";
 import { getColor } from "@/libs/getColor";
 import { LuDollarSign } from "react-icons/lu";
 import HeaderHome from "@/components/layout/header-home/HeaderHome";
-export default function Home() {
+import { ApiRequest } from "@/libs/api";
+import {
+  Log,
+  MantenimientoPreventivo,
+  Response,
+  Venta,
+} from "@/interfaces/responsefinal.interface";
+
+interface ResponseHome {
+  actividades: Log[];
+  totalVentas: number;
+  mantenimiento: number;
+  servicios: number;
+  personal: number;
+  lastVentas: Venta[];
+  lastMantenimiento: MantenimientoPreventivo[];
+}
+
+export default async function Home() {
   const actualHour = new Date().getHours();
   const greeting = actualHour > 12 ? "¡Buenos días!" : "¡Buenas tardes!";
   const date = new Date().toLocaleString();
+
+  const data = await ApiRequest<Response<ResponseHome>>({
+    metod: "get",
+    endpoint: "home",
+  });
 
   return (
     <div className="w-full h-full p-8 flex flex-col gap-y-6 bg-gray-50 dark:bg-gray-900">
@@ -45,8 +68,7 @@ export default function Home() {
               className="text-white dark:text-blue-400"
             />
           }
-          description="125.000"
-          extra="+12.5% desde el mes pasado"
+          description={`S/. ${data?.data?.totalVentas}`}
           className={{
             container:
               "bg-blue-100 dark:bg-gray-800 dark:border dark:border-gray-700 shadow-lg hover:dark:shadow-blue-400/20 transition-all",
@@ -66,8 +88,7 @@ export default function Home() {
               className="text-white dark:text-emerald-400"
             />
           }
-          description="12"
-          extra="28 completadas este mes"
+          description={data?.data?.mantenimiento.toString()}
           className={{
             container:
               "bg-emerald-100 dark:bg-gray-800 dark:border dark:border-gray-700 hover:dark:shadow-emerald-400/20 shadow-lg",
@@ -84,8 +105,7 @@ export default function Home() {
           icon={
             <LuUser size={28} className="text-white dark:text-purple-400" />
           }
-          description="42"
-          extra="En 5 departamentos"
+          description={data?.data?.personal.toString()}
           className={{
             container:
               "bg-purple-100 dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:shadow-purple-400/20 shadow-lg",
@@ -105,8 +125,7 @@ export default function Home() {
               className="text-white dark:text-orange-400"
             />
           }
-          description="13"
-          extra="Disponibles para Venta"
+          description={data?.data?.servicios.toString()}
           className={{
             container:
               "bg-orange-100 shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700 hover:dark:shadow-orange-400/20",
@@ -132,7 +151,7 @@ export default function Home() {
               Últimas acciones realizadas en el sistema
             </p>
           </div>
-          {actividadesData.map((actividad, index) => {
+          {data?.data.actividades.map((actividad, index) => {
             return <Activity {...actividad} key={index} />;
           })}
         </div>
@@ -260,38 +279,44 @@ export default function Home() {
               Equipos con mantenimiento pendiente o en estado crítico
             </p>
           </div>
-          {equiposAtencion.map((equipo) => {
-            return (
-              <div
-                key={equipo.idEquipo}
-                className="p-4 border rounded-lg border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex flex-col w-full gap-y-2"
-              >
-                <h4 className="font-medium text-sm dark:text-white">
-                  {equipo.nombre}
-                </h4>
-                <span className="flex w-full justify-between">
-                  <p className="text-sm text-muted-foreground dark:text-gray-300">
-                    Estado:
-                  </p>
-                  <Badge
-                    className={cx(
-                      "font-semibold",
-                      equipo.estado === "Critica" && "bg-red-100 text-red-800",
-                      equipo.estado === "Alta" &&
-                        "bg-yellow-100 text-yellow-800",
-                      equipo.estado === "Media" && "bg-blue-100 text-blue-800",
-                      equipo.estado === "Baja" && "bg-green-100 text-green-800"
-                    )}
-                  >
-                    {equipo.estado}
-                  </Badge>
-                </span>
-                <p className="text-sm text-muted-foreground dark:text-gray-300">
-                  Último Mantenimiento: {equipo.ultimoMantenimiento}
-                </p>
-              </div>
-            );
-          })}
+          {data?.data.lastMantenimiento.length === 0 ? (
+            <p className="text-sm text-muted-foreground dark:text-gray-300">
+              No hay equipos que requieran atención en este momento.
+            </p>
+          ) : (
+            data?.data.lastMantenimiento.map((equipo) => {
+              return (
+                <div
+                  key={equipo.mantenimientoPreventivoId}
+                  className="p-4 border rounded-lg border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex flex-col w-full gap-y-2"
+                >
+                  <h4 className="font-medium text-sm dark:text-white">
+                    {equipo.recurso.nombre}
+                  </h4>
+                  <span className="flex w-full justify-between">
+                    <p className="text-sm text-muted-foreground dark:text-gray-300">
+                      Estado:
+                    </p>
+                    <Badge
+                      className={cx(
+                        "font-semibold",
+                        equipo.prioridad === "Critica" &&
+                          "bg-red-100 text-red-800",
+                        equipo.prioridad === "Alta" &&
+                          "bg-yellow-100 text-yellow-800",
+                        equipo.prioridad === "Media" &&
+                          "bg-blue-100 text-blue-800",
+                        equipo.prioridad === "Baja" &&
+                          "bg-green-100 text-green-800"
+                      )}
+                    >
+                      {equipo.prioridad}
+                    </Badge>
+                  </span>
+                </div>
+              );
+            })
+          )}
         </div>
         {/* Ventas Recientes */}
         <div className="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex flex-col gap-y-4">
@@ -304,86 +329,55 @@ export default function Home() {
               Últimas órdenes de venta registradas
             </p>
           </div>
-          {ventasRecientes.map((venta) => {
-            return (
-              <div
-                key={venta.idVenta}
-                className="p-4 border rounded-lg border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex flex-col w-full gap-y-2"
-              >
-                <span className="flex w-full justify-between">
-                  {" "}
-                  <h4 className="font-medium text-sm dark:text-white">
-                    {venta.titulo}
-                  </h4>
-                  <Badge
-                    className={cx(
-                      "font-semibold",
-                      venta.estado === "Cancelada" && "bg-red-100 text-red-800",
-                      venta.estado === "Pendiente" &&
-                        "bg-yellow-100 text-yellow-800",
-                      venta.estado === "Completada" &&
-                        "bg-green-100 text-green-800"
-                    )}
-                  >
-                    {venta.estado}
-                  </Badge>
-                </span>
+          {data?.data.lastVentas.length === 0 ? (
+            <p className="text-sm text-muted-foreground dark:text-gray-300">
+              No hay ventas recientes en este momento.
+            </p>
+          ) : (
+            data?.data.lastVentas.map((venta) => {
+              return (
+                <div
+                  key={venta.idVenta}
+                  className="p-4 border rounded-lg border-gray-300 dark:bg-gray-900 dark:border-gray-700 flex flex-col w-full gap-y-2"
+                >
+                  <span className="flex w-full justify-between">
+                    {" "}
+                    <h4 className="font-medium text-sm dark:text-white">
+                      Estado
+                    </h4>
+                    <Badge
+                      className={cx(
+                        "font-semibold",
+                        !venta.estado
+                          ? "bg-red-100 text-red-800"
+                          : "bg-green-100 text-green-800"
+                      )}
+                    >
+                      {venta.estado ? "Completada" : "Anulada"}
+                    </Badge>
+                  </span>
 
-                <span className="flex w-full justify-between">
-                  <p className="text-sm text-muted-foreground dark:text-gray-300">
-                    Cliente:
-                  </p>
-                  <p className="text-sm text-muted-foreground dark:text-gray-300">
-                    {venta.cliente}
-                  </p>
-                </span>
+                  <span className="flex w-full justify-between">
+                    <p className="text-sm text-muted-foreground dark:text-gray-300">
+                      Cliente:
+                    </p>
+                    <p className="text-sm text-muted-foreground dark:text-gray-300">
+                      {venta.cliente.nombre}
+                    </p>
+                  </span>
 
-                <span className="flex w-full justify-between">
-                  <p className="text-sm text-muted-foreground dark:text-gray-300">
-                    Fecha:
-                  </p>
-                  <p className="text-sm text-muted-foreground dark:text-gray-300">
-                    {venta.fecha}
-                  </p>
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="p-6 rounded-lg row-span-2 bg-white dark:bg-gray-800 shadow-sm max-h-max gap-y-4 flex flex-col">
-        <div className="flex flex-col gap-y-2">
-          <p className="text-2xl font-semibold leading-none tracking-tight flex items-center space-x-2">
-            <LuDollarSign className="text-purple-600" />
-            <span className="dark:text-purple-400">
-              Resumen Financiero del Mes
-            </span>
-          </p>
-          <p className="text-sm text-muted-foreground dark:text-purple-100">
-            Estado financiero actual de la empresa
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-4 gap-6">
-          <span className="text-center">
-            <p className="dark:text-white">Ingresos</p>
-            <p className="text-2xl font-bold text-green-600">$ 150,000</p>
-          </span>
-
-          <span className="text-center">
-            <p className="dark:text-white">Gastos</p>
-            <p className="text-2xl font-bold text-red-600">$ 150,000</p>
-          </span>
-
-          <span className="text-center">
-            <p className="dark:text-white">Utilidad</p>
-            <p className="text-2xl font-bold text-blue-600">$ 150,000</p>
-          </span>
-
-          <span className="text-center">
-            <p className="dark:text-white">Margen</p>
-            <p className="text-2xl font-bold text-purple-600">32.4%</p>
-          </span>
+                  <span className="flex w-full justify-between">
+                    <p className="text-sm text-muted-foreground dark:text-gray-300">
+                      Fecha:
+                    </p>
+                    <p className="text-sm text-muted-foreground dark:text-gray-300">
+                      {venta.fechaVenta.split("T")[0]}
+                    </p>
+                  </span>
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </div>
