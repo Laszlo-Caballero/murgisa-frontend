@@ -33,7 +33,7 @@ export const PersonalCard = (empleado: Personal) => {
           <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
             <MdOutlineEmail /> Correo:{" "}
             <p className="font-semibold text-black dark:text-gray-500">
-              {empleado?.usuario.correo || "No disponible"}
+              {empleado?.usuario?.correo || "No disponible"}
             </p>
           </span>
           <span className="flex items-center text-xs gap-x-1 text-gray-500 dark:text-gray-300">
