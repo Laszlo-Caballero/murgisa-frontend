@@ -81,6 +81,7 @@ export default function StepFive() {
                 ...personalData,
                 {
                   ...selectedPersonal,
+                  idPersonal: selectedPersonal.idPersonal,
                   cargo: {
                     value: selectedPersonal.cargo.idCargo.toString() || "",
                     label: selectedPersonal.cargo.cargo,

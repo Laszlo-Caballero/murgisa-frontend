@@ -35,7 +35,7 @@ export default function StepFormProvider({
       telefono: "",
       razonSocial: "",
       ruc: "",
-      idCliente: 0,
+      idCliente: -1,
       ciudad: {
         value: "",
         label: "",

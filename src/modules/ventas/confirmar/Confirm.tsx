@@ -1,8 +1,12 @@
 "use client";
 import { useStepForm } from "@/components/context/step-form/StepFormContext";
+import Load from "@/components/share/load/Load";
 import Badge from "@/components/ui/badge/Badge";
 import Button from "@/components/ui/button/Button";
 import Card from "@/components/ui/card/Card";
+import { useMutation } from "@/hooks/useMutation";
+import { VentaSteps } from "@/interfaces/venta.interface";
+import axios from "axios";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import {
@@ -13,6 +17,7 @@ import {
   LuUsers,
   LuWrench,
 } from "react-icons/lu";
+import { toast } from "sonner";
 
 export default function Confirm() {
   const { data, currentStep, setCurrentStep } = useStepForm();
@@ -30,8 +35,48 @@ export default function Confirm() {
     0
   );
 
+  const { mutate, isLoading } = useMutation<VentaSteps>({
+    mutationFn: async (data, urlApi, token) => {
+      const response = await axios.post(
+        `${urlApi}/venta`,
+        {
+          fechaInicio: data.stepOne.fechaInicio,
+          fechaFin: data.stepOne.fechaFin,
+          personal: data.stepFive.personal.map((p) => p.idPersonal),
+          clienteId: data.stepTwo.idCliente,
+          servicios: data.stepThree.servicios.map((s) => s.idServicio),
+          recursos: data.stepFour.recurso.map((r) => r.idRecurso),
+          formaPagoId: data.stepSix.formaPagoId,
+          nombre: data.stepTwo.nombre,
+          ruc: data.stepTwo.ruc,
+          dni: data.stepTwo.dni,
+          correo: data.stepTwo.correo,
+          telefono: data.stepTwo.telefono,
+          direccion: data.stepTwo.direccion,
+          razonSocial: data.stepTwo.razonSocial,
+          fechaNacimiento: data.stepTwo.fechaNacimiento.split("T")[0],
+          ciudadId: parseInt(data.stepTwo.ciudad.value),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    },
+    onSuccess: (data) => {
+      toast.success("Venta confirmada exitosamente");
+    },
+    onError: () => {
+      toast.error(`Error al confirmar la venta: `);
+    },
+  });
+
   return (
     <div className="flex flex-col">
+      {isLoading && <Load />}
+
       <div className="flex items-center gap-x-2">
         <LuCircleCheckBig className="size-6 text-blue-500" />
         <p className="font-bold text-xl">Confirmacion de Venta</p>
@@ -179,7 +224,12 @@ export default function Confirm() {
           Atras
         </Button>
 
-        <Button className="px-12 flex ml-auto items-center gap-x-4 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-blue-500/30">
+        <Button
+          onClick={() => {
+            mutate(data);
+          }}
+          className="px-12 flex ml-auto items-center gap-x-4 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-blue-500/30"
+        >
           Confirmar <IoIosArrowForward />
         </Button>
       </div>

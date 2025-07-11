@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { Personal } from "./responsefinal.interface";
 import { ServicioSchema } from "@/schemas/Servicio.schema";
 import { PersonalSchema } from "@/schemas/Personal.schema";
 import { RecursoSchema } from "@/schemas/Recurso.schema";
@@ -27,8 +26,16 @@ export interface Cliente {
   fechaNacimiento: string;
 }
 
+const Personal = PersonalSchema.extend({
+  idPersonal: z.number().optional(),
+});
+
 const Recurso = RecursoSchema.extend({
   idRecurso: z.number().optional(),
+});
+
+const Servicio = ServicioSchema.extend({
+  idServicio: z.number().optional(),
 });
 
 export interface Ciudad {
@@ -37,14 +44,14 @@ export interface Ciudad {
 }
 
 export interface StepThree {
-  servicios: z.infer<typeof ServicioSchema>[];
+  servicios: z.infer<typeof Servicio>[];
 }
 
 export interface StepFour {
   recurso: z.infer<typeof Recurso>[];
 }
 export interface StepFive {
-  personal: z.infer<typeof PersonalSchema>[];
+  personal: z.infer<typeof Personal>[];
 }
 
 export interface StepSix {
