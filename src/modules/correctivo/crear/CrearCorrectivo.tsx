@@ -26,7 +26,7 @@ export default function CrearCorrectivo() {
       </header>
       <div className="grid grid-cols-1 gap-4 dark:text-white">
         <Select
-          label="Categoria"
+          label="Tipo de Mantenimiento"
           icon={<PiWrenchBold />}
           placeholder="Selecciona un Tipo de Mantenimiento Correctivo"
           options={[{ value: "1", label: "Construcción" }]}
@@ -42,16 +42,6 @@ export default function CrearCorrectivo() {
           placeholder="Selecciona un Tecnico"
           options={[{ value: "1", label: "Paco" }]}
         ></Select>
-        <Input
-          label="Ubicacion"
-          icon={<PiMapPinArea />}
-          placeholder="Ej: El Porvenir"
-        />
-        <Input
-          label="Precio"
-          icon={<LuDollarSign />}
-          placeholder="Ej: $/ 200"
-        />
       </div>
       <div>
         <Button className="flex items-center gap-x-3 mt-4 bg-orange-600 text-white py-3 font-semibold hover:bg-blue-500">
