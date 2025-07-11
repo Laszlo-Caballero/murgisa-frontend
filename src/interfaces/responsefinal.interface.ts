@@ -99,5 +99,13 @@ export interface Proveedor {
   estado: boolean
 }
 
+export interface Departamento {
+  idDepartamento: number
+  titulo: string
+  descripcion: string
+  estado: boolean
+  presupuesto: number
+}
+
 
 

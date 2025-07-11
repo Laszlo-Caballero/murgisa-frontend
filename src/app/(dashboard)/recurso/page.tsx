@@ -9,7 +9,6 @@ import { LuClock4 } from "react-icons/lu";
 import { LuWrench } from "react-icons/lu";
 import { LuFilter } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
-import { PiMoneyWavyLight } from "react-icons/pi";
 import { ApiRequest } from "@/libs/api";
 import { Recurso } from "@/interfaces/responsefinal.interface";
 import { Response } from "@/interfaces/responsefinal.interface";
