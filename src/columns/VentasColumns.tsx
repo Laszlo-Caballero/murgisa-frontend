@@ -3,9 +3,19 @@ import DeleteModal from "@/components/share/delete-modal/DeleteModal";
 import Badge from "@/components/ui/badge/Badge";
 import { Venta } from "@/interfaces/responsefinal.interface";
 import { ColumnDef } from "@/interfaces/table.interface";
+import cx from "@/libs/cx";
+import PersonalModal from "@/modules/ventas/detalles/Personal";
+import Recursos from "@/modules/ventas/detalles/Recursos";
+import Servicios from "@/modules/ventas/detalles/Servicios";
 import { CiDollar } from "react-icons/ci";
 import { IoDocumentOutline } from "react-icons/io5";
-import { LuBriefcase, LuCalendar, LuSquarePen, LuTrash2 } from "react-icons/lu";
+import {
+  LuBriefcase,
+  LuCalendar,
+  LuSquarePen,
+  LuTrash2,
+  LuWrench,
+} from "react-icons/lu";
 
 export const VentasColumns: ColumnDef<Venta>[] = [
   {
@@ -46,12 +56,6 @@ export const VentasColumns: ColumnDef<Venta>[] = [
     cell: (props) => {
       return (
         <div className="flex items-center xl:items-start flex-col gap-y-2">
-          <span className="flex xl:flex-row flex-col items-center gap-x-2">
-            <LuBriefcase className="text-gray-800 dark:text-gray-300" />
-            <p className="text-gray-800 text-sm text-nowrap dark:text-gray-300">
-              {props.row?.detalleVenta?.map((item) => item.recurso).join(", ")}
-            </p>
-          </span>
           <span className="flex items-center gap-x-2">
             <CiDollar className="text-green-600 dark:text-green-400" />
             <p className="text-green-600 text-sm dark:text-green-400">
@@ -65,11 +69,97 @@ export const VentasColumns: ColumnDef<Venta>[] = [
     },
   },
   {
+    header: "Servicios",
+    cell: (props) => {
+      return (
+        <div className="flex flex-col gap-y-2">
+          <div className="flex items-center gap-x-2">
+            <LuBriefcase
+              size={15}
+              className="text-blue-600 dark:text-blue-400"
+            />
+            <span className="text-sm text-gray-800 dark:text-gray-300">
+              {props.row?.detalleVenta?.length || 0} servicios
+            </span>
+          </div>
+          <Servicios servicios={props.row?.servicios || []} />
+        </div>
+      );
+    },
+  },
+  {
+    header: "Recursos",
+    cell: (props) => {
+      return (
+        <div className="flex flex-col gap-y-2">
+          <div className="flex items-center gap-x-2">
+            <LuWrench size={15} className="text-blue-600 dark:text-blue-400" />
+            <span className="text-sm text-gray-800 dark:text-gray-300">
+              {props.row?.detalleVenta?.length || 0} recursos
+            </span>
+          </div>
+          <Recursos
+            recursosData={
+              props.row?.detalleVenta?.map((item) => item.recurso) || []
+            }
+          />
+        </div>
+      );
+    },
+  },
+  {
+    header: "Personal",
+    cell: (props) => {
+      return (
+        <div className="flex flex-col gap-y-2">
+          <div className="flex items-center gap-x-2">
+            <LuSquarePen
+              size={15}
+              className="text-purple-600 dark:text-purple-400"
+            />
+            <span className="text-sm text-gray-800 dark:text-gray-300">
+              {props.row?.detalleVenta?.length || 0} Personal
+            </span>
+          </div>
+          <PersonalModal
+            personal={
+              props.row?.asignacionPersonal?.map((p) => p.personal) || []
+            }
+          />
+        </div>
+      );
+    },
+  },
+  {
     header: "Estado",
     cell: (props) => {
       return (
-        <Badge className="bg-green-100 text-green-800 border-green-300 font-semibold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700">
+        <Badge
+          className={cx(
+            "bg-green-100 text-green-800 border-green-300 font-semibold dark:bg-green-500/30 dark:text-green-300 dark:border-green-700",
+            props.row?.estado
+              ? "bg-green-100 text-green-600 dark:bg-green-500/30 dark:text-green-300 dark:border-green-700"
+              : "bg-red-100 text-red-600 dark:bg-red-500/30 dark:text-red-300 dark:border-red-700"
+          )}
+        >
           {props.row?.estado ? "Concretada" : "Anulada"}
+        </Badge>
+      );
+    },
+  },
+  {
+    header: "Metodo de Pago",
+    cell: (props) => {
+      const forma = props.row?.pagos
+        .map((pago) => pago.formaPago.tipo)
+        .join(", ");
+      return (
+        <Badge
+          className={cx(
+            "bg-purple-100 text-purple-800 border-purple-300 font-semibold dark:bg-purple-500/30 dark:text-purple-300 dark:border-purple-700"
+          )}
+        >
+          {forma}
         </Badge>
       );
     },

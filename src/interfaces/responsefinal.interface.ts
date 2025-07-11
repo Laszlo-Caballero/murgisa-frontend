@@ -183,12 +183,14 @@ export interface AsignacionPersonal {
   idAsignacionPersonal: number;
   costo: number;
   estado: boolean;
+  personal: Personal;
 }
 
 export interface Pago {
   idPagoServicio: number;
   fecha: string;
   estado: boolean;
+  formaPago: FormaPago;
 }
 
 export interface DetalleVenta {
