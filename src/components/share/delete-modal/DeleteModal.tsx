@@ -1,7 +1,7 @@
 "use client";
 
 import Modal from "@/components/ui/modal/Modal";
-import { useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import { LuTrash2 } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import Button from "@/components/ui/button/Button";
@@ -12,12 +12,16 @@ import { Response } from "@/interfaces/responsefinal.interface";
 import { toast } from "sonner";
 import Load from "../load/Load";
 
-interface DeleteModalProps {
+interface DeleteModalProps extends PropsWithChildren {
   id: number | string;
   endpoint: string;
 }
 
-export default function DeleteModal<T>({ id, endpoint }: DeleteModalProps) {
+export default function DeleteModal<T>({
+  id,
+  endpoint,
+  children,
+}: DeleteModalProps) {
   const [open, setOpen] = useState(false);
   const { refresh } = useTableContext<T>();
 
@@ -51,9 +55,7 @@ export default function DeleteModal<T>({ id, endpoint }: DeleteModalProps) {
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>
-        <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
-      </button>
+      <button onClick={() => setOpen(true)}>{children}</button>
       {open && (
         <Modal onClose={() => setOpen(false)}>
           {isLoading && <Load />}

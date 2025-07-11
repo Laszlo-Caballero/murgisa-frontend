@@ -127,7 +127,9 @@ export default function ListarClientes({ data }: ListarClientesProps) {
                 return (
                   <span className="flex items-center gap-x-4">
                     <LuSquarePen className="text-red-500" />
-                    <DeleteModal id={props.row?.idCliente} endpoint="cliente" />
+                    <DeleteModal id={props.row?.idCliente} endpoint="cliente">
+                      <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
+                    </DeleteModal>
                   </span>
                 );
               },

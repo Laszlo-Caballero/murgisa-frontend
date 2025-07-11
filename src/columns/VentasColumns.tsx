@@ -184,7 +184,9 @@ export const VentasColumns: ColumnDef<Venta>[] = [
     cell: (props) => {
       return (
         <span className="flex items-center gap-x-4">
-          <DeleteModal id={props.row?.idVenta} endpoint="venta" />
+          <DeleteModal id={props.row?.idVenta} endpoint="venta">
+            <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
+          </DeleteModal>
         </span>
       );
     },
