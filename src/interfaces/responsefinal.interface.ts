@@ -197,3 +197,11 @@ export interface DetalleVenta {
   estado: boolean;
   recurso: Recurso;
 }
+
+export interface TipoMantenimiento {
+  tipoMantenimientoId: number
+  nombre: string
+  descripcion: string
+  duracion: string
+  estado: boolean
+}
