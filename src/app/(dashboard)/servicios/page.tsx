@@ -137,11 +137,10 @@ export default async function ServiciosPage() {
       </div>
 
       <Tabs
-        headers={["Catálogo de Servicios", "Por Categorías"]}
+        headers={["Catálogo de Servicios"]}
         className="mt-6"
       >
         <ListarServicio data={data?.data || []} />
-        <ListarCategoria data={categoria} />
       </Tabs>
     </div>
   );
