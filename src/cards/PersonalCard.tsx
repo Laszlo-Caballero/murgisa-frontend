@@ -9,7 +9,7 @@ export const PersonalCard = (empleado: Personal) => {
     <CardInfo
       key={empleado?.idPersonal}
       title={`${empleado?.nombre} ${empleado?.apellido_paterno} ${empleado?.apellido_materno}`}
-      icon={<p>{empleado?.nombre.split("")[0]}</p>}
+      icon={<p>{empleado?.nombre?.split("")[0]}</p>}
       className={{
         container:
           "bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:text-gray-200 ",

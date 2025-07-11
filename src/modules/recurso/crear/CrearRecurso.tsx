@@ -81,10 +81,10 @@ export default function CrearRecurso({ onClose }: ModalProps) {
         `${url}/recurso`,
         {
           nombre: data.nombre,
-          categoriaId: parseInt(data.categoria.value),
+          tipoId: parseInt(data.categoria.value),
           proveedorId: parseInt(data.proveedor.value),
           disponibilidadId: parseInt(data.disponibilidad.value),
-          precio: data.precio,
+          precio: parseFloat(data.precio),
         },
         {
           headers: {
