@@ -10,6 +10,8 @@ import { LuClipboardList } from "react-icons/lu";
 import { LuPackage } from "react-icons/lu";
 import Badge from "@/components/ui/badge/Badge";
 import { PiMoneyWavyLight } from "react-icons/pi";
+import DeleteModal from "@/components/share/delete-modal/DeleteModal";
+
 
 export const RecusoColumns: ColumnDef<Recurso>[] = [
   {
@@ -54,7 +56,7 @@ export const RecusoColumns: ColumnDef<Recurso>[] = [
       return (
         <div className="flex flex-col gap-y-2">
           <Badge className="bg-yellow-100 text-yellow-800 border-orange-200 font-semibold">
-            En uso
+            {props.row?.disponibilidad.disponibilidad}
           </Badge>
           <p className="text-xs text-gray-500">Vendido 10 veces</p>
         </div>
@@ -111,13 +113,13 @@ export const RecusoColumns: ColumnDef<Recurso>[] = [
   },
   {
     header: "Acciones",
-    cell: (props) => {
-      return (
-        <span className="flex items-center gap-x-4">
-          <LuSquarePen className="text-red-500" />
-          <LuTrash2 className="text-gray-900 dark:text-gray-400" />
-        </span>
-      );
-    },
+    cell: (props) => (
+      <span className="flex items-center gap-x-4">
+        <LuSquarePen className="text-red-500" />
+        <DeleteModal id={props.row?.idRecurso} endpoint="recurso">
+          <LuTrash2 className="text-gray-900 dark:text-gray-400 cursor-pointer" />
+        </DeleteModal>
+      </span>
+    ),
   },
 ];
