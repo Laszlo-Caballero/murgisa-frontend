@@ -223,3 +223,11 @@ export interface MantenimientoCorrectivo {
   recurso: Recurso;
   personal: Personal;
 }
+
+export interface NotaSalida {
+  idNotaSalida: number;
+  estado: boolean;
+  fecha: string;
+  venta: Venta;
+  recurso: Recurso;
+}
