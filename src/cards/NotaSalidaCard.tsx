@@ -35,7 +35,8 @@ export const NotaSalidaCard = (nota: NotaSalida) => {
             Fecha
           </p>
           <p className="text-sm text-gray-600 font-semibold flex items-center gap-x-1">
-            <LuCalendar className="text-blue-600 " /> {nota.fecha.split("T")[0]}
+            <LuCalendar className="text-blue-600 " />{" "}
+            {nota?.fecha?.split("T")[0]}
           </p>
         </span>
         <span className="flex flex-col gap-y-1">
