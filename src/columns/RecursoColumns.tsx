@@ -12,7 +12,6 @@ import Badge from "@/components/ui/badge/Badge";
 import { PiMoneyWavyLight } from "react-icons/pi";
 import DeleteModal from "@/components/share/delete-modal/DeleteModal";
 
-
 export const RecusoColumns: ColumnDef<Recurso>[] = [
   {
     header: "Recurso",
@@ -56,7 +55,7 @@ export const RecusoColumns: ColumnDef<Recurso>[] = [
       return (
         <div className="flex flex-col gap-y-2">
           <Badge className="bg-yellow-100 text-yellow-800 border-orange-200 font-semibold">
-            {props.row?.disponibilidad.disponibilidad}
+            {props.row?.disponibilidad?.disponibilidad || ""}
           </Badge>
           <p className="text-xs text-gray-500">Vendido 10 veces</p>
         </div>

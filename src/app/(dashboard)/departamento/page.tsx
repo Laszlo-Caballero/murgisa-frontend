@@ -1,4 +1,3 @@
-
 import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import Card from "@/components/ui/card/Card";
 import Tabs from "@/components/ui/tabs/Tabs";
@@ -11,14 +10,11 @@ import { Departamento } from "@/interfaces/responsefinal.interface";
 import { Response } from "@/interfaces/responsefinal.interface";
 import { ApiRequest } from "@/libs/api";
 
-
-
 export default async function DepartamentoPage() {
-    const data = await ApiRequest<Response<Departamento[]>>({
-      metod: "get",
-      endpoint: "departamento",
-    });
-    console.log(data)
+  const data = await ApiRequest<Response<Departamento[]>>({
+    metod: "get",
+    endpoint: "departamento",
+  });
   return (
     <div className="w-full h-full p-8 flex flex-col bg-gray-50 dark:bg-gray-900">
       <header className="flex md:flex-row flex-col md:items-center relative gap-x-4 rounded-xl p-5 bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-blue-600">
@@ -34,7 +30,7 @@ export default async function DepartamentoPage() {
 
         <ButtonModal
           className="flex items-center absolute md:static right-0 translate-y-[170%] -translate-x-[10%] md:translate-y-0 md:translate-x-0 bottom-full ml-auto gap-x-3 py-3 font-semibold px-4  hover:bg-blue-500 mb-2 bg-blue-300/30 lg:px-6"
-          modal={<CrearDepartamento/>}
+          modal={<CrearDepartamento />}
         >
           <FiPlus size={15} />
           Nuevo Departamento
@@ -126,7 +122,7 @@ export default async function DepartamentoPage() {
         className="mt-4"
         headers={["Lista de Departamentos", "Organigrama"]}
       >
-        <ListarDepartamentos data={data?.data || []}  />
+        <ListarDepartamentos data={data?.data || []} />
         <section className="flex w-full flex-col p-4 rounded-lg shadow bg-white dark:bg-gray-800">
           <Image
             src="/organigrama.png"
