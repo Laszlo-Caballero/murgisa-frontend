@@ -1,5 +1,5 @@
 "use client";
-import { Proveedor } from "@/interfaces/response.interface";
+import { Proveedor } from "@/interfaces/responsefinal.interface";
 import Table from "@/components/ui/table/Table";
 import Badge from "@/components/ui/badge/Badge";
 
@@ -61,13 +61,13 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
                   </span>
                   <div className="flex flex-col gap-y-1 text-center lg:text-start">
                     <p className="font-semibold text-nowrap">
-                      {props.row.razSocial}
+                      {props.row?.razonSocial}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-300">
-                      RUC: {props.row.ruc}
+                      RUC: {props.row?.ruc}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-300">
-                      ID: PROV-00{props.row.idProveedor}
+                      ID: PROV-00{props.row?.idProovedor}
                     </p>
                   </div>
                 </div>
@@ -79,10 +79,12 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
                 <div className="flex flex-col gap-y-1">
                   <span className="flex items-center gap-x-2">
                     <LuUser size={15} className="text-black dark:text-white" />
-                    <p className="font-semibold">{props.row.responsable}</p>
+                    <p className="font-semibold">
+                      {props.row?.nombreResponsable}
+                    </p>
                   </span>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    DNI: {props.row.dni}
+                    DNI: {props.row?.dniResponsable}
                   </p>
                   <span className="flex items-center gap-x-2">
                     <LuMail
@@ -90,20 +92,13 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
                       className="text-yellow-600 dark:text-yellow-400"
                     />
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      {props.row.email}
+                      {props.row?.correo}
                     </p>
                   </span>
                 </div>
               ),
             },
-            {
-              header: "Tipo Recurso",
-              cell: (props) => (
-                <Badge className="bg-purple-100 dark:bg-purple-500/10 text-purple-800 dark:text-purple-300 font-semibold">
-                  {props.row.tipoRecurso}
-                </Badge>
-              ),
-            },
+
             {
               header: "Última Compra",
               cell: (props) => (
@@ -113,11 +108,7 @@ export default function ListarProveedor({ data }: ListarProveedorProps) {
                       size={15}
                       className="text-blue-500 dark:text-blue-300"
                     />
-                    <p className="text-sm font-semibold">
-                      {new Date(props.row.ultimaCompra).toLocaleDateString(
-                        "es-ES"
-                      )}
-                    </p>
+                    <p className="text-sm font-semibold"></p>
                   </span>
                 </div>
               ),

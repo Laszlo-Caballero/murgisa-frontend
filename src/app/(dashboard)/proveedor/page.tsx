@@ -10,12 +10,13 @@ import ListarTipoRecurso from "@/modules/proveedor/tipo/tipo";
 import { proveedorData } from "@/data/proveedor";
 import { tipoRecursoData } from "@/data/tipoRecurso";
 import { ApiRequest } from "@/libs/api";
-import { Proveedor } from "@/interfaces/response.interface";
+import { Proveedor } from "@/interfaces/responsefinal.interface";
 import ButtonModal from "@/components/share/button-modal/ButtonModal";
 import CrearProveedor from "@/modules/proveedor/crear/CrearProveedor";
+import { Response } from "@/interfaces/responsefinal.interface";
 
 export default async function ProveedorPage() {
-  const data = await ApiRequest<Proveedor[]>({
+  const data = await ApiRequest<Response<Proveedor[]>>({
     metod: "get",
     endpoint: "proveedor",
   });
@@ -131,7 +132,7 @@ export default async function ProveedorPage() {
         headers={["Catálogo de Proveedores", "Por Tipo de Recurso"]}
         className="mt-6 dark:text-red-400"
       >
-        <ListarProveedor data={proveedorData} />
+        <ListarProveedor data={data?.data || []} />
         <ListarTipoRecurso data={tipoRecursoData} />
       </Tabs>
     </div>
